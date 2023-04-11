@@ -9,9 +9,10 @@
 		<h1>ラテール　ダメージ計算機</h1>
 		<p>魔職用計算機です。物理職の場合は属性のところに攻撃力平均を入れてください</p>
 		<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
-		<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして変化するステ画面の数値 - 100 を入れてください</p>
+		<p>最終と％はダメージ計算には使用しません。<br>
+			上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
 		<div id="latale_calc" class="container">
-			<div class="form-group center"><label>ステ名</label><label>ステ値</label><label>＋１当たり<br>ダメ上昇</label></div>
+			<div class="form-group"><label>ステ名</label><label class="center">ステ値</label><label class="center">＋１当たり<br>ダメ上昇</label></div>
 			<hr>
 			<div class="form-group"><label>筋魔</label><input type="number" v-model="筋魔" autocomplete="筋魔"><span>{{incr('筋魔')}}</span></div>
 			<div class="form-group"><label>筋魔％</label><input type="number" v-model="筋魔_" autocomplete="筋魔％"><span>{{incr('筋魔%')}}</span></div>
@@ -51,13 +52,13 @@
 			<div class="form-group"><label>赤ダメ</label><span>{{damageFormat(cri_damage)}}</span></div>
 			<div class="form-group"><label>クリ率</label><span>{{Math.floor(cri_rate)}}</span></div>
 			<div class="form-group"><label>ダメ平均</label><span>{{damageFormat(damage)}}</span></div>
-			<hr>
+<!-- 			<hr>
 			<div class="form-group"><label>HP</label><input type="number" v-model="HP" autocomplete="HP"><span>{{incr('HP')}}</span></div>
 			<div class="form-group"><label>HP%</label><input type="number" v-model="HP_" autocomplete="HP％"><span>{{incr('HP%')}}</span></div>
 			<div class="form-group"><label>体力</label><input type="number" v-model="体力" autocomplete="体力"><span>{{incr('体力')}}</span></div>
 			<div class="form-group"><label>体力％</label><input type="number" v-model="体力_" autocomplete="体力％"><span>{{incr('体力%')}}</span></div>
 			<div class="form-group"><label>防御</label><input type="number" v-model="防御" autocomplete="防御"><span>{{incr('防御')}}</span></div>
-			<div class="form-group"><label>経験値</label><input type="number" v-model="経験値" autocomplete="経験値"><span>{{incr('経験値')}}</span></div>
+			<div class="form-group"><label>経験値</label><input type="number" v-model="経験値" autocomplete="経験値"><span>{{incr('経験値')}}</span></div> -->
 		</div>
 		<button onclick="copy()">	
 			コピーする	
