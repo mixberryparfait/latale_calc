@@ -1,0 +1,87 @@
+body * {
+	box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px #F2A5A5;
+  text-align: center;
+  background-color: #F2A5A5;
+  padding: 5px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+p {
+	font-size: small;
+}
+
+.container {
+	padding: 1em;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.center {
+	text-align: center;
+}
+
+.container > div {
+	width: 350px;
+}
+
+.container > hr {
+	width: 100%;
+}
+
+.form-group {
+	display: flex;
+	align-items: center;
+}
+
+.form-group label {
+  border: none;
+  width: 120px;
+  font-size: 12px;
+  font-weight: bold;
+  align-items: middle;
+}
+
+.form-group > input, span {
+  padding: 0.2rem;
+  margin: 0.2rem;
+  font-size: 12px;
+  text-align: center;
+  width: 80px;
+}
+
+.form-group > input {
+	border: solid 1px #F2A5A5;
+}
+
+.form-group > div {
+	border: dotted 1px #F2A5A5;
+}
+
+button {
+	margin-top: 1em;
+  background-color: #F8EDEB;
+  border: solid 1px #f80;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #F5B7B1;
+  color: white;
+}

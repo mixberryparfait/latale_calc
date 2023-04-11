@@ -1,78 +1,26 @@
 <html>
   <head>
-  	<style>
-body * {
-	box-sizing: border-box;
-}
-
-.container {
-	padding: 1em;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.container > div {
-	width: 350px;
-}
-
-.container > hr {
-	width: 100%;
-}
-
-.form-group {
-	display: flex;
-	align-items: center;
-}
-
-.form-group label {
-  border: none;
-  width: 120px;
-  font-size: 12px;
-  font-weight: bold;
-  align-items: middle;
-}
-
-.form-group > input, span {
-  padding: 0.2rem;
-  margin: 0.2rem;
-  font-size: 12px;
-  text-align: center;
-  width: 80px;
-}
-
-.form-group > input {
-	border: solid 1px #c8f;
-}
-
-.form-group > div {
-	border: dotted 1px #c8f;
-}
-
-button {
-	margin-top: 1em;
-}
-
-
-	  </style>
+  	<title>ラテール　ダメージ計算機</title>
+  	<link rel="stylesheet" href="style.css" type="text/css">
   	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  	<script src="main.js"></script>
 	</head>
 	<body>
+		<h1>ラテール　ダメージ計算機</h1>
+		<p>魔職用計算機です。物理職の場合は属性のところに攻撃力平均を入れてください</p>
+		<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
+		<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして変化するステ画面の数値 - 100 を入れてください</p>
 		<div id="latale_calc" class="container">
-			<div class="form-group"><label>ステ名</label><label>ステ値</label><label>＋１したときのダメ上昇</label></div>
+			<div class="form-group center"><label>ステ名</label><label>ステ値</label><label>＋１当たり<br>ダメ上昇</label></div>
 			<hr>
 			<div class="form-group"><label>筋魔</label><input type="number" v-model="筋魔" autocomplete="筋魔"><span>{{incr('筋魔')}}</span></div>
 			<div class="form-group"><label>筋魔％</label><input type="number" v-model="筋魔_" autocomplete="筋魔％"><span>{{incr('筋魔%')}}</span></div>
 			<div class="form-group"><label>幸運</label><input type="number" v-model="幸運" autocomplete="幸運"><span>{{incr('幸運')}}</span></div>
 			<div class="form-group"><label>幸運％</label><input type="number" v-model="幸運_" autocomplete="幸運％"><span>{{incr('幸運%')}}</span></div>
-			<div class="form-group"><label>体力</label><input type="number" v-model="体力" autocomplete="体力"><span>{{incr('体力')}}</span></div>
-			<div class="form-group"><label>体力％</label><input type="number" v-model="体力_" autocomplete="体力％"><span>{{incr('体力%')}}</span></div>
-			<div class="form-group"><label>攻撃最大</label><input type="number" v-model="攻撃最大" autocomplete="攻撃最大"><span>{{incr('攻撃最大')}}</span></div>
-			<div class="form-group"><label>攻撃最小</label><input type="number" v-model="攻撃最小" autocomplete="攻撃最小"><span>{{incr('攻撃最小')}}</span></div>
-			<div class="form-group"><label>防御</label><input type="number" v-model="防御" autocomplete="防御"><span>{{incr('防御')}}</span></div>
+			<!-- <div class="form-group"><label>攻撃最大</label><input type="number" v-model="攻撃最大" autocomplete="攻撃最大"><span>{{incr('攻撃最大')}}</span></div>
+			<div class="form-group"><label>攻撃最小</label><input type="number" v-model="攻撃最小" autocomplete="攻撃最小"><span>{{incr('攻撃最小')}}</span></div> -->
 			<div class="form-group"><label>属性</label><input type="number" v-model="属性" autocomplete="属性"><span>{{incr('属性')}}</span></div>
 			<div class="form-group"><label>属性％</label><input type="number" v-model="属性_" autocomplete="属性%"><span>{{incr('属性%')}}</span></div>
-			<div class="form-group"><label>HP</label><input type="number" v-model="HP" autocomplete="HP"><span>{{incr('HP')}}</span></div>
-			<div class="form-group"><label>HP%</label><input type="number" v-model="HP_" autocomplete="HP％"><span>{{incr('HP%')}}</span></div>
 			<div class="form-group"><label>最大</label><input type="number" v-model="最大" autocomplete="最大"><span>{{incr('最大')}}</span></div>
 			<div class="form-group"><label>基礎最大</label><input type="number" v-model="基礎最大" autocomplete="基礎最大"></div>
 			<div class="form-group"><label>属性最大</label><input type="number" v-model="属性最大" autocomplete="属性最大"><span>{{incr('属性最大')}}</span></div>
@@ -89,8 +37,7 @@ button {
 			<div class="form-group"><label>追加ダメ％</label><input type="number" v-model="追加ダメ_" autocomplete="追加ダメ％"><span>{{incr('追加ダメ%')}}</span></div>
 			<div class="form-group"><label>一般ボス追加ダメ</label><input type="number" v-model="一般ボス追加ダメ" autocomplete="<small>一般/ボス<br>追加ダメ</small>"><span>{{incr('一般ボス追加ダメ')}}</span></div>
 			<div class="form-group"><label>一般ボス支配</label><input type="number" steps=0.1 v-model="一般ボス支配" autocomplete="一般ボス支配"><span>{{incr('一般ボス支配')}}</span></div>
-			<div class="form-group"><label>CT</label><input type="number" steps=0.1 v-model="CT" autocomplete="CT"><span>{{incr('CT')}}</span></div>
-			<div class="form-group"><label>経験値</label><input type="number" v-model="経験値" autocomplete="経験値"><span>{{incr('経験値')}}</span></div>
+			<!-- <div class="form-group"><label>CT</label><input type="number" steps=0.1 v-model="CT" autocomplete="CT"><span>{{incr('CT')}}</span></div> -->
 			<hr>
 			<div class="form-group"><label>スキル倍率</label><input type="number" steps=0.1 v-model="スキル倍率" autocomplete="スキル倍率"></div>
 			<div class="form-group"><label>スキル追加ダメ</label><input type="number" v-model="スキル追加ダメ" autocomplete="スキル追加ダメ"></div>
@@ -100,172 +47,20 @@ button {
 			<div class="form-group"><label>敵幸運</label><input type="number" v-model="敵幸運" autocomplete="敵幸運"></div>
 			<div class="form-group"><label>敵クリ減</label><input type="number" v-model="敵クリ減" autocomplete="敵クリ減"></div>
 			<hr>
-			<div class="form-group"><label>青ダメ</label><span>{{Math.floor(base_damage)}}</span></div>
-			<div class="form-group"><label>赤ダメ</label><span>{{Math.floor(cri_damage)}}</span></div>
+			<div class="form-group"><label>青ダメ</label><span>{{damageFormat(base_damage)}}</span></div>
+			<div class="form-group"><label>赤ダメ</label><span>{{damageFormat(cri_damage)}}</span></div>
 			<div class="form-group"><label>クリ率</label><span>{{Math.floor(cri_rate)}}</span></div>
-			<div class="form-group"><label>ダメ平均</label><span>{{Math.floor(damage)}}</span></div>
+			<div class="form-group"><label>ダメ平均</label><span>{{damageFormat(damage)}}</span></div>
+			<hr>
+			<div class="form-group"><label>HP</label><input type="number" v-model="HP" autocomplete="HP"><span>{{incr('HP')}}</span></div>
+			<div class="form-group"><label>HP%</label><input type="number" v-model="HP_" autocomplete="HP％"><span>{{incr('HP%')}}</span></div>
+			<div class="form-group"><label>体力</label><input type="number" v-model="体力" autocomplete="体力"><span>{{incr('体力')}}</span></div>
+			<div class="form-group"><label>体力％</label><input type="number" v-model="体力_" autocomplete="体力％"><span>{{incr('体力%')}}</span></div>
+			<div class="form-group"><label>防御</label><input type="number" v-model="防御" autocomplete="防御"><span>{{incr('防御')}}</span></div>
+			<div class="form-group"><label>経験値</label><input type="number" v-model="経験値" autocomplete="経験値"><span>{{incr('経験値')}}</span></div>
 		</div>
 		<button onclick="copy()">	
 			コピーする	
 		</button>
-		<script>
-
-const base_damage = (params) => { 
-		return (
-			(
-	      Number(params.筋魔)
-	      + (Number(params.属性) * 2) * (1 + Number(params.スキル倍率) / 100)
-	    ) / Math.exp(Number(params.敵防御) * (1 - Number(params.貫通) / 100) / 3761.35)
-	      + Number(params.追加ダメ)  // 追加ダメ
-	      + Number(params.一般ボス追加ダメ)
-	      + 1 + Number(params.スキル追加ダメ) * 8 / 9 // 10 => 81   14 => 113
-	      - Number(params.敵ダメ減)
-	  )
-	  * (1 + Number(params.一般ボス支配) / 100)
-	  * ((Number(params.基礎最大) + Number(params.最大) + Number(params.属性最大)) / 100 + 
-	  	 Math.min((Number(params.基礎最大) + Number(params.最大) + Number(params.属性最大) + 10),
-	  	 	        (Number(params.基礎最小) + Number(params.最小) + Number(params.属性最小))) / 100
-	  	) / 2
-	  * (1 - Number(params.敵ダメ減_) / 100)
-};
-
-const cri_rate = (params) => { 
-	 return Math.min(100, (Number(params.クリ率) + 15 * Number(params.幸運) / Number(params.敵幸運)));
-}
-
-const cri_damage = (params) => { 
-	 return base_damage(params) * (1.5 + Number(params.クリダメ) / 100) * (1 - Number(params.敵クリ減) / 100);
-}
-
-const damage = (params) => {
-	const cr = cri_rate(params) / 100;
-	return base_damage(params) * (1 - cr) + cri_damage(params) * cr;
-}
-
-const incr = (key) => {
-	if(key == '経験値') {
-		return Math.floor(damage(data) /100/(1 + data[key] / 100));
-	}
-	if(key == 'hp') {
-		const abs = Math.ceil((data['hp'] - data['体力'] * 7)  / (1 + tmp['hp_'] / 100));
-		return Math.floor(damage(data) * (1 + tmp['hp_'] / 100) / tmp['hp']);
-	}
-	if(key == 'hp%') {
-		return Math.floor((data['hp'] - data['体力'] * 7) / data['hp'] / 100 / (1 + tmp['hp_'] / 100));
-	}
-	const tmp = Object.assign({}, data);
-	if(key.endsWith('%')) {
-		const prefix = key.substring(0, key.length - 1);
-		const abs = Math.ceil(tmp[prefix] / (1 + tmp[prefix + '_'] / 100));
-		tmp[prefix] = abs * (1.01 + tmp[prefix + '_'] / 100);
-	}
-	else if(key.startsWith('最終')) {
-		const prefix = key.substring(2);
-		const abs = Math.ceil(tmp[prefix] / (1 + tmp[key] / 100));
-		tmp[prefix] = abs * (1.01 + tmp[key] / 100);
-	}
-	else if(key + '_' in tmp) {
-		tmp[key] += 1 + tmp[key + '_'] / 100;
-	}
-	else if('最終' + key in tmp) {
-		tmp[key] += 1 + tmp['最終' + key] / 100;
-	}
-	else if(key == '貫通') {
-		tmp[key] = 100 - (100 - tmp[key]) * 0.99;
-	}
-	else {
-		tmp[key]++;
-	}
-	return Math.floor(damage(tmp) - damage(data));
-};
-
-const data = {
-	筋魔: 872856,
-	筋魔_: 316,
-  幸運: 400948,
-  幸運_: 0,
-  体力: 400512,
-  体力_: 620,
-  HP: 4474100,
-  HP_: 217,
-  攻撃最大: 0,
-  攻撃最小: 0,
-  防御: 0,
-  属性: 13018,
-  属性_: 276,
-  クリ率: 41,
-  クリダメ: 2617,
-  最終クリダメ: 16,
-  最大: 2316,
-  基礎最大: 105,
-  属性最大: 27,
-  最終最大: 14,
-  最小: 10000,
-  基礎最小: 95,
-  属性最小: 0,
-  最終最小: 0,
-  貫通: 96,
-  追加ダメ: 202838,
-  追加ダメ_: 110,
-  一般ボス追加ダメ: 111230,
-  一般ボス支配: 15.9,
-  CT: 0,
-  スキル倍率: 4000,
-  スキル追加ダメ: 90,
-  敵防御: 62243,
-  敵ダメ減: 579949,
-  敵ダメ減_: 75,
-  敵幸運: 1068254,
-  敵クリ減: 60,
-  経験値: 1243,
-};
-
-const vm = new Vue ({
-  el: '#latale_calc',
-  data: data,
-  computed: {
-    damage: function () { 
-    	return damage(this);
-    },
-    base_damage: function () { 
-    	return base_damage(this);
-    },
-    cri_damage: function () { 
-    	return cri_damage(this);
-    },
-    cri_rate: function () { 
-    	return cri_rate(this);
-    },
-    incr: () => incr
-  }
-});
-
-
-const copy = () => {
-
-	var text = '';
-	for(key in data) {
-		key_name = key.replace('_', '%');
-		text += key_name + ',' + incr(key_name) + "\n";
-	}
-
-	//textareaを生成
-	var area = document.createElement("textarea");
-
-	//p要素の内容をtextareaに記述
-	area.textContent = text;
-
-	//生成したものをdocumentに追加
-	document.body.appendChild(area);
-
-	//選択/コピーして・・
-	area.select();
-	document.execCommand("copy");
-
-	//すぐに消す。
-	document.body.removeChild(area);
-
-}
-		</script>
 	</body>
 </html>
