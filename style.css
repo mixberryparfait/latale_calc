@@ -65,6 +65,31 @@ p {
 	border: dotted 1px #F2A5A5;
 }
 
+input {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+/*  border-color: #f7a8b8;*/
+/*  box-shadow: 0 0 5px #f7a8b8;*/
+}
+
+
+hr {
+  border: none;
+  border-top: 5px dashed #FFB6C1;
+  height: 0;
+  margin: 20px 0;
+}
+
 button {
 	margin-top: 1em;
   background-color: #F8EDEB;

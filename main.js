@@ -35,38 +35,42 @@ const damage = (params) => {
 
 const incr = (key) => {
 	if(key == '経験値') {
-		return Math.floor(damage(data) /100/(1 + data[key] / 100));
+		return Math.floor(damage(data) /100/(1 + Number(data[key]) / 100));
 	}
 	if(key == 'hp') {
-		const abs = Math.ceil((data['hp'] - data['体力'] * 7)  / (1 + tmp['hp_'] / 100));
-		return Math.floor(damage(data) * (1 + tmp['hp_'] / 100) / tmp['hp']);
+		const abs = Math.ceil((Number(data['hp']) - Number(data['体力']) * 7)  / (1 + Number(data['hp_']) / 100));
+		return Math.floor(damage(data) * (1 + Number(data['hp_']) / 100) / Number(data['hp']));
 	}
 	if(key == 'hp%') {
-		return Math.floor((data['hp'] - data['体力'] * 7) / data['hp'] / 100 / (1 + tmp['hp_'] / 100));
+		return Math.floor((Number(data['hp']) - Number(data['体力']) * 7) / Number(data['hp']) / 100 / (1 + Number(data['hp_']) / 100));
 	}
 	const tmp = Object.assign({}, data);
 	if(key.endsWith('%')) {
 		const prefix = key.substring(0, key.length - 1);
-		const abs = Math.ceil(tmp[prefix] / (1 + tmp[prefix + '_'] / 100));
-		tmp[prefix] = abs * (1.01 + tmp[prefix + '_'] / 100);
+		const abs = Math.ceil(Number(tmp[prefix]) / (1 + Number(tmp[prefix + '_']) / 100));
+		tmp[prefix] = abs * (1.01 + Number(tmp[prefix + '_']) / 100);
 	}
 	else if(key.startsWith('最終')) {
 		const prefix = key.substring(2);
-		const abs = Math.ceil(tmp[prefix] / (1 + tmp[key] / 100));
-		tmp[prefix] = abs * (1.01 + tmp[key] / 100);
+		const abs = Math.ceil(tmp[prefix] / (1 + Number(tmp[key]) / 100));
+		tmp[prefix] = abs * (1.01 + Number(tmp[key]) / 100);
 	}
 	else if(key + '_' in tmp) {
-		tmp[key] += 1 + tmp[key + '_'] / 100;
+		tmp[key] = Number(tmp[key]) + 1 + Number(tmp[key + '_']) / 100;
 	}
 	else if('最終' + key in tmp) {
-		tmp[key] += 1 + tmp['最終' + key] / 100;
+		tmp[key] = Number(tmp[key]) + 1 + Number(tmp['最終' + key]) / 100;
 	}
 	else if(key == '貫通') {
-		tmp[key] = 100 - (100 - tmp[key]) * 0.99;
+		tmp[key] = 100 - (100 - Number(tmp[key])) * 0.99;
 	}
 	else {
-		tmp[key]++;
+		tmp[key] = Number(tmp[key]) + 1;
 	}
+	console.log(key);
+	console.log(tmp);
+	console.log(damage(tmp));
+	console.log(damage(data));
 	return Math.floor(damage(tmp) - damage(data));
 };
 
