@@ -6,7 +6,7 @@ const base_damage = (params) => {
 			(
 	      Number(params.筋魔)
 	      + (Number(params.属性) * 2) * (1 + Number(params.スキル倍率) / 100)
-	    ) / Math.exp(Number(params.敵防御) * (1 - Number(params.貫通) / 100) / 3761.35)
+	    ) * (1 / Math.exp(Number(params.敵防御) / 3761.35) * (1 - Number(params.貫通) / 100) + Number(params.貫通) / 100)
 	      + Number(params.追加ダメ)  // 追加ダメ
 	      + Number(params.一般ボス追加ダメ)
 	      + 1 + Number(params.スキル追加ダメ) * 8 / 9 // 10 => 81   14 => 113
@@ -67,11 +67,15 @@ const incr = (key) => {
 	else {
 		tmp[key] = Number(tmp[key]) + 1;
 	}
-	console.log(key);
-	console.log(tmp);
-	console.log(damage(tmp));
-	console.log(damage(data));
 	return Math.floor(damage(tmp) - damage(data));
+};
+
+const base = key => {
+	if('最終' + key in data)
+		return data[key] / (1 + data['最終' + key] / 100);
+	if(key + '_' in data)
+		return data[key] / (1 + data[key + '_'] / 100);
+	return data[key];
 };
 
 const data = {
@@ -146,13 +150,13 @@ const vm = new Vue ({
     	return cri_rate(this);
     },
     incr: () => incr,
+    base: () => base,
     damageFormat: () => damageFormat,
   }
 });
 
 
-const copy = () => {
-
+document.getElementById('copy').onclick = () => {
 	var text = '';
 	for(key in data) {
 		key_name = key.replace('_', '%');
@@ -175,6 +179,98 @@ const copy = () => {
 	//すぐに消す。
 	document.body.removeChild(area);
 
-}
+};
 
+
+const fileInput = document.getElementById('file-input');
+
+
+const setPreview = (file) => {
+
+	const image = new Image();
+	image.onload = () => {
+
+	  const canvas = document.createElement('canvas');
+	  const extend = 3;
+	  canvas.width = image.width * extend;
+	  canvas.height = image.height * extend;
+	  const ctx = canvas.getContext('2d');
+	  ctx.drawImage(image, 0, 0, image.width * extend, image.height * extend);
+	  const resize_image = canvas.toDataURL('image/png');
+
+	  (async () => {
+     const worker = await Tesseract.createWorker('eng', 1, {
+       logger: m => document.querySelector('#progress').textContent = m.status + ' ' + Math.floor(m.progress * 100) + '%'
+     });
+
+		  await worker.setParameters({
+				tessedit_pageseg_mode: Tesseract.PSM_SPARSE_TEXT,
+		  	// tessedit_char_whitelist: '0123456789/~. ',
+		  	tessedit_char_whitelist: '0123456789/~.HSPEly ',
+		  	//tessedit_char_whitelist: '0123456789/~. 筋力体魔法幸運HPS武器攻撃防御属性抵抗命中率回避クリティカル確ダメージ最小大貫通バックアタ追加減モンスタ支配イム経験値アイテムドロプオプション発生Ely獲得量エスト報酬移動速度',
+		  });
+		  const { data: { text } } = await worker.recognize(resize_image);
+      await worker.terminate();
+		  console.log(text);
+		  setValue(text);
+		})();
+	};
+	image.src = URL.createObjectURL(file);
+};
+
+
+// ファイル選択時の処理
+const dropzone = document.querySelector('.dropzone');
+
+dropzone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    dropzone.classList.add('dragover');
+});
+
+dropzone.addEventListener('dragleave', () => {
+    dropzone.classList.remove('dragover');
+});
+
+dropzone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropzone.classList.remove('dragover');
+    const file = event.dataTransfer.files[0];
+    setPreview(file);
+});
+
+fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    setPreview(file);
+});
+
+
+const setValue = (text) => {
+	const lines = text.split("\n");
+	let line_num = -1;
+	let msg = '';
+	for(line of lines) {
+		if(line.startsWith("HP"))
+			line_num = 0;
+		if(line_num >= 0) {
+			const words = line.split(' ');
+			keys = [
+				'hp',null,null,null,'属性',null,null,
+				null,null,'クリ率','クリダメ','最小','最大','貫通',null,'追加ダメ',null,null,
+				'一般ボス追加ダメ','一般ボス追加支配','CT'
+			];
+			if(keys[line_num]) {
+				if(keys[line_num].startsWith('一般'))
+				data[keys[line_num]] = Math.max(Number(words[words.length - 1]), Number(words[words.length - 2]));
+				else
+				data[keys[line_num]] = Number(words[words.length - 1]);
+				msg += keys[line_num] + ' ';
+			}
+			line_num++;
+		}
+	}
+	if(msg == '')
+		document.querySelector('#progress').textContent = '画像を認識できませんでした。Shift + Windows + S でステータス画面のみを切り抜いてみてください';
+	else
+		document.querySelector('#progress').textContent = msg + 'が入力されました';
+};
 };
