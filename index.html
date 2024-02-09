@@ -1,67 +1,220 @@
 <html>
   <head>
   	<title>ラテール　ダメージ計算機</title>
+
   	<link rel="stylesheet" href="style.css" type="text/css">
+
   	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+ 
   	<script src="main.js"></script>
 	</head>
 	<body>
-		<h1>ラテール　ダメージ計算機</h1>
-		<p>魔職用計算機です。物理職の場合は属性のところに攻撃力平均を入れてください</p>
-		<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
-		<p>最終と％はダメージ計算には使用しません。<br>
+		<h1>ラテール　魔職用ダメージ計算機</h1>
+
+		<details>
+			<summary>説明を表示</summary>
+			<p>魔職用計算機です。物理職の場合は属性のところに攻撃力平均を入れてください</p>
+			<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
+			<p>最終と％はダメージ計算には使用しません。<br>
 			上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
+			<p>＋１当たりダメ上昇はステ画面の +1 ではなく加算値を振った場合の価値です</p>
+			<p>貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています</p>
+		</details>
+
+		<label class="dropzone">
+			<input type="file" id="file-input">
+			スクリーンショットから自動入力
+        </label>
+    <p id="progress"></p>
+
+		<hr>
+
 		<div id="latale_calc" class="container">
-			<div class="form-group"><label>ステ名</label><label class="center">ステ値</label><label class="center">＋１当たり<br>ダメ上昇</label></div>
-			<hr>
-			<div class="form-group"><label>筋魔</label><input type="number" v-model="筋魔" autocomplete="筋魔"><span>{{incr('筋魔')}}</span></div>
-			<div class="form-group"><label>筋魔％</label><input type="number" v-model="筋魔_" autocomplete="筋魔％"><span>{{incr('筋魔%')}}</span></div>
-			<div class="form-group"><label>幸運</label><input type="number" v-model="幸運" autocomplete="幸運"><span>{{incr('幸運')}}</span></div>
-			<div class="form-group"><label>幸運％</label><input type="number" v-model="幸運_" autocomplete="幸運％"><span>{{incr('幸運%')}}</span></div>
-			<!-- <div class="form-group"><label>攻撃最大</label><input type="number" v-model="攻撃最大" autocomplete="攻撃最大"><span>{{incr('攻撃最大')}}</span></div>
-			<div class="form-group"><label>攻撃最小</label><input type="number" v-model="攻撃最小" autocomplete="攻撃最小"><span>{{incr('攻撃最小')}}</span></div> -->
-			<div class="form-group"><label>属性</label><input type="number" v-model="属性" autocomplete="属性"><span>{{incr('属性')}}</span></div>
-			<div class="form-group"><label>属性％</label><input type="number" v-model="属性_" autocomplete="属性%"><span>{{incr('属性%')}}</span></div>
-			<div class="form-group"><label>最大</label><input type="number" v-model="最大" autocomplete="最大"><span>{{incr('最大')}}</span></div>
-			<div class="form-group"><label>基礎最大</label><input type="number" v-model="基礎最大" autocomplete="基礎最大"></div>
-			<div class="form-group"><label>属性最大</label><input type="number" v-model="属性最大" autocomplete="属性最大"><span>{{incr('属性最大')}}</span></div>
-			<div class="form-group"><label>最終最大</label><input type="number" v-model="最終最大" autocomplete="最終最大"><span>{{incr('最終最大')}}</span></div>
-			<div class="form-group"><label>最小</label><input type="number" v-model="最小" autocomplete="最小"><span>{{incr('最小')}}</span></div>
-			<div class="form-group"><label>基礎最小</label><input type="number" v-model="基礎最小" autocomplete="基礎最小"></div>
-			<div class="form-group"><label>属性最小</label><input type="number" v-model="属性最小" autocomplete="属性最小"><span>{{incr('属性最小')}}</span></div>
-			<div class="form-group"><label>最終最小</label><input type="number" v-model="最終最小" autocomplete="最終最小"><span>{{incr('最終最小')}}</span></div>
-			<div class="form-group"><label>貫通</label><input type="number" v-model="貫通" autocomplete="貫通"><span>{{incr('貫通')}}</span></div>
-			<div class="form-group"><label>クリ率</label><input type="number" v-model="クリ率" autocomplete="クリ率"><span>{{incr('クリ率')}}</span></div>
-			<div class="form-group"><label>クリダメ</label><input type="number" v-model="クリダメ" autocomplete="クリダメ"><span>{{incr('クリダメ')}}</span></div>
-			<div class="form-group"><label>最終クリダメ</label><input type="number" v-model="最終クリダメ" autocomplete="最終クリダメ"><span>{{incr('最終クリダメ')}}</span></div>
-			<div class="form-group"><label>追加ダメ</label><input type="number" v-model="追加ダメ" autocomplete="追加ダメ"><span>{{incr('追加ダメ')}}</span></div>
-			<div class="form-group"><label>追加ダメ％</label><input type="number" v-model="追加ダメ_" autocomplete="追加ダメ％"><span>{{incr('追加ダメ%')}}</span></div>
-			<div class="form-group"><label>一般ボス追加ダメ</label><input type="number" v-model="一般ボス追加ダメ" autocomplete="<small>一般/ボス<br>追加ダメ</small>"><span>{{incr('一般ボス追加ダメ')}}</span></div>
-			<div class="form-group"><label>一般ボス支配</label><input type="number" steps=0.1 v-model="一般ボス支配" autocomplete="一般ボス支配"><span>{{incr('一般ボス支配')}}</span></div>
+
+			<div class="container damage">
+				<div class="label-value"><label>青ダメ</label><span>{{damageFormat(base_damage)}}</span></div>
+				<div class="label-value"><label>赤ダメ</label><span>{{damageFormat(cri_damage)}}</span></div>
+				<div class="label-value"><label>クリ率</label><span>{{Math.floor(cri_rate)}}</span></div>
+				<div class="label-value"><label>ダメ平均</label><span>{{damageFormat(damage)}}</span></div>
+			</div>
+
+	    <hr>
+
+			<button id="copy">	
+				コピーする	
+			</button>
+
+			<div class="container status">
+				<div class="form-group">
+					<div class="label-value"><label>筋魔</label><input type="number" v-model="筋魔" autocomplete="筋魔"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>筋魔+</label><span>{{Math.floor(base('筋魔'))}}</span></div>
+							<div class="label-value add"><span>{{incr('筋魔')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>筋魔％</label><input type="number" v-model="筋魔_" autocomplete="筋魔％"></div>
+							<div class="label-value add"><span>{{incr('筋魔%')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>幸運</label><input type="number" v-model="幸運" autocomplete="幸運"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>幸運+</label><span>{{Math.floor(base('幸運'))}}</span></div>
+							<div class="label-value add"><span>{{incr('幸運')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>幸運％</label><input type="number" v-model="幸運_" autocomplete="幸運％"></div>
+							<div class="label-value add"><span>{{incr('幸運%')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="form-group"><label>攻撃最大</label><input type="number" v-model="攻撃最大" autocomplete="攻撃最大"><span>{{incr('攻撃最大')}}</span></div>
+				<div class="form-group"><label>攻撃最小</label><input type="number" v-model="攻撃最小" autocomplete="攻撃最小"><span>{{incr('攻撃最小')}}</span></div> -->
+
+				<div class="form-group">
+					<div class="label-value"><label>属性</label><input type="number" v-model="属性" autocomplete="属性"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>属性+</label><span>{{Math.floor(base('属性'))}}</span></div>
+							<div class="label-value add"><span>{{incr('属性')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>属性％</label><input type="number" v-model="属性_" autocomplete="属性％"></div>
+							<div class="label-value add"><span>{{incr('属性%')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>最大</label><input type="number" v-model="最大" autocomplete="最大"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>最大+</label><span>{{Math.floor(base('最大'))}}</span></div>
+							<div class="label-value add"><span>{{incr('最大')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>最終最大</label><input type="number" v-model="最終最大" autocomplete="最終最大"></div>
+							<div class="label-value add"><span>{{incr('最終最大')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>基礎最大</label><input type="number" v-model="基礎最大" autocomplete="基礎最大"></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>属性最大</label><input type="number" v-model="属性最大" autocomplete="属性最大"></div>
+					<div class="label-value add"><span>{{incr('属性最大')}}</span></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>最小</label><input type="number" v-model="最小" autocomplete="最小"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>最小+</label><span>{{Math.floor(base('最小'))}}</span></div>
+							<div class="label-value add"><span>{{incr('最小')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>最終最小</label><input type="number" v-model="最終最小" autocomplete="最終最小"></div>
+							<div class="label-value add"><span>{{incr('最終最小')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>基礎最小</label><input type="number" v-model="基礎最小" autocomplete="基礎最小"></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>属性最小</label><input type="number" v-model="属性最小" autocomplete="属性最小"></div>
+					<div class="label-value add"><span>{{incr('属性最小')}}</span></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>貫通</label><input type="number" v-model="貫通" autocomplete="貫通"></div>
+					<div class="label-value add"><span>{{incr('貫通')}}</span></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>クリ率</label><input type="number" v-model="クリ率" autocomplete="クリ率"></div>
+					<div class="label-value add"><span>{{incr('クリ率')}}</span></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>クリダメ</label><input type="number" v-model="クリダメ" autocomplete="クリダメ"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>クリダメ+</label><span>{{Math.floor(base('クリダメ'))}}</span></div>
+							<div class="label-value add"><span>{{incr('クリダメ')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>最終クリダメ</label><input type="number" v-model="最終クリダメ" autocomplete="最終クリダメ"></div>
+							<div class="label-value add"><span>{{incr('最終クリダメ')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>追加ダメ</label><input type="number" v-model="追加ダメ" autocomplete="追加ダメ"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>追加ダメ+</label><span>{{Math.floor(base('追加ダメ'))}}</span></div>
+							<div class="label-value add"><span>{{incr('追加ダメ')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>追加ダメ％</label><input type="number" v-model="追加ダメ_" autocomplete="追加ダメ％"></div>
+							<div class="label-value add"><span>{{incr('追加ダメ%')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>一般ボス追加ダメ</label><input type="number" v-model="一般ボス追加ダメ" autocomplete="<small>一般/ボス<br>追加ダメ</small>"><span>{{incr('一般ボス追加ダメ')}}</span></div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>一般ボス支配</label><input type="number" steps=0.1 v-model="一般ボス支配" autocomplete="一般ボス支配"><span>{{incr('一般ボス支配')}}</span></div>
+				</div>
+			</div>
+
 			<!-- <div class="form-group"><label>CT</label><input type="number" steps=0.1 v-model="CT" autocomplete="CT"><span>{{incr('CT')}}</span></div> -->
 			<hr>
-			<div class="form-group"><label>スキル倍率</label><input type="number" steps=0.1 v-model="スキル倍率" autocomplete="スキル倍率"></div>
-			<div class="form-group"><label>スキル追加ダメ</label><input type="number" v-model="スキル追加ダメ" autocomplete="スキル追加ダメ"></div>
-			<div class="form-group"><label>敵防御</label><input type="number" v-model="敵防御" autocomplete="経験値"></div>
-			<div class="form-group"><label>敵ダメ減</label><input type="number" v-model="敵ダメ減" autocomplete="敵ダメ減"></div>
-			<div class="form-group"><label>敵ダメ減%</label><input type="number" v-model="敵ダメ減_" autocomplete="敵ダメ減%"></div>
-			<div class="form-group"><label>敵幸運</label><input type="number" v-model="敵幸運" autocomplete="敵幸運"></div>
-			<div class="form-group"><label>敵クリ減</label><input type="number" v-model="敵クリ減" autocomplete="敵クリ減"></div>
+			
+			<div class="container skill">
+				<div class="form-group">
+					<div class="label-value"><label>スキル倍率</label><input type="number" steps=0.1 v-model="スキル倍率" autocomplete="スキル倍率"></div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>スキル追加ダメ</label><input type="number" v-model="スキル追加ダメ" autocomplete="スキル追加ダメ"></div>
+				</div>
+			</div>
+
 			<hr>
-			<div class="form-group"><label>青ダメ</label><span>{{damageFormat(base_damage)}}</span></div>
-			<div class="form-group"><label>赤ダメ</label><span>{{damageFormat(cri_damage)}}</span></div>
-			<div class="form-group"><label>クリ率</label><span>{{Math.floor(cri_rate)}}</span></div>
-			<div class="form-group"><label>ダメ平均</label><span>{{damageFormat(damage)}}</span></div>
-<!-- 			<hr>
-			<div class="form-group"><label>HP</label><input type="number" v-model="HP" autocomplete="HP"><span>{{incr('HP')}}</span></div>
-			<div class="form-group"><label>HP%</label><input type="number" v-model="HP_" autocomplete="HP％"><span>{{incr('HP%')}}</span></div>
-			<div class="form-group"><label>体力</label><input type="number" v-model="体力" autocomplete="体力"><span>{{incr('体力')}}</span></div>
-			<div class="form-group"><label>体力％</label><input type="number" v-model="体力_" autocomplete="体力％"><span>{{incr('体力%')}}</span></div>
-			<div class="form-group"><label>防御</label><input type="number" v-model="防御" autocomplete="防御"><span>{{incr('防御')}}</span></div>
-			<div class="form-group"><label>経験値</label><input type="number" v-model="経験値" autocomplete="経験値"><span>{{incr('経験値')}}</span></div> -->
-		</div>
-		<button onclick="copy()">	
-			コピーする	
-		</button>
+			
+			<div class="container enemy">
+				<div class="form-group">
+					<div class="label-value"><label>敵防御</label><input type="number" v-model="敵防御" autocomplete="経験値"></div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>敵ダメ減</label><input type="number" v-model="敵ダメ減" autocomplete="敵ダメ減"></div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>敵ダメ減%</label><input type="number" v-model="敵ダメ減_" autocomplete="敵ダメ減%"></div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>敵幸運</label><input type="number" v-model="敵幸運" autocomplete="敵幸運"></div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>敵クリ減</label><input type="number" v-model="敵クリ減" autocomplete="敵クリ減"></div>
+				</div>
+			</div>
+	  </div>	
 	</body>
 </html>

@@ -18,9 +18,17 @@ h1 {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
+details {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
 p {
 	font-size: small;
+}
+
+#file-input {
+	display: none;
 }
 
 .container {
@@ -33,45 +41,79 @@ p {
 	text-align: center !important;
 }
 
-.container > div {
-	width: 24rem;
-}
-
 .container > hr {
 	width: 100%;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-group {
 	display: flex;
-	align-items: center;
+  margin: 1em 2em;
 }
 
-.form-group label, input, span {
-  width: 7rem;
-  font-size: 12px;
-  padding: 0.1rem;
-  margin: 0.2rem;
+.status .form-group {
+  width: 24rem;
 }
 
-.form-group label {
-  border: none;
-  font-weight: bold;
-  text-align: right;
+.label-value {
+  margin: 0.5em 1em;
 }
 
-.form-group > input, span {
-  font-size: 12px;
+.damage span {
+  width: 8rem;
   text-align: center;
 }
 
+
+.label-value label, .add::before {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.add::before {
+  content: '＋１当たりダメ上昇';
+}
+
+.label-value input, span {
+  display: block;
+  width: 5rem;
+  text-align: right;
+  padding-top: 20px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.label-value input {
+  border: none;
+  border-bottom: solid 1px #f2a5a5;
+}
+
+input:focus, input:focus-visible {
+  border-width: 2px;
+  outline: 0;
+}
+
+/*
 .form-group > input {
 	border: solid 1px #F2A5A5;
 }
 
 .form-group > div {
 	border: dotted 1px #F2A5A5;
-}
+}*/
 
+/*
 input {
   padding: 10px;
   border: 2px solid #ccc;
@@ -88,7 +130,7 @@ input:focus, input:focus-visible {
   border-color: #f7a8b8;
   box-shadow: 0 0 5px #f7a8b8;
 }
-
+*/
 
 hr {
   border: none;
@@ -98,7 +140,7 @@ hr {
 }
 
 button {
-	margin-top: 1em;
+	margin: 1em;
   background-color: #F8EDEB;
   border: solid 1px #f80;
   color: #333;
@@ -116,4 +158,26 @@ button {
 button:hover {
   background-color: #F5B7B1;
   color: white;
+}
+
+.dropzone {
+  border: 3px dashed #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.dragover {
+  background: #fee;
+}
+
+
+.dropzone:hover {
+  border-color: #888;
+  color: #555;
 }
