@@ -185,7 +185,11 @@ document.getElementById('copy').onclick = () => {
 const fileInput = document.getElementById('file-input');
 
 
-const setPreview = (file) => {
+const setPreview = file => {
+	if(!file.type.match('image.*')) {
+		document.querySelector('#progress').textContent = '画像が読み込めません';
+    return;
+	}
 
 	const image = new Image();
 	image.onload = () => {
@@ -241,8 +245,23 @@ dropzone.addEventListener('drop', (event) => {
 fileInput.addEventListener('change', () => {
     const file = fileInput.files[0];
     setPreview(file);
+}); 
+
+dropzone.addEventListener('mouseenter', function() {
+		window.addEventListener('paste', pasteHandler);
 });
 
+dropzone.addEventListener('mouseleave', function() {
+		window.removeEventListener('paste', pasteHandler);
+});
+
+const pasteHandler = event => {
+	const items = (event.clipboardData || event.originalEvent.clipboardData).items;
+	const item = items[0];
+	if (item.kind === 'file') {
+		setPreview(item.getAsFile());
+	}
+};
 
 const setValue = (text) => {
 	const lines = text.split("\n");
@@ -273,4 +292,6 @@ const setValue = (text) => {
 	else
 		document.querySelector('#progress').textContent = msg + 'が入力されました';
 };
+
+
 };
