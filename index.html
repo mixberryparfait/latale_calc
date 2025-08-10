@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
   <head>
+  	<meta charset="UTF-8">
   	<title>ラテール　ダメージ計算機</title>
 
   	<link rel="stylesheet" href="style.css" type="text/css">
@@ -7,14 +9,13 @@
   	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
  
-  	<script src="main.js"></script>
+  	<script src="main.js" charset="UTF-8"></script>
 	</head>
 	<body>
-		<h1>ラテール　魔職用ダメージ計算機</h1>
+		<h1>ラテール　ダメージ計算機</h1>
 
 		<details>
 			<summary>説明を表示</summary>
-			<p>魔職用計算機です。物理職の場合は属性のところに攻撃力平均を入れてください</p>
 			<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
 			<p>最終と％はダメージ計算には使用しません。<br>
 			上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
@@ -57,6 +58,10 @@
 							<div class="label-value"><label>筋魔％</label><input type="number" v-model="筋魔_" autocomplete="筋魔％"></div>
 							<div class="label-value add"><span>{{incr('筋魔%')}}</span></div>
 						</div>
+						<div class="flex">
+							<div class="label-value"><label>筋魔効率</label><input type="number" v-model="筋魔効率" autocomplete="筋魔効率"></div>
+							<div class="label-value add"><span>{{incr('筋魔効率')}}</span></div>
+						</div>
 					</div>
 				</div>
 
@@ -74,8 +79,34 @@
 					</div>
 				</div>
 
-				<!-- <div class="form-group"><label>攻撃最大</label><input type="number" v-model="攻撃最大" autocomplete="攻撃最大"><span>{{incr('攻撃最大')}}</span></div>
-				<div class="form-group"><label>攻撃最小</label><input type="number" v-model="攻撃最小" autocomplete="攻撃最小"><span>{{incr('攻撃最小')}}</span></div> -->
+				<!-- 物理職用 攻撃力 -->
+				<div class="form-group">
+					<div class="label-value"><label>攻撃最大</label><input type="number" v-model="攻撃最大" autocomplete="攻撃最大"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>攻撃最大+</label><span>{{Math.floor(base('攻撃最大'))}}</span></div>
+							<div class="label-value add"><span>{{incr('攻撃最大')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>攻撃最大％</label><input type="number" v-model="攻撃最大_" autocomplete="攻撃最大％"></div>
+							<div class="label-value add"><span>{{incr('攻撃最大%')}}</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="label-value"><label>攻撃最小</label><input type="number" v-model="攻撃最小" autocomplete="攻撃最小"></div>
+					<div class="flex-column">
+						<div class="flex">
+							<div class="label-value"><label>攻撃最小+</label><span>{{Math.floor(base('攻撃最小'))}}</span></div>
+							<div class="label-value add"><span>{{incr('攻撃最小')}}</span></div>
+						</div>
+						<div class="flex">
+							<div class="label-value"><label>攻撃最小％</label><input type="number" v-model="攻撃最小_" autocomplete="攻撃最小％"></div>
+							<div class="label-value add"><span>{{incr('攻撃最小%')}}</span></div>
+						</div>
+					</div>
+				</div>
 
 				<div class="form-group">
 					<div class="label-value"><label>属性</label><input type="number" v-model="属性" autocomplete="属性"></div>
@@ -189,10 +220,42 @@
 			
 			<div class="container skill">
 				<div class="form-group">
-					<div class="label-value"><label>スキル倍率</label><input type="number" steps=0.1 v-model="スキル倍率" autocomplete="スキル倍率"></div>
+					<div class="label-value">
+						<label>職業</label>
+						<select v-model="selectedJob" @change="onJobChange">
+							<option value="">職業を選択</option>
+							<option v-for="job in jobs" :key="job" :value="job">{{job}}</option>
+						</select>
+					</div>
 				</div>
 				<div class="form-group">
-					<div class="label-value"><label>スキル追加ダメ</label><input type="number" v-model="スキル追加ダメ" autocomplete="スキル追加ダメ"></div>
+					<div class="label-value">
+						<label>スキル</label>
+						<select v-model="selectedSkill" @change="onSkillChange">
+							<option value="">スキルを選択</option>
+							<option v-for="skill in filteredSkills" :key="skill.index" :value="skill.index">
+								{{skill.スキル名}} ({{skill.スキルタイプ}}{{skill.物理or魔法 ? ' - ' + skill.物理or魔法 : ''}})
+							</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="label-value">
+						<label>スキルレベル</label>
+						<input type="number" v-model="スキルレベル" min="1" autocomplete="スキルレベル">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>スキル倍率</label><input type="number" steps=0.1 v-model="スキル倍率" autocomplete="スキル倍率" :readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"></div>
+				</div>
+				<div class="form-group">
+					<div class="label-value"><label>スキル追加ダメ</label><input type="number" v-model="スキル追加ダメ" autocomplete="スキル追加ダメ" :readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"></div>
+				</div>
+				<!-- 召喚スキルの補正値表示 -->
+				<div v-if="currentSkillType === '召喚' && currentSkillData">
+					<div class="form-group" v-if="getSummonBonus()">
+						<div class="label-value"><label>召喚補正</label><input type="number" :value="getSummonBonus()" readonly><span>%</span></div>
+					</div>
 				</div>
 			</div>
 
