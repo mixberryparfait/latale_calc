@@ -415,31 +415,55 @@
 
 						<div class="section-divider"></div>
 
-					<!-- 最大・最小グループ -->
-					<div class="space-y-2">
-						<!-- 最大行 -->
-						<div class="input-group">
-							<label class="text-xs">最大</label>
-							<input type="number" :id="isPhysicalTab ? '物理_最大' : '魔法_最大'" v-model.number="isPhysicalTab ? 物理_最大 : 魔法_最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
-							<label class="text-2xs text-right text-text-dim">+</label>
-							<span class="text-xs text-right">{{ Math.floor(base('最大')) }}</span>
-							<span class="text-2xs text-accent text-center">(+{{ incr('最大') }})</span>
-							<label class="text-xs text-right">最終</label>
-							<input type="number" id="最終最大" v-model.number="最終最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
-							<span class="text-2xs text-accent text-center">(+{{ incr('最終最大') }})</span>
-						</div>
-						
-						<!-- 最小行 -->
-						<div class="input-group">
-							<label class="text-xs">最小</label>
-							<input type="number" :id="isPhysicalTab ? '物理_最小' : '魔法_最小'" v-model.number="isPhysicalTab ? 物理_最小 : 魔法_最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
-							<label class="text-2xs text-right text-text-dim">+</label>
-							<span class="text-xs text-right">{{ Math.floor(base('最小')) }}</span>
-							<span class="text-2xs text-accent text-center">(+{{ incr('最小') }})</span>
-			<label class="text-xs text-right">最終</label>
-			<input type="number" id="最終最小" v-model.number="最終最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
-			<span class="text-2xs text-accent text-center">(+{{ incr('最終最小') }})</span>
-						</div>
+			<!-- 最大・最小グループ -->
+			<div class="space-y-2">
+				<!-- 物理最大行 -->
+				<div v-show="isPhysicalTab" class="input-group">
+					<label class="text-xs">最大</label>
+					<input type="number" id="物理_最大" v-model.number="物理_最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('最大')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('最大') }})</span>
+					<label class="text-xs text-right">最終</label>
+					<input type="number" id="最終最大" v-model.number="最終最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<span class="text-2xs text-accent text-center">(+{{ incr('最終最大') }})</span>
+				</div>
+				
+				<!-- 魔法最大行 -->
+				<div v-show="!isPhysicalTab" class="input-group">
+					<label class="text-xs">最大</label>
+					<input type="number" id="魔法_最大" v-model.number="魔法_最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('最大')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('最大') }})</span>
+					<label class="text-xs text-right">最終</label>
+					<input type="number" id="最終最大" v-model.number="最終最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<span class="text-2xs text-accent text-center">(+{{ incr('最終最大') }})</span>
+				</div>
+				
+				<!-- 物理最小行 -->
+				<div v-show="isPhysicalTab" class="input-group">
+					<label class="text-xs">最小</label>
+					<input type="number" id="物理_最小" v-model.number="物理_最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('最小')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('最小') }})</span>
+					<label class="text-xs text-right">最終</label>
+					<input type="number" id="最終最小" v-model.number="最終最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<span class="text-2xs text-accent text-center">(+{{ incr('最終最小') }})</span>
+				</div>
+				
+				<!-- 魔法最小行 -->
+				<div v-show="!isPhysicalTab" class="input-group">
+					<label class="text-xs">最小</label>
+					<input type="number" id="魔法_最小" v-model.number="魔法_最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('最小')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('最小') }})</span>
+					<label class="text-xs text-right">最終</label>
+					<input type="number" id="最終最小" v-model.number="最終最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<span class="text-2xs text-accent text-center">(+{{ incr('最終最小') }})</span>
+				</div>
 						
 						<!-- 基礎最大・最小、属性最大・最小 -->
 						<div class="space-y-2">
@@ -468,47 +492,85 @@
 
 						<div class="section-divider"></div>
 
-					<!-- その他ステータス -->
-					<div class="space-y-2">
-						<div class="input-group-sub">
-							<label class="text-xs">貫通</label>
-							<input type="number" :id="isPhysicalTab ? '物理_貫通' : '魔法_貫通'" v-model.number="isPhysicalTab ? 物理_貫通 : 魔法_貫通" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-							<span class="text-2xs text-accent text-center">(+{{ incr('貫通') }})</span>
-						</div>
-						<div class="input-group-sub">
-							<label class="text-xs">クリ率</label>
-							<input type="number" :id="isPhysicalTab ? '物理_クリ率' : '魔法_クリ率'" v-model.number="isPhysicalTab ? 物理_貫通 : 魔法_貫通" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-							<span class="text-2xs text-accent text-center">(+{{ incr('クリ率') }})</span>
-						</div>
-					</div>
+			<!-- その他ステータス -->
+			<div class="space-y-2">
+				<!-- 物理貫通 -->
+				<div v-show="isPhysicalTab" class="input-group-sub">
+					<label class="text-xs">貫通</label>
+					<input type="number" id="物理_貫通" v-model.number="物理_貫通" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+					<span class="text-2xs text-accent text-center">(+{{ incr('貫通') }})</span>
+				</div>
+				<!-- 魔法貫通 -->
+				<div v-show="!isPhysicalTab" class="input-group-sub">
+					<label class="text-xs">貫通</label>
+					<input type="number" id="魔法_貫通" v-model.number="魔法_貫通" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+					<span class="text-2xs text-accent text-center">(+{{ incr('貫通') }})</span>
+				</div>
+				<!-- 物理クリ率 -->
+				<div v-show="isPhysicalTab" class="input-group-sub">
+					<label class="text-xs">クリ率</label>
+					<input type="number" id="物理_クリ率" v-model.number="物理_クリ率" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+					<span class="text-2xs text-accent text-center">(+{{ incr('クリ率') }})</span>
+				</div>
+				<!-- 魔法クリ率 -->
+				<div v-show="!isPhysicalTab" class="input-group-sub">
+					<label class="text-xs">クリ率</label>
+					<input type="number" id="魔法_クリ率" v-model.number="魔法_クリ率" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+					<span class="text-2xs text-accent text-center">(+{{ incr('クリ率') }})</span>
+				</div>
+			</div>
 
-					<div class="mt-2 space-y-2">
-						<div class="input-group">
-							<label class="text-xs">クリダメ</label>
-							<input type="number" :id="isPhysicalTab ? '物理_クリダメ' : '魔法_クリダメ'" v-model.number="isPhysicalTab ? 物理_クリダメ : 魔法_クリダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">	
-							<label class="text-2xs text-right text-text-dim">+</label>
-							<span class="text-xs text-right">{{ Math.floor(base('クリダメ')) }}</span>
-							<span class="text-2xs text-accent text-center">(+{{ incr('クリダメ') }})</span>
-							<label class="text-xs text-right">最終</label>
-							<input type="number" id="最終クリダメ" v-model.number="最終クリダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
-							<span class="text-2xs text-accent text-center">(+{{ incr('最終クリダメ') }})</span>
-						</div>
-					</div>
+			<div class="mt-2 space-y-2">
+				<!-- 物理クリダメ -->
+				<div v-show="isPhysicalTab" class="input-group">
+					<label class="text-xs">クリダメ</label>
+					<input type="number" id="物理_クリダメ" v-model.number="物理_クリダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">	
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('クリダメ')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('クリダメ') }})</span>
+					<label class="text-xs text-right">最終</label>
+					<input type="number" id="最終クリダメ" v-model.number="最終クリダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<span class="text-2xs text-accent text-center">(+{{ incr('最終クリダメ') }})</span>
+				</div>
+				<!-- 魔法クリダメ -->
+				<div v-show="!isPhysicalTab" class="input-group">
+					<label class="text-xs">クリダメ</label>
+					<input type="number" id="魔法_クリダメ" v-model.number="魔法_クリダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">	
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('クリダメ')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('クリダメ') }})</span>
+					<label class="text-xs text-right">最終</label>
+					<input type="number" id="最終クリダメ" v-model.number="最終クリダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
+					<span class="text-2xs text-accent text-center">(+{{ incr('最終クリダメ') }})</span>
+				</div>
+			</div>
 
 					<div class="section-divider"></div>
 
 					<!-- 追加ダメージ -->
 					<div class="space-y-2">
-						<div class="input-group">
-							<label class="text-xs">追加ダメ</label>
-							<input type="number" :id="isPhysicalTab ? '物理_追加ダメ' : '魔法_追加ダメ'" v-model.number="isPhysicalTab ? 物理_追加ダメ : 魔法_追加ダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-							<label class="text-2xs text-right text-text-dim">+</label>
-							<span class="text-xs text-right">{{ Math.floor(base('追加ダメ')) }}</span>
-							<span class="text-2xs text-accent text-center">(+{{ incr('追加ダメ') }})</span>
+			<!-- 物理追加ダメ -->
+			<div v-show="isPhysicalTab" class="input-group">
+				<label class="text-xs">追加ダメ</label>
+				<input type="number" id="物理_追加ダメ" v-model.number="物理_追加ダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+				<label class="text-2xs text-right text-text-dim">+</label>
+				<span class="text-xs text-right">{{ Math.floor(base('追加ダメ')) }}</span>
+				<span class="text-2xs text-accent text-center">(+{{ incr('追加ダメ') }})</span>
 				<label class="text-2xs text-right text-text-dim">%</label>
 				<input type="number" id="追加ダメ_" v-model.number="追加ダメ_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
 				<span class="text-2xs text-accent text-center">(+{{ incr('追加ダメ%') }})</span>
-						</div>
+			</div>
+			<!-- 魔法追加ダメ -->
+			<div v-show="!isPhysicalTab" class="input-group">
+				<label class="text-xs">追加ダメ</label>
+				<input type="number" id="魔法_追加ダメ" v-model.number="魔法_追加ダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+				<label class="text-2xs text-right text-text-dim">+</label>
+				<span class="text-xs text-right">{{ Math.floor(base('追加ダメ')) }}</span>
+				<span class="text-2xs text-accent text-center">(+{{ incr('追加ダメ') }})</span>
+				<label class="text-2xs text-right text-text-dim">%</label>
+				<input type="number" id="追加ダメ_" v-model.number="追加ダメ_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+				<span class="text-2xs text-accent text-center">(+{{ incr('追加ダメ%') }})</span>
+			</div>
 
 				<div class="grid grid-cols-2 gap-4">
 					<div class="input-group-sub">

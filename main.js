@@ -1,4 +1,5 @@
-window.onload = () => {
+// DOMContentLoadedとwindow.onloadの両方に対応
+const initApp = () => {
 	console.log('main.js');
 
 // スキルデータを格納する変数
@@ -72,7 +73,10 @@ const loadSkillData = async () => {
 // 26425268
 const base_damage = (params) => {
   
-  let 召喚補正 = 1;
+  let 攻撃力補正 = 1;
+  let 属性補正 = 1;
+  let 全ダメージ補正 = 1;
+  let 効率 = 1;
   
   const skill = params.currentSkillData;
   const isPhysical = skill.物理or魔法 === '物理';
@@ -81,11 +85,26 @@ const base_damage = (params) => {
   const 貫通率 = (isPhysical ? params.物理_貫通 : params.魔法_貫通) / 100;
 
   if (skill.スキルタイプ === '召喚') {
-    // ベース補正 + (スキルレベル) * 2%
-    const baseBonus = skill.攻撃力補正 || skill.属性攻撃補正 || skill.全ダメージ補正 || skill.クリティカルダメージ補正 || 100;
-    const level = params.スキルレベル || 1;
-    召喚補正 = (baseBonus + level * 2) / 100;
+    {
+      const baseBonus = skill.攻撃力補正;
+      const level = params.スキルレベル || 1;
+      攻撃力補正 = (baseBonus + level * 2) / 100;
+    }
+    {
+      const baseBonus = skill.属性補正;
+      const level = params.スキルレベル || 1;
+      属性補正 = (baseBonus + level * 2) / 100;
+    }
+    {
+      const baseBonus = skill.全ダメージ補正;
+      const level = params.スキルレベル || 1;
+      全ダメージ補正 = (baseBonus + level * 2) / 100;
+    }
   }
+  else {
+    効率 += params.効率 / 100;
+  }
+    
   
   let 基本ダメージ1;
   let 基本ダメージ2;
@@ -97,14 +116,14 @@ const base_damage = (params) => {
   
   if (isPhysical) {
     筋魔 = params.筋力;
-    攻撃or属性 = params.攻撃最大 + params.攻撃最小;
+    攻撃or属性 = (params.攻撃最大 + params.攻撃最小) * 攻撃力補正;
     最大 = params.物理_最大;
     最小 = params.物理_最小;
     追加ダメ = params.物理_追加ダメ;
   }
   else {
     筋魔 = params.魔力;
-    攻撃or属性 = params.属性 * 2;
+    攻撃or属性 = params.属性 * 2 * 属性補正;
     最大 = params.魔法_最大 + params.属性最大;
     最小 = params.魔法_最小 + params.属性最小;
     追加ダメ = params.魔法_追加ダメ;
@@ -115,8 +134,8 @@ const base_damage = (params) => {
   追加ダメ += params.敵タイプ === 'ボス' ? params.ボス追加ダメ : params.一般追加ダメ;
   const 支配 = params.敵タイプ === 'ボス' ? params.ボス支配 : params.一般支配;
 
-  基本ダメージ1 = (攻撃or属性 * 召喚補正) * params.スキル倍率 / 100;
-  基本ダメージ2 = params.スキル追加ダメ + 筋魔 * (1 + params.効率 / 100) * 召喚補正;
+  基本ダメージ1 = 攻撃or属性 * params.スキル倍率 / 100;
+  基本ダメージ2 = params.スキル追加ダメ + 筋魔 * 効率;
   最小 = Math.min(最大+10, 最小);
     
   const result = (
@@ -124,9 +143,8 @@ const base_damage = (params) => {
 	      + 追加ダメ
 	)
 	  * (1 + 支配 / 100)
-	  * (最大 + 最小) / 200
-	  * (1 - params.敵ダメ減_ / 100)
-	  * 召喚補正;
+	  * (最大 + 最小) / 200 * 全ダメージ補正
+	  * (1 - params.敵ダメ減_ / 100);
   
   return result;
 };
@@ -143,6 +161,13 @@ const cri_damage = (params) => {
   const isPhysical = skill.物理or魔法 === '物理';
   const クリダメ = isPhysical ? params.物理_クリダメ : params.魔法_クリダメ;
   let クリダメ補正 = ((100 + クリダメ) * (1 - params.敵クリ減 / 1000) | 0) / 100;
+
+  if (skill.スキルタイプ === '召喚') {
+    const baseBonus = skill.クリティカルダメージ補正;
+    const level = params.スキルレベル;
+    召喚補正 = (baseBonus + level * 2) / 100;
+    クリダメ補正 *= 召喚補正;
+  }
 	return base_damage(params) * クリダメ補正;
 }
 
@@ -284,7 +309,7 @@ const data = {
   HP_: 217,
   攻撃最大: 50000,
   攻撃最小: 50000,
-  攻撃_: 100,  // 攻撃％（大小共通）
+  攻撃_: 100,
   属性: 14382,
   属性_: 276,
   
@@ -309,9 +334,8 @@ const data = {
   魔法_貫通: 90,
 
   物理_追加ダメ: 247784,
-  物理_追加ダメ_: 110,
   魔法_追加ダメ: 247784,
-  魔法_追加ダメ_: 110,
+  追加ダメ_: 110,
 
   一般追加ダメ: 122046,
   ボス追加ダメ: 122046,
@@ -323,7 +347,7 @@ const data = {
   CT: 0,
   スキル倍率: 100,
   スキル追加ダメ: 0,
-  敵タイプ: '一般',  // '一般' または 'ボス'
+  敵タイプ: 'ボス',
   敵防御: 1,
   敵ダメ減: 0,
   敵ダメ減_: 0,
@@ -385,9 +409,24 @@ const damageFormat = (damage) => {
 	return text;
 }
 
-window.vm = new Vue ({
-  el: '#latale_calc',
-  data: data,
+// Vueインスタンスを安全に作成
+const createVueInstance = () => {
+  if (typeof Vue === 'undefined') {
+    console.log('Vue not loaded yet, retrying...');
+    setTimeout(createVueInstance, 100);
+    return;
+  }
+  
+  const targetElement = document.getElementById('latale_calc');
+  if (!targetElement) {
+    console.log('Target element not found, retrying...');
+    setTimeout(createVueInstance, 100);
+    return;
+  }
+
+  window.vm = new Vue ({
+    el: '#latale_calc',
+    data: data,
   computed: {
     damage: function () { 
     	return damage(this);
@@ -436,14 +475,14 @@ window.vm = new Vue ({
     currentSkillMaxLevel: function() {
       return this.currentSkillData ? (this.currentSkillData.最大レベル || 20) : 20;
     },
-    // 現在物理タブがアクティブか
+    // 現在物理タブがアクティブか（スキル設定のタイプを参照）
     isPhysicalTab: function() {
       // スキルが選択されている場合はスキルのタイプに従う
       if (this.currentSkillData && this.currentSkillData.物理or魔法) {
         return this.currentSkillData.物理or魔法 === '物理';
       }
-      // スキルが選択されていない場合はタブの状態に従う
-      return this.activeTab === 'physical';
+      // スキルが選択されていない場合はデフォルトで物理を返す
+      return true;
     },
     // 現在選択されているダンジョンの敵一覧
     currentDungeonEnemies: function() {
@@ -498,10 +537,6 @@ window.vm = new Vue ({
     // 職業が変更されたときの処理
     onJobChange: function() {
       this.selectedSkill = '';
-      this.currentSkillData = null;
-      this.スキルレベル = 1;
-      this.スキル倍率 = 100;
-      this.スキル追加ダメ = 0;
     },
     // スキルが変更されたときの処理
     onSkillChange: function() {
@@ -746,41 +781,37 @@ window.vm = new Vue ({
       deep: true
     }
   }
-});
+  });
+};
 
+// Vueインスタンスを作成
+createVueInstance();
+};
 
-// DOM要素へのアクセスをVueマウント後に遅延させる
-setTimeout(() => {
-	const copyButton = document.getElementById('copy');
-	if (copyButton) {
-		copyButton.onclick = () => {
-			var text = '';
-			for(key in data) {
-				key_name = key.replace('_', '%');
-				text += key_name + ',' + incr(key_name) + "\n";
-			}
+// DOM要素の初期化を安全に行う
+const initDOMElements = () => {
+  // DOM要素へのアクセスをVueマウント後に遅延させる
+  setTimeout(() => {
+    const copyButton = document.getElementById('copy');
+    if (copyButton) {
+      copyButton.onclick = () => {
+        var text = '';
+        for(key in data) {
+          key_name = key.replace('_', '%');
+          text += key_name + ',' + incr(key_name) + "\n";
+        }
 
-			//textareaを生成
-			var area = document.createElement("textarea");
+        var area = document.createElement("textarea");
+        area.textContent = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        document.body.removeChild(area);
+      };
+    }
+  }, 500);
 
-			//p要素の内容をtextareaに記述
-			area.textContent = text;
-
-			//生成したものをdocumentに追加
-			document.body.appendChild(area);
-
-			//選択/コピーして・・
-			area.select();
-			document.execCommand("copy");
-
-			//すぐに消す。
-			document.body.removeChild(area);
-		};
-	}
-}, 100);
-
-
-const fileInput = document.getElementById('file-input');
+  const fileInput = document.getElementById('file-input');
 
 
 const setPreview = file => {
@@ -821,36 +852,60 @@ const setPreview = file => {
 };
 
 
-// ファイル選択時の処理
-const dropzone = document.querySelector('.dropzone');
+  // ファイル選択時の処理
+  const dropzone = document.querySelector('.dropzone');
 
-dropzone.addEventListener('dragover', (event) => {
-    event.preventDefault();
-    dropzone.classList.add('dragover');
-});
+  if (dropzone) {
+    dropzone.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropzone.classList.add('dragover');
+    });
 
-dropzone.addEventListener('dragleave', () => {
-    dropzone.classList.remove('dragover');
-});
+    dropzone.addEventListener('dragleave', () => {
+        dropzone.classList.remove('dragover');
+    });
 
-dropzone.addEventListener('drop', (event) => {
-    event.preventDefault();
-    dropzone.classList.remove('dragover');
-    const file = event.dataTransfer.files[0];
-    setPreview(file);
-});
+    dropzone.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropzone.classList.remove('dragover');
+        const file = event.dataTransfer.files[0];
+        setPreview(file);
+    });
 
-fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    setPreview(file);
-}); 
+    dropzone.addEventListener('mouseenter', function() {
+      window.addEventListener('paste', pasteHandler);
+    });
 
-dropzone.addEventListener('mouseenter', function() {
-		window.addEventListener('paste', pasteHandler);
-});
+    dropzone.addEventListener('mouseleave', function() {
+      window.removeEventListener('paste', pasteHandler);
+    });
+  }
 
-dropzone.addEventListener('mouseleave', function() {
-		window.removeEventListener('paste', pasteHandler);
+  if (fileInput) {
+    fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        setPreview(file);
+    }); 
+  }
+};
+
+// ブラウザ間互換性のためのイベントリスナー
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initApp();
+    initDOMElements();
+  });
+} else {
+  initApp();
+  initDOMElements();
+}
+
+// window.onloadも念のため残す（Firefox対策）
+window.addEventListener('load', () => {
+  if (!window.vm) {
+    initApp();
+  }
+  initDOMElements();
 });
 
 const pasteHandler = event => {
@@ -859,7 +914,6 @@ const pasteHandler = event => {
 	if (item.kind === 'file') {
 		setPreview(item.getAsFile());
 	}
-};
 
 const setValue = (text) => {
 	const lines = text.split("\n");
