@@ -209,27 +209,27 @@
 
 			<div id="latale_calc">
 
-				<!-- ダメージ表示 -->
-				<div class="grid grid-cols-4 gap-3 mb-4">
-					<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-accent/20 shadow-lg">
-						<div class="text-2xs text-text-muted mb-1">青ダメ</div>
-						<div id="base-damage-display" class="text-xl font-bold text-accent text-center">{{ damageFormat(base_damage) }}</div>
-					</div>
-					<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-danger/20 shadow-lg">
-						<div class="text-2xs text-text-muted mb-1">赤ダメ</div>
-						<div id="cri-damage-display" class="text-xl font-bold text-danger text-center">{{ damageFormat(cri_damage) }}</div>
-					</div>
-					<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-warning/20 shadow-lg">
-						<div class="text-2xs text-text-muted mb-1">クリ率</div>
-						<div id="cri-rate-display" class="text-xl font-bold text-warning text-center">
-							{{ Math.floor(cri_rate) }}<span class="text-sm text-text-muted">%</span>
-						</div>
-					</div>
-					<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-success/20 shadow-lg">
-						<div class="text-2xs text-text-muted mb-1">ダメ平均</div>
-						<div id="damage-display" class="text-xl font-bold text-success text-center">{{ damageFormat(damage) }}</div>
-					</div>
+		<!-- ダメージ表示 -->
+		<div class="grid grid-cols-4 gap-3 mb-4">
+			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-accent/20 shadow-lg">
+				<div class="text-2xs text-text-muted mb-1">青ダメ</div>
+				<div id="base-damage-display" class="text-xl font-bold text-accent text-center">{{ damageFormat(base_damage) }}</div>
+			</div>
+			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-danger/20 shadow-lg">
+				<div class="text-2xs text-text-muted mb-1">赤ダメ</div>
+				<div id="cri-damage-display" class="text-xl font-bold text-danger text-center">{{ damageFormat(cri_damage) }}</div>
+			</div>
+			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-warning/20 shadow-lg">
+				<div class="text-2xs text-text-muted mb-1">クリ率</div>
+				<div id="cri-rate-display" class="text-xl font-bold text-warning text-center">
+					{{ Math.floor(cri_rate) }}<span class="text-sm text-text-muted">%</span>
 				</div>
+			</div>
+			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-success/20 shadow-lg">
+				<div class="text-2xs text-text-muted mb-1">ダメ平均</div>
+				<div id="damage-display" class="text-xl font-bold text-success text-center">{{ damageFormat(damage) }}</div>
+			</div>
+		</div>
 
 			<button id="copy" class="bg-accent hover:bg-accent-hover text-white font-medium py-2 px-4 rounded transition-colors block mx-auto mb-3 text-sm">
 				コピーする	
