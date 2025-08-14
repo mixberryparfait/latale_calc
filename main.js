@@ -14,7 +14,6 @@ const loadEnemyData = async () => {
 		const data = await response.json();
 		window.emeraldiaEnemies = data;
 		console.log('Loaded enemy data:', window.emeraldiaEnemies);
-		// VueインスタンスのemeraldiaEnemiesを更新
 		if (window.vm) {
 			window.vm.emeraldiaEnemies = window.emeraldiaEnemies;
 		}
@@ -51,7 +50,7 @@ const loadSkillData = async () => {
 						skill[header] = value;
 					}
 				});
-				skill.index = index; // インデックスを追加
+				skill.index = index;
 				return skill;
 			});
 			
@@ -68,13 +67,10 @@ const loadSkillData = async () => {
 
 // ページ読み込み時にスキルデータを読み込む
 // loadSkillData(); // 後でVueマウント後に呼び出す
-// 28173417
-	// 216113
-// 26425268
 const base_damage = (params) => {
   
   let 攻撃力補正 = 1;
-  let 属性補正 = 1;
+  let 属性攻撃補正 = 1;
   let 全ダメージ補正 = 1;
   let 効率 = 1;
   
@@ -91,9 +87,9 @@ const base_damage = (params) => {
       攻撃力補正 = (baseBonus + level * 2) / 100;
     }
     {
-      const baseBonus = skill.属性補正;
+      const baseBonus = skill.属性攻撃補正;
       const level = params.スキルレベル || 1;
-      属性補正 = (baseBonus + level * 2) / 100;
+      属性攻撃補正 = (baseBonus + level * 2) / 100;
     }
     {
       const baseBonus = skill.全ダメージ補正;
@@ -123,7 +119,7 @@ const base_damage = (params) => {
   }
   else {
     筋魔 = params.魔力;
-    攻撃or属性 = params.属性 * 2 * 属性補正;
+    攻撃or属性 = params.属性 * 2 * 属性攻撃補正;
     最大 = params.魔法_最大 + params.属性最大;
     最小 = params.魔法_最小 + params.属性最小;
     追加ダメ = params.魔法_追加ダメ;
@@ -176,29 +172,14 @@ const damage = (params) => {
 	const baseDmg = base_damage(params);
 	const criDmg = cri_damage(params);
 	
-	// // オーバーフローチェック
-	// if (baseDmg < 0 || criDmg < 0) {
-	// 	console.error('Damage calculation overflow detected:', { baseDmg, criDmg });
-	// 	return 0;
-	// }
-	
 	const nonCriPart = baseDmg * (1 - cr);
 	const criPart = criDmg * cr;
 	const totalDamage = nonCriPart + criPart;
-	
-	// // 最終チェック
-	// if (totalDamage < 0 || !isFinite(totalDamage)) {
-	// 	console.error('Total damage calculation overflow:', { nonCriPart, criPart, totalDamage });
-	// 	return 0;
-	// }
 	
 	return totalDamage;
 }
 
 const incr = (key) => {
-	// 現在のスキルタイプを取得
-	const skill = data.currentSkillData;
-	const isPhysical = skill.物理or魔法 === '物理';
 	
 	if(key == '経験値') {
 		return Math.floor(damage(data) /100/(1 + data[key] / 100));
@@ -212,6 +193,9 @@ const incr = (key) => {
 	}
 	const tmp = Object.assign({}, data);
 	
+	const skill = data.currentSkillData;
+	const isPhysical = skill.物理or魔法 === '物理';
+
 	if(key.endsWith('%')) {
 		const prefix = key.substring(0, key.length - 1);
     const percent = tmp[prefix + '_'] || 0;
@@ -372,29 +356,17 @@ const data = {
     全ダメージ補正: 100,
     クリティカルダメージ補正: 100
   },
-  skillDataLoaded: false,  // Vueのリアクティブデータとして追加
-  activeTab: 'physical',  // 'physical' または 'magical'
-  emeraldiaEnemies: {},  // 敵データ
-  selectedDungeon: '',  // 選択されたダンジョン
-  selectedEnemy: '',  // 選択された敵
-  selectedDifficulty: '',  // 選択された難易度
+  skillDataLoaded: false,
+  emeraldiaEnemies: {},
+  selectedDungeon: '',
+  selectedEnemy: '',
+  selectedDifficulty: '',
 };
 
 const damageFormat = (damage) => {
-	// 負の値やNaN、Infinityの場合はエラー表示
-	// if (damage < 0 || !isFinite(damage)) {
-	// 	return 'エラー';
-	// }
-	
-	// // 非常に大きな値の場合の対応
-	// if (damage > Number.MAX_SAFE_INTEGER) {
-	// 	return '計算上限超過';
-	// }
-	
 	let text = '';
 	let remainingDamage = damage;
 	
-	// Math.floorを使用して安全に整数変換
 	if(remainingDamage >= 100000000) {
 		const oku = Math.floor(remainingDamage / 100000000);
 		text += oku + '億';
@@ -540,13 +512,6 @@ const createVueInstance = () => {
     },
     // スキルが変更されたときの処理
     onSkillChange: function() {
-      if (this.selectedSkill === '') {
-        this.currentSkillData = null;
-        this.スキル倍率 = 100;
-        this.スキル追加ダメ = 0;
-        return;
-      }
-      
       const skillIndex = Number(this.selectedSkill);
       this.currentSkillData = window.skillData[skillIndex];
       
