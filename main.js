@@ -41,12 +41,16 @@ const loadSkillData = async () => {
 				const skill = {};
 				headers.forEach((header, i) => {
 					const value = values[i] ? values[i].trim() : '';
-					// 数値フィールドは数値に変換
-					if (['最大レベル', '係数初期値', '係数上昇値', '固定ダメージ初期値', '固定ダメージ上昇値', 
-					     'ヒット数', '最大ターゲット数', '最大ターゲット数上昇値', 
-					     '攻撃力補正', '属性攻撃補正', '全ダメージ補正', 'クリティカルダメージ補正'].includes(header)) {
-						skill[header] = value === '' ? null : Number(value);
+					// data.currentSkillDataの型を参照して判断
+					if (header in data.currentSkillData) {
+						// 元のデータ型が数値の場合は数値に変換
+						if (typeof data.currentSkillData[header] === 'number') {
+							skill[header] = value === '' ? null : Number(value);
+						} else {
+							skill[header] = value;
+						}
 					} else {
+						// currentSkillDataに存在しないヘッダーは文字列として扱う
 						skill[header] = value;
 					}
 				});
@@ -81,16 +85,12 @@ const base_damage = (params) => {
   const 貫通率 = (isPhysical ? params.物理_貫通 : params.魔法_貫通) / 100;
 
   if (skill.スキルタイプ === '召喚') {
-    {
-      const baseBonus = skill.攻撃力補正;
-      const level = params.スキルレベル || 1;
-      攻撃力補正 = (baseBonus + level * 2) / 100;
-    }
-    {
-      const baseBonus = skill.属性攻撃補正;
-      const level = params.スキルレベル || 1;
-      属性攻撃補正 = (baseBonus + level * 2) / 100;
-    }
+    // 召喚スキルの場合、全ダメージ補正（最小/最大ダメージの適用倍率）のみがスキルレベルで変動
+    // 他の補正（攻撃力、属性攻撃、クリティカルダメージ）は100%固定
+    攻撃力補正 = 1;  // 100%固定
+    属性攻撃補正 = 1;  // 100%固定
+    
+    // 全ダメージ補正のみスキルレベルで変動
     {
       const baseBonus = skill.全ダメージ補正;
       const level = params.スキルレベル || 1;
@@ -158,12 +158,8 @@ const cri_damage = (params) => {
   const クリダメ = isPhysical ? params.物理_クリダメ : params.魔法_クリダメ;
   let クリダメ補正 = ((100 + クリダメ) * (1 - params.敵クリ減 / 1000) | 0) / 100;
 
-  if (skill.スキルタイプ === '召喚') {
-    const baseBonus = skill.クリティカルダメージ補正;
-    const level = params.スキルレベル;
-    召喚補正 = (baseBonus + level * 2) / 100;
-    クリダメ補正 *= 召喚補正;
-  }
+  // 召喚スキルのクリティカルダメージ補正も100%固定（ブログによると適用倍率100%のみ存在）
+  // ※2021年2月時点では、最小/最大ダメージ以外の全ステータスは適用倍率100%固定
 	return base_damage(params) * クリダメ補正;
 }
 
@@ -729,7 +725,25 @@ const createVueInstance = () => {
     console.log('スキル倍率:', typeof this.スキル倍率, this.スキル倍率);
     
     // スキルデータを読み込む
-    loadSkillData();
+    loadSkillData().then(() => {
+      // スキルデータのロード完了後、保存されていたスキル選択を復元
+      if (this.selectedSkill && window.skillData) {
+        const skillIndex = Number(this.selectedSkill);
+        if (window.skillData[skillIndex]) {
+          this.currentSkillData = window.skillData[skillIndex];
+          
+          // スキルレベルが保存されていない場合は最大値を設定
+          if (!this.スキルレベル && this.currentSkillData.最大レベル) {
+            this.スキルレベル = this.currentSkillData.最大レベル;
+          }
+          
+          // スキル値を更新
+          this.updateSkillValues();
+          
+          console.log('Restored skill from localStorage:', this.currentSkillData);
+        }
+      }
+    });
     // 敵データを読み込む
     loadEnemyData();
   },
