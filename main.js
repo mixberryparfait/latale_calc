@@ -488,6 +488,24 @@ const createVueInstance = () => {
       const skill = this.currentSkillData;
       return skill.スキル名 + ' (' + skill.スキルタイプ + (skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '') + ')';
     },
+    // 一般関連の入力欄を表示するか
+    showGeneralInputs: function() {
+      // 敵が選択されていない場合は表示
+      if (!this.selectedEnemy || !this.selectedDungeon) {
+        return true;
+      }
+      // 敵タイプが一般の場合は表示
+      return this.敵タイプ === '一般';
+    },
+    // ボス関連の入力欄を表示するか
+    showBossInputs: function() {
+      // 敵が選択されていない場合は表示
+      if (!this.selectedEnemy || !this.selectedDungeon) {
+        return true;
+      }
+      // 敵タイプがボスの場合は表示
+      return this.敵タイプ === 'ボス';
+    },
   },
   methods: {
     // スキル名を切り詰める

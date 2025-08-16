@@ -572,26 +572,26 @@
 				<span class="text-2xs text-accent text-center">(+{{ incr('追加ダメ%') }})</span>
 			</div>
 
-				<div class="grid grid-cols-2 gap-4">
-					<div class="input-group-sub">
+				<div class="grid gap-4" :class="{ 'grid-cols-2': showGeneralInputs && showBossInputs, 'grid-cols-1': !(showGeneralInputs && showBossInputs) }">
+					<div class="input-group-sub" v-show="showGeneralInputs">
 					<label class="text-xs">一般追加ダメ</label>
 					<input type="number" id="一般追加ダメ" v-model.number="一般追加ダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
 					<span class="text-2xs text-accent text-center">(+{{ incr('一般追加ダメ') }})</span>
 					</div>
-					<div class="input-group-sub">
+					<div class="input-group-sub" v-show="showBossInputs">
 					<label class="text-xs">ボス追加ダメ</label>
 					<input type="number" id="ボス追加ダメ" v-model.number="ボス追加ダメ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
 					<span class="text-2xs text-accent text-center">(+{{ incr('ボス追加ダメ') }})</span>
 					</div>
 				</div>
 
-				<div class="grid grid-cols-2 gap-4">
-					<div class="input-group-sub">
+				<div class="grid gap-4" :class="{ 'grid-cols-2': showGeneralInputs && showBossInputs, 'grid-cols-1': !(showGeneralInputs && showBossInputs) }">
+					<div class="input-group-sub" v-show="showGeneralInputs">
 						<label class="text-xs">一般支配</label>
 						<input type="number" step="0.1" id="一般支配" v-model.number="一般支配" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
 						<span class="text-2xs text-accent text-center">(+{{ incr('一般支配') }})</span>
 					</div>
-					<div class="input-group-sub">
+					<div class="input-group-sub" v-show="showBossInputs">
 						<label class="text-xs">ボス支配</label>
 						<input type="number" step="0.1" id="ボス支配" v-model.number="ボス支配" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right w-16">
 						<span class="text-2xs text-accent text-center">(+{{ incr('ボス支配') }})</span>
