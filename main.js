@@ -397,15 +397,23 @@ const createVueInstance = () => {
     data: data,
   computed: {
     damage: function () { 
+    	// 敵防御値への依存を明示的に追跡
+    	const enemyDefense = this.敵防御;
     	return damage(this);
     },
     base_damage: function () { 
+    	// 敵防御値への依存を明示的に追跡
+    	const enemyDefense = this.敵防御;
     	return base_damage(this);
     },
     cri_damage: function () { 
+    	// 敵防御値への依存を明示的に追跡
+    	const enemyDefense = this.敵防御;
     	return cri_damage(this);
     },
     cri_rate: function () { 
+    	// 敵幸運への依存を明示的に追跡
+    	const enemyLuck = this.敵幸運;
     	return cri_rate(this);
     },
     incr: () => incr,
