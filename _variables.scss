@@ -1,0 +1,75 @@
+// ===========================
+// カラーパレット
+// ===========================
+// 背景色
+$bg-primary: #0a0a0a;
+$bg-secondary: #1a1a1a;
+$bg-tertiary: #252525;
+$bg-tab-active: #2a2a2a;
+$bg-tab-inactive: #1a1a1a;
+$bg-input: #1a1a1a;
+
+// ボーダー色
+$border-default: #333;
+$border-light: #444;
+
+// テキスト色
+$text-primary: #fff;
+$text-muted: #999;
+$text-dim: #666;
+
+// アクセントカラー
+$accent: #0ea5e9;
+$accent-hover: #0284c7;
+$danger: #ef4444;
+$warning: #f59e0b;
+$success: #10b981;
+$purple: #a855f7;
+
+// 特殊カラー（透明度付き）
+$accent-20: rgba(14, 165, 233, 0.2);
+$accent-30: rgba(14, 165, 233, 0.3);
+$danger-20: rgba(239, 68, 68, 0.2);
+$warning-20: rgba(245, 158, 11, 0.2);
+$success-20: rgba(16, 185, 129, 0.2);
+
+// ===========================
+// フォントサイズ
+// ===========================
+$font-2xs: 0.625rem;  // 10px
+$font-xs: 0.75rem;    // 12px
+$font-sm: 0.875rem;   // 14px
+$font-base: 1rem;     // 16px
+$font-lg: 1.125rem;   // 18px
+$font-xl: 1.25rem;    // 20px
+$font-2xl: 1.5rem;    // 24px
+$font-3xl: 1.875rem;  // 30px
+
+// ===========================
+// 余白
+// ===========================
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+
+// ===========================
+// その他の共通値
+// ===========================
+$border-radius: 0.25rem;
+$border-radius-lg: 0.5rem;
+$transition-default: all 0.2s;
+$transition-colors: colors 0.2s;
+$box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+// ===========================
+// グリッド設定
+// ===========================
+$input-group-cols: 5rem 4rem 3rem 4rem 4rem 3rem 4rem 3rem;
+$input-group-attack-cols: 21rem 3rem 4rem 3rem;
+$input-group-compact-cols: 5rem 4rem 3rem 4rem 3rem;
+$input-group-simple-cols: 5rem 4rem 3rem;
+$input-group-sub-cols: 5rem 4rem 3rem;
+$grid-gap: $spacing-1;

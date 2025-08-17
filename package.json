@@ -1,0 +1,14 @@
+{
+  "name": "latale-calc",
+  "version": "1.0.0",
+  "description": "LaTale Damage Calculator with SCSS support",
+  "scripts": {
+    "build-css": "sass styles.scss styles.css --no-source-map",
+    "watch-css": "sass styles.scss styles.css --watch --no-source-map",
+    "serve": "python -m http.server 8000",
+    "dev": "npm run build-css && npm run serve"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}
