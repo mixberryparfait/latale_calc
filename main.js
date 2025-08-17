@@ -120,12 +120,13 @@ const base_damage = (params) => {
   else {
     筋魔 = params.魔力;
     攻撃or属性 = params.属性 * 2 * 属性攻撃補正;
-    最大 = params.魔法_最大 + params.属性最大;
-    最小 = params.魔法_最小 + params.属性最小;
+    // 数値変換を強制して文字列結合を防ぐ
+    最大 = Number(params.魔法_最大) + Number(params.属性最大);
+    最小 = Number(params.魔法_最小) + Number(params.属性最小);
     追加ダメ = params.魔法_追加ダメ;
   }
-  最大 += params.基礎最大;
-  最小 += params.基礎最小;
+  最大 = Number(最大) + Number(params.基礎最大);
+  最小 = Number(最小) + Number(params.基礎最小);
   
   追加ダメ += params.敵タイプ === 'ボス' ? params.ボス追加ダメ : params.一般追加ダメ;
   const 支配 = params.敵タイプ === 'ボス' ? params.ボス支配 : params.一般支配;

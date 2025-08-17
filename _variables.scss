@@ -1,37 +1,37 @@
 // ===========================
-// カラーパレット
+// カラーパレット - ラテール風パステルカラー
 // ===========================
-// 背景色
-$bg-primary: #0a0a0a;
-$bg-secondary: #1a1a1a;
-$bg-tertiary: #252525;
-$bg-tab-active: #2a2a2a;
-$bg-tab-inactive: #1a1a1a;
-$bg-input: #1a1a1a;
+// 背景色（クリーム・ミルキーカラー）
+$bg-primary: #FFF5F7;      // ピンクがかった白
+$bg-secondary: #FFE4E9;    // 薄いピンク
+$bg-tertiary: #FFDDE4;     // やや濃いピンク
+$bg-tab-active: #FFD0DC;   // アクティブタブ用ピンク
+$bg-tab-inactive: #FFE9ED; // 非アクティブタブ用薄ピンク
+$bg-input: #FFFFFF;        // 入力フィールドは白
 
-// ボーダー色
-$border-default: #333;
-$border-light: #444;
+// ボーダー色（ソフトなピンク系）
+$border-default: #FFB3C6;  // やさしいピンクボーダー
+$border-light: #FFD0DC;    // より薄いピンクボーダー
 
 // テキスト色
-$text-primary: #fff;
-$text-muted: #999;
-$text-dim: #666;
+$text-primary: #5A3D5C;    // 紫がかった濃い色
+$text-muted: #8B6F8D;      // ミュートした紫
+$text-dim: #B8A1BA;        // 薄い紫
 
-// アクセントカラー
-$accent: #0ea5e9;
-$accent-hover: #0284c7;
-$danger: #ef4444;
-$warning: #f59e0b;
-$success: #10b981;
-$purple: #a855f7;
+// アクセントカラー（カラフルなパステル）
+$accent: #FF7EB9;          // ピンク
+$accent-hover: #FF5CA1;    // ホバー時の濃いピンク
+$danger: #FF6B9D;          // 赤ピンク
+$warning: #FFD23F;         // 黄色
+$success: #7FCDBB;         // ミントグリーン
+$purple: #C589E8;          // ラベンダー
 
 // 特殊カラー（透明度付き）
-$accent-20: rgba(14, 165, 233, 0.2);
-$accent-30: rgba(14, 165, 233, 0.3);
-$danger-20: rgba(239, 68, 68, 0.2);
-$warning-20: rgba(245, 158, 11, 0.2);
-$success-20: rgba(16, 185, 129, 0.2);
+$accent-20: rgba(255, 126, 185, 0.2);
+$accent-30: rgba(255, 126, 185, 0.3);
+$danger-20: rgba(255, 107, 157, 0.2);
+$warning-20: rgba(255, 210, 63, 0.2);
+$success-20: rgba(127, 205, 187, 0.2);
 
 // ===========================
 // フォントサイズ
@@ -58,11 +58,11 @@ $spacing-6: 1.5rem;
 // ===========================
 // その他の共通値
 // ===========================
-$border-radius: 0.25rem;
-$border-radius-lg: 0.5rem;
-$transition-default: all 0.2s;
-$transition-colors: colors 0.2s;
-$box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+$border-radius: 1rem;      // より丸みを帯びたデザイン
+$border-radius-lg: 1.5rem; // 大きな要素用の丸み
+$transition-default: all 0.3s ease-in-out;
+$transition-colors: colors 0.3s ease-in-out;
+$box-shadow-lg: 0 10px 30px rgba(255, 126, 185, 0.15);
 
 // ===========================
 // グリッド設定
