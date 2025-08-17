@@ -545,6 +545,17 @@ const createVueInstance = () => {
         console.log('All damage bonus:', this.currentSkillData.全ダメージ補正);
         console.log('Critical damage bonus:', this.currentSkillData.クリティカルダメージ補正);
         
+        // スキルの基礎大小を自動設定（召喚スキルはMOB値、攻撃スキルは職業値）
+        if (this.currentSkillData.基礎最小 !== null && this.currentSkillData.基礎最小 !== undefined) {
+          this.基礎最小 = this.currentSkillData.基礎最小;
+        }
+        if (this.currentSkillData.基礎最大 !== null && this.currentSkillData.基礎最大 !== undefined) {
+          this.基礎最大 = this.currentSkillData.基礎最大;
+        }
+        console.log('Auto-set base damage from skill:', 
+                    '基礎最小:', this.基礎最小, '基礎最大:', this.基礎最大,
+                    'Type:', this.currentSkillData.スキルタイプ);
+        
         // スキルレベルを最大値にリセット
         this.スキルレベル = this.currentSkillData.最大レベル || 50;
         this.updateSkillValues();
