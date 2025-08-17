@@ -118,12 +118,16 @@ input, select {
 // スキル設定用スタイル
 // ===========================
 .skill-input-group {
-  @include flex-gap($spacing-2);
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
 }
 
 .skill-input-wrapper {
-  flex: 1;
-  @include flex-gap($spacing-1);
+  display: grid;
+  grid-template-columns: $skill-input-cols;
+  gap: $spacing-1;
+  align-items: center;
 }
 
 // ===========================
