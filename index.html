@@ -197,39 +197,70 @@
 
 					<!-- 右側：ステータス入力エリア -->
 					<div class="lg:col-span-2 bg-bg-secondary border border-border rounded p-3">
-						<!-- 共通ステータス -->
-						<div class="space-y-2">
-							<!-- 筋力/魔力 -->
-							<div class="input-group">
-								<label class="text-xs">{{ isPhysicalTab ? '筋力' : '魔力' }}</label>
-								<input type="number" :id="isPhysicalTab ? '筋力' : '魔力'" v-model.number="isPhysicalTab ? 筋力 : 魔力" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-								<label class="text-2xs text-right text-text-dim">+</label>
-								<span class="text-xs text-right">{{ Math.floor(base(isPhysicalTab ? '筋力' : '魔力')) }}</span>
-								<span class="text-2xs text-accent text-center">(+{{ incr(isPhysicalTab ? '筋力' : '魔力') }})</span>
-								<label class="text-2xs text-right text-text-dim">%</label>
-								<input type="number" :id="isPhysicalTab ? '筋力_' : '魔力_'" v-model.number="isPhysicalTab ? 筋力_ : 魔力_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-								<span class="text-2xs text-accent text-center">(+{{ incr(isPhysicalTab ? '筋力%' : '魔力%') }})</span>
-							</div>
+				<!-- 共通ステータス -->
+				<div class="space-y-2">
+					<!-- 筋力/魔力 -->
+					<div class="input-group">
+						<label class="text-xs">{{ isPhysicalTab ? '筋力' : '魔力' }}</label>
+						<input type="number" :id="isPhysicalTab ? '筋力' : '魔力'" v-model.number="isPhysicalTab ? 筋力 : 魔力" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+						<label class="text-2xs text-right text-text-dim">+</label>
+						<span class="text-xs text-right">{{ Math.floor(base(isPhysicalTab ? '筋力' : '魔力')) }}</span>
+						<span class="text-2xs text-accent text-center">(+{{ incr(isPhysicalTab ? '筋力' : '魔力') }})</span>
+						<label class="text-2xs text-right text-text-dim">%</label>
+						<input type="number" :id="isPhysicalTab ? '筋力_' : '魔力_'" v-model.number="isPhysicalTab ? 筋力_ : 魔力_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+						<span class="text-2xs text-accent text-center">(+{{ incr(isPhysicalTab ? '筋力%' : '魔力%') }})</span>
+					</div>
 
-							<!-- 効率 -->
-							<div class="input-group-simple">
-				<label class="text-xs">効率</label>
-				<input type="number" id="効率" v-model.number="効率" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-				<span class="text-2xs text-accent text-center">(+{{ incr('効率') }})</span>
-							</div>
+					<!-- 効率 -->
+					<div class="input-group-simple">
+			<label class="text-xs">効率</label>
+			<input type="number" id="効率" v-model.number="効率" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+			<span class="text-2xs text-accent text-center">(+{{ incr('効率') }})</span>
+					</div>
 
-							<!-- 幸運 -->
-							<div class="input-group">
-								<label class="text-xs">幸運</label>
-								<input type="number" id="幸運" v-model.number="幸運" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-								<label class="text-2xs text-right text-text-dim">+</label>
-								<span class="text-xs text-right">{{ Math.floor(base('幸運')) }}</span>
-								<span class="text-2xs text-accent text-center">(+{{ incr('幸運') }})</span>
-								<label class="text-2xs text-right text-text-dim">%</label>
-								<input type="number" id="幸運_" v-model.number="幸運_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-								<span class="text-2xs text-accent text-center">(+{{ incr('幸運%') }})</span>
-							</div>
-						</div>
+				<!-- 幸運 -->
+				<div class="input-group">
+					<label class="text-xs">幸運</label>
+					<input type="number" id="幸運" v-model.number="幸運" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+					<label class="text-2xs text-right text-text-dim">+</label>
+					<span class="text-xs text-right">{{ Math.floor(base('幸運')) }}</span>
+					<span class="text-2xs text-accent text-center">(+{{ incr('幸運') }})</span>
+					<label class="text-2xs text-right text-text-dim">%</label>
+					<input type="number" id="幸運_" v-model.number="幸運_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+					<span class="text-2xs text-accent text-center">(+{{ incr('幸運%') }})</span>
+				</div>
+			</div>
+
+				<div class="section-divider"></div>
+
+				<!-- HP・体力 (ダメージ換算) -->
+				<div class="space-y-2">
+					<div class="text-2xs text-text-muted mb-2">※HP1%増加 = ダメージ1%増加として価値を計算</div>
+					
+					<!-- 体力 -->
+					<div class="input-group">
+						<label class="text-xs">体力</label>
+						<input type="number" id="体力" v-model.number="体力" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+						<label class="text-2xs text-right text-text-dim">+</label>
+						<span class="text-xs text-right">{{ Math.floor(base('体力')) }}</span>
+						<span class="text-2xs text-accent text-center">(+{{ incr('体力') }})</span>
+						<label class="text-2xs text-right text-text-dim">%</label>
+						<input type="number" id="体力_" v-model.number="体力_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+						<span class="text-2xs text-accent text-center">(+{{ incr('体力%') }})</span>
+					</div>
+
+					<!-- HP -->
+					<div class="input-group">
+						<label class="text-xs">HP</label>
+						<input type="number" id="HP" v-model.number="HP" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+						<label class="text-2xs text-right text-text-dim">+</label>
+						<span class="text-xs text-right">{{ Math.floor(base('HP')) }}</span>
+						<span class="text-2xs text-accent text-center">(+{{ incr('HP') }})</span>
+						<label class="text-2xs text-right text-text-dim">%</label>
+						<input type="number" id="HP_" v-model.number="HP_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
+						<span class="text-2xs text-accent text-center">(+{{ incr('HP%') }})</span>
+					</div>
+				</div>
 
 						<div class="section-divider"></div>
 

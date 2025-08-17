@@ -177,16 +177,31 @@ const damage = (params) => {
 }
 
 const incr = (key) => {
-	
 	if(key == '経験値') {
 		return Math.floor(damage(data) /100/(1 + data[key] / 100));
 	}
+
+	// HP関連の計算
 	if(key == 'HP') {
-		const abs = Math.ceil((data['HP'] - data['体力'] * 7)  / (1 + data['HP_'] / 100));
-		return Math.floor(damage(data) * (1 + data['HP_'] / 100) / data['HP']);
+		// HP+を1増やした場合の価値
+		const HPincr = (1 + data['HP_'] / 100) / data['HP'];
+		return Math.floor(damage(data) * HPincr);
 	}
 	if(key == 'HP%') {
-		return Math.floor((data['HP'] - data['体力'] * 7) / data['HP'] / 100 / (1 + data['HP_'] / 100));
+		// HP%を1増やした場合の価値（例：10%→11% 割合は 110->111 で 1/110の増加）
+		const HPincr = (1 / (1 + data['HP_'] / 100)) / 100;
+		return Math.floor(damage(data) * HPincr);
+	}
+	if(key == '体力') {
+		// 体力を1増やした場合の価値
+		const HPincr = 7 * (1 + data['体力_'] / 100) * (1 + data['HP_'] / 100) / data['HP'];
+		return Math.floor(damage(data) * HPincr);
+	}
+	if(key == '体力%') {
+		// 体力1%増加によるHP増加量 = 体力+ * 0.01 * 7 * HP%倍率
+		const 体力 = data['体力'] / (1 + data['体力_'] / 100)
+		const HPincr = 体力 * 0.01 * 7 * (1 + data['HP_'] / 100) / data['HP'];
+		return Math.floor(damage(data) * HPincr);
 	}
 	const tmp = Object.assign({}, data);
 	
@@ -378,6 +393,7 @@ const damageFormat = (damage) => {
 	return text;
 }
 
+
 // Vueインスタンスを安全に作成
 const createVueInstance = () => {
   if (typeof Vue === 'undefined') {
@@ -416,6 +432,10 @@ const createVueInstance = () => {
     	// 敵幸運への依存を明示的に追跡
     	const enemyLuck = this.敵幸運;
     	return cri_rate(this);
+    },
+    hp_value: function () {
+    	// 表示HPを計算（体力 * 7 + HP+） * (1 + HP% / 100)
+    	return this.HP;
     },
     incr: () => incr,
     base: () => base,
