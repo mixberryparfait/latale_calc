@@ -5,8 +5,61 @@
 @use 'mixins' as *;
 
 // ===========================
+// フォントインポート（可愛らしいフォント）
+// ===========================
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+// ===========================
 // リセット・ベーススタイル
 // ===========================
+body {
+  font-family: 'M PLUS Rounded 1c', 'Kosugi Maru', sans-serif;
+  background: linear-gradient(135deg, $bg-primary 0%, #FFE0EC 50%, #E1F5FE 100%);
+  min-height: 100vh;
+  position: relative;
+  
+  // 背景の装飾パターン
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(255, 126, 185, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(197, 137, 232, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255, 210, 63, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+// マスコットキャラクター削除（ラテールのキャラクターではないため）
+
+// タイトル部分に星の装飾
+.title-decoration {
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: '✨';
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  &::before {
+    left: -30px;
+    animation-delay: 0s;
+  }
+  
+  &::after {
+    right: -30px;
+    animation-delay: 1s;
+  }
+}
+
 // 数値入力のスピンボタンを非表示
 input[type="number"] {
   -moz-appearance: textfield;
@@ -18,11 +71,17 @@ input[type="number"] {
   }
 }
 
+// すべての入力フィールドに丸みを追加
+input, select {
+  @include form-control;
+}
+
 // ===========================
 // 特殊クラス
 // ===========================
 .recognized-input {
   border-color: $accent !important;
+  animation: pulse 0.5s ease-out;
 }
 
 // ===========================
@@ -79,12 +138,18 @@ input[type="number"] {
 // ===========================
 .damage-card {
   @include card-base;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideInDown 0.5s ease-out;
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: $box-shadow-lg;
+    transform: translateY(-3px) rotate(1deg);
+    box-shadow: 0 15px 35px rgba(255, 126, 185, 0.2);
   }
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
 }
 
 // ===========================
@@ -96,6 +161,123 @@ select.truncate {
   option {
     @include text-truncate;
     max-width: 100%;
+  }
+}
+
+// ===========================
+// カスタムボタンスタイル
+// ===========================
+button {
+  @include button-primary;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  &:active::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+// ===========================
+// カード装飾
+// ===========================
+.bg-bg-secondary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), $bg-secondary);
+  border: 2px solid $border-light;
+  box-shadow: 0 5px 15px rgba(255, 126, 185, 0.1);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, $accent, $purple, $warning, $success);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover::after {
+    opacity: 0.3;
+  }
+}
+
+// ===========================
+// アニメーション定義
+// ===========================
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 126, 185, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 126, 185, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 126, 185, 0);
+  }
+}
+
+// ===========================
+// ドロップゾーン
+// ===========================
+.dropzone {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), $bg-secondary);
+  border: 3px dashed $border-default !important;
+  border-radius: $border-radius-lg;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, $bg-secondary, $bg-tertiary);
+    border-color: $accent !important;
+    transform: scale(1.02);
   }
 }
 
@@ -114,7 +296,8 @@ select.truncate {
   }
   
   #copy,
-  label[for="file-input"] {
+  label[for="file-input"],
+  .mascot-container {
     display: none;
   }
 }

@@ -1,6 +1,7 @@
 // ===========================
 // 変数のインポート
 // ===========================
+@use 'sass:color';
 @use 'variables' as *;
 
 // ===========================
@@ -8,15 +9,19 @@
 // ===========================
 @mixin form-control {
   background-color: $bg-input;
-  border: 1px solid $border-default;
+  border: 2px solid $border-default;
   border-radius: $border-radius;
-  padding: $spacing-2 * 0.25 $spacing-1;
+  padding: $spacing-2 * 0.5 $spacing-3;
   font-size: $font-xs;
   color: $text-primary;
+  box-shadow: 0 2px 8px rgba(255, 126, 185, 0.1);
+  transition: all 0.3s ease;
   
   &:focus {
     outline: none;
     border-color: $accent;
+    box-shadow: 0 0 0 3px rgba(255, 126, 185, 0.15);
+    transform: translateY(-1px);
   }
   
   &[readonly],
@@ -35,25 +40,32 @@
 // ボタン
 // ===========================
 @mixin button-base {
-  font-weight: 500;
-  padding: $spacing-2 $spacing-4;
-  border-radius: $border-radius;
-  transition: $transition-colors;
+  font-weight: 600;
+  padding: $spacing-3 $spacing-5;
+  border-radius: $border-radius-lg;
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: none;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(255, 126, 185, 0.2);
   
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 126, 185, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0) scale(0.98);
   }
 }
 
 @mixin button-primary {
   @include button-base;
-  background-color: $accent;
+  background: linear-gradient(135deg, $accent, $purple);
   color: white;
+  font-weight: bold;
   
   &:hover {
-    background-color: $accent-hover;
+    background: linear-gradient(135deg, $accent-hover, color.adjust($purple, $lightness: -10%));
   }
 }
 
@@ -62,30 +74,36 @@
 // ===========================
 @mixin tab-button {
   position: relative;
-  padding: $spacing-2 $spacing-4;
+  padding: $spacing-3 $spacing-5;
   font-size: $font-sm;
-  font-weight: 500;
+  font-weight: 600;
   color: $text-muted;
-  background: transparent;
+  background: $bg-tab-inactive;
   border: none;
+  border-radius: $border-radius $border-radius 0 0;
   cursor: pointer;
   transition: $transition-default;
   
   &:hover {
     color: $text-primary;
+    background: $bg-tab-active;
+    transform: translateY(-2px);
   }
   
   &.active {
     color: $text-primary;
+    background: linear-gradient(135deg, $bg-tab-active, $bg-tertiary);
     
     &::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: $accent;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, $accent, $purple);
+      border-radius: 3px 3px 0 0;
     }
   }
 }
@@ -94,20 +112,34 @@
 // カード
 // ===========================
 @mixin card-base {
-  background: linear-gradient(to bottom right, $bg-secondary, $bg-tertiary);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 228, 233, 0.9));
   border-radius: $border-radius-lg;
-  padding: $spacing-3;
+  padding: $spacing-4;
+  box-shadow: 0 8px 20px rgba(255, 126, 185, 0.1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
 }
 
 @mixin damage-card($border-color) {
   @include card-base;
-  border: 1px solid $border-color;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid $border-color;
+  box-shadow: 0 10px 25px rgba($border-color, 0.2);
+  transition: all 0.3s ease;
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: $box-shadow-lg;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba($border-color, 0.3);
   }
 }
 
@@ -127,6 +159,7 @@
 @mixin text-label {
   font-size: $font-xs;
   color: $text-primary;
+  font-weight: 600;
 }
 
 @mixin text-label-small {
@@ -144,19 +177,23 @@
   font-size: $font-2xs;
   color: $accent;
   text-align: center;
+  font-weight: 600;
 }
 
 // ===========================
 // セクション
 // ===========================
 @mixin section-divider {
-  border-top: 1px solid $border-default;
-  margin: $spacing-3 0;
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $border-default, transparent);
+  margin: $spacing-4 0;
+  border-radius: 1px;
 }
 
 @mixin section-header($color) {
   font-size: $font-xs;
-  font-weight: 500;
+  font-weight: 600;
   color: $color;
   margin-bottom: $spacing-2;
 }
