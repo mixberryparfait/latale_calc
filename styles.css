@@ -65,6 +65,75 @@ input[readonly], input:disabled, select[readonly], select:disabled {
   cursor: not-allowed;
 }
 
+.numeric-input {
+  background-color: #FFFFFF;
+  border: 2px solid #FFB3C6;
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: #5A3D5C;
+  box-shadow: 0 2px 8px rgba(255, 126, 185, 0.1);
+  transition: all 0.3s ease;
+  text-align: right;
+}
+.numeric-input:focus {
+  outline: none;
+  border-color: #FF7EB9;
+  box-shadow: 0 0 0 3px rgba(255, 126, 185, 0.15);
+  transform: translateY(-1px);
+}
+.numeric-input[readonly], .numeric-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-input {
+  background-color: #FFFFFF;
+  border: 2px solid #FFB3C6;
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: #5A3D5C;
+  box-shadow: 0 2px 8px rgba(255, 126, 185, 0.1);
+  transition: all 0.3s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #FF7EB9;
+  box-shadow: 0 0 0 3px rgba(255, 126, 185, 0.15);
+  transform: translateY(-1px);
+}
+.form-input[readonly], .form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.symbol-text {
+  font-size: 0.625rem;
+  color: #B8A1BA;
+  text-align: right;
+}
+
+.base-text {
+  font-size: 0.75rem;
+  color: #5A3D5C;
+  font-weight: 600;
+  text-align: right;
+}
+
+.increment-text {
+  font-size: 0.625rem;
+  color: #FF7EB9;
+  text-align: center;
+  font-weight: 600;
+}
+
+.flex-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .recognized-input {
   border-color: #FF7EB9 !important;
   animation: pulse 0.5s ease-out;
@@ -405,3 +474,5 @@ button:active::before {
     display: none;
   }
 }
+
+/*# sourceMappingURL=styles.css.map */

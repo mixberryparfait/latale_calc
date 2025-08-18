@@ -77,6 +77,34 @@ input, select {
 }
 
 // ===========================
+// DRY化用ユーティリティクラス
+// ===========================
+.numeric-input {
+  @include form-control-text-right;
+}
+
+.form-input {
+  @include form-control;
+}
+
+.symbol-text {
+  @include text-dim;
+}
+
+.base-text {
+  @include text-label;
+  text-align: right;
+}
+
+.increment-text {
+  @include text-accent;
+}
+
+.flex-input-group {
+  @include flex-gap($spacing-2);
+}
+
+// ===========================
 // 特殊クラス
 // ===========================
 .recognized-input {
