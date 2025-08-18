@@ -197,10 +197,22 @@ input, select {
 // ===========================
 select.truncate {
   @include text-truncate;
+  max-width: 100%;
+  min-width: 0; // flex-shrinkを有効にする
   
   option {
     @include text-truncate;
     max-width: 100%;
+  }
+}
+
+// スキル設定エリア内のselect要素に特化したスタイル
+.skill-setting-area {
+  select {
+    @include text-truncate;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1; // flexアイテムとして伸縮可能にする
   }
 }
 

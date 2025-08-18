@@ -256,12 +256,23 @@ select.truncate {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
 }
 select.truncate option {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 100%;
+}
+
+.skill-setting-area select {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1;
 }
 
 button {

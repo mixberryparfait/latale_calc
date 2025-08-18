@@ -532,7 +532,7 @@ const createVueInstance = () => {
     // スキル名を切り詰める
     truncateSkillName: function(skillName) {
       if (!skillName) return '';
-      const maxLength = 15; // 最大文字数
+      const maxLength = 12; // より短く設定してUIの安定性を向上
       if (skillName.length > maxLength) {
         return skillName.substring(0, maxLength) + '...';
       }
