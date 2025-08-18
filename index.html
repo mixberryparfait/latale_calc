@@ -385,31 +385,21 @@
 			<div class="space-y-2">
 				<!-- 物理職専用ステータス -->
 				<div v-if="isPhysicalTab">
-					<!-- 攻撃ステータスグループ -->
-					<div class="input-group-attack">
-						<div>
-							<!-- 攻撃最大 -->
-							<div class="input-group-compact">
-								<label class="text-xs">攻撃最大</label>
-								<input type="number" id="攻撃最大" v-model.number="攻撃最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-								<label class="text-2xs text-right text-text-dim">+</label>
-								<span class="text-xs text-right">{{ Math.floor(base('攻撃最大')) }}</span>
-								<span class="text-2xs text-accent text-center">(+{{ incr('攻撃最大') }})</span>
-							</div>
-							<!-- 攻撃最小 -->
-							<div class="input-group-compact mt-2">
-								<label class="text-xs">攻撃最小</label>
-								<input type="number" id="攻撃最小" v-model.number="攻撃最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-								<label class="text-2xs text-right text-text-dim">+</label>
-								<span class="text-xs text-right">{{ Math.floor(base('攻撃最小')) }}</span>
-								<span class="text-2xs text-accent text-center">(+{{ incr('攻撃最小') }})</span>
-							</div>
-						</div>
-						<!-- 攻撃% -->
-						<label class="text-2xs text-right text-text-dim">%</label>
-						<input type="number" id="攻撃_" v-model.number="攻撃_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right">
-						<span class="text-2xs text-accent text-center">(+{{ incr('攻撃%') }})</span>
-					</div>
+				<div class="attack-stats-grid">
+					<label class="text-xs attack-max-label">攻撃最大</label>
+					<input type="number" id="攻撃最大" v-model.number="攻撃最大" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right attack-max-input">
+					<label class="text-2xs text-right text-text-dim attack-max-plus">+</label>
+					<span class="text-xs text-right attack-max-base">{{ Math.floor(base('攻撃最大')) }}</span>
+					<span class="text-2xs text-accent text-center attack-max-incr">(+{{ incr('攻撃最大') }})</span>
+					<label class="text-xs attack-min-label">攻撃最小</label>
+					<input type="number" id="攻撃最小" v-model.number="攻撃最小" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right attack-min-input">
+					<label class="text-2xs text-right text-text-dim attack-min-plus">+</label>
+					<span class="text-xs text-right attack-min-base">{{ Math.floor(base('攻撃最小')) }}</span>
+					<span class="text-2xs text-accent text-center attack-min-incr">(+{{ incr('攻撃最小') }})</span>
+					<label class="text-2xs text-right text-text-dim attack-percent-label">%</label>
+					<input type="number" id="攻撃_" v-model.number="攻撃_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right attack-percent-input">
+					<span class="text-2xs text-accent text-center attack-percent-incr">(+{{ incr('攻撃%') }})</span>
+				</div>
 				</div>
 
 				<!-- 属性（魔法職のみ） -->
