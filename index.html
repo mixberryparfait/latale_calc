@@ -144,53 +144,53 @@
 				<div class="bg-bg-secondary border border-danger/30 rounded p-3">
 					<div class="text-xs font-medium text-danger mb-2">敵設定</div>
 					<div class="space-y-2">
-						<div class="flex items-center gap-2">
-							<label class="text-2xs w-12">ダンジョン</label>
-							<select id="selectedDungeon" v-model="selectedDungeon" @change="onDungeonChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
-								<option value="">手動入力</option>
-								<option v-for="(data, key) in emeraldiaEnemies" :key="key" :value="key">{{ data.dungeon.name }}</option>
-							</select>
-						</div>
-					<div v-if="selectedDungeon" class="flex items-center gap-2">
-						<label class="text-2xs w-12">敵</label>
-						<select id="selectedEnemy" v-model="selectedEnemy" @change="onEnemyChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
-							<option value="">敵を選択</option>
-							<option v-for="enemy in currentDungeonEnemies" :key="enemy.id" :value="enemy.id">{{ enemy.name }}（{{ enemy.type }}）</option>
+			<div class="flex items-center gap-1">
+				<label class="text-2xs w-14 leading-tight">ダンジョン</label>
+				<select id="selectedDungeon" v-model="selectedDungeon" @change="onDungeonChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
+						<option value="">手動入力</option>
+						<option v-for="(data, key) in emeraldiaEnemies" :key="key" :value="key">{{ data.dungeon.name }}</option>
+					</select>
+				</div>
+				<div v-if="selectedDungeon" class="flex items-center gap-1">
+					<label class="text-2xs w-14">敵</label>
+					<select id="selectedEnemy" v-model="selectedEnemy" @change="onEnemyChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
+						<option value="">敵を選択</option>
+						<option v-for="enemy in currentDungeonEnemies" :key="enemy.id" :value="enemy.id">{{ enemy.name }}（{{ enemy.type }}）</option>
+					</select>
+				</div>
+				<div v-if="selectedDungeon" class="flex items-center gap-1">
+					<label class="text-2xs w-14">難易度</label>
+					<select id="selectedDifficulty" v-model="selectedDifficulty" @change="onDifficultyChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
+						<option v-for="difficulty in currentDungeonDifficulties" :key="difficulty" :value="difficulty">{{ difficulty }}</option>
+					</select>
+				</div>
+					<div class="flex items-center gap-1">
+						<label class="text-2xs w-14">タイプ</label>
+						<select id="敵タイプ" v-model="敵タイプ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1">
+							<option value="一般">一般</option>
+							<option value="ボス">ボス</option>
 						</select>
 					</div>
-					<div v-if="selectedDungeon" class="flex items-center gap-2">
-						<label class="text-2xs w-12">難易度</label>
-						<select id="selectedDifficulty" v-model="selectedDifficulty" @change="onDifficultyChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
-							<option v-for="difficulty in currentDungeonDifficulties" :key="difficulty" :value="difficulty">{{ difficulty }}</option>
-						</select>
-					</div>
-						<div class="flex items-center gap-2">
-							<label class="text-2xs w-12">タイプ</label>
-							<select id="敵タイプ" v-model="敵タイプ" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1">
-								<option value="一般">一般</option>
-								<option value="ボス">ボス</option>
-							</select>
+						<div class="flex items-center gap-1">
+							<label class="text-2xs w-14">防御</label>
+							<input type="number" id="敵防御" v-model.number="敵防御" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
 						</div>
-							<div class="flex items-center gap-2">
-								<label class="text-2xs w-12">防御</label>
-								<input type="number" id="敵防御" v-model.number="敵防御" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
-							</div>
-							<div class="flex items-center gap-2">
-								<label class="text-2xs w-12">ダメ減</label>
-								<input type="number" id="敵ダメ減" v-model.number="敵ダメ減" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
-							</div>
-							<div class="flex items-center gap-2">
-								<label class="text-2xs w-12">ダメ減%</label>
-								<input type="number" id="敵ダメ減_" v-model.number="敵ダメ減_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
-							</div>
-							<div class="flex items-center gap-2">
-								<label class="text-2xs w-12">幸運</label>
-								<input type="number" id="敵幸運" v-model.number="敵幸運" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
-							</div>
-							<div class="flex items-center gap-2">
-								<label class="text-2xs w-12">クリ減</label>
-								<input type="number" id="敵クリ減" v-model.number="敵クリ減" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
-							</div>
+						<div class="flex items-center gap-1">
+							<label class="text-2xs w-14">ダメ減</label>
+							<input type="number" id="敵ダメ減" v-model.number="敵ダメ減" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
+						</div>
+						<div class="flex items-center gap-1">
+							<label class="text-2xs w-14">ダメ減%</label>
+							<input type="number" id="敵ダメ減_" v-model.number="敵ダメ減_" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
+						</div>
+						<div class="flex items-center gap-1">
+							<label class="text-2xs w-14">幸運</label>
+							<input type="number" id="敵幸運" v-model.number="敵幸運" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
+						</div>
+						<div class="flex items-center gap-1">
+							<label class="text-2xs w-14">クリ減</label>
+							<input type="number" id="敵クリ減" v-model.number="敵クリ減" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs text-right flex-1">
+						</div>
 						</div>
 					</div>
 					</div>
