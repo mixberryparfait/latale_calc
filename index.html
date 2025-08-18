@@ -102,26 +102,26 @@
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
 					<!-- 左側：スキル設定と敵設定 -->
 					<div class="space-y-3">
-				<!-- スキル設定 -->
-				<div class="bg-bg-secondary border border-accent/30 rounded p-3">
-					<div class="text-xs font-medium text-accent mb-2">スキル設定</div>
-					<div class="space-y-2">
-						<div class="flex items-center gap-2">
-							<label class="text-2xs w-12 flex-shrink-0">職業</label>
-							<select id="selectedJob" v-model="selectedJob" @change="onJobChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
-								<option value="">職業を選択</option>
-								<option v-for="job in jobs" :key="job" :value="job">{{ job }}</option>
-							</select>
-						</div>
-						<div class="flex items-center gap-2">
-							<label class="text-2xs w-12 flex-shrink-0">スキル</label>
-							<select id="selectedSkill" v-model="selectedSkill" @change="onSkillChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1" :title="selectedSkillTitle">
-								<option value="">スキルを選択</option>
-								<option v-for="skill in filteredSkills" :key="skill.index" :value="skill.index" :title="skill.スキル名 + ' (' + skill.スキルタイプ + (skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '') + ')'">
-									{{ truncateSkillName(skill.スキル名) }} ({{ skill.スキルタイプ }}{{ skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '' }})
-								</option>
-							</select>
-						</div>
+		<!-- スキル設定 -->
+		<div class="bg-bg-secondary border border-accent/30 rounded p-3 skill-setting-area">
+			<div class="text-xs font-medium text-accent mb-2">スキル設定</div>
+			<div class="space-y-2">
+				<div class="flex items-center gap-2">
+					<label class="text-2xs w-12 flex-shrink-0">職業</label>
+					<select id="selectedJob" v-model="selectedJob" @change="onJobChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate">
+						<option value="">職業を選択</option>
+						<option v-for="job in jobs" :key="job" :value="job">{{ job }}</option>
+					</select>
+				</div>
+				<div class="flex items-center gap-2">
+					<label class="text-2xs w-12 flex-shrink-0">スキル</label>
+					<select id="selectedSkill" v-model="selectedSkill" @change="onSkillChange" class="bg-input-bg border border-border rounded px-1 py-0.5 text-xs flex-1 truncate" :title="selectedSkillTitle">
+						<option value="">スキルを選択</option>
+						<option v-for="skill in filteredSkills" :key="skill.index" :value="skill.index" :title="skill.スキル名 + ' (' + skill.スキルタイプ + (skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '') + ')'">
+							{{ truncateSkillName(skill.スキル名) }} ({{ skill.スキルタイプ }}{{ skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '' }})
+						</option>
+					</select>
+				</div>
 				<div class="skill-input-group">
 					<label class="text-2xs w-12 flex-shrink-0">レベル</label>
 					<div class="skill-input-wrapper">
