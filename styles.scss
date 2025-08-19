@@ -156,6 +156,7 @@ input[type="number"] {
   grid-template-columns: $grid-label-width $grid-input-width $grid-label-width-sm $grid-display-width $grid-display-width $grid-label-width-sm $grid-input-width $grid-display-width-sm;
   grid-template-rows: auto auto;
   gap: $grid-gap;
+  row-gap: $spacing-2;  // 行間を他の要素と統一
   align-items: center;
   
   // 2行×5列の自動配置
