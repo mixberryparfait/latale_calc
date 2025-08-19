@@ -1,6 +1,7 @@
 // ===========================
 // SCSSインポート（@use構文使用）
 // ===========================
+@use 'sass:color';
 @use 'variables' as *;
 @use 'mixins' as *;
 
@@ -120,10 +121,24 @@ input[type="number"] {
     text-align: right;
   }
   
-  // ベース値（4番目）
+  // ベース値（4番目）- input要素と共通のスタイルを適用してdisabled風に
   > span:nth-child(4) {
-    @include text-label;
+    // form-controlミックスインでinputと同じスタイルを適用
+    @include form-control;
     text-align: right;
+    
+    // disabled風の見た目にカスタマイズ
+    background-color: rgba($bg-secondary, 0.3); // より薄い背景色
+    border-color: $border-light; // 薄めのボーダー
+    cursor: not-allowed; // カーソルを禁止マークに
+    color: $text-primary; // 通常のテキスト色を維持
+    
+    // hover時のスタイルを無効化（disabled風にするため）
+    &:focus {
+      border-color: $border-light;
+      box-shadow: 0 2px 8px rgba(255, 126, 185, 0.1);
+      transform: none;
+    }
   }
   
   // 増分
@@ -142,7 +157,8 @@ input[type="number"] {
   
   // 子要素数に応じた自動カラム調整
   &:has(> :nth-child(8)) {
-    grid-template-columns: $grid-label-width $grid-input-width $grid-label-width-sm $grid-display-width $grid-display-width $grid-label-width-sm $grid-input-width $grid-display-width-sm;
+    // span:nth-child(4)の幅をinput幅と同じに変更
+    grid-template-columns: $grid-label-width $grid-input-width $grid-label-width-sm $grid-input-width $grid-display-width $grid-label-width-sm $grid-input-width $grid-display-width-sm;
   }
   
   &:has(> :nth-child(3)):not(:has(> :nth-child(4))) {
@@ -153,7 +169,8 @@ input[type="number"] {
 // 攻撃グリッドレイアウトmixin
 @mixin attack-grid-layout {
   display: grid;
-  grid-template-columns: $grid-label-width $grid-input-width $grid-label-width-sm $grid-display-width $grid-display-width $grid-label-width-sm $grid-input-width $grid-display-width-sm;
+  // span:nth-child(4)とspan:nth-child(9)の幅をinput幅と同じに変更
+  grid-template-columns: $grid-label-width $grid-input-width $grid-label-width-sm $grid-input-width $grid-display-width $grid-label-width-sm $grid-input-width $grid-display-width-sm;
   grid-template-rows: auto auto;
   gap: $grid-gap;
   row-gap: $spacing-2;
@@ -184,11 +201,25 @@ input[type="number"] {
     text-align: right;
   }
   
-  // attack-stats-grid用のspan
+  // attack-stats-grid用のspan - input風のdisabledスタイルを適用
   > span:nth-child(4),
   > span:nth-child(9) {
-    @include text-label;
+    // form-controlミックスインでinputと同じスタイルを適用
+    @include form-control;
     text-align: right;
+    
+    // disabled風の見た目にカスタマイズ
+    background-color: rgba($bg-secondary, 0.3); // より薄い背景色
+    border-color: $border-light; // 薄めのボーダー
+    cursor: not-allowed; // カーソルを禁止マークに
+    color: $text-primary; // 通常のテキスト色を維持
+    
+    // hover時のスタイルを無効化（disabled風にするため）
+    &:focus {
+      border-color: $border-light;
+      box-shadow: 0 2px 8px rgba(255, 126, 185, 0.1);
+      transform: none;
+    }
   }
   
   > span:nth-child(5),
@@ -429,7 +460,7 @@ select.truncate {
   transition: all 0.3s ease !important;
   
   &:hover {
-    background: linear-gradient(135deg, #29B6F6 0%, darken($purple, 10%) 100%) !important;
+    background: linear-gradient(135deg, #29B6F6 0%, color.adjust($purple, $lightness: -10%) 100%) !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 20px rgba($purple, 0.4) !important;
   }
