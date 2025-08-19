@@ -156,7 +156,7 @@ input[type="number"] {
   grid-template-columns: $grid-label-width $grid-input-width $grid-label-width-sm $grid-display-width $grid-display-width $grid-label-width-sm $grid-input-width $grid-display-width-sm;
   grid-template-rows: auto auto;
   gap: $grid-gap;
-  row-gap: $spacing-2;  // 行間を他の要素と統一
+  row-gap: $spacing-2;
   align-items: center;
   
   // 2行×5列の自動配置
@@ -416,6 +416,28 @@ select.truncate {
 // ===========================
 .dropzone {
   @include dropzone-style;
+}
+
+// ===========================
+// コピーボタンスタイル
+// ===========================
+#copy {
+  background: linear-gradient(135deg, #4FC3F7 0%, $purple 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba($purple, 0.3) !important;
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, #29B6F6 0%, darken($purple, 10%) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba($purple, 0.4) !important;
+  }
+  
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 10px rgba($purple, 0.3) !important;
+  }
 }
 
 // ===========================
