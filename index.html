@@ -1,493 +1,516 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-  	<meta charset="UTF-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<title>ラテール　ダメージ計算機</title>
 
-  	<!-- Tailwind CSS CDN -->
-  	<script src="https://cdn.tailwindcss.com"></script>
-  	<script>
-  		tailwind.config = {
-  		theme: {
-  			extend: {
-  				colors: {
-  					'bg': '#FFF5F7',
-  					'bg-secondary': '#FFE4E9',
-  					'bg-tertiary': '#FFDDE4',
-  					'border': '#FFB3BA',
-  					'border-light': '#FFCCDB',
-  					'text': '#3D2E40',
-  					'text-muted': '#6B5D6E',
-  					'text-dim': '#8B7D8E',
-  					'accent': '#E91E8C',
-  					'accent-hover': '#D61478',
-  					'danger': '#E6346D',
-  					'warning': '#E6A800',
-  					'success': '#2FA088',
-  					'input-bg': '#FFFFFF',
-  					'tab-active': '#FFE4E9',
-  					'tab-inactive': '#FFF5F7',
-  					},
-  					fontSize: {
-  						'2xs': '0.625rem',
-  					},
-  					spacing: {
-  						'18': '4.5rem',
-  					}
-  				}
-  			}
-  		}
-  	</script>
-  	<!-- コンパイル済みCSS -->
-  	<link rel="stylesheet" href="styles.css">
-  	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ラテール　ダメージ計算機</title>
+
+	<!-- Tailwind CSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						'bg': '#FFF5F7',
+						'bg-secondary': '#FFE4E9',
+						'bg-tertiary': '#FFDDE4',
+						'border': '#FFB3BA',
+						'border-light': '#FFCCDB',
+						'text': '#3D2E40',
+						'text-muted': '#6B5D6E',
+						'text-dim': '#8B7D8E',
+						'accent': '#E91E8C',
+						'accent-hover': '#D61478',
+						'danger': '#E6346D',
+						'warning': '#E6A800',
+						'success': '#2FA088',
+						'input-bg': '#FFFFFF',
+						'tab-active': '#FFE4E9',
+						'tab-inactive': '#FFF5F7',
+					},
+					fontSize: {
+						'2xs': '0.625rem',
+					},
+					spacing: {
+						'18': '4.5rem',
+					}
+				}
+			}
+		}
+	</script>
+	<!-- コンパイル済みCSS -->
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
-  	<script src="main.js" charset="UTF-8"></script>
-	</head>
-	<body class="min-h-screen bg-bg text-text">
-		<div class="container mx-auto max-w-5xl p-4">
-			<!-- タイトル部分 -->
-			<div class="bg-gradient-to-r from-bg-secondary to-bg-tertiary rounded-lg p-6 mb-4 shadow-lg">
-				<h1 class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500 title-decoration">
-					ラテール　ダメージ計算機
-				</h1>
-			</div>
+	<script src="main.js" charset="UTF-8"></script>
+</head>
 
-			<details class="bg-bg-secondary border border-border rounded p-3 mb-3">
-				<summary class="font-medium cursor-pointer text-sm">説明</summary>
-				<div class="mt-2 text-xs text-text-muted space-y-1">
-					<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
-					<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
-					<p>＋１当たりダメ上昇はステ画面の +1 ではなく加算値を振った場合の価値です</p>
-					<p>貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています</p>
-				</div>
-			</details>
-
-		<label class="dropzone bg-bg-secondary border-2 border-dashed border-border rounded p-3 flex items-center justify-center cursor-pointer hover:border-accent transition-colors mb-3 block">
-			<input type="file" id="file-input" class="hidden">
-			<span class="text-xs">📷 スクリーンショットから自動入力</span>
-	        </label>
-	    	<p id="progress" class="text-center text-text-muted text-2xs mb-3"></p>
-
-			<div id="latale_calc">
-
-		<!-- ダメージ表示 -->
-		<div class="grid grid-cols-4 gap-3 mb-4">
-			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-accent/20 shadow-lg">
-				<div class="text-2xs text-text-muted mb-1">青ダメ</div>
-				<div id="base-damage-display" class="text-xl font-bold text-accent text-center">{{ damageFormat(base_damage) }}</div>
-			</div>
-			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-danger/20 shadow-lg">
-				<div class="text-2xs text-text-muted mb-1">赤ダメ</div>
-				<div id="cri-damage-display" class="text-xl font-bold text-danger text-center">{{ damageFormat(cri_damage) }}</div>
-			</div>
-			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-warning/20 shadow-lg">
-				<div class="text-2xs text-text-muted mb-1">クリ率</div>
-				<div id="cri-rate-display" class="text-xl font-bold text-warning text-center">
-					{{ Math.floor(cri_rate) }}<span class="text-sm text-text-muted">%</span>
-				</div>
-			</div>
-			<div class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-success/20 shadow-lg">
-				<div class="text-2xs text-text-muted mb-1">ダメ平均</div>
-				<div id="damage-display" class="text-xl font-bold text-success text-center">{{ damageFormat(damage) }}</div>
-			</div>
+<body class="min-h-screen bg-bg text-text">
+	<div class="container mx-auto max-w-5xl p-4">
+		<!-- タイトル部分 -->
+		<div class="bg-gradient-to-r from-bg-secondary to-bg-tertiary rounded-lg p-6 mb-4 shadow-lg">
+			<h1
+				class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500 title-decoration">
+				ラテール　ダメージ計算機
+			</h1>
 		</div>
 
-			<button id="copy" class="bg-accent hover:bg-accent-hover text-white font-medium py-2 px-4 rounded transition-colors block mx-auto mb-3 text-sm">
-				コピーする	
+		<details class="bg-bg-secondary border border-border rounded p-3 mb-3">
+			<summary class="font-medium cursor-pointer text-sm">説明</summary>
+			<div class="mt-2 text-xs text-text-muted space-y-1">
+				<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
+				<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
+				<p>＋１当たりダメ上昇はステ画面の +1 ではなく加算値を振った場合の価値です</p>
+				<p>貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています</p>
+			</div>
+		</details>
+
+		<label
+			class="dropzone bg-bg-secondary border-2 border-dashed border-border rounded p-3 flex items-center justify-center cursor-pointer hover:border-accent transition-colors mb-3 block">
+			<input type="file" id="file-input" class="hidden">
+			<span class="text-xs">📷 スクリーンショットから自動入力</span>
+		</label>
+		<p id="progress" class="text-center text-text-muted text-2xs mb-3"></p>
+
+		<div id="latale_calc">
+
+			<!-- ダメージ表示 -->
+			<div class="grid grid-cols-4 gap-3 mb-4">
+				<div
+					class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-accent/20 shadow-lg">
+					<div class="text-2xs text-text-muted mb-1">青ダメ</div>
+					<div id="base-damage-display" class="text-xl font-bold text-accent text-center">{{ damageFormat(base_damage)
+						}}</div>
+				</div>
+				<div
+					class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-danger/20 shadow-lg">
+					<div class="text-2xs text-text-muted mb-1">赤ダメ</div>
+					<div id="cri-damage-display" class="text-xl font-bold text-danger text-center">{{ damageFormat(cri_damage) }}
+					</div>
+				</div>
+				<div
+					class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-warning/20 shadow-lg">
+					<div class="text-2xs text-text-muted mb-1">クリ率</div>
+					<div id="cri-rate-display" class="text-xl font-bold text-warning text-center">
+						{{ Math.floor(cri_rate) }}<span class="text-sm text-text-muted">%</span>
+					</div>
+				</div>
+				<div
+					class="damage-card bg-gradient-to-br from-bg-secondary to-bg-tertiary rounded-lg p-3 border border-success/20 shadow-lg">
+					<div class="text-2xs text-text-muted mb-1">ダメ平均</div>
+					<div id="damage-display" class="text-xl font-bold text-success text-center">{{ damageFormat(damage) }}</div>
+				</div>
+			</div>
+
+			<button id="copy"
+				class="bg-accent hover:bg-accent-hover text-white font-medium py-2 px-4 rounded transition-colors block mx-auto mb-3 text-sm">
+				コピーする
 			</button>
 
 			<!-- メインコンテンツエリア -->
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
-					<!-- 左側：スキル設定と敵設定 -->
-					<div class="space-y-3">
-		<!-- スキル設定 -->
-		<div class="bg-bg-secondary border border-accent/30 rounded p-3">
-			<div class="text-xs font-medium text-accent mb-2">スキル設定</div>
-			<div class="space-y-2">
-				<div class="setting-row">
-					<label>職業</label>
-					<select id="selectedJob" v-model="selectedJob" @change="onJobChange">
-						<option value="">職業を選択</option>
-						<option v-for="job in jobs" :key="job" :value="job">{{ job }}</option>
-					</select>
-				</div>
-				<div class="setting-row">
-					<label>スキル</label>
-					<select id="selectedSkill" v-model="selectedSkill" @change="onSkillChange" :title="selectedSkillTitle">
-						<option value="">スキルを選択</option>
-						<option v-for="skill in filteredSkills" :key="skill.index" :value="skill.index" :title="skill.スキル名 + ' (' + skill.スキルタイプ + (skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '') + ')'">
-							{{ truncateSkillName(skill.スキル名) }} ({{ skill.スキルタイプ }}{{ skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '' }})
-						</option>
-					</select>
-				</div>
-				<div class="setting-row">
-					<label>レベル</label>
-					<div class="skill-multi-input">
-						<input type="number" id="スキルレベル" min="1" :max="currentSkillMaxLevel" v-model.number="スキルレベル">
-						<label>倍率</label>
-						<input type="number" step="0.1" id="スキル倍率" v-model.number="スキル倍率" :readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'" :class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
-						<label>追加</label>
-						<input type="number" id="スキル追加ダメ" v-model.number="スキル追加ダメ" :readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'" :class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
-					</div>
-				</div>
-				<div v-if="currentSkillType === '召喚'" class="setting-row with-suffix">
-					<label>召喚補正</label>
-					<input type="number" id="召喚補正" :value="getSummonBonus()" readonly class="opacity-50 cursor-not-allowed">
-					<span class="text-xs">%</span>
-				</div>
+				<!-- 左側：スキル設定と敵設定 -->
+				<div class="space-y-3">
+					<!-- スキル設定 -->
+					<div class="bg-bg-secondary border border-accent/30 rounded p-3">
+						<div class="text-xs font-medium text-accent mb-2">スキル設定</div>
+						<div class="space-y-2">
+							<div class="setting-row">
+								<label>職業</label>
+								<select id="selectedJob" v-model="selectedJob" @change="onJobChange">
+									<option value="">職業を選択</option>
+									<option v-for="job in jobs" :key="job" :value="job">{{ job }}</option>
+								</select>
+							</div>
+							<div class="setting-row">
+								<label>スキル</label>
+								<select id="selectedSkill" v-model="selectedSkill" @change="onSkillChange" :title="selectedSkillTitle">
+									<option value="">スキルを選択</option>
+									<option v-for="skill in filteredSkills" :key="skill.index" :value="skill.index"
+										:title="skill.スキル名 + ' (' + skill.スキルタイプ + (skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '') + ')'">
+										{{ truncateSkillName(skill.スキル名) }} ({{ skill.スキルタイプ }}{{ skill.物理or魔法 ? ' - ' + skill.物理or魔法 : ''
+										}})
+									</option>
+								</select>
+							</div>
+							<div class="setting-row">
+								<label>レベル</label>
+								<div class="skill-multi-input">
+									<input type="number" id="スキルレベル" min="1" :max="currentSkillMaxLevel" v-model.number="スキルレベル">
+									<label>倍率</label>
+									<input type="number" step="0.1" id="スキル倍率" v-model.number="スキル倍率"
+										:readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"
+										:class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
+									<label>追加</label>
+									<input type="number" id="スキル追加ダメ" v-model.number="スキル追加ダメ"
+										:readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"
+										:class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
+								</div>
+							</div>
+							<div v-if="currentSkillType === '召喚'" class="setting-row with-suffix">
+								<label>召喚補正</label>
+								<input type="number" id="召喚補正" :value="getSummonBonus()" readonly class="opacity-50 cursor-not-allowed">
+								<span class="text-xs">%</span>
+							</div>
 						</div>
 					</div>
 
-		<!-- 敵設定 -->
-		<div class="bg-bg-secondary border border-danger/30 rounded p-3">
-				<div class="text-xs font-medium text-danger mb-2">敵設定</div>
-				<div class="space-y-2">
-		<div class="setting-row enemy">
-			<label>ダンジョン</label>
-			<select id="selectedDungeon" v-model="selectedDungeon" @change="onDungeonChange">
-					<option value="">手動入力</option>
-					<option v-for="(data, key) in emeraldiaEnemies" :key="key" :value="key">{{ data.dungeon.name }}</option>
-				</select>
-			</div>
-			<div v-if="selectedDungeon" class="setting-row enemy">
-				<label>敵</label>
-				<select id="selectedEnemy" v-model="selectedEnemy" @change="onEnemyChange">
-					<option value="">敵を選択</option>
-					<option v-for="enemy in currentDungeonEnemies" :key="enemy.id" :value="enemy.id">{{ enemy.name }}（{{ enemy.type }}）</option>
-				</select>
-			</div>
-			<div v-if="selectedDungeon" class="setting-row enemy">
-				<label>難易度</label>
-				<select id="selectedDifficulty" v-model="selectedDifficulty" @change="onDifficultyChange">
-					<option v-for="difficulty in currentDungeonDifficulties" :key="difficulty" :value="difficulty">{{ difficulty }}</option>
-				</select>
-			</div>
-				<div class="setting-row enemy">
-					<label>タイプ</label>
-					<select id="敵タイプ" v-model="敵タイプ">
-						<option value="一般">一般</option>
-						<option value="ボス">ボス</option>
-					</select>
-				</div>
-					<div class="setting-row enemy">
-						<label>防御</label>
-						<input type="number" id="敵防御" v-model.number="敵防御">
+					<!-- 敵設定 -->
+					<div class="bg-bg-secondary border border-danger/30 rounded p-3">
+						<div class="text-xs font-medium text-danger mb-2">敵設定</div>
+						<div class="space-y-2">
+							<div class="setting-row enemy">
+								<label>ダンジョン</label>
+								<select id="selectedDungeon" v-model="selectedDungeon" @change="onDungeonChange">
+									<option value="">手動入力</option>
+									<option v-for="(data, key) in emeraldiaEnemies" :key="key" :value="key">{{ data.dungeon.name }}
+									</option>
+								</select>
+							</div>
+							<div v-if="selectedDungeon" class="setting-row enemy">
+								<label>敵</label>
+								<select id="selectedEnemy" v-model="selectedEnemy" @change="onEnemyChange">
+									<option value="">敵を選択</option>
+									<option v-for="enemy in currentDungeonEnemies" :key="enemy.id" :value="enemy.id">{{ enemy.name }}（{{
+										enemy.type }}）</option>
+								</select>
+							</div>
+							<div v-if="selectedDungeon" class="setting-row enemy">
+								<label>難易度</label>
+								<select id="selectedDifficulty" v-model="selectedDifficulty" @change="onDifficultyChange">
+									<option v-for="difficulty in currentDungeonDifficulties" :key="difficulty" :value="difficulty">{{
+										difficulty }}</option>
+								</select>
+							</div>
+							<div class="setting-row enemy">
+								<label>タイプ</label>
+								<select id="敵タイプ" v-model="敵タイプ">
+									<option value="一般">一般</option>
+									<option value="ボス">ボス</option>
+								</select>
+							</div>
+							<div class="setting-row enemy">
+								<label>防御</label>
+								<input type="number" id="敵防御" v-model.number="敵防御">
+							</div>
+							<div class="setting-row enemy">
+								<label>ダメ減</label>
+								<input type="number" id="敵ダメ減" v-model.number="敵ダメ減">
+							</div>
+							<div class="setting-row enemy">
+								<label>ダメ減%</label>
+								<input type="number" id="敵ダメ減_" v-model.number="敵ダメ減_">
+							</div>
+							<div class="setting-row enemy">
+								<label>幸運</label>
+								<input type="number" id="敵幸運" v-model.number="敵幸運">
+							</div>
+							<div class="setting-row enemy">
+								<label>クリ減</label>
+								<input type="number" id="敵クリ減" v-model.number="敵クリ減">
+							</div>
+						</div>
 					</div>
-					<div class="setting-row enemy">
-						<label>ダメ減</label>
-						<input type="number" id="敵ダメ減" v-model.number="敵ダメ減">
-					</div>
-					<div class="setting-row enemy">
-						<label>ダメ減%</label>
-						<input type="number" id="敵ダメ減_" v-model.number="敵ダメ減_">
-					</div>
-					<div class="setting-row enemy">
-						<label>幸運</label>
-						<input type="number" id="敵幸運" v-model.number="敵幸運">
-					</div>
-					<div class="setting-row enemy">
-						<label>クリ減</label>
-						<input type="number" id="敵クリ減" v-model.number="敵クリ減">
-					</div>
-					</div>
-				</div>
-					</div>
-
-					<!-- 右側：ステータス入力エリア -->
-					<div class="lg:col-span-2 bg-bg-secondary border border-border rounded p-3">
-				<!-- 共通ステータス -->
-				<div class="space-y-2">
-				<!-- 筋力/魔力 -->
-				<div class="input-group">
-					<label>{{ isPhysicalTab ? '筋力' : '魔力' }}</label>
-				<input type="number" :id="isPhysicalTab ? '筋力' : '魔力'" v-model.number="isPhysicalTab ? 筋力 : 魔力">
-					<label>+</label>
-					<span>{{ Math.floor(base(isPhysicalTab ? '筋力' : '魔力')) }}</span>
-					<span>(+{{ incr(isPhysicalTab ? '筋力' : '魔力') }})</span>
-					<label>%</label>
-				<input type="number" :id="isPhysicalTab ? '筋力_' : '魔力_'" v-model.number="isPhysicalTab ? 筋力_ : 魔力_">
-					<span>(+{{ incr(isPhysicalTab ? '筋力%' : '魔力%') }})</span>
 				</div>
 
-				<!-- 効率 -->
-				<div class="input-group">
-		<label>効率</label>
-		<input type="number" id="効率" v-model.number="効率">
-		<span>(+{{ incr('効率') }})</span>
-				</div>
-
-				<!-- 幸運 -->
-				<div class="input-group">
-					<label>幸運</label>
-				<input type="number" id="幸運" v-model.number="幸運">
-					<label>+</label>
-					<span>{{ Math.floor(base('幸運')) }}</span>
-					<span>(+{{ incr('幸運') }})</span>
-					<label>%</label>
-				<input type="number" id="幸運_" v-model.number="幸運_">
-					<span>(+{{ incr('幸運%') }})</span>
-				</div>
-			</div>
-
-				<div class="section-divider"></div>
-
-				<!-- HP・体力 (ダメージ換算) -->
-				<div class="space-y-2">
-					<div class="text-2xs text-text-muted mb-2">※HP1%増加 = ダメージ1%増加として価値を計算</div>
-					
-				<!-- 体力 -->
-				<div class="input-group">
-					<label>体力</label>
-				<input type="number" id="体力" v-model.number="体力">
-					<label>+</label>
-					<span>{{ Math.floor(base('体力')) }}</span>
-					<span>(+{{ incr('体力') }})</span>
-					<label>%</label>
-				<input type="number" id="体力_" v-model.number="体力_">
-					<span>(+{{ incr('体力%') }})</span>
-				</div>
-
-				<!-- HP -->
-				<div class="input-group">
-					<label>HP</label>
-				<input type="number" id="HP" v-model.number="HP">
-					<label>+</label>
-					<span>{{ Math.floor(base('HP')) }}</span>
-					<span>(+{{ incr('HP') }})</span>
-					<label>%</label>
-				<input type="number" id="HP_" v-model.number="HP_">
-					<span>(+{{ incr('HP%') }})</span>
-				</div>
-				</div>
-
-				<div class="section-divider"></div>
-
-				<!-- クリ率・クリダメ -->
-				<div class="space-y-2">
-				<!-- 物理クリ率 -->
-				<div v-show="isPhysicalTab" class="input-group">
-					<label>クリ率</label>
-				<input type="number" id="物理_クリ率" v-model.number="物理_クリ率">
-				<span>(+{{ incr('クリ率') }})</span>
-				</div>
-				<!-- 魔法クリ率 -->
-				<div v-show="!isPhysicalTab" class="input-group">
-					<label>クリ率</label>
-				<input type="number" id="魔法_クリ率" v-model.number="魔法_クリ率">
-				<span>(+{{ incr('クリ率') }})</span>
-				</div>
-				<!-- 物理クリダメ -->
-				<div v-show="isPhysicalTab" class="input-group">
-					<label>クリダメ</label>
-		<input type="number" id="物理_クリダメ" v-model.number="物理_クリダメ">	
-		<label>+</label>
-		<span>{{ Math.floor(base('クリダメ')) }}</span>
-		<span>(+{{ incr('クリダメ') }})</span>
-		<label>最終</label>
-		<input type="number" id="最終クリダメ" v-model.number="最終クリダメ">
-		<span>(+{{ incr('最終クリダメ') }})</span>
-				</div>
-				<!-- 魔法クリダメ -->
-				<div v-show="!isPhysicalTab" class="input-group">
-					<label>クリダメ</label>
-		<input type="number" id="魔法_クリダメ" v-model.number="魔法_クリダメ">	
-		<label>+</label>
-		<span>{{ Math.floor(base('クリダメ')) }}</span>
-		<span>(+{{ incr('クリダメ') }})</span>
-		<label>最終</label>
-		<input type="number" id="最終クリダメ" v-model.number="最終クリダメ">
-		<span>(+{{ incr('最終クリダメ') }})</span>
-				</div>
-				</div>
-
-				<div class="section-divider"></div>
-
-			<!-- 最大・最小グループ -->
-			<div class="space-y-2">
-		<!-- 物理最大行 -->
-		<div v-show="isPhysicalTab" class="input-group">
-			<label>最大</label>
-			<input type="number" id="物理_最大" v-model.number="物理_最大">
-			<label>+</label>
-			<span>{{ Math.floor(base('最大')) }}</span>
-			<span>(+{{ incr('最大') }})</span>
-			<label>最終</label>
-			<input type="number" id="最終最大" v-model.number="最終最大">
-			<span>(+{{ incr('最終最大') }})</span>
-		</div>
-		
-		<!-- 魔法最大行 -->
-		<div v-show="!isPhysicalTab" class="input-group">
-			<label>最大</label>
-			<input type="number" id="魔法_最大" v-model.number="魔法_最大">
-			<label>+</label>
-			<span>{{ Math.floor(base('最大')) }}</span>
-			<span>(+{{ incr('最大') }})</span>
-			<label>最終</label>
-			<input type="number" id="最終最大" v-model.number="最終最大">
-			<span>(+{{ incr('最終最大') }})</span>
-		</div>
-		
-		<!-- 物理最小行 -->
-		<div v-show="isPhysicalTab" class="input-group">
-			<label>最小</label>
-			<input type="number" id="物理_最小" v-model.number="物理_最小">
-			<label>+</label>
-			<span>{{ Math.floor(base('最小')) }}</span>
-			<span>(+{{ incr('最小') }})</span>
-			<label>最終</label>
-			<input type="number" id="最終最小" v-model.number="最終最小">
-			<span>(+{{ incr('最終最小') }})</span>
-		</div>
-		
-		<!-- 魔法最小行 -->
-		<div v-show="!isPhysicalTab" class="input-group">
-			<label>最小</label>
-			<input type="number" id="魔法_最小" v-model.number="魔法_最小">
-			<label>+</label>
-			<span>{{ Math.floor(base('最小')) }}</span>
-			<span>(+{{ incr('最小') }})</span>
-			<label>最終</label>
-			<input type="number" id="最終最小" v-model.number="最終最小">
-			<span>(+{{ incr('最終最小') }})</span>
-		</div>
-						
-					<!-- 基礎最大・最小、属性最大・最小 -->
+				<!-- 右側：ステータス入力エリア -->
+				<div class="lg:col-span-2 bg-bg-secondary border border-border rounded p-3">
+					<!-- 共通ステータス -->
 					<div class="space-y-2">
+						<!-- 筋力/魔力 -->
 						<div class="input-group">
-							<label>基礎最大</label>
-				<input type="number" id="基礎最大" v-model.number="基礎最大">
-							<span></span>
+							<label>{{ isPhysicalTab ? '筋力' : '魔力' }}</label>
+							<input type="number" :id="isPhysicalTab ? '筋力' : '魔力'" v-model.number="isPhysicalTab ? 筋力 : 魔力">
+							<label>+</label>
+							<span>{{ Math.floor(base(isPhysicalTab ? '筋力' : '魔力')) }}</span>
+							<span>(+{{ incr(isPhysicalTab ? '筋力' : '魔力') }})</span>
+							<label>%</label>
+							<input type="number" :id="isPhysicalTab ? '筋力_' : '魔力_'" v-model.number="isPhysicalTab ? 筋力_ : 魔力_">
+							<span>(+{{ incr(isPhysicalTab ? '筋力%' : '魔力%') }})</span>
 						</div>
+
+						<!-- 効率 -->
 						<div class="input-group">
-							<label>基礎最小</label>
-				<input type="number" id="基礎最小" v-model.number="基礎最小">
-							<span></span>
+							<label>効率</label>
+							<input type="number" id="効率" v-model.number="効率">
+							<span>(+{{ incr('効率') }})</span>
 						</div>
-						<div v-if="!isPhysicalTab" class="input-group">
-							<label>属性最大</label>
-				<input type="number" id="属性最大" v-model.number="属性最大">
-							<span>(+{{ incr('属性最大') }})</span>
+
+						<!-- 幸運 -->
+						<div class="input-group">
+							<label>幸運</label>
+							<input type="number" id="幸運" v-model.number="幸運">
+							<label>+</label>
+							<span>{{ Math.floor(base('幸運')) }}</span>
+							<span>(+{{ incr('幸運') }})</span>
+							<label>%</label>
+							<input type="number" id="幸運_" v-model.number="幸運_">
+							<span>(+{{ incr('幸運%') }})</span>
 						</div>
-						<div v-if="!isPhysicalTab" class="input-group">
-							<label>属性最小</label>
-		<input type="number" id="属性最小" v-model.number="属性最小">
-							<span>(+{{ incr('属性最小') }})</span>
-						</div>
-					</div>
 					</div>
 
 					<div class="section-divider"></div>
 
-			<!-- 攻撃・属性・貫通 -->
-			<div class="space-y-2">
-			<!-- 物理職専用ステータス -->
-			<div v-if="isPhysicalTab">
-			<div class="attack-stats-grid">
-				<label>攻撃最大</label>
-		<input type="number" id="攻撃最大" v-model.number="攻撃最大">
-			<label>+</label>
-			<span>{{ Math.floor(base('攻撃最大')) }}</span>
-			<span>(+{{ incr('攻撃最大') }})</span>
-				<label>攻撃最小</label>
-		<input type="number" id="攻撃最小" v-model.number="攻撃最小">
-		<label>+</label>
-		<span>{{ Math.floor(base('攻撃最小')) }}</span>
-		<span>(+{{ incr('攻撃最小') }})</span>
-				<label>%</label>
-		<input type="number" id="攻撃_" v-model.number="攻撃_">
-		<span>(+{{ incr('攻撃%') }})</span>
-			</div>
-			</div>
+					<!-- HP・体力 (ダメージ換算) -->
+					<div class="space-y-2">
+						<div class="text-2xs text-text-muted mb-2">※HP1%増加 = ダメージ1%増加として価値を計算</div>
 
-			<!-- 属性（魔法職のみ） -->
-			<div v-if="!isPhysicalTab">
-				<div class="input-group">
-					<label>属性</label>
-			<input type="number" id="属性" v-model.number="属性">
-					<label>+</label>
-					<span>{{ Math.floor(base('属性')) }}</span>
-					<span>(+{{ incr('属性') }})</span>
-					<label>%</label>
-			<input type="number" id="属性_" v-model.number="属性_">
-					<span>(+{{ incr('属性%') }})</span>
-				</div>
-			</div>
+						<!-- 体力 -->
+						<div class="input-group">
+							<label>体力</label>
+							<input type="number" id="体力" v-model.number="体力">
+							<label>+</label>
+							<span>{{ Math.floor(base('体力')) }}</span>
+							<span>(+{{ incr('体力') }})</span>
+							<label>%</label>
+							<input type="number" id="体力_" v-model.number="体力_">
+							<span>(+{{ incr('体力%') }})</span>
+						</div>
 
-			<!-- 貫通 -->
-			<!-- 物理貫通 -->
-			<div v-show="isPhysicalTab" class="input-group">
-				<label>貫通</label>
-		<input type="number" id="物理_貫通" v-model.number="物理_貫通">
-				<span>(+{{ incr('貫通') }})</span>
-			</div>
-			<!-- 魔法貫通 -->
-			<div v-show="!isPhysicalTab" class="input-group">
-				<label>貫通</label>
-		<input type="number" id="魔法_貫通" v-model.number="魔法_貫通">
-				<span>(+{{ incr('貫通') }})</span>
-			</div>
-			</div>
+						<!-- HP -->
+						<div class="input-group">
+							<label>HP</label>
+							<input type="number" id="HP" v-model.number="HP">
+							<label>+</label>
+							<span>{{ Math.floor(base('HP')) }}</span>
+							<span>(+{{ incr('HP') }})</span>
+							<label>%</label>
+							<input type="number" id="HP_" v-model.number="HP_">
+							<span>(+{{ incr('HP%') }})</span>
+						</div>
+					</div>
+
+					<div class="section-divider"></div>
+
+					<!-- クリ率・クリダメ -->
+					<div class="space-y-2">
+						<!-- 物理クリ率 -->
+						<div v-show="isPhysicalTab" class="input-group">
+							<label>クリ率</label>
+							<input type="number" id="物理_クリ率" v-model.number="物理_クリ率">
+							<span>(+{{ incr('クリ率') }})</span>
+						</div>
+						<!-- 魔法クリ率 -->
+						<div v-show="!isPhysicalTab" class="input-group">
+							<label>クリ率</label>
+							<input type="number" id="魔法_クリ率" v-model.number="魔法_クリ率">
+							<span>(+{{ incr('クリ率') }})</span>
+						</div>
+						<!-- 物理クリダメ -->
+						<div v-show="isPhysicalTab" class="input-group">
+							<label>クリダメ</label>
+							<input type="number" id="物理_クリダメ" v-model.number="物理_クリダメ">
+							<label>+</label>
+							<span>{{ Math.floor(base('クリダメ')) }}</span>
+							<span>(+{{ incr('クリダメ') }})</span>
+							<label>最終</label>
+							<input type="number" id="最終クリダメ" v-model.number="最終クリダメ">
+							<span>(+{{ incr('最終クリダメ') }})</span>
+						</div>
+						<!-- 魔法クリダメ -->
+						<div v-show="!isPhysicalTab" class="input-group">
+							<label>クリダメ</label>
+							<input type="number" id="魔法_クリダメ" v-model.number="魔法_クリダメ">
+							<label>+</label>
+							<span>{{ Math.floor(base('クリダメ')) }}</span>
+							<span>(+{{ incr('クリダメ') }})</span>
+							<label>最終</label>
+							<input type="number" id="最終クリダメ" v-model.number="最終クリダメ">
+							<span>(+{{ incr('最終クリダメ') }})</span>
+						</div>
+					</div>
+
+					<div class="section-divider"></div>
+
+					<!-- 最大・最小グループ -->
+					<div class="space-y-2">
+						<!-- 物理最大行 -->
+						<div v-show="isPhysicalTab" class="input-group">
+							<label>最大</label>
+							<input type="number" id="物理_最大" v-model.number="物理_最大">
+							<label>+</label>
+							<span>{{ Math.floor(base('最大')) }}</span>
+							<span>(+{{ incr('最大') }})</span>
+							<label>最終</label>
+							<input type="number" id="最終最大" v-model.number="最終最大">
+							<span>(+{{ incr('最終最大') }})</span>
+						</div>
+
+						<!-- 魔法最大行 -->
+						<div v-show="!isPhysicalTab" class="input-group">
+							<label>最大</label>
+							<input type="number" id="魔法_最大" v-model.number="魔法_最大">
+							<label>+</label>
+							<span>{{ Math.floor(base('最大')) }}</span>
+							<span>(+{{ incr('最大') }})</span>
+							<label>最終</label>
+							<input type="number" id="最終最大" v-model.number="最終最大">
+							<span>(+{{ incr('最終最大') }})</span>
+						</div>
+
+						<!-- 物理最小行 -->
+						<div v-show="isPhysicalTab" class="input-group">
+							<label>最小</label>
+							<input type="number" id="物理_最小" v-model.number="物理_最小">
+							<label>+</label>
+							<span>{{ Math.floor(base('最小')) }}</span>
+							<span>(+{{ incr('最小') }})</span>
+							<label>最終</label>
+							<input type="number" id="最終最小" v-model.number="最終最小">
+							<span>(+{{ incr('最終最小') }})</span>
+						</div>
+
+						<!-- 魔法最小行 -->
+						<div v-show="!isPhysicalTab" class="input-group">
+							<label>最小</label>
+							<input type="number" id="魔法_最小" v-model.number="魔法_最小">
+							<label>+</label>
+							<span>{{ Math.floor(base('最小')) }}</span>
+							<span>(+{{ incr('最小') }})</span>
+							<label>最終</label>
+							<input type="number" id="最終最小" v-model.number="最終最小">
+							<span>(+{{ incr('最終最小') }})</span>
+						</div>
+
+						<!-- 基礎最大・最小、属性最大・最小 -->
+						<div class="space-y-2">
+							<div class="input-group">
+								<label>基礎最大</label>
+								<input type="number" id="基礎最大" v-model.number="基礎最大">
+								<span></span>
+							</div>
+							<div class="input-group">
+								<label>基礎最小</label>
+								<input type="number" id="基礎最小" v-model.number="基礎最小">
+								<span></span>
+							</div>
+							<div v-if="!isPhysicalTab" class="input-group">
+								<label>属性最大</label>
+								<input type="number" id="属性最大" v-model.number="属性最大">
+								<span>(+{{ incr('属性最大') }})</span>
+							</div>
+							<div v-if="!isPhysicalTab" class="input-group">
+								<label>属性最小</label>
+								<input type="number" id="属性最小" v-model.number="属性最小">
+								<span>(+{{ incr('属性最小') }})</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="section-divider"></div>
+
+					<!-- 攻撃・属性・貫通 -->
+					<div class="space-y-2">
+						<!-- 物理職専用ステータス -->
+						<div v-if="isPhysicalTab">
+							<div class="attack-stats-grid">
+								<label>攻撃最大</label>
+								<input type="number" id="攻撃最大" v-model.number="攻撃最大">
+								<label>+</label>
+								<span>{{ Math.floor(base('攻撃最大')) }}</span>
+								<span>(+{{ incr('攻撃最大') }})</span>
+								<label>攻撃最小</label>
+								<input type="number" id="攻撃最小" v-model.number="攻撃最小">
+								<label>+</label>
+								<span>{{ Math.floor(base('攻撃最小')) }}</span>
+								<span>(+{{ incr('攻撃最小') }})</span>
+								<label>%</label>
+								<input type="number" id="攻撃_" v-model.number="攻撃_">
+								<span>(+{{ incr('攻撃%') }})</span>
+							</div>
+						</div>
+
+						<!-- 属性（魔法職のみ） -->
+						<div v-if="!isPhysicalTab">
+							<div class="input-group">
+								<label>属性</label>
+								<input type="number" id="属性" v-model.number="属性">
+								<label>+</label>
+								<span>{{ Math.floor(base('属性')) }}</span>
+								<span>(+{{ incr('属性') }})</span>
+								<label>%</label>
+								<input type="number" id="属性_" v-model.number="属性_">
+								<span>(+{{ incr('属性%') }})</span>
+							</div>
+						</div>
+
+						<!-- 貫通 -->
+						<!-- 物理貫通 -->
+						<div v-show="isPhysicalTab" class="input-group">
+							<label>貫通</label>
+							<input type="number" id="物理_貫通" v-model.number="物理_貫通">
+							<span>(+{{ incr('貫通') }})</span>
+						</div>
+						<!-- 魔法貫通 -->
+						<div v-show="!isPhysicalTab" class="input-group">
+							<label>貫通</label>
+							<input type="number" id="魔法_貫通" v-model.number="魔法_貫通">
+							<span>(+{{ incr('貫通') }})</span>
+						</div>
+					</div>
 
 					<div class="section-divider"></div>
 
 					<!-- 追加ダメージ -->
 					<div class="space-y-2">
-		<!-- 物理追加ダメ -->
-		<div v-show="isPhysicalTab" class="input-group">
-			<label>追加ダメ</label>
-	<input type="number" id="物理_追加ダメ" v-model.number="物理_追加ダメ">
-			<label>+</label>
-			<span>{{ Math.floor(base('追加ダメ')) }}</span>
-			<span>(+{{ incr('追加ダメ') }})</span>
-			<label>%</label>
-	<input type="number" id="追加ダメ_" v-model.number="追加ダメ_">
-			<span>(+{{ incr('追加ダメ%') }})</span>
-		</div>
-		<!-- 魔法追加ダメ -->
-		<div v-show="!isPhysicalTab" class="input-group">
-			<label>追加ダメ</label>
-		<input type="number" id="魔法_追加ダメ" v-model.number="魔法_追加ダメ">
-			<label>+</label>
-			<span>{{ Math.floor(base('追加ダメ')) }}</span>
-			<span>(+{{ incr('追加ダメ') }})</span>
-			<label>%</label>
-		<input type="number" id="追加ダメ_" v-model.number="追加ダメ_">
-			<span>(+{{ incr('追加ダメ%') }})</span>
-		</div>
+						<!-- 物理追加ダメ -->
+						<div v-show="isPhysicalTab" class="input-group">
+							<label>追加ダメ</label>
+							<input type="number" id="物理_追加ダメ" v-model.number="物理_追加ダメ">
+							<label>+</label>
+							<span>{{ Math.floor(base('追加ダメ')) }}</span>
+							<span>(+{{ incr('追加ダメ') }})</span>
+							<label>%</label>
+							<input type="number" id="追加ダメ_" v-model.number="追加ダメ_">
+							<span>(+{{ incr('追加ダメ%') }})</span>
+						</div>
+						<!-- 魔法追加ダメ -->
+						<div v-show="!isPhysicalTab" class="input-group">
+							<label>追加ダメ</label>
+							<input type="number" id="魔法_追加ダメ" v-model.number="魔法_追加ダメ">
+							<label>+</label>
+							<span>{{ Math.floor(base('追加ダメ')) }}</span>
+							<span>(+{{ incr('追加ダメ') }})</span>
+							<label>%</label>
+							<input type="number" id="追加ダメ_" v-model.number="追加ダメ_">
+							<span>(+{{ incr('追加ダメ%') }})</span>
+						</div>
 
-			<div class="grid gap-4" :class="{ 'grid-cols-2': showGeneralInputs && showBossInputs, 'grid-cols-1': !(showGeneralInputs && showBossInputs) }">
-				<div class="input-group" v-show="showGeneralInputs">
-				<label>一般追加ダメ</label>
-	<input type="number" id="一般追加ダメ" v-model.number="一般追加ダメ">
-				<span>(+{{ incr('一般追加ダメ') }})</span>
-				</div>
-				<div class="input-group" v-show="showBossInputs">
-				<label>ボス追加ダメ</label>
-				<input type="number" id="ボス追加ダメ" v-model.number="ボス追加ダメ">
-				<span>(+{{ incr('ボス追加ダメ') }})</span>
-				</div>
-			</div>
+						<div class="grid gap-4"
+							:class="{ 'grid-cols-2': showGeneralInputs && showBossInputs, 'grid-cols-1': !(showGeneralInputs && showBossInputs) }">
+							<div class="input-group" v-show="showGeneralInputs">
+								<label>一般追加ダメ</label>
+								<input type="number" id="一般追加ダメ" v-model.number="一般追加ダメ">
+								<span>(+{{ incr('一般追加ダメ') }})</span>
+							</div>
+							<div class="input-group" v-show="showBossInputs">
+								<label>ボス追加ダメ</label>
+								<input type="number" id="ボス追加ダメ" v-model.number="ボス追加ダメ">
+								<span>(+{{ incr('ボス追加ダメ') }})</span>
+							</div>
+						</div>
 
-			<div class="grid gap-4" :class="{ 'grid-cols-2': showGeneralInputs && showBossInputs, 'grid-cols-1': !(showGeneralInputs && showBossInputs) }">
-				<div class="input-group" v-show="showGeneralInputs">
-					<label>一般支配</label>
-			<input type="number" step="0.1" id="一般支配" v-model.number="一般支配">
-					<span>(+{{ incr('一般支配') }})</span>
-				</div>
-				<div class="input-group" v-show="showBossInputs">
-					<label>ボス支配</label>
-			<input type="number" step="0.1" id="ボス支配" v-model.number="ボス支配">
-					<span>(+{{ incr('ボス支配') }})</span>
-				</div>
-			</div>
+						<div class="grid gap-4"
+							:class="{ 'grid-cols-2': showGeneralInputs && showBossInputs, 'grid-cols-1': !(showGeneralInputs && showBossInputs) }">
+							<div class="input-group" v-show="showGeneralInputs">
+								<label>一般支配</label>
+								<input type="number" step="0.1" id="一般支配" v-model.number="一般支配">
+								<span>(+{{ incr('一般支配') }})</span>
+							</div>
+							<div class="input-group" v-show="showBossInputs">
+								<label>ボス支配</label>
+								<input type="number" step="0.1" id="ボス支配" v-model.number="ボス支配">
+								<span>(+{{ incr('ボス支配') }})</span>
+							</div>
 						</div>
 					</div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
 
-    <script src="main.js"></script>
+		<script src="main.js"></script>
 </body>
+
 </html>
