@@ -479,15 +479,6 @@ const createVueInstance = () => {
     },
   },
   methods: {
-    // スキル名を切り詰める
-    truncateSkillName: function(skillName) {
-      if (!skillName) return '';
-      const maxLength = 12; 
-      if (skillName.length > maxLength) {
-        return skillName.substring(0, maxLength) + '...';
-      }
-      return skillName;
-    },
     getSummonBonus: function() {
       if (!this.currentSkillData || this.currentSkillData.スキルタイプ !== '召喚') {
         return null;
