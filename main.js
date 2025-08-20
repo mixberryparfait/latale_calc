@@ -7,7 +7,6 @@ window.skillData = [];
 window.skillDataLoaded = false;
 window.emeraldiaEnemies = {};
 
-// 敵データを読み込む関数
 const loadEnemyData = async () => {
 	try {
 		const response = await fetch('enemies.json');
@@ -22,7 +21,6 @@ const loadEnemyData = async () => {
 	}
 };
 
-// CSVファイルを読み込む関数
 const loadSkillData = async () => {
 	try {
 		const response = await fetch('skills.csv');
@@ -30,8 +28,7 @@ const loadSkillData = async () => {
 		const decoder = new TextDecoder('UTF-8');
 		const text = decoder.decode(buffer);
 		
-		// CSVをパース
-		const lines = text.split(/\r?\n/); // 改行文字を正しく処理
+		const lines = text.split(/\r?\n/);
 		const headers = lines[0].split(',').map(h => h.trim()); // ヘッダーもトリム
 		
 		window.skillData = lines.slice(1)
@@ -41,16 +38,14 @@ const loadSkillData = async () => {
 				const skill = {};
 				headers.forEach((header, i) => {
 					const value = values[i] ? values[i].trim() : '';
-					// data.currentSkillDataの型を参照して判断
 					if (header in data.currentSkillData) {
-						// 元のデータ型が数値の場合は数値に変換
+						// 元のデータ型にキャストして型を保証
 						if (typeof data.currentSkillData[header] === 'number') {
 							skill[header] = value === '' ? null : Number(value);
 						} else {
 							skill[header] = value;
 						}
 					} else {
-						// currentSkillDataに存在しないヘッダーは文字列として扱う
 						skill[header] = value;
 					}
 				});
@@ -60,7 +55,6 @@ const loadSkillData = async () => {
 			
 		console.log(`Loaded ${window.skillData.length} skills`);
 		console.log('Sample skills:', window.skillData.slice(0, 5));
-		// VueインスタンスのskillDataLoadedを更新
 		if (window.vm) {
 			window.vm.skillDataLoaded = true;
 		}
@@ -69,8 +63,6 @@ const loadSkillData = async () => {
 	}
 };
 
-// ページ読み込み時にスキルデータを読み込む
-// loadSkillData(); // 後でVueマウント後に呼び出す
 const base_damage = (params) => {
   
   let 攻撃力補正 = 1;
@@ -79,23 +71,15 @@ const base_damage = (params) => {
   let 効率 = 1;
   
   const skill = params.currentSkillData;
-  const isPhysical = skill.物理or魔法 === '物理';
+  const isPhysical = params.manualPhysicalOrMagical === '物理';
 
   const 防御倍率 = 1 / Math.exp(params.敵防御 / 3761.35);
   const 貫通率 = (isPhysical ? params.物理_貫通 : params.魔法_貫通) / 100;
 
-  if (skill.スキルタイプ === '召喚') {
-    // 召喚スキルの場合、全ダメージ補正（最小/最大ダメージの適用倍率）のみがスキルレベルで変動
-    // 他の補正（攻撃力、属性攻撃、クリティカルダメージ）は100%固定
-    攻撃力補正 = 1;  // 100%固定
-    属性攻撃補正 = 1;  // 100%固定
-    
-    // 全ダメージ補正のみスキルレベルで変動
-    {
-      const baseBonus = skill.全ダメージ補正;
-      const level = params.スキルレベル || 1;
-      全ダメージ補正 = (baseBonus + level * 2) / 100;
-    }
+  if (params.manualSkillType === '召喚') {
+    攻撃力補正 = 1;
+    属性攻撃補正 = 1;
+    全ダメージ補正 = params.manualSummonBonus / 100;
   }
   else {
     効率 += params.効率 / 100;
@@ -147,20 +131,16 @@ const base_damage = (params) => {
 };
 
 const cri_rate = (params) => { 
-  const skill = params.currentSkillData;
-  const isPhysical = skill.物理or魔法 === '物理';
+  const isPhysical = params.manualPhysicalOrMagical === '物理';
   const クリ率 = isPhysical ? params.物理_クリ率 : params.魔法_クリ率;
 	return Math.min(100, クリ率 + 15 * params.幸運 / params.敵幸運);
 }
 
 const cri_damage = (params) => { 
-  const skill = params.currentSkillData;
-  const isPhysical = skill.物理or魔法 === '物理';
+  const isPhysical = params.manualPhysicalOrMagical === '物理';
   const クリダメ = isPhysical ? params.物理_クリダメ : params.魔法_クリダメ;
   let クリダメ補正 = ((100 + クリダメ) * (1 - params.敵クリ減 / 1000) | 0) / 100;
 
-  // 召喚スキルのクリティカルダメージ補正も100%固定（ブログによると適用倍率100%のみ存在）
-  // ※2021年2月時点では、最小/最大ダメージ以外の全ステータスは適用倍率100%固定
 	return base_damage(params) * クリダメ補正;
 }
 
@@ -176,37 +156,34 @@ const damage = (params) => {
 	return totalDamage;
 }
 
+// key:パラメータ名を1増やした場合の価値（増加ダメージ換算）
 const incr = (key) => {
 	if(key == '経験値') {
 		return Math.floor(damage(data) /100/(1 + data[key] / 100));
 	}
 
-	// HP関連の計算
+		// HP = (HP+ + 体力+ * 7) * HP%
 	if(key == 'HP') {
-		// HP+を1増やした場合の価値
 		const HPincr = (1 + data['HP_'] / 100) / data['HP'];
 		return Math.floor(damage(data) * HPincr);
 	}
 	if(key == 'HP%') {
-		// HP%を1増やした場合の価値（例：10%→11% 割合は 110->111 で 1/110の増加）
 		const HPincr = (1 / (1 + data['HP_'] / 100)) / 100;
 		return Math.floor(damage(data) * HPincr);
 	}
 	if(key == '体力') {
-		// 体力を1増やした場合の価値
 		const HPincr = 7 * (1 + data['体力_'] / 100) * (1 + data['HP_'] / 100) / data['HP'];
 		return Math.floor(damage(data) * HPincr);
 	}
 	if(key == '体力%') {
-		// 体力1%増加によるHP増加量 = 体力+ * 0.01 * 7 * HP%倍率
 		const 体力 = data['体力'] / (1 + data['体力_'] / 100)
 		const HPincr = 体力 * 0.01 * 7 * (1 + data['HP_'] / 100) / data['HP'];
 		return Math.floor(damage(data) * HPincr);
 	}
 	const tmp = Object.assign({}, data);
 	
-	const skill = data.currentSkillData;
-	const isPhysical = skill.物理or魔法 === '物理';
+	const isPhysical = data.manualPhysicalOrMagical === '物理';
+	const physicalOrMagical = isPhysical ? '物理' : '魔法';
 
 	if(key.endsWith('%')) {
 		const prefix = key.substring(0, key.length - 1);
@@ -222,7 +199,7 @@ const incr = (key) => {
       }
     }
     else {
-      const plus_key = prefix == '追加ダメ' ? skill.物理or魔法 + '_' + prefix : prefix;
+      const plus_key = prefix == '追加ダメ' ? physicalOrMagical + '_' + prefix : prefix;
       const abs = Math.ceil(tmp[plus_key] / (1 + percent / 100));
       tmp[plus_key] = abs * (1 + percent / 100);
     }
@@ -232,24 +209,24 @@ const incr = (key) => {
   }
 	else if(key.startsWith('最終')) {
 		const prefix = key.substring(2);
-    const plus_key = skill.物理or魔法 + '_' + prefix;
+    const plus_key = physicalOrMagical + '_' + prefix;
 		const abs = Math.ceil(tmp[plus_key] / (1 + tmp[key] / 100));
 		tmp[plus_key] = abs * (1.0 + tmp[key] / 100);
 	}
 	else if('最終' + key in tmp) {
-    const plus_key = skill.物理or魔法 + '_' + key;
+    const plus_key = physicalOrMagical + '_' + key;
 		tmp[plus_key] = tmp[plus_key] + 1 + tmp['最終' + key] / 100;
 	}
 	else if(key == '貫通') {
-    const plus_key = skill.物理or魔法 + '_' + key;
+    const plus_key = physicalOrMagical + '_' + key;
 		tmp[plus_key] = 100 - (100 - tmp[plus_key]) * 0.99;
 	}
 	else if(key + '_' in tmp) {
-    const plus_key = key == '追加ダメ' ? skill.物理or魔法 + '_' + key : key;
+    const plus_key = key == '追加ダメ' ? physicalOrMagical + '_' + key : key;
 	tmp[plus_key] = tmp[plus_key] + 1 + tmp[key + '_'] / 100;
 	}
 	else if(key == 'クリ率') {
-    const plus_key = skill.物理or魔法 + '_' + key;
+    const plus_key = physicalOrMagical + '_' + key;
 		tmp[plus_key] = tmp[plus_key] + 1;
 	}
 	else {
@@ -267,14 +244,12 @@ const base = key => {
 
 	const addPrefix = (k) => {
 		if (['クリ率', 'クリダメ', '最大', '最小', '貫通', '追加ダメ'].includes(k)) {
-	    const skill = data.currentSkillData;
-	    const isPhysical = skill.物理or魔法 === '物理';
+	    const isPhysical = data.manualPhysicalOrMagical === '物理';
 			return (isPhysical ? '物理' : '魔法') + '_' + k;
 		}
     return k;
 	};
 	
-	// 実際に使用するキーを決定
 	let actualKey = addPrefix(key);
 	const value = data[actualKey];
 	const percentKey = key + '_';
@@ -291,7 +266,6 @@ const base = key => {
 };
 
 const data = {
-	// 共通ステータス
 	筋力: 546424,
 	筋力_: 316,
 	効率: 0,
@@ -338,7 +312,6 @@ const data = {
   一般支配: 17.4,
   ボス支配: 17.4,
 
-  // その他
   防御: 0,
   CT: 0,
   スキル倍率: 100,
@@ -353,6 +326,9 @@ const data = {
   selectedJob: '',
   selectedSkill: '',
   スキルレベル: 1,
+  manualPhysicalOrMagical: '物理',
+  manualSkillType: '攻撃',
+  manualSummonBonus: 100,
   currentSkillData: {
     物理or魔法: '物理',
     スキルタイプ: '攻撃',
@@ -393,8 +369,6 @@ const damageFormat = (damage) => {
 	return text;
 }
 
-
-// Vueインスタンスを安全に作成
 const createVueInstance = () => {
   if (typeof Vue === 'undefined') {
     console.log('Vue not loaded yet, retrying...');
@@ -414,33 +388,27 @@ const createVueInstance = () => {
     data: data,
   computed: {
     damage: function () { 
-    	// 敵防御値への依存を明示的に追跡
     	const enemyDefense = this.敵防御;
     	return damage(this);
     },
     base_damage: function () { 
-    	// 敵防御値への依存を明示的に追跡
     	const enemyDefense = this.敵防御;
     	return base_damage(this);
     },
     cri_damage: function () { 
-    	// 敵防御値への依存を明示的に追跡
     	const enemyDefense = this.敵防御;
     	return cri_damage(this);
     },
     cri_rate: function () { 
-    	// 敵幸運への依存を明示的に追跡
     	const enemyLuck = this.敵幸運;
     	return cri_rate(this);
     },
     hp_value: function () {
-    	// 表示HPを計算（体力 * 7 + HP+） * (1 + HP% / 100)
     	return this.HP;
     },
     incr: () => incr,
     base: () => base,
     damageFormat: () => damageFormat,
-    // 職業リスト
     jobs: function() {
       console.log('Computing jobs, skillDataLoaded:', this.skillDataLoaded);
       console.log('skillData length:', window.skillData ? window.skillData.length : 0);
@@ -460,41 +428,29 @@ const createVueInstance = () => {
       if (!this.skillDataLoaded || !this.selectedJob) return [];
       return window.skillData.filter(skill => skill.職業 === this.selectedJob);
     },
-    // 現在選択されているスキルのタイプ
     currentSkillType: function() {
-      return this.currentSkillData ? this.currentSkillData.スキルタイプ : null;
+      return this.manualSkillType;
     },
-    // 現在選択されているスキルの物理or魔法
     currentSkillPhysicalOrMagical: function() {
       return this.currentSkillData ? this.currentSkillData.物理or魔法 : null;
     },
-    // 現在選択されているスキルの最大レベル
     currentSkillMaxLevel: function() {
       return this.currentSkillData ? (this.currentSkillData.最大レベル || 20) : 20;
     },
-    // 現在物理タブがアクティブか（スキル設定のタイプを参照）
     isPhysicalTab: function() {
-      // スキルが選択されている場合はスキルのタイプに従う
-      if (this.currentSkillData && this.currentSkillData.物理or魔法) {
-        return this.currentSkillData.物理or魔法 === '物理';
-      }
-      // スキルが選択されていない場合はデフォルトで物理を返す
-      return true;
+      return this.manualPhysicalOrMagical === '物理';
     },
-    // 現在選択されているダンジョンの敵一覧
     currentDungeonEnemies: function() {
       if (!this.selectedDungeon || !this.emeraldiaEnemies[this.selectedDungeon]) {
         return [];
       }
       return this.emeraldiaEnemies[this.selectedDungeon].enemies || [];
     },
-    // 現在選択されているダンジョンで利用可能な難易度
     currentDungeonDifficulties: function() {
       if (!this.selectedDungeon || !this.emeraldiaEnemies[this.selectedDungeon] || 
           !this.selectedEnemy || this.emeraldiaEnemies[this.selectedDungeon].enemies.length === 0) {
         return [];
       }
-      // 最初の敵から難易度リストを取得（すべての敵が同じ難易度を持つため）
       const firstEnemy = this.emeraldiaEnemies[this.selectedDungeon].enemies[0];
       if (firstEnemy && firstEnemy.difficultyStats) {
         return Object.keys(firstEnemy.difficultyStats).sort((a, b) => Number(a) - Number(b));
@@ -509,22 +465,16 @@ const createVueInstance = () => {
       const skill = this.currentSkillData;
       return skill.スキル名 + ' (' + skill.スキルタイプ + (skill.物理or魔法 ? ' - ' + skill.物理or魔法 : '') + ')';
     },
-    // 一般関連の入力欄を表示するか
     showGeneralInputs: function() {
-      // 敵が選択されていない場合は表示
       if (!this.selectedEnemy || !this.selectedDungeon) {
         return true;
       }
-      // 敵タイプが一般の場合は表示
       return this.敵タイプ === '一般';
     },
-    // ボス関連の入力欄を表示するか
     showBossInputs: function() {
-      // 敵が選択されていない場合は表示
       if (!this.selectedEnemy || !this.selectedDungeon) {
         return true;
       }
-      // 敵タイプがボスの場合は表示
       return this.敵タイプ === 'ボス';
     },
   },
@@ -532,13 +482,12 @@ const createVueInstance = () => {
     // スキル名を切り詰める
     truncateSkillName: function(skillName) {
       if (!skillName) return '';
-      const maxLength = 12; // より短く設定してUIの安定性を向上
+      const maxLength = 12; 
       if (skillName.length > maxLength) {
         return skillName.substring(0, maxLength) + '...';
       }
       return skillName;
     },
-    // 召喚補正値を取得
     getSummonBonus: function() {
       if (!this.currentSkillData || this.currentSkillData.スキルタイプ !== '召喚') {
         return null;
@@ -549,11 +498,9 @@ const createVueInstance = () => {
       const level = this.スキルレベル || 1;
       return baseBonus + level * 2;
     },
-    // 職業が変更されたときの処理
     onJobChange: function() {
       this.selectedSkill = '';
     },
-    // スキルが変更されたときの処理
     onSkillChange: function() {
       const skillIndex = Number(this.selectedSkill);
       this.currentSkillData = window.skillData[skillIndex];
@@ -581,40 +528,32 @@ const createVueInstance = () => {
         this.スキルレベル = this.currentSkillData.最大レベル || 50;
         this.updateSkillValues();
         
-        // スキルのタイプに応じてタブを切り替え
-        if (this.currentSkillData.物理or魔法 === '物理') {
-          this.activeTab = 'physical';
-        } else if (this.currentSkillData.物理or魔法 === '魔法') {
-          this.activeTab = 'magical';
+        // スキルのタイプに応じて手動切り替え値を自動設定
+        if (this.currentSkillData.物理or魔法) {
+          this.manualPhysicalOrMagical = this.currentSkillData.物理or魔法;
+        }
+        if (this.currentSkillData.スキルタイプ) {
+          this.manualSkillType = this.currentSkillData.スキルタイプ;
         }
       }
     },
-    // スキル値を更新
     updateSkillValues: function() {
       if (!this.currentSkillData) return;
       
       const skill = this.currentSkillData;
       const level = this.スキルレベル || 1;
-      
-      if (skill.スキルタイプ === '攻撃' || skill.スキルタイプ === '召喚') {
-        // 攻撃スキルまたは召喚スキルの場合、倍率と追加ダメージを計算
-        const baseDamage = skill.固定ダメージ初期値 || 0;
-        const damagePerLevel = skill.固定ダメージ上昇値 || 0;
-        const skillPower = skill.係数初期値 || 0;
-        const powerPerLevel = skill.係数上昇値 || 0;
-        
-        // スキル倍率の計算
-        this.スキル倍率 = skillPower + (powerPerLevel * (level - 1));
-        
-        // スキル追加ダメージの計算
-        this.スキル追加ダメ = baseDamage + (damagePerLevel * (level - 1));
-      }
+      const baseDamage = skill.固定ダメージ初期値 || 0;
+      const damagePerLevel = skill.固定ダメージ上昇値 || 0;
+      const skillPower = skill.係数初期値 || 0;
+      const powerPerLevel = skill.係数上昇値 || 0;
+      this.スキル倍率 = skillPower + (powerPerLevel * (level - 1));
+
+      this.スキル追加ダメ = baseDamage + (damagePerLevel * (level - 1));
+
     },
-    // ダンジョンが変更されたときの処理
     onDungeonChange: function() {
       this.selectedEnemy = '';
       this.selectedDifficulty = '';
-      // ダンジョン選択がクリアされた場合は敵ステータスもクリア
       if (!this.selectedDungeon) {
         this.敵タイプ = '一般';
         this.敵防御 = 1;
@@ -624,7 +563,6 @@ const createVueInstance = () => {
         this.敵クリ減 = 0;
       }
     },
-    // 敵が変更されたときの処理
     onEnemyChange: function() {
       if (!this.selectedEnemy || !this.selectedDungeon) {
         return;
@@ -633,11 +571,9 @@ const createVueInstance = () => {
       const dungeonData = this.emeraldiaEnemies[this.selectedDungeon];
       if (!dungeonData) return;
       
-      // 選択された敵を検索
       const enemy = dungeonData.enemies.find(e => e.id === Number(this.selectedEnemy));
       
       if (enemy) {
-        // 敵のステータスを設定
         this.敵タイプ = enemy.type;
         this.敵防御 = enemy.baseStats.defense || 0;
         
@@ -667,7 +603,6 @@ const createVueInstance = () => {
         console.log('Selected difficulty:', this.selectedDifficulty);
       }
     },
-    // 難易度が変更されたときの処理
     onDifficultyChange: function() {
       if (!this.selectedEnemy || !this.selectedDungeon || !this.selectedDifficulty) {
         return;
@@ -691,7 +626,6 @@ const createVueInstance = () => {
     }
   },
   mounted: function () {
-    // Load saved data from localStorage on mount
     const savedData = localStorage.getItem('lataleCalcData');
     if (savedData) {
       const parsedData = JSON.parse(savedData);
@@ -706,20 +640,6 @@ const createVueInstance = () => {
             this.$data[key] = parsedData[key];
           }
         }
-      }
-      
-      // 旧データから新データへの移行
-      if (parsedData['筋魔'] !== undefined && parsedData['筋力'] === undefined) {
-        this.筋力 = parsedData['筋魔'];
-        this.魔力 = parsedData['筋魔'];
-      }
-      if (parsedData['筋魔_'] !== undefined && parsedData['筋力_'] === undefined) {
-        this.筋力_ = parsedData['筋魔_'];
-        this.魔力_ = parsedData['筋魔_'];
-      }
-      if (parsedData['筋魔効率'] !== undefined && parsedData['筋力効率'] === undefined) {
-        this.筋力効率 = parsedData['筋魔効率'];
-        this.魔力効率 = parsedData['筋魔効率'];
       }
       
       // 物理/魔法の統合データから分離
@@ -738,28 +658,7 @@ const createVueInstance = () => {
         if (parsedData['物理_属性_'] === undefined) this.物理_属性_ = parsedData['属性_'];
         if (parsedData['魔法_属性_'] === undefined) this.魔法_属性_ = parsedData['属性_'];
       }
-      
-      // その他の統合データの移行
-      const migrateData = (oldKey, newPhysicalKey, newMagicalKey) => {
-        if (parsedData[oldKey] !== undefined) {
-          if (parsedData[newPhysicalKey] === undefined) this[newPhysicalKey] = parsedData[oldKey];
-          if (parsedData[newMagicalKey] === undefined) this[newMagicalKey] = parsedData[oldKey];
-        }
-      };
-      
-      migrateData('最大', '物理_最大', '魔法_最大');
-      migrateData('基礎最大', '物理_基礎最大', '魔法_基礎最大');
-      migrateData('属性最大', '物理_属性最大', '魔法_属性最大');
-      migrateData('最終最大', '物理_最終最大', '魔法_最終最大');
-      migrateData('最小', '物理_最小', '魔法_最小');
-      migrateData('基礎最小', '物理_基礎最小', '魔法_基礎最小');
-      migrateData('属性最小', '物理_属性最小', '魔法_属性最小');
-      migrateData('最終最小', '物理_最終最小', '魔法_最終最小');
-      migrateData('追加ダメ', '物理_追加ダメ', '魔法_追加ダメ');
-      migrateData('追加ダメ_', '物理_追加ダメ_', '魔法_追加ダメ_');
-      migrateData('一般ボス追加ダメ', '物理_一般追加ダメ', '魔法_一般追加ダメ');
-      migrateData('一般ボス支配', '物理_一般支配', '魔法_一般支配');
-      
+
       // ボス追加ダメとボス支配は一般と同じ値で初期化
       if (parsedData['ボス追加ダメ'] !== undefined) {
         this.ボス追加ダメ = parsedData['ボス追加ダメ'];
@@ -775,16 +674,13 @@ const createVueInstance = () => {
       }
     }
     
-    // デバッグ：データ型を確認
     console.log('Data types check:');
     console.log('筋力:', typeof this.筋力, this.筋力);
     console.log('魔力:', typeof this.魔力, this.魔力);
     console.log('属性:', typeof this.属性, this.属性);
     console.log('スキル倍率:', typeof this.スキル倍率, this.スキル倍率);
     
-    // スキルデータを読み込む
     loadSkillData().then(() => {
-      // スキルデータのロード完了後、保存されていたスキル選択を復元
       if (this.selectedSkill && window.skillData) {
         const skillIndex = Number(this.selectedSkill);
         if (window.skillData[skillIndex]) {
@@ -795,18 +691,15 @@ const createVueInstance = () => {
             this.スキルレベル = this.currentSkillData.最大レベル;
           }
           
-          // スキル値を更新
           this.updateSkillValues();
           
           console.log('Restored skill from localStorage:', this.currentSkillData);
         }
       }
     });
-    // 敵データを読み込む
     loadEnemyData();
   },
   watch: {
-    // スキルレベルが変更されたときの処理
     スキルレベル: function(newVal) {
       this.updateSkillValues();
     },
@@ -821,13 +714,10 @@ const createVueInstance = () => {
   });
 };
 
-// Vueインスタンスを作成
 createVueInstance();
 };
 
-// DOM要素の初期化を安全に行う
 const initDOMElements = () => {
-  // DOM要素へのアクセスをVueマウント後に遅延させる
   setTimeout(() => {
     const copyButton = document.getElementById('copy');
     if (copyButton) {
@@ -889,7 +779,6 @@ const setPreview = file => {
 };
 
 
-  // ファイル選択時の処理
   const dropzone = document.querySelector('.dropzone');
 
   if (dropzone) {
@@ -957,7 +846,6 @@ const setValue = (text) => {
 	let line_num = -1;
 	let msg = '';
 	
-	// 現在のスキルタイプを取得
 	const skill = data.currentSkillData;
 	const isPhysical = skill.物理or魔法 === '物理';
 	const prefix = isPhysical ? '物理_' : '魔法_';

@@ -356,6 +356,10 @@ select.truncate option {
   grid-template-columns: 3rem minmax(0, 1fr);
   gap: 0.5rem;
   align-items: center;
+  margin-bottom: 0.75rem;
+}
+.setting-row:last-child {
+  margin-bottom: 0;
 }
 .setting-row.enemy {
   grid-template-columns: 3.5rem minmax(0, 1fr);
