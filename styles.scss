@@ -326,8 +326,14 @@ input[type="number"] {
   @include animated-card;
 }
 
-select.truncate {
-  @include truncate-select;
+.skill-select {
+  @include text-truncate;
+  max-width: 100%;
+  
+  option {
+    @include text-truncate;
+    max-width: 100%;
+  }
 }
 
 .setting-row {

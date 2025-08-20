@@ -123,11 +123,11 @@
 						</div>
 						<div class="setting-row">
 							<label>スキル</label>
-							<select id="selectedSkill" v-model="selectedSkill" @change="onSkillChange" :title="selectedSkillTitle">
+							<select id="selectedSkill" v-model="selectedSkill" @change="onSkillChange" :title="selectedSkillTitle" class="skill-select">
 								<option value="">スキルを選択</option>
 								<option v-for="skill in filteredSkills" :key="skill.index" :value="skill.index"
 									:title="skill.スキル名 + ' (' + skill.スキルタイプ + ')'">
-									{{ truncateSkillName(skill.スキル名) }} ({{ skill.スキルタイプ }})
+									{{ skill.スキル名 }} ({{ skill.スキルタイプ }})
 								</option>
 							</select>
 						</div>

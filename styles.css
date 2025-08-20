@@ -337,14 +337,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   animation-delay: 0.4s;
 }
 
-select.truncate {
+.skill-select {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 100%;
-  min-width: 0;
 }
-select.truncate option {
+.skill-select option {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
