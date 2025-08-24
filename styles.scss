@@ -301,6 +301,17 @@ input[type="number"] {
   @include apply-span-styles;
 }
 
+.hp-value-setting {
+  display: grid;
+  grid-template-columns: 27.25rem 5.5rem;
+  gap: $grid-gap;
+  align-items: center;
+  
+  label {
+    text-align: right;
+  }
+}
+
 .setting-row.with-suffix span {
   @include text-label;
 }
