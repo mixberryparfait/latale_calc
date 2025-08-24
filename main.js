@@ -1,11 +1,98 @@
-// DOMContentLoadedとwindow.onloadの両方に対応
 const initApp = () => {
 	console.log('main.js');
 
-// スキルデータを格納する変数
+window.DEBUG = true; // デバッグフラグ
+
 window.skillData = [];
 window.skillDataLoaded = false;
 window.emeraldiaEnemies = {};
+window.transcendSkillData = [];
+
+// StatusTypeとステータス名のマッピング
+const statusTypeMapping = {
+    // HP系
+    30: 'HP',
+    31: 'HP%',
+    
+    // ステータス系
+    14: '筋力',
+    15: '筋力%',
+    22: '魔力',
+    23: '魔力%',
+    26: '体力',
+    18: '幸運',
+    455: '全ステータス',
+    456: '全ステータス%',
+    594: '筋力魔力',
+    595: '筋力魔力%',
+    
+    // ダメージ系
+    461: '最大',
+    462: '最小',
+    95: '最終最大',
+    103: '最終最大',
+    91: '最終最小',
+    99: '最終最小',
+    590: '最終最小',
+    591: '最終最大',
+    
+    // クリティカル系
+    464: 'クリダメ',
+    465: 'クリ率',
+    157: '最終クリダメ',
+    163: '最終クリダメ',
+    592: '最終クリダメ',
+    
+    // 追加ダメージ系
+    496: '追加ダメ',
+    141: '追加ダメ%',
+    241: '追加ダメ%',
+    588: '追加ダメ%',
+    566: '一般追加ダメ',
+    570: 'ボス追加ダメ',
+    573: '一般支配',
+    574: 'ボス支配',
+    
+    // 属性系
+    492: '属性',
+    38: '属性',
+    493: '属性%',
+    39: '属性%',
+    586: '属性',
+    587: '属性%',
+    
+    // その他
+    463: '貫通',
+    216: '防御',
+    70: '抵抗力',
+    596: '防御抵抗',
+    495: 'ダメージ減少',
+    86: 'ダメージ減少%',
+    440: 'CT',
+    106: '移動速度',
+    466: '命中率',
+    494: 'バックアタック',
+    567: '一般追加ダメ%',
+    571: 'ボス追加ダメ%',
+    208: '筋力効率',
+    200: '魔力効率',
+    614: 'スキルターゲット数',
+};
+
+// 超越スキルデータを読み込む
+const loadTranscendSkillData = async () => {
+	try {
+		const response = await fetch('transcend_skills.json');
+		const data = await response.json();
+		window.transcendSkillData = data;
+		console.log(`Loaded ${data.length} transcend skills`);
+		if (window.vm) {
+			window.vm.transcendSkillData = data;
+		}
+	} catch (error) {
+		console.error('Failed to load transcend skill data:', error);
+	}
+};
 
 const loadEnemyData = async () => {
 	try {
@@ -156,29 +243,54 @@ const damage = (params) => {
 	return totalDamage;
 }
 
+// DPS計算関数を追加
+const calculateDPS = (params) => {
+	const dmg = damage(params);
+	const skill = params.currentSkillData;
+	
+	// モーション時間が取得できない場合はDPSを計算しない
+	if (!skill || !skill.モーション時間 || skill.モーション時間 === 0) {
+		return null;
+	}
+	
+                // モーション時間は0.1秒単位なので、秒に変換
+                const motionTimeInSeconds = skill.モーション時間 / 10;
+	
+	// ヒット数を考慮
+	const hitCount = skill.ヒット数 || 1;
+	const totalDamage = dmg * hitCount;
+	
+	// DPS = 総ダメージ / モーション時間（秒）
+	const dps = totalDamage / motionTimeInSeconds;
+	
+	return dps;
+}
+
 // key:パラメータ名を1増やした場合の価値（増加ダメージ換算）
 const incr = (key) => {
 	if(key == '経験値') {
 		return Math.floor(damage(data) /100/(1 + data[key] / 100));
 	}
 
-		// HP = (HP+ + 体力+ * 7) * HP%
+	// HP = (HP+ + 体力+ * 7) * HP%
+	// HP価値を考慮して計算
+	const hpValue = data['HP価値'] / 100;
 	if(key == 'HP') {
 		const HPincr = (1 + data['HP_'] / 100) / data['HP'];
-		return Math.floor(damage(data) * HPincr);
+		return Math.floor(damage(data) * HPincr * hpValue);
 	}
 	if(key == 'HP%') {
 		const HPincr = (1 / (1 + data['HP_'] / 100)) / 100;
-		return Math.floor(damage(data) * HPincr);
+		return Math.floor(damage(data) * HPincr * hpValue);
 	}
 	if(key == '体力') {
 		const HPincr = 7 * (1 + data['体力_'] / 100) * (1 + data['HP_'] / 100) / data['HP'];
-		return Math.floor(damage(data) * HPincr);
+		return Math.floor(damage(data) * HPincr * hpValue);
 	}
 	if(key == '体力%') {
 		const 体力 = data['体力'] / (1 + data['体力_'] / 100)
 		const HPincr = 体力 * 0.01 * 7 * (1 + data['HP_'] / 100) / data['HP'];
-		return Math.floor(damage(data) * HPincr);
+		return Math.floor(damage(data) * HPincr * hpValue);
 	}
 	const tmp = Object.assign({}, data);
 	
@@ -190,18 +302,18 @@ const incr = (key) => {
     const percent = tmp[prefix + '_'] || 0;
     if(prefix == '攻撃') {
       {
-        const abs = Math.ceil(tmp['攻撃最大'] / (1 + percent / 100));
-        tmp['攻撃最大'] = abs * (1 + percent / 100);
+        const abs = tmp['攻撃最大'] / (1 + percent / 100);
+        tmp['攻撃最大'] = abs * (1 + (percent + 1) / 100);  // +1を追加
       }
       {
-        const abs = Math.ceil(tmp['攻撃最小'] / (1 + percent / 100));
-        tmp['攻撃最小'] = abs * (1 + percent / 100);
+        const abs = tmp['攻撃最小'] / (1 + percent / 100);
+        tmp['攻撃最小'] = abs * (1 + (percent + 1) / 100);  // +1を追加
       }
     }
     else {
       const plus_key = prefix == '追加ダメ' ? physicalOrMagical + '_' + prefix : prefix;
-      const abs = Math.ceil(tmp[plus_key] / (1 + percent / 100));
-      tmp[plus_key] = abs * (1 + percent / 100);
+      const abs = tmp[plus_key] / (1 + percent / 100);
+      tmp[plus_key] = abs * (1 + (percent + 1) / 100);  // +1を追加
     }
 	}
   else if (key === '攻撃最大' || key === '攻撃最小') {
@@ -210,8 +322,9 @@ const incr = (key) => {
 	else if(key.startsWith('最終')) {
 		const prefix = key.substring(2);
     const plus_key = physicalOrMagical + '_' + prefix;
-		const abs = Math.ceil(tmp[plus_key] / (1 + tmp[key] / 100));
-		tmp[plus_key] = abs * (1.0 + tmp[key] / 100);
+		const currentPercent = tmp[key] || 0;
+		const abs = tmp[plus_key] / (1 + currentPercent / 100);
+		tmp[plus_key] = abs * (1.0 + (currentPercent + 1) / 100);  // +1を追加
 	}
 	else if('最終' + key in tmp) {
     const plus_key = physicalOrMagical + '_' + key;
@@ -277,6 +390,7 @@ const data = {
   体力_: 620,
   HP: 4474100,
   HP_: 217,
+  HP価値: 30,
   攻撃最大: 50000,
   攻撃最小: 50000,
   攻撃_: 100,
@@ -346,9 +460,16 @@ const data = {
   },
   skillDataLoaded: false,
   emeraldiaEnemies: {},
+  transcendSkillData: [],
   selectedDungeon: '',
   selectedEnemy: '',
   selectedDifficulty: '',
+  activeMainTab: 'damage',
+  mainTabs: [
+    { id: 'damage', label: 'ダメージ計算' },
+    { id: 'transcend1', label: '超越１' },
+    { id: 'transcend2', label: '超越２' }
+  ],
 };
 
 const damageFormat = (damage) => {
@@ -403,8 +524,22 @@ const createVueInstance = () => {
     	const enemyLuck = this.敵幸運;
     	return cri_rate(this);
     },
-    hp_value: function () {
-    	return this.HP;
+    dps: function () {
+    	return calculateDPS(this);
+    },
+    formattedDPS: function() {
+    	const dpsValue = calculateDPS(this);
+    	if (dpsValue === null) {
+    		return '－';
+    	}
+    	return damageFormat(dpsValue) + '/秒';
+    },
+    skillMotionTime: function() {
+    	if (!this.currentSkillData || !this.currentSkillData.モーション時間) {
+    		return null;
+    	}
+            // 0.1秒単位から秒に変換
+            return this.currentSkillData.モーション時間 / 10;
     },
     incr: () => incr,
     base: () => base,
@@ -477,8 +612,371 @@ const createVueInstance = () => {
       }
       return this.敵タイプ === 'ボス';
     },
+    // 超越スキル価値計算関数
+    calculateTranscendSkillValue: function() {
+      const self = this;
+      return function(skill, level = 1) {
+        let totalValue = 0;
+        const effects = [];
+        
+        // 特殊マッピング用の関数
+        const expandValue = (statusType, value) => {
+          // 全ステータスの場合
+          if (statusType === 455 || statusType === 456) {
+            const stats = ['筋力', '魔力', '体力', '幸運'];
+            let sum = 0;
+            for (const stat of stats) {
+              const val = self.incr(statusType === 456 ? stat + '%' : stat);
+              if (val > 0) sum += val * value;
+            }
+            return sum;
+          }
+          // 筋力魔力の場合
+          else if (statusType === 594 || statusType === 595) {
+            const isPercent = statusType === 595;
+            const strVal = self.incr(isPercent ? '筋力%' : '筋力') * value;
+            const magVal = self.incr(isPercent ? '魔力%' : '魔力') * value;
+            return Math.max(strVal, magVal); // より高い方を採用
+          }
+          // 防御/抵抗の場合
+          else if (statusType === 596) {
+            return 0; // 計算不可
+          }
+          // 武器属性力(+)の場合 - 攻撃最大、攻撃最小、属性を全部上げる
+          else if (statusType === 492 || statusType === 38 || statusType === 586) {
+            // 攻撃最大、攻撃最小、属性の価値を合計
+            const attackMaxVal = self.incr('攻撃最大') * value;
+            const attackMinVal = self.incr('攻撃最小') * value;
+            const attrVal = self.incr('属性') * value;
+            return attackMaxVal + attackMinVal + attrVal;
+          }
+          // 武器属性力(%)の場合
+          else if (statusType === 493 || statusType === 39 || statusType === 587) {
+            // 攻撃最大、攻撃最小、属性%の価値を合計
+            const attackMaxVal = self.incr('攻撃最大') * value;
+            const attackMinVal = self.incr('攻撃最小') * value;
+            const attrVal = self.incr('属性%') * value;
+            return attackMaxVal + attackMinVal + attrVal;
+          }
+          // 最終系統合の場合
+          else if (statusType === 590 || statusType === 591 || statusType === 592) {
+            const typeMap = {590: '最終最小', 591: '最終最大', 592: '最終クリダメ'};
+            return self.incr(typeMap[statusType]) * value;
+          }
+          // 追加ダメ%統合の場合
+          else if (statusType === 588) {
+            return self.incr('追加ダメ%') * value;
+          }
+          // 筋力/魔力効率の場合
+          else if (statusType === 208 || statusType === 200) {
+            return self.incr('効率') * value;
+          }
+          // HP系の直接マッピング
+          else if (statusType === 30) {
+            return self.incr('HP') * value;
+          }
+          else if (statusType === 31) {
+            return self.incr('HP%') * value;
+          }
+          // 体力の直接マッピング
+          else if (statusType === 26) {
+            return self.incr('体力') * value;
+          }
+          // 貫通力の直接マッピング
+          else if (statusType === 463) {
+            return self.incr('貫通') * value;
+          }
+          // 最小・最大ダメージの直接マッピング
+          else if (statusType === 461) {
+            return self.incr('最大') * value;
+          }
+          else if (statusType === 462) {
+            return self.incr('最小') * value;
+          }
+          // その他特殊タイプ
+          else if (statusType === 614 || statusType === 106 || statusType === 466 || 
+                   statusType === 494 || statusType === 567 || statusType === 571) {
+            return 0; // 計算不可
+          }
+          // 通常のマッピング
+          else {
+            const statName = statusTypeMapping[statusType];
+            if (statName) {
+              const val = self.incr(statName);
+              return val > 0 ? val * value : 0;
+            }
+          }
+          return 0;
+        };
+        
+        // StatusType1とStatusType2が同じ場合は合算する
+        const processedTypes = {};
+        
+        // StatusType1の処理
+        if (skill.status_type1 > 0) {
+          const value = skill.status_value1 + skill.status_value_slv1 * level;
+          if (value !== 0) {
+            const incrValue = expandValue(skill.status_type1, Math.abs(value));
+            totalValue += value > 0 ? incrValue : -incrValue;
+            
+            if (!processedTypes[skill.status_type1]) {
+              processedTypes[skill.status_type1] = 0;
+            }
+            processedTypes[skill.status_type1] += value;
+          }
+        }
+        
+        // StatusType2の処理
+        if (skill.status_type2 > 0) {
+          const value = skill.status_value2 + skill.status_value_slv2 * level;
+          if (value !== 0) {
+            const incrValue = expandValue(skill.status_type2, Math.abs(value));
+            totalValue += value > 0 ? incrValue : -incrValue;
+            
+            if (!processedTypes[skill.status_type2]) {
+              processedTypes[skill.status_type2] = 0;
+            }
+            processedTypes[skill.status_type2] += value;
+          }
+        }
+        
+        // 効果文字列を生成（武器属性力の特殊表示）
+        const uniqueEffects = new Set();
+        for (const [typeId, value] of Object.entries(processedTypes)) {
+          if (value !== 0) {
+            const typeIdNum = parseInt(typeId);
+            let displayText = '';
+            
+            // 武器属性力(+)の場合、特別な表示
+            if (typeIdNum === 492 || typeIdNum === 38 || typeIdNum === 586) {
+              displayText = `武器属性${value > 0 ? '+' : ''}${value}`;
+            }
+            // 武器属性力(%)の場合、特別な表示
+            else if (typeIdNum === 493 || typeIdNum === 39 || typeIdNum === 587) {
+              displayText = `武器属性${value > 0 ? '+' : ''}${value}%`;
+            }
+            // 全ステータスの場合、特別な表示
+            else if (typeIdNum === 455) {
+              displayText = `全ステータス${value > 0 ? '+' : ''}${value}`;
+            }
+            else if (typeIdNum === 456) {
+              displayText = `全ステータス${value > 0 ? '+' : ''}${value}%`;
+            }
+            // 筋力魔力の場合
+            else if (typeIdNum === 594) {
+              displayText = `筋力魔力${value > 0 ? '+' : ''}${value}`;
+            }
+            else if (typeIdNum === 595) {
+              displayText = `筋力魔力${value > 0 ? '+' : ''}${value}%`;
+            }
+            // 通常の場合
+            else {
+              const statName = statusTypeMapping[typeIdNum] || `Type${typeIdNum}`;
+              displayText = `${statName}${value > 0 ? '+' : ''}${value}`;
+            }
+            
+            uniqueEffects.add(displayText);
+          }
+        }
+        effects.push(...Array.from(uniqueEffects));
+        
+        return {
+          id: skill.id,
+          name: skill.name,
+          effects: effects.join(', '),
+          value: Math.floor(totalValue),
+          level: level
+        };
+      };
+    },
+    // 超越1ランキング（固定コスト）
+    transcend1Rankings: function() {
+      if (!this.transcendSkillData || this.transcendSkillData.length === 0) {
+        return [];
+      }
+      
+      // 超越1スキル（position 1-3: コスト固定）
+      const transcend1Skills = this.transcendSkillData.filter(s => s.position >= 1 && s.position <= 3);
+      const rankings = [];
+      
+      for (const skill of transcend1Skills) {
+        const maxLevel = skill.max_level;
+        let bestLevel = 0;
+        let bestValuePerPoint = 0;
+        let bestValue = 0;
+        
+        // 各レベルで価値を計算
+        for (let level = 1; level <= maxLevel; level++) {
+          const result = this.calculateTranscendSkillValue(skill, level);
+          const totalCost = skill.base_cost * level;
+          const valuePerPoint = totalCost > 0 ? result.value / totalCost : 0;
+          
+          if (valuePerPoint > bestValuePerPoint) {
+            bestValuePerPoint = valuePerPoint;
+            bestLevel = level;
+            bestValue = result.value;
+          }
+        }
+        
+        if (bestLevel > 0) {
+          const result = this.calculateTranscendSkillValue(skill, bestLevel);
+          rankings.push({
+            id: skill.id,
+            name: skill.name,
+            effects: result.effects,
+            cost: skill.base_cost,
+            valuePerCost: Math.floor(bestValuePerPoint),
+            totalValue: bestValue,
+            maxLevel: skill.max_level
+          });
+        }
+      }
+      
+      // 価値/Pで降順ソート
+      return rankings.sort((a, b) => b.valuePerCost - a.valuePerCost);
+    },
+    // 超越2列1ランキング（position 4: 基本スキル）
+    transcend2Column1Rankings: function() {
+      if (!this.transcendSkillData || this.transcendSkillData.length === 0) {
+        return [];
+      }
+      
+      // 超越2列1スキル（position 4: 基本スキル）
+      const column1Skills = this.transcendSkillData.filter(s => s.position === 4);
+      return this.calculateTranscend2ColumnRankings(column1Skills);
+    },
+    // 超越2列2ランキング（position 5: トレードオフスキル）
+    transcend2Column2Rankings: function() {
+      if (!this.transcendSkillData || this.transcendSkillData.length === 0) {
+        return [];
+      }
+      
+      // 超越2列2スキル（position 5: トレードオフスキル）
+      const column2Skills = this.transcendSkillData.filter(s => s.position === 5);
+      return this.calculateTranscend2ColumnRankings(column2Skills);
+    },
+    // 超越2列3ランキング（position 6: ％/最終系スキル）
+    transcend2Column3Rankings: function() {
+      if (!this.transcendSkillData || this.transcendSkillData.length === 0) {
+        return [];
+      }
+      
+      // 超越2列3スキル（position 6: ％/最終系スキル）
+      const column3Skills = this.transcendSkillData.filter(s => s.position === 6);
+      return this.calculateTranscend2ColumnRankings(column3Skills);
+    },
   },
   methods: {
+    // 超越2の列ごとのランキング計算
+    calculateTranscend2ColumnRankings: function(skills) {
+      const rankings = [];
+      
+      // スキル名の省略形変換マップ
+      const abbreviations = {
+        'クリティカルダメージ': 'クリダメ',
+        'ダメージ減少': 'ダメ減',
+        '一般モンスター追加ダメージ': '一般追加ダメ',
+        'ボスモンスター追加ダメージ': 'ボス追加ダメ',
+        'バックアタックダメージ': 'BA',
+        '一般モンスター支配力': '一般支配',
+        'ボスモンスター支配力': 'ボス支配',
+        'クールタイム減少': 'CT減少',
+        '筋力、魔法力': '筋魔',
+        '物理/魔法追加ダメージ': '追加ダメ',
+        '全ステータス': '全ステ',
+        '武器属性力': '属性',
+        '最大HP': 'HP',
+        '最小ダメージ': '最小',
+        '最大ダメージ': '最大',
+        '筋力/魔力効率': '効率',
+        'スキルターゲット数': 'タゲ数',
+        '移動速度': '移動'
+      };
+      
+      // スキル名を省略形に変換する関数
+      const shortenName = (name) => {
+        let shortened = name;
+        for (const [full, short] of Object.entries(abbreviations)) {
+          shortened = shortened.replace(full, short);
+        }
+        // その他の簡略化
+        shortened = shortened.replace(/\s*\(\+\)\s*/g, '');
+        shortened = shortened.replace(/\s*\(%\)\s*/g, '%');
+        shortened = shortened.replace(/\s*-\s*/g, '-');
+        shortened = shortened.replace(/\\n/g, '/');
+        shortened = shortened.replace('Ⅰ', '1');
+        shortened = shortened.replace('Ⅱ', '2');
+        return shortened;
+      };
+      
+      for (const skill of skills) {
+        const shortName = shortenName(skill.name);
+          
+          // 1レベルあたりの価値増加を計算（レベルに関係なく固定）
+          let valuePerLevelIncrease = 0;
+          const effects = [];
+          
+          if (skill.status_type1 > 0 && skill.status_value_slv1 !== 0) {
+            const statName = statusTypeMapping[skill.status_type1];
+            if (statName) {
+              valuePerLevelIncrease += this.incr(statName) * Math.abs(skill.status_value_slv1);
+              // 効果文字列を生成
+              const sign = skill.status_value_slv1 > 0 ? '+' : '';
+              effects.push(`${statName}${sign}${skill.status_value_slv1}/Lv`);
+            }
+          }
+          if (skill.status_type2 > 0 && skill.status_value_slv2 !== 0) {
+            const statName = statusTypeMapping[skill.status_type2];
+            if (statName) {
+              valuePerLevelIncrease += this.incr(statName) * Math.abs(skill.status_value_slv2);
+              // 効果文字列を生成
+              const sign = skill.status_value_slv2 > 0 ? '+' : '';
+              effects.push(`${statName}${sign}${skill.status_value_slv2}/Lv`);
+            }
+          }
+          
+          const effectsStr = effects.join(', ');
+          
+          if (window.DEBUG && skill.id === 52) {
+            console.log('1レベルあたりの価値増加（固定）:', valuePerLevelIncrease);
+            console.log('効果文字列:', effectsStr);
+          }
+          
+          // 固定コストならループは1回、可変コストならmax_level回
+          const maxIterations = skill.cost_per_level === 0 ? 1 : skill.max_level;
+          
+          for (let level = 1; level <= maxIterations; level++) {
+            const cost = skill.base_cost + (level - 1) * skill.cost_per_level;
+            const valuePerPoint = valuePerLevelIncrease / cost;
+            
+            // ID 52の最初の5レベルを詳細デバッグ
+            if (window.DEBUG && skill.id === 52 && level <= 5) {
+              const statusValue = skill.status_value1 + skill.status_value_slv1 * level;
+              console.log(`Level ${level}:`);
+              console.log(`  - ステータス値: ${statusValue}`);
+              console.log(`  - 次の1ポイントのコスト: ${cost}`);
+              console.log(`  - 次の1ポイントの価値: ${Math.floor(valuePerPoint)}`);
+              console.log(`  - 効果: ${effectsStr}`);
+            }
+            
+            if (valuePerPoint > 0) {
+              rankings.push({
+                id: skill.id,
+                name: skill.name,
+                shortName: shortName,
+                level: skill.cost_per_level > 0 ? level : '*', // 固定コストはレベル表示なし
+                effects: effectsStr,
+                cost: cost,
+                valuePerCost: Math.floor(valuePerPoint),
+                isFixedCost: skill.cost_per_level === 0
+              });
+            }
+          }
+      }
+      
+      // 価値/Pで降順ソート、上位20件のみ返す
+      return rankings.sort((a, b) => b.valuePerCost - a.valuePerCost).slice(0, 1000);
+    },
     getSummonBonus: function() {
       if (!this.currentSkillData || this.currentSkillData.スキルタイプ !== '召喚') {
         return null;
@@ -504,7 +1002,6 @@ const createVueInstance = () => {
         console.log('All damage bonus:', this.currentSkillData.全ダメージ補正);
         console.log('Critical damage bonus:', this.currentSkillData.クリティカルダメージ補正);
         
-        // スキルの基礎大小を自動設定（召喚スキルはMOB値、攻撃スキルは職業値）
         if (this.currentSkillData.基礎最小 !== null && this.currentSkillData.基礎最小 !== undefined) {
           this.基礎最小 = this.currentSkillData.基礎最小;
         }
@@ -622,8 +1119,9 @@ const createVueInstance = () => {
       const parsedData = JSON.parse(savedData);
       
       for (const key in parsedData) {
-        // currentSkillDataとskillDataLoadedは復元しない
-        if (key in this.$data && key !== 'currentSkillData' && key !== 'skillDataLoaded') {
+        // currentSkillData、skillDataLoaded、activeMainTab、transcendSkillDataは復元しない
+        if (key in this.$data && key !== 'currentSkillData' && key !== 'skillDataLoaded' 
+            && key !== 'activeMainTab' && key !== 'transcendSkillData') {
           // 元の値の型を確認して適切に変換
           if (typeof this.$data[key] === 'number') {
             this.$data[key] = Number(parsedData[key]) || 0;
@@ -689,6 +1187,7 @@ const createVueInstance = () => {
       }
     });
     loadEnemyData();
+    loadTranscendSkillData(); // 超越スキルデータを読み込む
   },
   watch: {
     スキルレベル: function(newVal) {
