@@ -166,35 +166,27 @@
 											:class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
 									</div>
 								</div>
-								<div class="space-y-2">
-									<!-- スキル属性選択 -->
-									<div class="setting-row">
-										<label>属性</label>
-										<div class="flex gap-4">
-											<label class="flex items-center">
-												<input type="radio" name="physicalOrMagical" value="物理" v-model="inputs.攻撃タイプ" class="mr-1">
-												<span class="text-xs">物理</span>
-											</label>
-											<label class="flex items-center">
-												<input type="radio" name="physicalOrMagical" value="魔法" v-model="inputs.攻撃タイプ" class="mr-1">
-												<span class="text-xs">魔法</span>
-											</label>
-										</div>
-									</div>
-									<!-- スキルタイプ選択 -->
-									<div class="setting-row">
-										<label>タイプ</label>
-										<div class="flex gap-4">
-											<label class="flex items-center">
-												<input type="radio" name="skillType" value="攻撃" v-model="inputs.スキルタイプ" class="mr-1">
-												<span class="text-xs">攻撃</span>
-											</label>
-											<label class="flex items-center">
-												<input type="radio" name="skillType" value="召喚" v-model="inputs.スキルタイプ" class="mr-1">
-												<span class="text-xs">召喚</span>
-											</label>
-										</div>
-									</div>
+				<div class="space-y-2">
+					<!-- スキル属性選択 -->
+					<div class="setting-row">
+						<label>属性</label>
+						<div class="flex gap-4">
+							<label v-for="type in ['物理', '魔法']" :key="type" class="flex items-center">
+								<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ" class="mr-1">
+								<span class="text-xs">{{ type }}</span>
+							</label>
+						</div>
+					</div>
+					<!-- スキルタイプ選択 -->
+					<div class="setting-row">
+						<label>タイプ</label>
+						<div class="flex gap-4">
+							<label v-for="type in ['攻撃', '召喚']" :key="type" class="flex items-center">
+								<input type="radio" name="skillType" :value="type" v-model="inputs.スキルタイプ" class="mr-1">
+								<span class="text-xs">{{ type }}</span>
+							</label>
+						</div>
+					</div>
 									<!-- 召喚補正 (召喚タイプの場合のみ表示) -->
 									<div v-if="currentSkillType === '召喚'" class="setting-row with-suffix">
 										<label>召喚補正</label>
@@ -249,35 +241,17 @@
 									</select>
 								</div>
 
-								<!-- 敵防御 -->
-								<div class="setting-row enemy">
-									<label>防御</label>
-									<input type="number" id="敵防御" v-model.lazy.number="inputs.敵防御" @blur="triggerCalculation">
-								</div>
-
-								<!-- 敵ダメ減 -->
-								<div class="setting-row enemy">
-									<label>ダメ減</label>
-									<input type="number" id="敵ダメ減" v-model.lazy.number="inputs.敵ダメ減" @blur="triggerCalculation">
-								</div>
-
-								<!-- 敵ダメ減% -->
-								<div class="setting-row enemy">
-									<label>ダメ減%</label>
-									<input type="number" id="敵ダメ減_乗算" v-model.lazy.number="inputs.敵ダメ減_乗算" @blur="triggerCalculation">
-								</div>
-
-								<!-- 敵幸運 -->
-								<div class="setting-row enemy">
-									<label>幸運</label>
-									<input type="number" id="敵幸運" v-model.lazy.number="inputs.敵幸運" @blur="triggerCalculation">
-								</div>
-
-								<!-- 敵クリ減 -->
-								<div class="setting-row enemy">
-									<label>クリ減</label>
-									<input type="number" id="敵クリ減" v-model.lazy.number="inputs.敵クリ減" @blur="triggerCalculation">
-								</div>
+				<!-- 敵ステータス入力 -->
+				<div v-for="field in [
+					{ id: '敵防御', label: '防御' },
+					{ id: '敵ダメ減', label: 'ダメ減' },
+					{ id: '敵ダメ減_乗算', label: 'ダメ減%' },
+					{ id: '敵幸運', label: '幸運' },
+					{ id: '敵クリ減', label: 'クリ減' }
+				]" :key="field.id" class="setting-row enemy">
+					<label>{{ field.label }}</label>
+					<input type="number" :id="field.id" v-model.lazy.number="inputs[field.id]" @blur="triggerCalculation">
+				</div>
 							</div>
 							<!-- HPダメージ換算設定 -->
 							<div class="card-container border-accent/30">
@@ -360,10 +334,11 @@
 					<tr v-for="(skill, index) in transcend1Rankings" :key="skill.id"
 						:class="index % 2 === 0 ? 'bg-white' : 'bg-bg'">
 						<td>{{ index + 1 }}</td>
+						<td>{{ ['根性','貪欲','闘志'][skill.position - 1] }}</td>
 						<td v-html="skill.effects"></td>
 						<td class="text-center">{{ skill.level || '' }}</td>
 						<td class="text-right">{{ skill.cost }}</td>
-						<td class="table-cell highlight-purple">{{ skill.costPerPoint }}</td>
+					<td class="table-cell highlight-purple text-right">{{ skill.costPerPoint }}</td>
 					</tr>
 				</tbody>
 					</table>
@@ -400,7 +375,7 @@
 					<td class="text-xs align-middle" v-html="skill.effects"></td>
 					<td class="text-center align-middle">{{ skill.level || '' }}</td>
 					<td class="text-right align-middle">{{ skill.cost }}</td>
-					<td class="text-emphasized pink align-middle">{{ skill.costPerPoint }}</td>
+					<td class="text-emphasized pink align-middle text-right">{{ skill.costPerPoint }}</td>
 				</tr>
 						</tbody>
 						</table>
@@ -430,7 +405,7 @@
 					<td>{{ passive.name }}</td>
 					<td>{{ passive.skillType }}</td>
 					<td>{{ passive.effect }}</td>
-					<td class="text-emphasized accent">{{ passive.damage }}</td>
+					<td class="text-emphasized accent text-right">{{ passive.damage }}</td>
 				</tr>
 				</tbody>
 					</table>
@@ -466,7 +441,7 @@
 						<td>{{ skill.effect }}</td>
 						<td class="text-right">{{ skill.level }}</td>
 						<td class="text-right">{{ skill.cost }}</td>
-						<td class="text-emphasized orange">{{ skill.costPerPoint.toFixed(4) }}</td>
+					<td class="text-emphasized orange text-right">{{ skill.costPerPoint.toFixed(4) }}</td>
 					</tr>
 				</tbody>
 					</table>
