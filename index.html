@@ -98,7 +98,7 @@
 			<!-- メインタブコンテンツ -->
 			<div class="bg-bg-secondary border border-t-0 border-border rounded-b-lg p-4 mb-4">
 				<!-- ダメージ計算タブ -->
-				<div v-show="activeMainTab === 'damage'">
+				<div v-if="activeMainTab === 'damage'">
 					<!-- ダメージカード統合表示 -->
 					<template v-for="cardGroup in [
 					{ cards: [
@@ -208,8 +208,8 @@
 									</select>
 								</div>
 
-								<!-- 難易度選択（ダンジョン選択時のみ表示） -->
-								<div class="setting-row enemy" v-show="ダンジョン">
+				<!-- 難易度選択（ダンジョン選択時のみ表示） -->
+				<div class="setting-row enemy" v-if="ダンジョン">
 									<label>難易度</label>
 									<select id="selectedDifficulty" v-model="難易度" @change="onDifficultyChange">
 										<option value="" disabled>難易度を選択</option>
@@ -219,8 +219,8 @@
 									</select>
 								</div>
 
-								<!-- 敵選択（ダンジョン選択時のみ表示） -->
-								<div class="setting-row enemy" v-show="ダンジョン">
+				<!-- 敵選択（ダンジョン選択時のみ表示） -->
+				<div class="setting-row enemy" v-if="ダンジョン">
 									<label>敵</label>
 									<select id="selectedEnemy" v-model="敵名" @change="onEnemyChange">
 										<option value="" disabled>敵を選択</option>
@@ -318,7 +318,7 @@
 				</div>
 
 				<!-- 超越１タブ -->
-				<div v-show="activeMainTab === 'transcend1'">
+				<div v-if="activeMainTab === 'transcend1'">
 					<h3 class="section-header purple">超越1 優先度ランキング</h3>
 					<div class="overflow-auto">
 						<table class="w-full text-xs data-table">
@@ -344,7 +344,7 @@
 				</div>
 
 				<!-- 超越２タブ -->
-				<div v-show="activeMainTab === 'transcend2'">
+				<div v-if="activeMainTab === 'transcend2'">
 					<h3 class="section-header pink">超越2 優先度ランキング</h3>
 					<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 						<!-- v-forループで3列を生成 -->
@@ -382,7 +382,7 @@
 				</div>
 
 				<!-- ペットパッシブタブ -->
-				<div v-show="activeMainTab === 'petPassive'">
+				<div v-if="activeMainTab === 'petPassive'">
 					<h3 class="section-header">ペットパッシブ 優先度ランキング</h3>
 
 
@@ -409,7 +409,7 @@
 				</div>
 
 				<!-- ギルドスキルタブ -->
-				<div v-show="activeMainTab === 'guild'">
+				<div v-if="activeMainTab === 'guild'">
 					<h3 class="section-header orange">ギルドスキル 優先度ランキング</h3>
 
 					<!-- ギルドスキルグレードフィルタ -->
