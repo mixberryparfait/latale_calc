@@ -70,15 +70,15 @@
 		</label>
 		<p id="progress" class="text-center text-text-muted text-2xs mb-3"></p>
 		<div id="app">
-			<!-- ローディングオーバーレイ -->
-			<div v-if="isCalculating" class="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50">
-				<div class="bg-white rounded-lg px-6 py-4 shadow-lg">
-					<div class="flex items-center gap-3">
-						<div class="animate-spin rounded-full h-6 w-6 border-2 border-accent border-t-transparent"></div>
-						<span class="text-sm font-medium text-text">計算中...</span>
-					</div>
+		<!-- ローディングオーバーレイ -->
+		<div v-if="isCalculating" class="loading-overlay">
+			<div class="loading-card">
+				<div class="loading-content">
+					<div class="loading-spinner"></div>
+					<span class="loading-text">計算中...</span>
 				</div>
 			</div>
+		</div>
 			<!-- メインタブナビゲーション -->
 			<div class="bg-bg-secondary border border-border rounded-t-lg overflow-hidden mb-0">
 				<div class="flex border-b border-border">
@@ -320,7 +320,7 @@
 				<!-- 超越１タブ -->
 				<div v-if="activeMainTab === 'transcend1'">
 					<h3 class="section-header purple">超越1 優先度ランキング</h3>
-					<div class="overflow-auto">
+					<div class="table-wrapper">
 						<table class="w-full text-xs data-table">
 							<thead>
 								<tr class="table-header-row">
@@ -331,12 +331,12 @@
 							<tbody>
 								<tr v-for="(skill, index) in transcend1Rankings" :key="skill.id"
 									:class="index % 2 === 0 ? 'bg-white' : 'bg-bg'">
-									<td>{{ index + 1 }}</td>
-									<td>{{ ['根性','貪欲','闘志'][skill.position - 1] }}</td>
-									<td v-html="skill.effects"></td>
-									<td class="text-center">{{ skill.level || '' }}</td>
-									<td class="text-right">{{ skill.cost }}</td>
-									<td class="table-cell highlight-purple text-right">{{ skill.costPerPoint }}</td>
+					<td>{{ index + 1 }}</td>
+					<td>{{ ['根性','貪欲','闘志'][skill.position - 1] }}</td>
+					<td v-html="skill.effects"></td>
+					<td class="center">{{ skill.level || '' }}</td>
+					<td class="right">{{ skill.cost }}</td>
+					<td class="highlight-purple">{{ skill.costPerPoint }}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -352,7 +352,7 @@
 							<h4 class="text-sm font-bold text-pink-500 mb-2">
 								{{ tableTitle }}
 							</h4>
-							<div class="overflow-auto">
+							<div class="table-wrapper">
 								<table class="w-full text-xs data-table compact">
 									<thead>
 										<tr class="table-header-row">
@@ -367,11 +367,11 @@
 						'align-middle',
 						columnIndex === 1 ? 'h-12' : ''
 					]">
-											<td class="align-middle">{{ index + 1 }}</td>
-											<td class="text-xs align-middle" v-html="skill.effects"></td>
-											<td class="text-center align-middle">{{ skill.level || '' }}</td>
-											<td class="text-right align-middle">{{ skill.cost }}</td>
-											<td class="text-emphasized pink align-middle text-right">{{ skill.costPerPoint }}</td>
+					<td>{{ index + 1 }}</td>
+					<td v-html="skill.effects"></td>
+					<td class="center">{{ skill.level || '' }}</td>
+					<td class="right">{{ skill.cost }}</td>
+					<td class="text-emphasized pink">{{ skill.costPerPoint }}</td>
 										</tr>
 									</tbody>
 								</table>
@@ -386,7 +386,7 @@
 					<h3 class="section-header">ペットパッシブ 優先度ランキング</h3>
 
 
-					<div class="overflow-auto">
+					<div class="table-wrapper">
 						<table class="w-full text-xs data-table">
 							<thead>
 								<tr class="table-header-row">
@@ -397,11 +397,11 @@
 							<tbody>
 								<tr v-for="(passive, index) in filteredPetPassiveRankings.slice(0, 1000)" :key="passive.id"
 									:class="index % 2 === 0 ? 'bg-white' : 'bg-bg'">
-									<td>{{ index + 1 }}</td>
-									<td>{{ passive.name }}</td>
-									<td>{{ passive.skillType }}</td>
-									<td>{{ passive.effect }}</td>
-									<td class="text-emphasized accent text-right">{{ passive.damage }}</td>
+					<td>{{ index + 1 }}</td>
+					<td>{{ passive.name }}</td>
+					<td>{{ passive.skillType }}</td>
+					<td>{{ passive.effect }}</td>
+					<td class="text-emphasized accent">{{ passive.damage }}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -413,16 +413,15 @@
 					<h3 class="section-header orange">ギルドスキル 優先度ランキング</h3>
 
 					<!-- ギルドスキルグレードフィルタ -->
-					<div class="flex gap-3 mb-3">
+					<div class="filter-group">
 						<label v-for="grade in guildSkillGradeOptions" :key="grade"
-							class="flex items-center cursor-pointer text-sm">
-							<input type="checkbox" v-model="guildSkillGradeFilters[grade]" :disabled="isLastCheckedGuildGrade(grade)"
-								class="mr-1">
+							class="filter-checkbox">
+							<input type="checkbox" v-model="guildSkillGradeFilters[grade]" :disabled="isLastCheckedGuildGrade(grade)">
 							<span>{{ grade }}</span>
 						</label>
 					</div>
 
-					<div class="overflow-auto">
+					<div class="table-wrapper">
 						<table class="w-full text-xs data-table">
 							<thead>
 								<tr class="table-header-row">
@@ -433,12 +432,12 @@
 							<tbody>
 								<tr v-for="(skill, index) in filteredGuildSkillRankings.slice(0, 1000)" :key="skill.key"
 									:class="index % 2 === 0 ? 'bg-white' : 'bg-bg'">
-									<td>{{ index + 1 }}</td>
-									<td>{{ skill.name }}</td>
-									<td>{{ skill.effect }}</td>
-									<td class="text-right">{{ skill.level }}</td>
-									<td class="text-right">{{ skill.cost }}</td>
-									<td class="text-emphasized orange text-right">{{ skill.costPerPoint.toFixed(4) }}</td>
+					<td>{{ index + 1 }}</td>
+					<td>{{ skill.name }}</td>
+					<td>{{ skill.effect }}</td>
+					<td class="right">{{ skill.level }}</td>
+					<td class="right">{{ skill.cost }}</td>
+					<td class="text-emphasized orange">{{ skill.costPerPoint.toFixed(4) }}</td>
 								</tr>
 							</tbody>
 						</table>
