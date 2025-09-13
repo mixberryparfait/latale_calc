@@ -139,16 +139,16 @@
 										<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
 									</select>
 								</div>
-								<div class="setting-row">
-									<label>スキル</label>
-									<select id="selectedSkill" v-model="スキル名" @change="onSkillChange" :title="selectedSkillTitle"
-										class="skill-select">
-										<option value="" disabled>スキルを選択</option>
-										<option v-for="skill in 選択可能スキル" :key="skill.スキル名" :value="skill.スキル名">
-											{{ skill.スキル名 }}
-										</option>
-									</select>
-								</div>
+				<div class="setting-row">
+					<label>スキル</label>
+					<select id="selectedSkill" v-model="スキル名" @change="onSkillChange" :title="selectedSkillTitle"
+						class="skill-select">
+						<option value="" disabled>スキルを選択</option>
+						<option v-for="skill in 選択可能スキル" :key="skill.スキル名" :value="skill.スキル名">
+							{{ skill.スキル名 }}
+						</option>
+					</select>
+				</div>
 								<div class="setting-row">
 									<label>レベル</label>
 									<div class="skill-multi-input">
