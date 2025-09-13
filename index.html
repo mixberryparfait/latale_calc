@@ -54,9 +54,9 @@
 				ラテール　ダメージ計算機
 			</h1>
 		</div>
-		<details class="card-container mb-3">
-			<summary class="font-medium cursor-pointer text-sm">説明</summary>
-			<div class="mt-2 text-xs text-text-muted space-y-1">
+		<details class="details-container">
+			<summary class="details-summary">説明</summary>
+			<div class="details-content">
 				<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
 				<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
 				<p>＋１当たりダメ上昇はステ画面の +1 ではなく加算値を振った場合の価値です</p>
@@ -106,10 +106,10 @@
 						{ id: 'cri_damage', label: 'クリダメ' },
 						{ id: 'cri_rate', label: 'クリ率' },
 						{ id: 'damage', label: '平均ダメ' }
-					], condition: true, gridCols: 'grid-cols-4' },
-					{ cards: dpsCards, condition: currentSkillData && currentSkillData.モーション時間, gridCols: 'grid-cols-3' }
-				]">
-						<div v-if="cardGroup.condition" :key="cardGroup.gridCols" :class="['grid gap-3 mb-4', cardGroup.gridCols]">
+					], condition: true, className: 'grid-damage-cards-4' },
+					{ cards: dpsCards, condition: currentSkillData && currentSkillData.モーション時間, className: 'grid-damage-cards-3' }
+					]">
+						<div v-if="cardGroup.condition" :key="cardGroup.className" :class="cardGroup.className">
 							<div v-for="card in cardGroup.cards" :key="card.id" :class="['damage-card', card.borderClass]">
 								<div class="card-label">{{ card.label }}</div>
 								<div :class="['card-value', card.colorClass]">
@@ -126,7 +126,7 @@
 						コピーする
 					</button>
 					<!-- メインコンテンツエリア -->
-					<div class="grid grid-cols-1 lg:grid-cols-2 gap-3" style="grid-template-columns: 1fr 2fr;">
+					<div class="grid-main-content">
 						<!-- 左側：スキル設定と敵設定 -->
 						<div class="space-y-3">
 							<!-- スキル設定 -->
@@ -157,33 +157,33 @@
 										<label>倍率</label>
 										<input type="number" step="0.1" id="スキル倍率" v-model.lazy.number="inputs.スキル倍率"
 											@blur="triggerCalculation" :readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"
-											:class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
+					:class="{ 'disabled-state': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
 										<label>追加</label>
 										<input type="number" id="スキル追加ダメ" v-model.lazy.number="inputs.スキル追加ダメ" @blur="triggerCalculation"
 											:readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"
-											:class="{ 'opacity-50 cursor-not-allowed': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
+					:class="{ 'disabled-state': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
 									</div>
 								</div>
 								<div class="space-y-2">
 									<!-- スキル属性選択 -->
 									<div class="setting-row">
 										<label>属性</label>
-										<div class="flex gap-4">
-											<label v-for="type in ['物理', '魔法']" :key="type" class="flex items-center">
-												<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ" class="mr-1">
-												<span class="text-xs">{{ type }}</span>
-											</label>
-										</div>
+					<div class="flex-gap-4">
+						<label v-for="type in ['物理', '魔法']" :key="type" class="radio-group">
+							<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ">
+							<span>{{ type }}</span>
+						</label>
+					</div>
 									</div>
 									<!-- スキルタイプ選択 -->
 									<div class="setting-row">
 										<label>タイプ</label>
-										<div class="flex gap-4">
-											<label v-for="type in ['攻撃', '召喚']" :key="type" class="flex items-center">
-												<input type="radio" name="skillType" :value="type" v-model="inputs.スキルタイプ" class="mr-1">
-												<span class="text-xs">{{ type }}</span>
-											</label>
-										</div>
+					<div class="flex-gap-4">
+						<label v-for="type in ['攻撃', '召喚']" :key="type" class="radio-group">
+							<input type="radio" name="skillType" :value="type" v-model="inputs.スキルタイプ">
+							<span>{{ type }}</span>
+						</label>
+					</div>
 									</div>
 									<!-- 召喚補正 (召喚タイプの場合のみ表示) -->
 									<div v-if="currentSkillType === '召喚'" class="setting-row with-suffix">
@@ -346,7 +346,7 @@
 				<!-- 超越２タブ -->
 				<div v-if="activeMainTab === 'transcend2'">
 					<h3 class="section-header pink">超越2 優先度ランキング</h3>
-					<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+					<div class="grid-transcend2-columns">
 						<!-- v-forループで3列を生成 -->
 						<div v-for="(tableTitle, columnIndex) in ['根性','貪欲','闘志']" :key="'col' + columnIndex">
 							<h4 class="text-sm font-bold text-pink-500 mb-2">
