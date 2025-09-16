@@ -68,35 +68,31 @@
 			<input type="file" id="file-input" class="hidden">
 			<span class="text-xs">📷 スクリーンショットから自動入力</span>
 		</label>
-		<p id="progress" class="text-center text-text-muted text-2xs mb-3"></p>
+	<p id="progress" class="progress-text"></p>
+
 		<div id="app">
 			<!-- ローディングオーバーレイ -->
 			<div v-if="isCalculating" class="loading-overlay">
-				<div class="loading-card">
-					<div class="loading-content">
-						<div class="loading-spinner"></div>
-						<span class="loading-text">計算中...</span>
+				<div>
+					<div>
+						<div></div>
+						<span>計算中...</span>
 					</div>
 				</div>
 			</div>
+
 			<!-- メインタブナビゲーション -->
-			<div class="bg-bg-secondary border border-border rounded-t-lg overflow-hidden mb-0">
-				<div class="flex border-b border-border">
-					<button v-for="tab in [
-						{ id: 'damage', label: 'ダメージ計算' },
-						{ id: 'transcend1', label: '超越１' },
-						{ id: 'transcend2', label: '超越２' },
-						{ id: 'guild', label: 'ギルドスキル' },
-						{ id: 'petPassive', label: 'ペットパッシブ' }
-					]" :key="tab.id" @click="activeMainTab = tab.id" class="tab-button" :class="{
-					'active': activeMainTab === tab.id
-				}">
-						{{ tab.label }}
+			<div class="tab-container">
+				<div class="tab-list">
+					<button v-for="(tabLabel, tabId) in tabLabels" :key="tabId" @click="activeMainTab = tabId" class="tab-button"
+						:class="{ 'active': activeMainTab === tabId }">
+						{{ tabLabel }}
 					</button>
 				</div>
 			</div>
+
 			<!-- メインタブコンテンツ -->
-			<div class="bg-bg-secondary border border-t-0 border-border rounded-b-lg p-4 mb-4">
+			<div class="tab-content">
 				<!-- ダメージ計算タブ -->
 				<div v-if="activeMainTab === 'damage'">
 					<!-- ダメージカード表示 -->
@@ -114,30 +110,31 @@
 					<button id="copy" class="copy-button">
 						コピーする
 					</button>
+
 					<!-- メインコンテンツエリア -->
 					<div class="grid-main-content">
 						<!-- 左側：スキル設定と敵設定 -->
-						<div class="space-y-3">
-							<!-- スキル設定 -->
-							<div class="card-container border-accent/30">
-								<div class="label-accent mb-2">スキル設定</div>
-				<div class="setting-row">
-					<label>職業</label>
-					<select id="selectedJob" v-model="職業" @change="onJobChange" :class="{ 'unselected': !職業 }">
-						<option value="" disabled>職業を選択</option>
-						<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
-					</select>
-				</div>
-				<div class="setting-row">
-					<label>スキル</label>
-					<select id="selectedSkill" v-model="スキル名" @change="onSkillChange" :title="selectedSkillTitle"
-						:class="['skill-select', { 'unselected': !スキル名 }]">
-						<option value="" disabled>スキルを選択</option>
-						<option v-for="skill in 選択可能スキル" :key="skill.スキル名" :value="skill.スキル名">
-							{{ skill.スキル名 }}
-						</option>
-					</select>
-				</div>
+				<div class="space-y-3">
+					<!-- スキル設定 -->
+					<div class="card-container skill-settings">
+						<div class="label-accent">スキル設定</div>
+								<div class="setting-row">
+									<label>職業</label>
+									<select id="selectedJob" v-model="職業" @change="onJobChange" :class="{ 'unselected': !職業 }">
+										<option value="" disabled>職業を選択</option>
+										<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
+									</select>
+								</div>
+								<div class="setting-row">
+									<label>スキル</label>
+									<select id="selectedSkill" v-model="スキル名" @change="onSkillChange" :title="selectedSkillTitle"
+										:class="['skill-select', { 'unselected': !スキル名 }]">
+										<option value="" disabled>スキルを選択</option>
+										<option v-for="skill in 選択可能スキル" :key="skill.スキル名" :value="skill.スキル名">
+											{{ skill.スキル名 }}
+										</option>
+									</select>
+								</div>
 								<div class="setting-row">
 									<label>レベル</label>
 									<div class="skill-multi-input">
@@ -145,12 +142,9 @@
 											@change="onSkillLevelChange" @blur="triggerCalculation">
 										<label>倍率</label>
 										<input type="number" step="0.1" id="スキル倍率" v-model.lazy.number="inputs.スキル倍率"
-											@blur="triggerCalculation" :readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"
-											:class="{ 'disabled-state': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
+											@blur="triggerCalculation">
 										<label>追加</label>
-										<input type="number" id="スキル追加ダメ" v-model.lazy.number="inputs.スキル追加ダメ" @blur="triggerCalculation"
-											:readonly="currentSkillType === '攻撃' || currentSkillType === '召喚'"
-											:class="{ 'disabled-state': currentSkillType === '攻撃' || currentSkillType === '召喚' }">
+										<input type="number" id="スキル追加ダメ" v-model.lazy.number="inputs.スキル追加ダメ" @blur="triggerCalculation">
 									</div>
 								</div>
 								<div class="space-y-2">
@@ -174,89 +168,92 @@
 											</label>
 										</div>
 									</div>
-					<!-- 召喚補正 (召喚タイプの場合のみ表示) -->
-					<div v-if="currentSkillType === '召喚'" class="setting-row suffix">
-						<label>召喚補正</label>
-						<input type="number" id="召喚補正" v-model.lazy.number="inputs.ダメ補正" @blur="triggerCalculation">
-						<span class="text-xs">%</span>
-					</div>
+									<!-- 召喚補正 (召喚タイプの場合のみ表示) -->
+									<div v-if="currentSkillType === '召喚'" class="setting-row suffix">
+										<label>召喚補正</label>
+										<input type="number" id="召喚補正" v-model.lazy.number="inputs.ダメ補正" @blur="triggerCalculation">
+										<span class="text-xs">%</span>
+									</div>
 								</div>
 							</div>
-							<!-- 敵設定 -->
-							<div class="card-container border-danger/30">
-								<div class="label-accent mb-2">敵設定</div>
 
-				<!-- ダンジョン選択 -->
-				<div class="setting-row enemy">
-					<label>ダンジョン</label>
-					<select id="selectedDungeon" v-model="ダンジョン" @change="onDungeonChange" :class="{ 'unselected': !ダンジョン }">
-						<option value="" disabled>ダンジョンを選択</option>
-						<option v-for="dungeon in ダンジョンリスト" :key="dungeon.level" :value="dungeon.name">
-							{{ dungeon.name }}
-						</option>
-					</select>
-				</div>
+					<!-- 敵設定 -->
+					<div class="card-container enemy-settings">
+						<div class="label-accent">敵設定</div>
 
-				<!-- 難易度選択（ダンジョン選択時のみ表示） -->
-				<div class="setting-row enemy" v-if="ダンジョン">
-					<label>難易度</label>
-					<select id="selectedDifficulty" v-model="難易度" @change="onDifficultyChange" :class="{ 'unselected': !難易度 }">
-						<option value="" disabled>難易度を選択</option>
-						<option v-for="difficulty in 選択可能難易度" :key="difficulty" :value="difficulty">
-							{{ difficulty }}
-						</option>
-					</select>
-				</div>
+								<!-- ダンジョン選択 -->
+								<div class="setting-row">
+									<label>ダンジョン</label>
+									<select id="selectedDungeon" v-model="ダンジョン" @change="onDungeonChange"
+										:class="{ 'unselected': !ダンジョン }">
+										<option value="" disabled>ダンジョンを選択</option>
+										<option v-for="dungeon in ダンジョンリスト" :key="dungeon.level" :value="dungeon.name">
+											{{ dungeon.name }}
+										</option>
+									</select>
+								</div>
 
-				<!-- 敵選択（ダンジョン選択時のみ表示） -->
-				<div class="setting-row enemy" v-if="ダンジョン">
-					<label>敵</label>
-					<select id="selectedEnemy" v-model="敵名" @change="onEnemyChange" :class="{ 'unselected': !敵名 }">
-						<option value="" disabled>敵を選択</option>
-						<option v-for="enemy in 選択可能敵" :key="enemy" :value="enemy">
-							{{ enemy }}
-						</option>
-					</select>
-				</div>
+								<!-- 難易度選択（ダンジョン選択時のみ表示） -->
+								<div class="setting-row" v-if="ダンジョン">
+									<label>難易度</label>
+									<select id="selectedDifficulty" v-model="難易度" @change="onDifficultyChange"
+										:class="{ 'unselected': !難易度 }">
+										<option value="" disabled>難易度を選択</option>
+										<option v-for="difficulty in 選択可能難易度" :key="difficulty" :value="difficulty">
+											{{ difficulty }}
+										</option>
+									</select>
+								</div>
 
-				<!-- 敵タイプ -->
-				<div class="setting-row enemy">
-					<label>タイプ</label>
-					<select id="敵タイプ" v-model="inputs.敵タイプ">
-						<option value="一般">一般</option>
-						<option value="ボス">ボス</option>
-					</select>
-				</div>
+								<!-- 敵選択（ダンジョン選択時のみ表示） -->
+								<div class="setting-row" v-if="ダンジョン">
+									<label>敵</label>
+									<select id="selectedEnemy" v-model="敵名" @change="onEnemyChange" :class="{ 'unselected': !敵名 }">
+										<option value="" disabled>敵を選択</option>
+										<option v-for="enemy in 選択可能敵" :key="enemy" :value="enemy">
+											{{ enemy }}
+										</option>
+									</select>
+								</div>
 
-				<!-- 敵ステータス入力 -->
-				<div v-for="field in [
-					{ id: '敵防御', label: '防御' },
-					{ id: '敵ダメ減', label: 'ダメ減' },
-					{ id: '敵ダメ減_乗算', label: 'ダメ減%' },
-					{ id: '敵幸運', label: '幸運' },
-					{ id: '敵クリ減', label: 'クリ減' }
-				]" :key="field.id" class="setting-row enemy">
-					<label>{{ field.label }}</label>
-					<input type="number" :id="field.id" v-model.lazy.number="inputs[field.id]" @blur="triggerCalculation">
-				</div>
+								<!-- 敵タイプ -->
+								<div class="setting-row">
+									<label>タイプ</label>
+									<select id="敵タイプ" v-model="inputs.敵タイプ">
+										<option value="一般">一般</option>
+										<option value="ボス">ボス</option>
+									</select>
+								</div>
+
+								<!-- 敵ステータス入力 -->
+								<div v-for="field in [
+									{ id: '敵防御', label: '防御' },
+									{ id: '敵ダメ減', label: 'ダメ減' },
+									{ id: '敵ダメ減_乗算', label: 'ダメ減%' },
+									{ id: '敵幸運', label: '幸運' },
+									{ id: '敵クリ減', label: 'クリ減' }
+								]" :key="field.id" class="setting-row">
+									<label>{{ field.label }}</label>
+									<input type="number" :id="field.id" v-model.lazy.number="inputs[field.id]" @blur="triggerCalculation">
+								</div>
 							</div>
-							<!-- HPダメージ換算設定 -->
-							<div class="card-container border-accent/30">
-								<div class="label-accent mb-2">その他設定</div>
+
+					<!-- HPダメージ換算設定 -->
+					<div class="card-container other-settings">
+						<div class="label-accent">その他設定</div>
 								<div class="hp-value-setting">
 									<label>HPダメージ換算</label>
 									<input type="number" id="HPダメージ換算" v-model.lazy.number="inputs.HPダメージ換算" min="0" max="100"
 										title="HP100%増加を火力何％換算するか" @blur="triggerCalculation">
-									<span class="text-xs">%</span>
+							<span>%</span>
 								</div>
 							</div>
 						</div>
+
 						<!-- 右側：ステータス入力エリア -->
 						<div class="card-container status-container">
 							<!-- 共通ステータス -->
-
 							<template v-for="stat in statKeys" :key="stat">
-
 								<!-- 攻撃特殊レイアウト -->
 								<template v-if="stat=='攻撃最小'"></template>
 								<div v-else-if="stat=='攻撃最大'" class="attack-stats-grid">
@@ -306,142 +303,40 @@
 					</div>
 				</div>
 
-				<!-- 超越１タブ -->
-				<div v-if="activeMainTab === 'transcend1'">
-					<h3 class="section-header purple">超越1 優先度ランキング</h3>
-					<div class="table-wrapper">
-						<table class="w-full text-xs data-table transcend1-table">
-							<thead>
-								<tr class="table-header-row">
-									<th>順位</th>
-									<th>カテゴリ</th>
-									<th>スキル名</th>
-									<th>Lv</th>
-									<th>コスト</th>
-									<th>ダメ換算/P</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr v-for="(skill, index) in transcend1Rankings" :key="skill.id">
-									<td>{{ index + 1 }}</td>
-									<td>{{ ['根性','貪欲','闘志'][skill.position - 1] }}</td>
-									<td v-html="skill.effects"></td>
-									<td class="center">{{ skill.level || '' }}</td>
-									<td class="right">{{ skill.cost }}</td>
-									<td class="text-emphasized-cost">{{ skill.costPerPoint }}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+				<!-- 換算表タブ -->
+				<div v-else>
+					<h3 class="section-header">
+						{{ tabLabels[activeMainTab] + ' ランキング' }}
+					</h3>
 
-				<!-- 超越２タブ -->
-				<div v-if="activeMainTab === 'transcend2'">
-					<h3 class="section-header pink">超越2 優先度ランキング</h3>
-					<div class="grid-transcend2-columns">
-						<!-- v-forループで3列を生成 -->
-						<div v-for="(tableTitle, columnIndex) in ['根性','貪欲','闘志']" :key="'col' + columnIndex">
-							<h4 class="text-sm font-bold text-pink-500 mb-2">
-								{{ tableTitle }}
-							</h4>
-							<div class="table-wrapper">
-								<table class="w-full text-xs data-table compact transcend2-table">
-									<thead>
-										<tr class="table-header-row">
-											<th>順位</th>
-											<th>スキル名</th>
-											<th>Lv</th>
-											<th>消費P</th>
-											<th>ダメ換算/P</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr v-for="(skill, index) in transcend2Rankings[columnIndex]" :key="skill.id + '_' + skill.level"
-											:class="[
-						'align-middle',
-						columnIndex === 1 ? 'h-12' : ''
-					]">
-											<td>{{ index + 1 }}</td>
-											<td v-html="skill.effects"></td>
-											<td class="center">{{ skill.level || '' }}</td>
-											<td class="right">{{ skill.cost }}</td>
-											<td class="text-emphasized-cost">{{ skill.costPerPoint }}</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<!-- ペットパッシブタブ -->
-				<div v-if="activeMainTab === 'petPassive'">
-					<h3 class="section-header accent">ペットパッシブ 優先度ランキング</h3>
-
-
-					<div class="table-wrapper">
-						<table class="w-full text-xs data-table pet-passive-table">
-							<thead>
-								<tr class="table-header-row">
-									<th>順位</th>
-									<th>ペット名</th>
-									<th>スキルタイプ</th>
-									<th>ステータス</th>
-									<th>ダメ換算</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr v-for="(passive, index) in filteredPetPassiveRankings.slice(0, 1000)" :key="passive.id">
-									<td>{{ index + 1 }}</td>
-									<td>{{ passive.name }}</td>
-									<td>{{ passive.skillType }}</td>
-									<td>{{ passive.effect }}</td>
-									<td class="text-emphasized-damage">{{ passive.damage }}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-				<!-- ギルドスキルタブ -->
-				<div v-if="activeMainTab === 'guild'">
-					<h3 class="section-header orange">ギルドスキル 優先度ランキング</h3>
-
-					<!-- ギルドスキルグレードフィルタ -->
-					<div class="filter-group">
-						<label v-for="grade in guildSkillGradeOptions" :key="grade" class="filter-checkbox">
+					<!-- ギルドスキルフィルタ（特殊UI） -->
+					<div v-if="activeMainTab === 'guild'" class="filter-group">
+						<label v-for="grade in ['初級', '中級', '上級']" :key="grade" class="filter-checkbox">
 							<input type="checkbox" v-model="guildSkillGradeFilters[grade]" :disabled="isLastCheckedGuildGrade(grade)">
 							<span>{{ grade }}</span>
 						</label>
 					</div>
 
-					<div class="table-wrapper">
-						<table class="w-full text-xs data-table guild-table">
-							<thead>
-								<tr class="table-header-row">
-									<th>順位</th>
-									<th>スキル名</th>
-									<th>ステータス</th>
-									<th>Lv</th>
-									<th>コスト</th>
-									<th>ダメ換算/P</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr v-for="(skill, index) in filteredGuildSkillRankings.slice(0, 1000)" :key="skill.key">
-									<td>{{ index + 1 }}</td>
-									<td>{{ skill.name }}</td>
-									<td>{{ skill.effect }}</td>
-									<td class="right">{{ skill.level }}</td>
-									<td class="right">{{ skill.cost }}</td>
-									<td class="text-emphasized-cost">{{ skill.costPerPoint.toFixed(4) }}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+				<div class="table-wrapper">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th v-for="header in activeRanking.headers" :key="header">{{ header }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(item, index) in activeRanking.data.slice(0, 1000)" :key="`${activeMainTab}-${item.id}`">
+								<td>{{ index + 1 }}</td>
+								<td v-if="'name' in item">{{ item.name }}</td>
+								<td v-if="'category' in item">{{ item.category }}</td>
+								<td v-if="'effect' in item" v-html="item.effect"></td>
+								<td v-if="'level' in item">{{ item.level }}</td>
+								<td v-if="'cost' in item">{{ item.cost }}</td>
+								<td v-if="'damage' in item">{{ Math.floor(item.damage) }}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-			</div>
 		</div>
 	</div>
 
