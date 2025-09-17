@@ -102,7 +102,7 @@
 							{ id: 'cri_damage', label: 'クリダメ', value: formatDamage(results.criDamage) },
 							{ id: 'cri_rate', label: 'クリ率', value: (results.criRate).toFixed(1) + '%' },
 							{ id: 'damage', label: '平均ダメ', value: formatDamage(results.damage) }
-						]" :key="card.id" class="damage-card">
+						]" :key="card.id">
 							<div class="card-label">{{ card.label }}</div>
 							<div class="card-value">{{ card.value }}</div>
 						</div>
