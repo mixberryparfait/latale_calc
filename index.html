@@ -325,14 +325,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="(item, index) in activeRanking.data.slice(0, 1000)" :key="`${activeMainTab}-${item.id}`">
+							<tr v-for="(item, index) in (activeMainTab === 'guild' ? activeRanking.data : activeRanking.data.slice(0, 1000))" :key="`${activeMainTab}-${item.id}`">
 								<td>{{ index + 1 }}</td>
 								<td v-if="'name' in item">{{ item.name }}</td>
 								<td v-if="'category' in item">{{ item.category }}</td>
 								<td v-if="'effect' in item" v-html="item.effect"></td>
 								<td v-if="'level' in item">{{ item.level }}</td>
 								<td v-if="'cost' in item">{{ item.cost }}</td>
-								<td v-if="'damage' in item">{{ Math.floor(item.damage) }}</td>
+								<td v-if="'damage' in item">{{ activeMainTab === 'guild' ? item.damage.toFixed(4) : Math.floor(item.damage) }}</td>
 							</tr>
 						</tbody>
 					</table>
