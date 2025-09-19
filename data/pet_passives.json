@@ -1,1334 +1,890 @@
 [
   {
-    "id": 700100420,
     "name": "白熊",
-    "passive_type": 141,
     "category": "物理ダメージ減少A",
-    "description": "物理ダメージ減少A +%d",
-    "status_type1": "物理ダメージ減少A",
+    "status_type1": "ダメ減",
     "status_value1": 10,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700100520,
     "name": "コガネブタ",
-    "passive_type": 149,
     "category": "Ely獲得量/アイテムドロップ率A",
-    "description": "Ely獲得量A +60%%\\nアイテムドロップ率A +10%%",
     "status_type1": "Ely獲得量",
     "status_value1": 60,
     "status_type2": "ドロップ率",
-    "status_value2": 10,
-    "effect_type": 0
+    "status_value2": 10
   },
   {
-    "id": 700100620,
     "name": "モコワン",
-    "passive_type": 139,
     "category": "命中率A",
-    "description": "命中率A %+d%%",
     "status_type1": "命中率",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700100720,
     "name": "ネコネ",
-    "passive_type": 142,
     "category": "物理回避率A",
-    "description": "回避率A %+d%%",
-    "status_type1": "回避率A",
+    "status_type1": "回避率",
     "status_value1": 12,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700100820,
     "name": "パロ",
-    "passive_type": 144,
     "category": "魔法最大ダメージA",
-    "description": "魔法最大ダメージA %+d%%",
-    "status_type1": "魔法最大ダメージA",
+    "status_type1": "魔法最大",
     "status_value1": 11,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700100920,
     "name": "ペリー",
-    "passive_type": 143,
     "category": "物理最大ダメージA",
-    "description": "物理最大ダメージA %+d%%",
-    "status_type1": "物理最大ダメージA",
+    "status_type1": "物理最大",
     "status_value1": 11,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101020,
     "name": "ギンジロウ",
-    "passive_type": 114,
     "category": "最小ダメージA",
-    "description": "最小ダメージA %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 13,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101026,
     "name": "スーパープチギンジロウ",
-    "passive_type": 115,
     "category": "最小ダメージB",
-    "description": "最小ダメージB %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 20,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101027,
     "name": "暴風ペンギン",
-    "passive_type": 103,
     "category": "クリティカル確率C",
-    "description": "クリティカル確率C %+d%%",
     "status_type1": "クリ率",
     "status_value1": 100,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101120,
     "name": "ももぱん",
-    "passive_type": 104,
     "category": "クリティカルダメージA",
-    "description": "クリティカルダメージA %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 22,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101121,
     "name": "もも",
-    "passive_type": 104,
     "category": "クリティカルダメージA",
-    "description": "クリティカルダメージA %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 22,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101220,
     "name": "ラブリートビー",
-    "passive_type": 114,
     "category": "最小ダメージA",
-    "description": "最小ダメージA %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 13,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101226,
     "name": "特別なラブリートビー",
-    "passive_type": 149,
     "category": "Ely獲得量/アイテムドロップ率A",
-    "description": "Ely獲得量A +70%%\\nアイテムドロップ率A +10%%",
     "status_type1": "Ely獲得量",
     "status_value1": 70,
     "status_type2": "ドロップ率",
-    "status_value2": 10,
-    "effect_type": 0
+    "status_value2": 10
   },
   {
-    "id": 700101320,
     "name": "ウォータリー",
-    "passive_type": 127,
     "category": "ステータス(+)A",
-    "description": "ステータスA +%d",
     "status_type1": "全ステ",
     "status_value1": 165,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101420,
     "name": "フォレスティ",
-    "passive_type": 127,
     "category": "ステータス(+)A",
-    "description": "ステータスA +%d",
     "status_type1": "全ステ",
     "status_value1": 165,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101520,
     "name": "ココ",
-    "passive_type": 154,
     "category": "移動速度A",
-    "description": "移動速度A %+d%%",
     "status_type1": "移動",
     "status_value1": 12,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 1
+    "status_value2": 0
   },
   {
-    "id": 700101529,
     "name": "リン",
-    "passive_type": 131,
     "category": "ステータス(％)C",
-    "description": "ステータス(%%)C %+d%%",
     "status_type1": "全ステ%",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101720,
     "name": "ファニラット",
-    "passive_type": 104,
     "category": "クリティカルダメージA",
-    "description": "クリティカルダメージA %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 35,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101820,
     "name": "チョーキー",
-    "passive_type": 142,
     "category": "物理回避率A",
-    "description": "回避率A %+d%%",
-    "status_type1": "回避率A",
+    "status_type1": "回避率",
     "status_value1": 12,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700101920,
     "name": "プリリン",
-    "passive_type": 139,
     "category": "命中率A",
-    "description": "命中率A %+d%%",
     "status_type1": "命中率",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102020,
     "name": "見習いネコネ",
-    "passive_type": 142,
     "category": "物理回避率A",
-    "description": "回避率A %+d%%",
-    "status_type1": "回避率A",
+    "status_type1": "回避率",
     "status_value1": 12,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102120,
     "name": "エル",
-    "passive_type": 130,
     "category": "ステータス(％)B",
-    "description": "ステータス(%%)B %+d%%",
     "status_type1": "体力_乗算",
     "status_value1": 13,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102220,
     "name": "バル",
-    "passive_type": 130,
     "category": "ステータス(％)B",
-    "description": "ステータス(%%)B %+d%%",
     "status_type1": "体力_乗算",
     "status_value1": 13,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102320,
     "name": "レンレン",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102420,
     "name": "九尾",
-    "passive_type": 104,
     "category": "クリティカルダメージA",
-    "description": "クリティカルダメージA %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 22,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102520,
     "name": "テング",
-    "passive_type": 149,
     "category": "Ely獲得量/アイテムドロップ率A",
-    "description": "Ely獲得量A +44%%\\nアイテムドロップ率A +10%%",
     "status_type1": "Ely獲得量",
     "status_value1": 44,
     "status_type2": "ドロップ率",
-    "status_value2": 10,
-    "effect_type": 0
+    "status_value2": 10
   },
   {
-    "id": 700102526,
     "name": "テング",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 11,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102720,
     "name": "ブラウニー",
-    "passive_type": 104,
     "category": "クリティカルダメージA",
-    "description": "クリティカルダメージA %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 22,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102820,
     "name": "スチュワート",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700102920,
     "name": "エリザベス",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103020,
     "name": "タイガ",
-    "passive_type": 111,
     "category": "最大ダメージC",
-    "description": "最大ダメージC %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103028,
     "name": "ｽｰﾊﾟｰﾌﾟﾁﾀｲｶﾞ",
-    "passive_type": 111,
     "category": "最大ダメージC",
-    "description": "最大ダメージC %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103120,
     "name": "ラクーン",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103327,
     "name": "スーパー火の玉",
-    "passive_type": 138,
     "category": "貫通力A",
-    "description": "貫通力A %+d%%",
     "status_type1": "貫通",
     "status_value1": 16,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103520,
     "name": "ルパート伯爵",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103521,
     "name": "ルパート",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103526,
     "name": "スーパーがしゃどくろ",
-    "passive_type": 117,
     "category": "最小ダメージD",
-    "description": "最小ダメージD %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 20,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103620,
     "name": "ハスキー",
-    "passive_type": 139,
     "category": "命中率A",
-    "description": "命中率A %+d%%",
     "status_type1": "命中率",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103621,
     "name": "ベイビーハスキー",
-    "passive_type": 139,
     "category": "命中率A",
-    "description": "命中率A %+d%%",
     "status_type1": "命中率",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103720,
     "name": "トランスメカ",
-    "passive_type": 120,
     "category": "武器攻撃力/属性力A",
-    "description": "武器攻撃力/属性力A +%d",
     "status_type1": "武器属性",
     "status_value1": 25,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103820,
     "name": "ドラコ",
-    "passive_type": 104,
     "category": "クリティカルダメージA",
-    "description": "クリティカルダメージA %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 22,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700103920,
     "name": "らびっちょ",
-    "passive_type": 139,
     "category": "命中率A",
-    "description": "命中率A %+d%%",
     "status_type1": "命中率",
     "status_value1": 20,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700104420,
     "name": "メリュフルール",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700104820,
     "name": "アプー",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700104821,
     "name": "ちびアプー",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700104920,
     "name": "ハニービー",
-    "passive_type": 101,
     "category": "クリティカル確率A",
-    "description": "クリティカル確率A %+d%%",
     "status_type1": "クリ率",
     "status_value1": 2,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 1
+    "status_value2": 0
   },
   {
-    "id": 700105120,
     "name": "ポーリオン",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 1
+    "status_value2": 0
   },
   {
-    "id": 700105203,
     "name": "ラン",
-    "passive_type": 135,
     "category": "追加ダメージA",
-    "description": "追加ダメージA +%d",
     "status_type1": "追加ダメ",
     "status_value1": 300,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700105320,
     "name": "キングレオ",
-    "passive_type": 140,
     "category": "最大HP/防御力A",
-    "description": "最大HP +12%%\\n防御力 +1000",
     "status_type1": "HP_乗算",
     "status_value1": 12,
     "status_type2": "防御",
-    "status_value2": 1000,
-    "effect_type": 0
+    "status_value2": 1000
   },
   {
-    "id": 700105328,
     "name": "プチキングレオ",
-    "passive_type": 140,
     "category": "最大HP/防御力A",
-    "description": "最大HP +12%%\\n防御力 +1000",
     "status_type1": "HP_乗算",
     "status_value1": 12,
     "status_type2": "防御",
-    "status_value2": 1000,
-    "effect_type": 0
+    "status_value2": 1000
   },
   {
-    "id": 700105403,
     "name": "ストーンゴーレム",
-    "passive_type": 147,
     "category": "経験値/クエスト報酬A",
-    "description": "経験値A +3%%\\nクエスト報酬A    +30%%",
     "status_type1": "クエスト報酬",
     "status_value1": 30,
     "status_type2": "経験値",
-    "status_value2": 3.0,
-    "effect_type": 0
+    "status_value2": 30
   },
   {
-    "id": 700105406,
     "name": "ストーンゴーレム",
-    "passive_type": 147,
     "category": "経験値/クエスト報酬A",
-    "description": "経験値A +3.5%%\\nクエスト報酬A    +35%%",
     "status_type1": "クエスト報酬",
     "status_value1": 35,
     "status_type2": "経験値",
-    "status_value2": 3.5,
-    "effect_type": 0
+    "status_value2": 35
   },
   {
-    "id": 700105620,
     "name": "ルル",
-    "passive_type": 132,
     "category": "ステータス(+/％)A",
-    "description": "ステータスA +200\\nステータス(%%)A +7%%",
     "status_type1": "全ステ",
     "status_value1": 200,
     "status_type2": "全ステ%",
-    "status_value2": 7,
-    "effect_type": 0
+    "status_value2": 7
   },
   {
-    "id": 700105720,
     "name": "サーカスピエロ",
-    "passive_type": 149,
     "category": "Ely獲得量/アイテムドロップ率A",
-    "description": "Ely獲得量A +70%%\\nアイテムドロップ率A +11%%",
     "status_type1": "Ely獲得量",
     "status_value1": 70,
     "status_type2": "ドロップ率",
-    "status_value2": 11,
-    "effect_type": 1
+    "status_value2": 11
   },
   {
-    "id": 700105820,
     "name": "メェ",
-    "passive_type": 151,
     "category": "Ely獲得量/アイテムドロップ率C",
-    "description": "Ely獲得量C +85%%\\nアイテムドロップ率C +6%%",
     "status_type1": "Ely獲得量",
     "status_value1": 85,
     "status_type2": "ドロップ率",
-    "status_value2": 6,
-    "effect_type": 0
+    "status_value2": 6
   },
   {
-    "id": 700105920,
     "name": "マリエル",
-    "passive_type": 127,
     "category": "ステータス(+)A",
-    "description": "ステータスA +%d",
     "status_type1": "筋力魔力",
     "status_value1": 350,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700105931,
     "name": "海の精霊",
-    "passive_type": 131,
     "category": "ステータス(％)C",
-    "description": "ステータス(%%)C %+d%%",
     "status_type1": "全ステ%",
     "status_value1": 5,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106001,
     "name": "デゴス",
-    "passive_type": 137,
     "category": "クールタイム減少A",
-    "description": "クールタイム減少A +8%%",
     "status_type1": "CT減少",
     "status_value1": 80,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106101,
     "name": "でかモッチー☆",
-    "passive_type": 165,
     "category": "命中率B",
-    "description": "命中率B %+d%%",
     "status_type1": "命中率",
     "status_value1": 50,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106102,
     "name": "モッチー☆",
-    "passive_type": 105,
     "category": "クリティカルダメージB",
-    "description": "クリティカルダメージB %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 22,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106201,
     "name": "レイレイ",
-    "passive_type": 145,
     "category": "経験値A",
-    "description": "経験値A +10%%",
     "status_type1": "経験値",
-    "status_value1": 10.0,
+    "status_value1": 100,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106202,
     "name": "リコリス",
-    "passive_type": 106,
     "category": "クリティカルダメージC",
-    "description": "クリティカルダメージC %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 38,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106301,
     "name": "オウガヤン",
-    "passive_type": 136,
     "category": "追加ダメージB",
-    "description": "追加ダメージB +%d",
     "status_type1": "追加ダメ",
     "status_value1": 800,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106401,
     "name": "キャプテン・モーノ",
-    "passive_type": 122,
     "category": "武器攻撃力(%)/属性力(%)A",
-    "description": "武器攻撃力/属性力(%%) A %+d%%",
     "status_type1": "武器属性_乗算",
     "status_value1": 5,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106601,
     "name": "セルキー",
-    "passive_type": 150,
     "category": "Ely獲得量/アイテムドロップ率B",
-    "description": "Ely獲得量B +45%%\\nアイテムドロップ率B +8%%",
     "status_type1": "Ely獲得量",
     "status_value1": 45,
     "status_type2": "ドロップ率",
-    "status_value2": 8,
-    "effect_type": 0
+    "status_value2": 8
   },
   {
-    "id": 700106701,
     "name": "パンパオ",
-    "passive_type": 107,
     "category": "クリティカルダメージD",
-    "description": "クリティカルダメージD %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700106801,
     "name": "ハニーベア",
-    "passive_type": 148,
     "category": "クエスト報酬A",
-    "description": "クエスト報酬A %+d%%",
     "status_type1": "クエスト報酬",
     "status_value1": 50,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107201,
     "name": "こっこ",
-    "passive_type": 113,
     "category": "最大ダメージE",
-    "description": "最大ダメージE %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107302,
     "name": "ティミー",
-    "passive_type": 101,
     "category": "クリティカル確率A",
-    "description": "クリティカル確率A %+d%%",
     "status_type1": "クリ率",
     "status_value1": 4,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107401,
     "name": "ヒッポ",
-    "passive_type": 134,
     "category": "追加ダメージ(%)A",
-    "description": "追加ダメージ(%%) A %+d%%",
     "status_type1": "追加ダメ_乗算",
     "status_value1": 10,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107501,
     "name": "ナイン",
-    "passive_type": 118,
     "category": "最小/最大ダメージA",
-    "description": "最小/最大ダメージA %+d%%",
-    "status_type1": "最小/最大ダメージA",
+    "status_type1": "最大最小",
     "status_value1": 20,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107601,
     "name": "レティフェ",
-    "passive_type": 124,
     "category": "一般モンスター支配力A",
-    "description": "一般モンスター支配力A +3%%",
     "status_type1": "一般支配",
     "status_value1": 3.0,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107701,
     "name": "インヴォーグ",
-    "passive_type": 128,
     "category": "ステータス(+)B",
-    "description": "ステータスB +%d",
     "status_type1": "全ステ",
     "status_value1": 1000,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107801,
     "name": "スノーボール",
-    "passive_type": 125,
     "category": "ボスモンスター支配力A",
-    "description": "ボスモンスター支配力A +5%%",
     "status_type1": "ボス支配",
     "status_value1": 5.0,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700107901,
     "name": "きなこ",
-    "passive_type": 127,
     "category": "ステータス(+)A",
-    "description": "ステータスA +%d",
     "status_type1": "筋力魔力",
     "status_value1": 1500,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700108001,
     "name": "マジカルスターリン",
-    "passive_type": 146,
     "category": "経験値B",
-    "description": "経験値B +5%%",
     "status_type1": "経験値",
-    "status_value1": 5.0,
+    "status_value1": 50,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700108101,
     "name": "オスカルJr",
-    "passive_type": 152,
     "category": "Ely獲得量/アイテムドロップ率D",
-    "description": "Ely獲得量C +45%%\\nアイテムドロップ率D +5%%",
     "status_type1": "Ely獲得量",
     "status_value1": 45,
     "status_type2": "ドロップ率",
-    "status_value2": 5,
-    "effect_type": 0
+    "status_value2": 5
   },
   {
-    "id": 700108201,
     "name": "クロコ",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 30,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700108701,
     "name": "ユピィ",
-    "passive_type": 108,
     "category": "クリティカルダメージE",
-    "description": "クリティカルダメージE %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700108801,
     "name": "ピギー",
-    "passive_type": 121,
     "category": "武器攻撃力/属性力B",
-    "description": "武器攻撃力/属性力B +%d",
     "status_type1": "武器属性",
     "status_value1": 70,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700109001,
     "name": "メイリン",
-    "passive_type": 114,
     "category": "最小ダメージA",
-    "description": "最小ダメージA %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700109201,
     "name": "きゃロっと",
-    "passive_type": 129,
     "category": "ステータス(％)A",
-    "description": "ステータス(%%)A %+d%%",
     "status_type1": "全ステ%",
     "status_value1": 10,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700109301,
     "name": "ルールー",
-    "passive_type": 146,
     "category": "経験値B",
-    "description": "経験値B +20%%",
     "status_type1": "経験値",
-    "status_value1": 20.0,
+    "status_value1": 200,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700109401,
     "name": "ミカエル",
-    "passive_type": 112,
     "category": "最大ダメージD",
-    "description": "最大ダメージD %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700109501,
     "name": "ウィンターパン",
-    "passive_type": 132,
     "category": "ステータス(+/％)A",
-    "description": "ステータスA +1000\\nステータス(%%)A +10%%",
     "status_type1": "全ステ",
     "status_value1": 1000,
     "status_type2": "全ステ%",
-    "status_value2": 10,
-    "effect_type": 0
+    "status_value2": 10
   },
   {
-    "id": 700109601,
     "name": "チュリー",
-    "passive_type": 147,
     "category": "経験値/クエスト報酬A",
-    "description": "経験値A +10%%\\nクエスト報酬A    +100%%",
     "status_type1": "クエスト報酬",
     "status_value1": 100,
     "status_type2": "経験値",
-    "status_value2": 10.0,
-    "effect_type": 0
+    "status_value2": 100
   },
   {
-    "id": 700109701,
     "name": "ヨミ",
-    "passive_type": 153,
     "category": "超人ポイントA",
-    "description": "超人ポイントA %+d%%",
-    "status_type1": "超人ポイントA",
+    "status_type1": "超人P",
     "status_value1": 50,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700109801,
     "name": "オレオン",
-    "passive_type": 126,
     "category": "一般/ボスモンスター支配力A",
-    "description": "一般/ボスモンスター支配力A +3%%",
     "status_type1": "一般支配",
     "status_value1": 3.0,
     "status_type2": "ボス支配",
-    "status_value2": 3.0,
-    "effect_type": 0
+    "status_value2": 3.0
   },
   {
-    "id": 700109901,
     "name": "バブルバブル",
-    "passive_type": 115,
     "category": "最小ダメージB",
-    "description": "最小ダメージB %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110001,
     "name": "ベラ",
-    "passive_type": 113,
     "category": "最大ダメージE",
-    "description": "最大ダメージE %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110101,
     "name": "ルアクス",
-    "passive_type": 119,
     "category": "最小/最大ダメージB",
-    "description": "最小/最大ダメージB %+d%%",
-    "status_type1": "最小/最大ダメージA",
+    "status_type1": "最大最小",
     "status_value1": 30,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110201,
     "name": "グラデュアル",
-    "passive_type": 150,
     "category": "Ely獲得量/アイテムドロップ率B",
-    "description": "Ely獲得量B +45%%\\nアイテムドロップ率B +8%%",
     "status_type1": "Ely獲得量",
     "status_value1": 45,
     "status_type2": "ドロップ率",
-    "status_value2": 8,
-    "effect_type": 0
+    "status_value2": 8
   },
   {
-    "id": 700110301,
     "name": "アルパル",
-    "passive_type": 110,
     "category": "最大ダメージB",
-    "description": "最大ダメージB %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110401,
     "name": "もーもー",
-    "passive_type": 117,
     "category": "最小ダメージD",
-    "description": "最小ダメージD %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110501,
     "name": "タレーヌ",
-    "passive_type": 130,
     "category": "ステータス(％)B",
-    "description": "ステータス(%%)B %+d%%",
     "status_type1": "全ステ%",
     "status_value1": 13,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110601,
     "name": "マシュマロプリリンパパ",
-    "passive_type": 136,
     "category": "追加ダメージB",
-    "description": "追加ダメージB +%d",
     "status_type1": "追加ダメ",
     "status_value1": 2000,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700110701,
     "name": "眠りの妖精ドリーミー",
-    "passive_type": 106,
     "category": "クリティカルダメージC",
-    "description": "クリティカルダメージC %+d%%",
     "status_type1": "クリダメ",
     "status_value1": 60,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700111701,
     "name": "ショコラ",
-    "passive_type": 151,
     "category": "Ely獲得量/アイテムドロップ率C",
-    "description": "Ely獲得量C +150%%\\nアイテムドロップ率C +10%%",
     "status_type1": "Ely獲得量",
     "status_value1": 150,
     "status_type2": "ドロップ率",
-    "status_value2": 10,
-    "effect_type": 0
+    "status_value2": 10
   },
   {
-    "id": 700112001,
     "name": "イーゼル",
-    "passive_type": 136,
     "category": "追加ダメージB",
-    "description": "追加ダメージB +%d",
     "status_type1": "追加ダメ",
     "status_value1": 15000,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 700112201,
     "name": "ケルシア",
-    "passive_type": 164,
     "category": "最小/最大ダメージC",
-    "description": "最小/最大ダメージC",
-    "status_type1": "最小/最大ダメージA",
+    "status_type1": "最大最小",
     "status_value1": 30,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000010,
     "name": "ｽｰﾊﾟｰｽﾁｭﾜｰﾄ",
-    "passive_type": 109,
     "category": "最大ダメージA",
-    "description": "最大ダメージA %+d%%",
-    "status_type1": "攻撃最大",
+    "status_type1": "最大",
     "status_value1": 15,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000011,
     "name": "ｽｰﾊﾟｰｴﾘｻﾞﾍﾞｽ",
-    "passive_type": 116,
     "category": "最小ダメージC",
-    "description": "最小ダメージC %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 20,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000012,
     "name": "プリョン",
-    "passive_type": 102,
     "category": "クリティカル確率B",
-    "description": "クリティカル確率B %+d%%",
     "status_type1": "クリ率",
     "status_value1": 2,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000031,
     "name": "見習いプチレイレイ",
-    "passive_type": 155,
     "category": "移動速度B",
-    "description": "移動速度B %+d%%",
     "status_type1": "移動",
     "status_value1": 20,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000073,
     "name": "リコリス",
-    "passive_type": 123,
     "category": "武器攻撃力(%)/属性力(%)B",
-    "description": "武器攻撃力/属性力(%%) B %+d%%",
     "status_type1": "武器属性_乗算",
     "status_value1": 7,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000101,
     "name": "うまるちゃん",
-    "passive_type": 120,
     "category": "武器攻撃力/属性力A",
-    "description": "武器攻撃力/属性力A +%d",
     "status_type1": "武器属性",
     "status_value1": 70,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000104,
     "name": "サマーフェスラブリートビー",
-    "passive_type": 114,
     "category": "最小ダメージA",
-    "description": "最小ダメージA %+d%%",
-    "status_type1": "攻撃最小",
+    "status_type1": "最小",
     "status_value1": 13,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000106,
     "name": "エミリア",
-    "passive_type": 120,
     "category": "武器攻撃力/属性力A",
-    "description": "武器攻撃力/属性力A +%d",
     "status_type1": "武器属性",
     "status_value1": 70,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000107,
     "name": "フィーロ",
-    "passive_type": 120,
     "category": "武器攻撃力/属性力A",
-    "description": "武器攻撃力/属性力A +%d",
     "status_type1": "武器属性",
     "status_value1": 70,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   },
   {
-    "id": 1100000109,
     "name": "たび",
-    "passive_type": 133,
     "category": "ステータス(％)/HP(％)A",
-    "description": "ステータス(%%) A +5%%\\nHP(%%) A +5%%",
     "status_type1": "HP_乗算",
     "status_value1": 5,
     "status_type2": "全ステ%",
-    "status_value2": 5,
-    "effect_type": 0
+    "status_value2": 5
   },
   {
-    "id": 1100000110,
     "name": "サーバル",
-    "passive_type": 120,
     "category": "武器攻撃力/属性力A",
-    "description": "武器攻撃力/属性力A +%d",
     "status_type1": "武器属性",
     "status_value1": 70,
     "status_type2": "",
-    "status_value2": 0,
-    "effect_type": 0
+    "status_value2": 0
   }
 ]
