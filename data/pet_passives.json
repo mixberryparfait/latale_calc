@@ -34,7 +34,7 @@
   {
     "name": "パロ",
     "category": "魔法最大ダメージA",
-    "status_type1": "魔法最大",
+    "status_type1": "魔法_最大",
     "status_value1": 11,
     "status_type2": "",
     "status_value2": 0
@@ -42,7 +42,7 @@
   {
     "name": "ペリー",
     "category": "物理最大ダメージA",
-    "status_type1": "物理最大",
+    "status_type1": "物理_最大",
     "status_value1": 11,
     "status_type2": "",
     "status_value2": 0
