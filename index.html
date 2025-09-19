@@ -116,7 +116,7 @@
 						<!-- 左側：スキル設定と敵設定 -->
 				<div class="space-y-3">
 					<!-- スキル設定 -->
-					<div class="card-container skill-settings">
+					<div class="skill-settings">
 						<div class="label-accent">スキル設定</div>
 								<div class="setting-row">
 									<label>職業</label>
@@ -178,7 +178,7 @@
 							</div>
 
 					<!-- 敵設定 -->
-					<div class="card-container enemy-settings">
+					<div class="enemy-settings">
 						<div class="label-accent">敵設定</div>
 
 								<!-- ダンジョン選択 -->
@@ -239,7 +239,7 @@
 							</div>
 
 					<!-- HPダメージ換算設定 -->
-					<div class="card-container other-settings">
+					<div class="other-settings">
 						<div class="label-accent">その他設定</div>
 								<div class="hp-value-setting">
 									<label>HPダメージ換算</label>
@@ -251,7 +251,7 @@
 						</div>
 
 						<!-- 右側：ステータス入力エリア -->
-						<div class="card-container status-container">
+						<div class="status-container">
 							<!-- 共通ステータス -->
 							<template v-for="stat in statKeys" :key="stat">
 								<!-- 攻撃特殊レイアウト -->
