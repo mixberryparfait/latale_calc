@@ -71,15 +71,15 @@
 	<p id="progress" class="progress-text"></p>
 
 		<div id="app">
-			<!-- ローディングオーバーレイ -->
-			<div v-if="isCalculating" class="loading-overlay">
-				<div>
-					<div>
-						<div></div>
-						<span>計算中...</span>
-					</div>
+		<!-- ローディングオーバーレイ -->
+		<div v-if="isCalculating" class="loading-overlay">
+			<div class="loading-card">
+				<div class="loading-content">
+					<div class="loading-spinner"></div>
+					<span>計算中...</span>
 				</div>
 			</div>
+		</div>
 
 			<!-- メインタブナビゲーション -->
 			<div class="tab-container">
@@ -95,18 +95,18 @@
 			<div class="tab-content">
 				<!-- ダメージ計算タブ -->
 				<div v-if="activeMainTab === 'damage'">
-					<!-- ダメージカード表示 -->
-					<div class="grid-damage-cards-4">
-						<div v-for="card in [
-							{ id: 'base_damage', label: '青ダメ', value: formatDamage(results.baseDamage) },
-							{ id: 'cri_damage', label: 'クリダメ', value: formatDamage(results.criDamage) },
-							{ id: 'cri_rate', label: 'クリ率', value: (results.criRate).toFixed(1) + '%' },
-							{ id: 'damage', label: '平均ダメ', value: formatDamage(results.damage) }
-						]" :key="card.id">
-							<div class="card-label">{{ card.label }}</div>
-							<div class="card-value">{{ card.value }}</div>
-						</div>
+				<!-- ダメージカード表示 -->
+				<div class="grid-damage-cards-4">
+					<div v-for="card in [
+						{ id: 'base_damage', label: '青ダメ', value: formatDamage(results.baseDamage) },
+						{ id: 'cri_damage', label: 'クリダメ', value: formatDamage(results.criDamage) },
+						{ id: 'cri_rate', label: 'クリ率', value: (results.criRate).toFixed(1) + '%' },
+						{ id: 'damage', label: '平均ダメ', value: formatDamage(results.damage) }
+					]" :key="card.id" class="damage-card">
+						<div class="damage-label">{{ card.label }}</div>
+						<div class="damage-value">{{ card.value }}</div>
 					</div>
+				</div>
 					<button id="copy" class="copy-button">
 						コピーする
 					</button>
@@ -340,6 +340,13 @@
 		</div>
 	</div>
 
+	<!-- 静的データファイル -->
+	<script src="js/data/skills-data.js"></script>
+	<script src="js/data/enemies-data.js"></script>
+	<script src="js/data/transcend-skills-data.js"></script>
+	<script src="js/data/guild-skills-data.js"></script>
+	<script src="js/data/pet-passives-data.js"></script>
+	<!-- メインアプリケーション -->
 	<script src="bundle.min.js"></script>
 </body>
 
