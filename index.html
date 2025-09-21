@@ -59,7 +59,7 @@
 			<div class="details-content">
 				<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
 				<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
-				<p>＋１当たりダメ上昇はステ画面の +1 ではなく加算値を振った場合の価値です</p>
+				<p>赤文字はそのステータス +1 当たりダメ上昇です(表示値ではなくエンチャ等で伸ばした場合の値)</p>
 				<p>貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています</p>
 			</div>
 		</details>
@@ -191,13 +191,12 @@
 					<div class="label-accent">敵設定</div>
 					
 					<!-- 反映バランス -->
-					<div style="margin-bottom: 1rem; padding: 0.75rem; background-color: #FFDDE4; border-radius: 0.5rem;">
-						<label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">反映バランス</label>
-						<div style="display: flex; align-items: center; gap: 0.75rem;">
-							<span style="font-size: 0.75rem; min-width: 4.5rem; text-align: right; white-space: nowrap;">一般 {{ 100 - ボス重要度 }}%</span>
-							<input type="range" v-model.number="ボス重要度" min="0" max="100" 
-								style="flex: 1;">
-							<span style="font-size: 0.75rem; min-width: 4.5rem; text-align: left; white-space: nowrap;">ボス {{ ボス重要度 }}%</span>
+					<div class="balance-section">
+						<label>反映バランス</label>
+						<div class="balance-slider-container">
+							<span>一般 {{ 100 - ボス重要度 }}%</span>
+							<input type="range" v-model.number="ボス重要度" min="0" max="100">
+							<span>ボス {{ ボス重要度 }}%</span>
 						</div>
 					</div>
 
@@ -219,156 +218,78 @@
 
 				<!-- タブコンテンツ -->
 				<div class="tab-content">
-					<!-- 一般タブ -->
-					<div v-if="敵タブ === '一般'">
+					<div v-if="敵タブ">
 						<!-- ダンジョン選択 -->
 						<div>
 							<label>ダンジョン</label>
-							<select v-model="ダンジョン_一般" @change="onDungeonChange('一般')"
-								:class="{ 'unselected': !ダンジョン_一般 }">
+							<select v-model="this[`ダンジョン_${敵タブ}`]" @change="onDungeonChange(敵タブ)"
+								:class="{ 'unselected': !this[`ダンジョン_${敵タブ}`] }">
 								<option value="" disabled>ダンジョンを選択</option>
-								<option v-for="dungeon in ダンジョンリスト_一般" :key="dungeon.level" :value="dungeon.name">
+								<option v-for="dungeon in this[`ダンジョンリスト_${敵タブ}`]" :key="dungeon.level" :value="dungeon.name">
 									{{ dungeon.name }}
 								</option>
 							</select>
 						</div>
 
 						<!-- 難易度 -->
-						<div v-if="ダンジョン_一般">
+						<div v-if="this[`ダンジョン_${敵タブ}`]">
 							<label>難易度</label>
-							<select v-model="難易度_一般" @change="onDifficultyChange('一般')"
-								:class="{ 'unselected': !難易度_一般 }">
+							<select v-model="this[`難易度_${敵タブ}`]" @change="onDifficultyChange(敵タブ)"
+								:class="{ 'unselected': !this[`難易度_${敵タブ}`] }">
 								<option value="" disabled>選択</option>
-								<option v-for="difficulty in 選択可能難易度_一般" :key="difficulty" :value="difficulty">
+								<option v-for="difficulty in this[`選択可能難易度_${敵タブ}`]" :key="difficulty" :value="difficulty">
 									{{ difficulty }}
 								</option>
 							</select>
 						</div>
 						
 						<!-- 敵 -->
-						<div v-if="ダンジョン_一般">
+						<div v-if="this[`ダンジョン_${敵タブ}`]">
 							<label>敵</label>
-							<select v-model="敵名_一般" @change="onEnemyChange('一般')" 
-								:class="{ 'unselected': !敵名_一般 }">
+							<select v-model="this[`敵名_${敵タブ}`]" @change="onEnemyChange(敵タブ)" 
+								:class="{ 'unselected': !this[`敵名_${敵タブ}`] }">
 								<option value="" disabled>選択</option>
-								<option v-for="enemy in 選択可能敵_一般" :key="enemy" :value="enemy">
+								<option v-for="enemy in this[`選択可能敵_${敵タブ}`]" :key="enemy" :value="enemy">
 									{{ enemy }}
 								</option>
 							</select>
 						</div>
 
-						<!-- 防御 -->
-						<div>
-							<label>防御</label>
-							<input type="number" v-model.lazy.number="敵ステータス_一般['防御']" @blur="triggerCalculation">
-						</div>
-
-						<!-- 幸運 -->
-						<div>
-							<label>幸運</label>
-							<input type="number" v-model.lazy.number="敵ステータス_一般['幸運']" @blur="triggerCalculation">
-						</div>
-						
-						<!-- クリ減 -->
-						<div>
-							<label>クリ減</label>
-							<input type="number" v-model.lazy.number="敵ステータス_一般['クリ減']" @blur="triggerCalculation">
-						</div>
-
-						<!-- ダメ減 -->
-						<div>
-							<label>ダメ減</label>
-							<input type="number" v-model.lazy.number="敵ステータス_一般['ダメ減']" @blur="triggerCalculation">
+						<!-- ステータス入力（防御・幸運・クリ減・ダメ減・ダメ減%） -->
+						<div v-for="stat in ['防御', '幸運', 'クリ減', 'ダメ減']" :key="stat">
+							<label>{{ stat }}</label>
+							<input type="number" v-model.lazy.number="this[`敵ステータス_${敵タブ}`][stat]" @blur="triggerCalculation">
 						</div>
 						
 						<!-- ダメ減% -->
 						<div>
 							<label>ダメ減%</label>
-							<input type="number" v-model.lazy.number="敵ステータス_一般['ダメ減_乗算']" @blur="triggerCalculation">
+							<input type="number" v-model.lazy.number="this[`敵ステータス_${敵タブ}`]['ダメ減_乗算']" @blur="triggerCalculation">
 						</div>
-						</div>
-
-						<!-- ボスタブ -->
-						<div v-if="敵タブ === 'ボス'">
-						<!-- ダンジョン選択 -->
-						<div>
-							<label>ダンジョン</label>
-							<select v-model="ダンジョン_ボス" @change="onDungeonChange('ボス')"
-								:class="{ 'unselected': !ダンジョン_ボス }">
-								<option value="" disabled>ダンジョンを選択</option>
-								<option v-for="dungeon in ダンジョンリスト_ボス" :key="dungeon.level" :value="dungeon.name">
-									{{ dungeon.name }}
-								</option>
-							</select>
-						</div>
-
-						<!-- 難易度 -->
-						<div v-if="ダンジョン_ボス">
-							<label>難易度</label>
-							<select v-model="難易度_ボス" @change="onDifficultyChange('ボス')"
-								:class="{ 'unselected': !難易度_ボス }">
-								<option value="" disabled>選択</option>
-								<option v-for="difficulty in 選択可能難易度_ボス" :key="difficulty" :value="difficulty">
-									{{ difficulty }}
-								</option>
-							</select>
-						</div>
-						
-						<!-- 敵 -->
-						<div v-if="ダンジョン_ボス">
-							<label>敵</label>
-							<select v-model="敵名_ボス" @change="onEnemyChange('ボス')" 
-								:class="{ 'unselected': !敵名_ボス }">
-								<option value="" disabled>選択</option>
-								<option v-for="enemy in 選択可能敵_ボス" :key="enemy" :value="enemy">
-									{{ enemy }}
-								</option>
-							</select>
-						</div>
-
-						<!-- 防御 -->
-						<div>
-							<label>防御</label>
-							<input type="number" v-model.lazy.number="敵ステータス_ボス['防御']" @blur="triggerCalculation">
-						</div>
-
-						<!-- 幸運 -->
-						<div>
-							<label>幸運</label>
-							<input type="number" v-model.lazy.number="敵ステータス_ボス['幸運']" @blur="triggerCalculation">
-						</div>
-						
-						<!-- クリ減 -->
-						<div>
-							<label>クリ減</label>
-							<input type="number" v-model.lazy.number="敵ステータス_ボス['クリ減']" @blur="triggerCalculation">
-						</div>
-
-						<!-- ダメ減 -->
-						<div>
-							<label>ダメ減</label>
-							<input type="number" v-model.lazy.number="敵ステータス_ボス['ダメ減']" @blur="triggerCalculation">
-						</div>
-						
-						<!-- ダメ減% -->
-						<div>
-							<label>ダメ減%</label>
-							<input type="number" v-model.lazy.number="敵ステータス_ボス['ダメ減_乗算']" @blur="triggerCalculation">
 					</div>
-				</div>
 				</div>
 				</div>
 
 					<!-- HPダメージ換算設定 -->
 					<div class="other-settings">
 						<div class="label-accent">その他設定</div>
-								<div class="hp-value-setting">
-									<label>HPダメージ換算</label>
-									<input type="number" id="HPダメージ換算" v-model.lazy.number="inputs.HPダメージ換算" min="0" max="100"
-										title="HP100%増加を火力何％換算するか" @blur="triggerCalculation">
+						<div class="hp-value-setting">
+							<label>HPダメージ換算</label>
+							<input type="number" id="HPダメージ換算" v-model.lazy.number="inputs.HPダメージ換算" min="0" max="100"
+								title="HP100%増加を火力何％換算するか" @blur="triggerCalculation">
 							<span>%</span>
-								</div>
+						</div>
+						<!-- 換算方法選択 -->
+						<div>
+							<label>換算方法</label>
+							<div class="flex-gap-4">
+								<label v-for="method in ['増加ダメ', 'クリダメ換算', '筋魔換算']" :key="method" class="radio-group">
+									<input type="radio" name="conversionMethod" :value="method" v-model="換算方法">
+									<span>{{ method }}</span>
+								</label>
 							</div>
+						</div>
+					</div>
 						</div>
 
 						<!-- 右側：ステータス入力エリア -->
@@ -385,7 +306,7 @@
 											@blur="triggerCalculation">
 										<label>+</label>
 										<span>{{ Math.floor(base('攻撃最大')) }}</span>
-										<span>(+{{ incr('攻撃最大') }})</span>
+								<span>({{ incr('攻撃最大') }})</span>
 									</div>
 									<!-- 攻撃_最小 -->
 									<div class="input-group">
@@ -394,13 +315,13 @@
 											@blur="triggerCalculation">
 										<label>+</label>
 										<span>{{ Math.floor(base('攻撃最小')) }}</span>
-										<span>(+{{ incr('攻撃最小') }})</span>
+								<span>({{ incr('攻撃最小') }})</span>
 									</div>
 									<!-- 攻撃_乗算 -->
 									<label>%</label>
 									<input type="number" id="攻撃_乗算" v-model.lazy.number="inputs.stats['攻撃_乗算']"
 										@blur="triggerCalculation">
-									<span>(+{{ incr('攻撃_乗算') }})</span>
+							<span>({{ incr('攻撃_乗算') }})</span>
 								</div>
 
 								<div class="input-group" v-else>
@@ -409,15 +330,15 @@
 									<template v-if="hasMultiplier(stat)">
 										<label>+</label>
 										<span>{{ Math.floor(base(stat)) }}</span>
-										<span>(+{{ incr(stat) }})</span>
+								<span>({{ incr(stat) }})</span>
 										<label>{{ label(mulKey(stat)) }}</label>
 										<input type="number" :id="mulKey(stat)" v-model.lazy.number="inputs.stats[mulKey(stat)]"
 											@blur="triggerCalculation">
-										<span>(+{{ incr(mulKey(stat)) }})</span>
+								<span>({{ incr(mulKey(stat)) }})</span>
 									</template>
-									<template v-else>
-										<span>(+{{ incr(stat) }})</span>
-									</template>
+				<template v-else>
+					<span>({{ incr(stat) }})</span>
+				</template>
 								</div>
 							</template>
 						</div>
@@ -453,7 +374,7 @@
 								<td v-if="'effect' in item" v-html="item.effect"></td>
 								<td v-if="'level' in item">{{ item.level }}</td>
 								<td v-if="'cost' in item">{{ item.cost }}</td>
-								<td v-if="'damage' in item">{{ activeMainTab === 'guild' ? item.damage.toFixed(4) : Math.floor(item.damage) }}</td>
+				<td v-if="'damage' in item">{{ (activeMainTab === 'guild' || 換算方法 !== '増加ダメ') ? item.damage.toFixed(4) : Math.floor(item.damage) }}</td>
 							</tr>
 						</tbody>
 					</table>
