@@ -108,7 +108,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 50,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 100,
     "cost_per_level": 15
   },
@@ -119,7 +119,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 10,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 1100,
     "cost_per_level": 1100
   },
@@ -130,7 +130,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 10,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 1100,
     "cost_per_level": 1100
   },
@@ -141,7 +141,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 10,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 1100,
     "cost_per_level": 1100
   },
@@ -152,7 +152,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 10,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 1100,
     "cost_per_level": 1100
   },
@@ -163,7 +163,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 10,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 1100,
     "cost_per_level": 1100
   },
@@ -174,7 +174,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 3,
-    "category": "中級",
+    "category": "初級",
     "base_cost": 1000000,
     "cost_per_level": 1000000
   },
@@ -185,7 +185,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 24000,
     "cost_per_level": 1200
   },
@@ -196,7 +196,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 24000,
     "cost_per_level": 1200
   },
@@ -207,7 +207,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 24000,
     "cost_per_level": 1200
   },
@@ -218,7 +218,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 36000,
     "cost_per_level": 1800
   },
@@ -229,7 +229,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "幸運",
     "status_value2": 10,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 36000,
     "cost_per_level": 1800
   },
@@ -240,7 +240,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 54000,
     "cost_per_level": 2700
   },
@@ -251,7 +251,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 54000,
     "cost_per_level": 2700
   },
@@ -262,7 +262,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 54000,
     "cost_per_level": 2700
   },
@@ -273,7 +273,7 @@ const GUILD_SKILLS_DATA = [
     "status_type2": "",
     "status_value2": 0,
     "max_level": 100,
-    "category": "上級",
+    "category": "中級",
     "base_cost": 54000,
     "cost_per_level": 2700
   },
