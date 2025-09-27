@@ -57,6 +57,8 @@
 		<details class="details-container">
 			<summary class="details-summary">説明</summary>
 			<div class="details-content">
+				<p>平均ダメージはボス一般とすべてのスキル平均値です</p>
+				<p>その他のダメージは選択中のボスor一般とスキルに対するダメージです</p>
 				<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
 				<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
 				<p>赤文字はそのステータス +1 当たりダメ上昇です(表示値ではなくエンチャ等で伸ばした場合の値)</p>
@@ -70,16 +72,7 @@
 		</label>
 	<p id="progress" class="progress-text"></p>
 
-		<div id="app">
-		<!-- ローディングオーバーレイ -->
-		<div v-if="isCalculating" class="loading-overlay">
-			<div class="loading-card">
-				<div class="loading-content">
-					<div class="loading-spinner"></div>
-					<span>計算中...</span>
-				</div>
-			</div>
-		</div>
+	<div id="app">
 
 			<!-- メインタブナビゲーション -->
 			<div class="tab-container">
@@ -95,96 +88,208 @@
 			<div class="tab-content">
 				<!-- ダメージ計算タブ -->
 				<div v-if="activeMainTab === 'damage'">
-				<!-- ダメージカード表示 -->
-				<div class="grid-damage-cards-4">
-					<div v-for="card in [
-						{ id: 'base_damage', label: '青ダメ', value: formatDamage(results.baseDamage) },
-						{ id: 'cri_damage', label: 'クリダメ', value: formatDamage(results.criDamage) },
-						{ id: 'cri_rate', label: 'クリ率', value: (results.criRate).toFixed(1) + '%' },
-						{ id: 'damage', label: '平均ダメ', value: formatDamage(results.damage) }
-					]" :key="card.id" class="damage-card">
-						<div class="damage-label">{{ card.label }}</div>
-						<div class="damage-value">{{ card.value }}</div>
-					</div>
+			<!-- 加重平均ダメージ表示 -->
+			<div class="mt-3 p-3 bg-accent bg-opacity-10 rounded-lg text-center">
+				<div class="text-sm text-text-muted mb-1">
+					一般 {{ (100 - ボス重要度) }}% + ボス {{ ボス重要度 }}% 平均ダメージ
 				</div>
+				<div class="text-2xl font-bold text-accent">{{ formatDamage(results.weightedDamage || 0) }}</div>
+			</div>
 
-				<!-- 加重平均ダメージ表示 -->
-				<div class="mt-3 p-3 bg-accent bg-opacity-10 rounded-lg text-center">
-					<div class="text-sm text-text-muted mb-1">
-						一般 {{ (100 - ボス重要度) }}% + ボス {{ ボス重要度 }}% 平均ダメージ
-					</div>
-					<div class="text-2xl font-bold text-accent">{{ formatDamage(results.weightedDamage || 0) }}</div>
+			<!-- ダメージカード表示 -->
+			<div class="grid-damage-cards-4 mt-3">
+				<div v-for="card in [
+					{ id: 'base_damage', label: '単発青ダメ', value: formatDamage(現在スキル単発ダメージ.baseDamage) },
+					{ id: 'cri_damage', label: '単発クリダメ', value: formatDamage(現在スキル単発ダメージ.criDamage) },
+					{ id: 'cri_rate', label: 'クリ率', value: (現在スキル単発ダメージ.criRate).toFixed(1) + '%' },
+					{ id: 'damage', label: '平均スキルダメ', value: formatDamage(現在スキル単発ダメージ.damage * (現在スキル?.HIT数 || 1)) }
+				]" :key="card.id" class="damage-card">
+					<div class="damage-label">{{ card.label }}</div>
+					<div class="damage-value">{{ card.value }}</div>
 				</div>
+			</div>
 
 				<button id="copy" class="copy-button">
 					コピーする
 				</button>
 
-					<!-- メインコンテンツエリア -->
-					<div class="grid-main-content">
-						<!-- 左側：スキル設定と敵設定 -->
-				<div class="space-y-3">
-					<!-- スキル設定 -->
-				<div class="skill-settings">
+				<div class="skill-settings mb-4">
 					<div class="label-accent">スキル設定</div>
+					
+				<div class="flex items-end gap-4 mb-3">
 					<div>
 						<label>職業</label>
-						<select id="selectedJob" v-model="職業" @change="onJobChange" :class="{ 'unselected': !職業 }">
+						<select v-model="共通職業" @change="onCommonJobChange" :class="{ 'unselected': !共通職業 }">
 							<option value="" disabled>職業を選択</option>
 							<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
 						</select>
 					</div>
-					<div>
-						<label>スキル</label>
-						<select id="selectedSkill" v-model="スキル名" @change="onSkillChange" :title="selectedSkillTitle"
-							:class="['skill-select', { 'unselected': !スキル名 }]">
-							<option value="" disabled>スキルを選択</option>
-							<option v-for="skill in 選択可能スキル" :key="skill.スキル名" :value="skill.スキル名">
-								{{ skill.スキル名 }}
-							</option>
-						</select>
-					</div>
-					<div>
-						<label>レベル</label>
-						<div class="skill-multi-input">
-							<input type="number" id="スキルレベル" min="1" :max="最大スキルレベル" v-model.lazy.number="スキルレベル"
-								@change="onSkillLevelChange" @blur="triggerCalculation">
-							<label>倍率</label>
-							<input type="number" step="0.1" id="スキル倍率" v-model.lazy.number="inputs.スキル倍率"
-								@blur="triggerCalculation">
-							<label>追加</label>
-							<input type="number" id="スキル追加ダメ" v-model.lazy.number="inputs.スキル追加ダメ" @blur="triggerCalculation">
-						</div>
-					</div>
-					<div class="space-y-2">
-						<!-- スキル属性選択 -->
-						<div>
-							<label>属性</label>
-							<div class="flex-gap-4">
-								<label v-for="type in ['物理', '魔法']" :key="type" class="radio-group">
-									<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ">
-									<span>{{ type }}</span>
-								</label>
-							</div>
-						</div>
-						<!-- スキルタイプ選択 -->
-						<div>
-							<label>タイプ</label>
-							<div class="flex-gap-4">
-								<label v-for="type in ['攻撃', '召喚']" :key="type" class="radio-group">
-									<input type="radio" name="skillType" :value="type" v-model="inputs.スキルタイプ">
-									<span>{{ type }}</span>
-								</label>
-							</div>
-						</div>
-						<!-- 召喚補正 (召喚タイプの場合のみ表示) -->
-						<div v-if="currentSkillType === '召喚'" class="suffix">
-							<label>召喚補正</label>
-							<input type="number" id="召喚補正" v-model.lazy.number="inputs.ダメ補正" @blur="triggerCalculation">
-							<span class="text-xs">%</span>
-						</div>
+					<div class="flex items-center gap-1">
+						<label v-for="type in ['物理', '魔法']" :key="type" class="radio-group">
+							<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ">
+							<span>{{ type }}</span>
+						</label>
 					</div>
 				</div>
+
+					<!-- スキルが1個の時：横表示 -->
+					<div v-if="スキルリスト.length === 1" class="grid grid-cols-4 gap-3">
+						<div>
+							<label>スキル名</label>
+			<select v-model="スキルリスト[0].スキルID" @change="onSkillChange(0)"
+				class="skill-name-select" :title="スキルリスト[0].スキル名">
+				<option value="">選択</option>
+				<option v-for="s in 共通職業選択可能スキル" :key="s.ID" 
+					:value="s.ID" :title="s.スキル名">
+					{{ s.スキル名 }}
+				</option>
+							</select>
+						</div>
+						<div>
+							<label>レベル</label>
+							<input type="number" v-model.lazy.number="スキルリスト[0].レベル" 
+								min="1" :max="getSkillMaxLevel(スキルリスト[0])"
+								@change="onSkillLevelChange(0)"
+								class="w-full">
+						</div>
+						<div>
+							<label>タイプ</label>
+							<button @click="スキルリスト[0].タイプ = スキルリスト[0].タイプ === '召喚' ? '攻撃' : '召喚'"
+								class="type-toggle-btn w-full">
+								{{ スキルリスト[0].タイプ || '攻撃' }}
+							</button>
+						</div>
+					<div>
+						<label>係数</label>
+						<input type="number" v-model.lazy.number="スキルリスト[0].倍率" 
+							step="0.1" class="w-full">
+					</div>
+						<div>
+							<label>追加ダメ</label>
+							<input type="number" v-model.lazy.number="スキルリスト[0].追加ダメ" 
+								class="w-full">
+						</div>
+						<div v-if="スキルリスト[0].タイプ === '召喚'">
+							<label>召喚補正</label>
+							<input type="number" v-model.lazy.number="スキルリスト[0].召喚補正" 
+								class="w-full">
+						</div>
+						<div>
+							<label>HIT数</label>
+							<input type="number" v-model.lazy.number="スキルリスト[0].HIT数" 
+								min="1" class="w-full">
+						</div>
+						<div>
+							<label>ウェイト</label>
+							<input type="number" v-model.lazy.number="スキルリスト[0].ウェイト" 
+								min="0" class="w-full">
+						</div>
+					</div>
+					
+				<div v-else class="overflow-x-auto">
+					<table class="skill-table w-full text-xs">
+						<thead>
+							<tr>
+							<th></th>
+							<th class="text-left">スキル名</th>
+							<th>Lv</th>
+							<th>タイプ</th>
+							<th>係数</th>
+							<th>追加ダメ</th>
+							<th>召喚補正</th>
+							<th>HIT数</th>
+							<th>ウェイト</th>
+							<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(skill, index) in スキルリスト" :key="index"
+								:class="{ 'bg-accent bg-opacity-20': index === 選択中スキルインデックス }"
+								@click="選択中スキルインデックス = index">
+				<td class="text-center">
+					<input type="radio" 
+						name="selectedSkill" 
+						:value="index"
+						v-model.number="選択中スキルインデックス"
+						class="sr-only">
+				</td>
+									<td class="skill-name-cell">
+					<select v-model="skill.スキルID" @change="onSkillChange(index)"
+						class="skill-name-select" :title="skill.スキル名">
+						<option value="">選択</option>
+					<option v-for="s in 共通職業選択可能スキル" :key="s.ID" 
+						:value="s.ID" :title="s.スキル名">
+						{{ s.スキル名 }}
+					</option>
+										</select>
+									</td>
+									<!-- レベル -->
+									<td>
+										<input type="number" v-model.lazy.number="skill.レベル" 
+											min="1" :max="getSkillMaxLevel(skill)"
+											@change="onSkillLevelChange(index)"
+											class="w-12 text-center">
+									</td>
+									<!-- タイプ（攻撃/召喚） -->
+									<td>
+										<button @click="skill.タイプ = skill.タイプ === '召喚' ? '攻撃' : '召喚'"
+											class="type-toggle-btn">
+											{{ skill.タイプ || '攻撃' }}
+										</button>
+									</td>
+									<!-- 倍率 -->
+									<td>
+										<input type="number" v-model.lazy.number="skill.倍率" 
+											step="0.1" class="w-16 text-center">
+									</td>
+									<!-- 追加ダメ -->
+									<td>
+										<input type="number" v-model.lazy.number="skill.追加ダメ" 
+											class="w-20 text-center">
+									</td>
+									<!-- 召喚補正 -->
+									<td>
+										<input type="number" v-model.lazy.number="skill.召喚補正" 
+											v-if="skill.タイプ === '召喚'"
+											class="w-14 text-center">
+										<span v-else>-</span>
+									</td>
+									<!-- HIT数 -->
+									<td>
+										<input type="number" v-model.lazy.number="skill.HIT数" 
+											min="1" class="w-12 text-center">
+									</td>
+									<!-- ウェイト -->
+									<td>
+										<input type="number" v-model.lazy.number="skill.ウェイト" 
+											min="0" class="w-14 text-center">
+									</td>
+					<!-- 削除ボタン -->
+					<td>
+						<button v-if="スキルリスト.length > 1" 
+							@click.stop="removeスキルタブ(index)"
+							class="text-danger hover:text-danger/80 border border-danger/30 hover:bg-danger/10 px-2 py-1 rounded text-xs">
+							×
+						</button>
+					</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<!-- 追加ボタン（テーブルの外、中央配置） -->
+					<div v-if="スキルリスト.length < 10" class="text-center mt-2">
+						<button @click="addスキルタブ" 
+							class="text-xs text-accent hover:text-accent-hover px-2 py-1 border border-accent rounded">
+							+ スキル追加
+						</button>
+					</div>
+				</div>
+
+				<!-- メインコンテンツエリア（2カラム） -->
+				<div class="grid-main-content">
+					<!-- 左側：敵設定とその他設定 -->
+					<div class="space-y-3">
 
 				<!-- 敵設定 -->
 				<div class="enemy-settings">
