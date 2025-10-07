@@ -1463,7 +1463,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -1656,7 +1656,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -2174,7 +2174,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -2192,7 +2192,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 4
+            "value": 0.4
           }
         ],
         "requires": [
@@ -2210,7 +2210,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -2266,7 +2266,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -2327,7 +2327,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 25
+            "value": 2.5
           }
         ],
         "requires": [
@@ -2543,7 +2543,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 25
+            "value": 2.5
           }
         ],
         "requires": [
@@ -2579,7 +2579,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -2597,7 +2597,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 4
+            "value": 0.4
           }
         ],
         "requires": [
@@ -2615,7 +2615,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -2671,7 +2671,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 2
+            "value": 0.2
           }
         ],
         "requires": [
@@ -3660,7 +3660,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 25
+            "value": 2.5
           }
         ],
         "requires": [
@@ -4652,7 +4652,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 25
+            "value": 2.5
           }
         ],
         "requires": [
@@ -7246,7 +7246,7 @@ const awakenData = {
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 15
+            "value": 1.5
           }
         ],
         "requires": [
@@ -7300,7 +7300,7 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 15
+            "value": 1.5
           }
         ],
         "requires": [
@@ -11194,12 +11194,12 @@ const awakenData = {
           {
             "type": 573,
             "name": "一般支配",
-            "value": 10
+            "value": 1.0
           },
           {
             "type": 574,
             "name": "ボス支配",
-            "value": 10
+            "value": 1.0
           }
         ],
         "requires": [
