@@ -4806,7 +4806,7 @@ const awakenData = {
       {
         "slot": 281,
         "skill_id": 281,
-        "name": "スキル",
+        "name": "覚醒石スロット",
         "type": 0,
         "stats": [],
         "requires": [
@@ -12341,7 +12341,7 @@ const awakenData = {
       {
         "slot": 281,
         "skill_id": 200281,
-        "name": "未使用データ",
+        "name": "覚醒石スロット",
         "type": 1,
         "stats": [
           {
@@ -12521,7 +12521,7 @@ const awakenData = {
       {
         "slot": 291,
         "skill_id": 200291,
-        "name": "未使用データ",
+        "name": "覚醒石スロット",
         "type": 1,
         "stats": [
           {
