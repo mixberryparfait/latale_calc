@@ -31,6 +31,7 @@ const ENCHANT_DATA = {
   "grouping_rules": {
     "weapon": "option_type=187 の装備は滅亡/記憶を比較し、全カテゴリで同一なら 滅亡記憶武器 へ統合",
     "upgrade_pairs": "強化のみ、完全一致で2件ペアの装備は '装備A / 装備B' へ統合",
+    "enchant_parts": "エンチャのみ、指定3系統（ダークエルフ/魔女/結合エメラルディア と 怠惰/貪欲/結合涙）を部位ごとに統合",
     "awaken_profiles": "覚醒のみ、同一プロファイルを統合（滅亡装備 / 特殊装備 / アクセ装備）",
     "special_equipment": "アンドレアスの教本とエンチャ/覚醒が同一の装備を 特殊装備 へ統合（チャーム/5番/6番を含む名称は除外）",
     "non_weapon": "非武器は自動統合せず、同一候補は grouping_info.non_weapon_merge_candidates に出力"
@@ -233,6 +234,26 @@ const ENCHANT_DATA = {
       "黒龍のネックレス": "特殊装備",
       "黒龍の時計": "特殊装備"
     },
+    "enchant_part_group_map": {
+      "ダークエルフのストッキング": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "ダークエルフのタトゥー": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "ダークエルフのメガネ": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "怠惰のイヤリング": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "怠惰のマント": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "怠惰の指輪": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "結合したエメラルディアのストッキング": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "結合したエメラルディアのタトゥー": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "結合したエメラルディアのメガネ": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "結合した涙のイヤリング": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "結合した涙のマント": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "結合した涙の指輪": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "貪欲のイヤリング": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "貪欲のマント": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "貪欲の指輪": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "魔女のストッキング": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "魔女のタトゥー": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "魔女のメガネ": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）"
+    },
     "special_equipment_anchor": "アンドレアスの教本",
     "special_equipment_merged_name": "特殊装備",
     "special_equipment_merged_names": [
@@ -254,64 +275,7 @@ const ENCHANT_DATA = {
       "６番"
     ],
     "weapon_diff_categories": {},
-    "non_weapon_merge_candidates": {
-      "エンチャ": [
-        {
-          "candidate_id": "cand_216bc743ec44",
-          "equipment_names": [
-            "怠惰の指輪",
-            "結合した涙の指輪",
-            "貪欲の指輪"
-          ],
-          "entry_count_per_equipment": 54
-        },
-        {
-          "candidate_id": "cand_2d2b1fe25963",
-          "equipment_names": [
-            "ダークエルフのメガネ",
-            "結合したエメラルディアのメガネ",
-            "魔女のメガネ"
-          ],
-          "entry_count_per_equipment": 40
-        },
-        {
-          "candidate_id": "cand_503df6edc149",
-          "equipment_names": [
-            "怠惰のイヤリング",
-            "結合した涙のイヤリング",
-            "貪欲のイヤリング"
-          ],
-          "entry_count_per_equipment": 54
-        },
-        {
-          "candidate_id": "cand_5658a583da75",
-          "equipment_names": [
-            "ダークエルフのタトゥー",
-            "結合したエメラルディアのタトゥー",
-            "魔女のタトゥー"
-          ],
-          "entry_count_per_equipment": 40
-        },
-        {
-          "candidate_id": "cand_647b1f98bea7",
-          "equipment_names": [
-            "怠惰のマント",
-            "結合した涙のマント",
-            "貪欲のマント"
-          ],
-          "entry_count_per_equipment": 54
-        },
-        {
-          "candidate_id": "cand_671c4fad453f",
-          "equipment_names": [
-            "ダークエルフのストッキング",
-            "結合したエメラルディアのストッキング",
-            "魔女のストッキング"
-          ],
-          "entry_count_per_equipment": 39
-        }
-      ]
-    }
+    "non_weapon_merge_candidates": {}
   },
   "entries": [
     {
@@ -1014,11 +978,11 @@ const ENCHANT_DATA = {
       "option_type": 192,
       "option_class": 1,
       "expected_values": {
-        "攻撃": 29.0,
         "一般追加ダメ": 2900.0,
-        "属性": 29.0,
+        "攻撃": 29.0,
         "魔力": 5800.0,
         "HP": 3770.0,
+        "属性": 29.0,
         "筋力": 5800.0
       },
       "display_ranges": {}
@@ -1035,12 +999,12 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "一般追加ダメ": 1450.0,
-        "全ステ": 870.0,
+        "筋力魔力": 2900.0,
+        "ボス追加ダメ": 1450.0,
         "経験値": 29.0,
         "防御": 870.0,
         "抵抗": 870.0,
-        "筋力魔力": 2900.0,
-        "ボス追加ダメ": 1450.0,
+        "全ステ": 870.0,
         "ドロップ率": 7.0
       },
       "display_ranges": {}
@@ -3393,12 +3357,12 @@ const ENCHANT_DATA = {
       "option_type": 182,
       "option_class": 6,
       "expected_values": {
-        "全ステ": 1000.0,
-        "追加ダメ": 900.0,
-        "Ely獲得量": 8.0,
         "筋力魔力": 1000.0,
+        "ボス追加ダメ": 900.0,
+        "追加ダメ": 900.0,
         "武器属性": 10.0,
-        "ボス追加ダメ": 900.0
+        "全ステ": 1000.0,
+        "Ely獲得量": 8.0
       },
       "display_ranges": {}
     },
@@ -4107,655 +4071,9 @@ const ENCHANT_DATA = {
       "level_label": ""
     },
     {
-      "id": "eqgrp_07c29b399dfb",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_0b31c82c0ff8",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_0c7203568dbf",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_0f58fa926e5e",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_20066b0c04a2",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_2c907b195434",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 一般モンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター支配力+%0.1F%%",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般支配": 1.65
-      },
-      "display_ranges": {
-        "一般支配": "0.1～3.2"
-      }
-    },
-    {
-      "id": "eqgrp_2e95e42b0d65",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_2f2421ffe606",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_3946623b2ab9",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_406e26c430a1",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_42e122d6a764",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_4cdab65daf99",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_601cb003a278",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_65402ad60374",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_695af41311ef",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_6fbcae0145f1",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_7ad7434fc6ff",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_7ed081c8c68e",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 最小/最大ダメージ. %+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "最小/最大ダメージ. %+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小/最大ダメージ. %+d％": 10.0
-      },
-      "display_ranges": {
-        "最小/最大ダメージ. %+d％": "10～10"
-      }
-    },
-    {
-      "id": "eqgrp_8aba7422a51b",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_8b08eda1bd7e",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 一般モンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "一般モンスター支配力+%0.1F%%",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般支配": 0.4
-      },
-      "display_ranges": {
-        "一般支配": "0.4～0.4"
-      }
-    },
-    {
-      "id": "eqgrp_8eae34549cab",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_9763ff559915",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_9afc3d5dac77",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_abe4c8169b8c",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_b30326be8fa4",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 最小/最大ダメージ. %+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最小/最大ダメージ. %+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小/最大ダメージ. %+d％": 35.5
-      },
-      "display_ranges": {
-        "最小/最大ダメージ. %+d％": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_b4d5a9d8f49f",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_ba63a0d6ca29",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 移動速度%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "移動速度%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "移動速度%+d％": 10.0
-      },
-      "display_ranges": {
-        "移動速度%+d％": "10～10"
-      }
-    },
-    {
-      "id": "eqgrp_bc2be35b4459",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_c2c5f45d10a9",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_cb6e0b7784cd",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_d02149be4fd0",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_d8ca7c106535",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_e9c0fe651e0d",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_ea68f4b4c6e0",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_ea86e12ec147",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "id": "eqgrp_00087b3144bd",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
       "category": "エンチャ",
       "level": 9000,
       "level_label": "1-2",
@@ -4772,28 +4090,180 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_f12937bb776d",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 移動速度%+d％)",
+      "id": "eqgrp_0a1ff2bddff9",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 防御力%+d)",
       "category": "エンチャ",
       "level": 9000,
       "level_label": "1-2",
-      "detail": "移動速度%+d％",
+      "detail": "防御力%+d",
       "option_type": 191,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "移動速度%+d％": 35.5
+        "防御": 2000.5
       },
       "display_ranges": {
-        "移動速度%+d％": "1～70"
+        "防御": "1～4000"
       }
     },
     {
-      "id": "eqgrp_f7d73db86bbe",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv1-2 幸運%+d)",
+      "id": "eqgrp_147ba7e58edf",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 移動速度%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "移動速度%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "移動速度%+d％": 10.0
+      },
+      "display_ranges": {
+        "移動速度%+d％": "10～10"
+      }
+    },
+    {
+      "id": "eqgrp_1525d2883768",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_159c78528201",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 2400.0
+      },
+      "display_ranges": {
+        "筋力魔力": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_172df27a5eec",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 8000.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_178570074301",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 最小/最大ダメージ. %+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "最小/最大ダメージ. %+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小/最大ダメージ. %+d％": 35.5
+      },
+      "display_ranges": {
+        "最小/最大ダメージ. %+d％": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_1ab98ed0e709",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 最小/最大ダメージ. %+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "最小/最大ダメージ. %+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小/最大ダメージ. %+d％": 10.0
+      },
+      "display_ranges": {
+        "最小/最大ダメージ. %+d％": "10～10"
+      }
+    },
+    {
+      "id": "eqgrp_1f0e678d0491",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_29dc1e72d065",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "防御力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 600.0
+      },
+      "display_ranges": {
+        "防御": "600～600"
+      }
+    },
+    {
+      "id": "eqgrp_2cfec9b7a9d6",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 幸運%+d)",
       "category": "エンチャ",
       "level": 9000,
       "level_label": "1-2",
@@ -4810,9 +4280,218 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_fa3e84e64019",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "id": "eqgrp_30b775bed010",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "抵抗力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 600.0
+      },
+      "display_ranges": {
+        "抵抗": "600～600"
+      }
+    },
+    {
+      "id": "eqgrp_36e6b24bf93c",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "最大HP%+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 4.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～8"
+      }
+    },
+    {
+      "id": "eqgrp_41bae8ca04b5",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 15.0
+      },
+      "display_ranges": {
+        "最小": "15～15"
+      }
+    },
+    {
+      "id": "eqgrp_50e1e83356fb",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 3750.0
+      },
+      "display_ranges": {
+        "追加ダメ": "3750～3750"
+      }
+    },
+    {
+      "id": "eqgrp_554283f96ce1",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 幸運%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "幸運%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "幸運": 2400.0
+      },
+      "display_ranges": {
+        "幸運": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_5606385663e7",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_57b0705551d4",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "最大HP%+d％",
+      "option_type": 191,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_6cf56459d784",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 一般モンスター支配力+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "一般モンスター支配力+%0.1F%%",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般支配": 0.4
+      },
+      "display_ranges": {
+        "一般支配": "0.4～0.4"
+      }
+    },
+    {
+      "id": "eqgrp_7ba664e30a48",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 50.5
+      },
+      "display_ranges": {
+        "最小": "1～100"
+      }
+    },
+    {
+      "id": "eqgrp_7c58752e504a",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 体力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "体力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 2400.0
+      },
+      "display_ranges": {
+        "体力": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_842d6e6e2994",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 1200.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～2400"
+      }
+    },
+    {
+      "id": "eqgrp_84ef81a82c9e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
       "category": "エンチャ",
       "level": 9000,
       "level_label": "3-4",
@@ -4829,14 +4508,717 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_ffc48e9e771c",
-      "equipment_name": "ダークエルフのストッキング",
-      "display_name": "ダークエルフのストッキング (エンチャ Lv3-4 筋力/魔法力%+d)",
+      "id": "eqgrp_8dcc75abf5f3",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 移動速度%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "移動速度%+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "移動速度%+d％": 35.5
+      },
+      "display_ranges": {
+        "移動速度%+d％": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_8e3a099173f4",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 5.5
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_963c790dd0ba",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "魔法ダメージ減少": 360.0
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "360～360"
+      }
+    },
+    {
+      "id": "eqgrp_97512873cb79",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 1200.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～2400"
+      }
+    },
+    {
+      "id": "eqgrp_a90c91a2bf7d",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 体力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "体力%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "体力": 8000.5
+      },
+      "display_ranges": {
+        "体力": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_aca2a053e10c",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 12500.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～25000"
+      }
+    },
+    {
+      "id": "eqgrp_b42fbd8ab179",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv4 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "最大HP%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 2.0
+      },
+      "display_ranges": {
+        "HP_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_c56c2dec1c98",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 5.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_c7431ce4c1a5",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "全ステータス%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 1800.0
+      },
+      "display_ranges": {
+        "全ステ": "1800～1800"
+      }
+    },
+    {
+      "id": "eqgrp_c970f9112011",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 40.5
+      },
+      "display_ranges": {
+        "BA": "1～80"
+      }
+    },
+    {
+      "id": "eqgrp_ccc6df1bf96d",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理ダメージ減少": 360.0
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "360～360"
+      }
+    },
+    {
+      "id": "eqgrp_ce76d455497c",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "抵抗力%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 2000.5
+      },
+      "display_ranges": {
+        "抵抗": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_d080af7941d3",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ": 6000.5
+      },
+      "display_ranges": {
+        "全ステ": "1～12000"
+      }
+    },
+    {
+      "id": "eqgrp_d3a04a329b99",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 191,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_d9a581fc8062",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv1-2 一般モンスター支配力+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "一般モンスター支配力+%0.1F%%",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "一般支配": 1.65
+      },
+      "display_ranges": {
+        "一般支配": "0.1～3.2"
+      }
+    },
+    {
+      "id": "eqgrp_e1ea6456837e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング） (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 12.0
+      },
+      "display_ranges": {
+        "BA": "12～12"
+      }
+    },
+    {
+      "id": "eqgrp_05d6da507ed0",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 体力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "体力%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "体力": 8000.5
+      },
+      "display_ranges": {
+        "体力": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_088ef15d7c81",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_19e677170822",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "抵抗力%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 600.0
+      },
+      "display_ranges": {
+        "抵抗": "600～600"
+      }
+    },
+    {
+      "id": "eqgrp_229a7a3af401",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "最大HP%+d％",
+      "option_type": 189,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_255f0fc43fa4",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_291c6f4ebea0",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 5.5
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_2df6bd47bcc2",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "全ステータス%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 1800.0
+      },
+      "display_ranges": {
+        "全ステ": "1800～1800"
+      }
+    },
+    {
+      "id": "eqgrp_39da90237e69",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "クリダメ": 40.5
+      },
+      "display_ranges": {
+        "クリダメ": "1～80"
+      }
+    },
+    {
+      "id": "eqgrp_41fa21dbe5f8",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "抵抗力%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 2000.5
+      },
+      "display_ranges": {
+        "抵抗": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_43cef517a66b",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理ダメージ減少": 360.0
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "360～360"
+      }
+    },
+    {
+      "id": "eqgrp_4537155445c6",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "全ステータス%+d％",
+      "option_type": 189,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 1.0
+      },
+      "display_ranges": {
+        "全ステ%": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_462857face23",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 ボスモンスター支配力+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "ボスモンスター支配力+%0.1F%%",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "ボス支配": 1.65
+      },
+      "display_ranges": {
+        "ボス支配": "0.1～3.2"
+      }
+    },
+    {
+      "id": "eqgrp_50b0007aa5b0",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 40.5
+      },
+      "display_ranges": {
+        "BA": "1～80"
+      }
+    },
+    {
+      "id": "eqgrp_55509fb3e2a5",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 体力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "体力%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 2400.0
+      },
+      "display_ranges": {
+        "体力": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_56f1e8a3b6f7",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "防御力%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 2000.5
+      },
+      "display_ranges": {
+        "防御": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_5e44776bff3e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 ボスモンスター支配力+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "ボスモンスター支配力+%0.1F%%",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "ボス支配": 0.4
+      },
+      "display_ranges": {
+        "ボス支配": "0.4～0.4"
+      }
+    },
+    {
+      "id": "eqgrp_61190987a43a",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 1200.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～2400"
+      }
+    },
+    {
+      "id": "eqgrp_78ba89833e96",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "最大HP%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 4.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～8"
+      }
+    },
+    {
+      "id": "eqgrp_7cbdfdc6eb7d",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 22.0
+      },
+      "display_ranges": {
+        "武器属性": "22～22"
+      }
+    },
+    {
+      "id": "eqgrp_7ec04765a4d3",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 1200.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～2400"
+      }
+    },
+    {
+      "id": "eqgrp_7f378b219a41",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_8632b74c1d38",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 筋力/魔法力%+d)",
       "category": "エンチャ",
       "level": 9000,
       "level_label": "3-4",
       "detail": "筋力/魔法力%+d",
-      "option_type": 191,
+      "option_type": 189,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
@@ -4845,6 +5227,1108 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "筋力魔力": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_86adae4a0fc3",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "防御力%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 600.0
+      },
+      "display_ranges": {
+        "防御": "600～600"
+      }
+    },
+    {
+      "id": "eqgrp_86d9835e9139",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "クリダメ": 12.0
+      },
+      "display_ranges": {
+        "クリダメ": "12～12"
+      }
+    },
+    {
+      "id": "eqgrp_907b49157df6",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 8000.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_94200ef42e9e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "魔法ダメージ減少": 360.0
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "360～360"
+      }
+    },
+    {
+      "id": "eqgrp_9785254fe39a",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ%": 6.5
+      },
+      "display_ranges": {
+        "全ステ%": "1～12"
+      }
+    },
+    {
+      "id": "eqgrp_9bc3abc3c114",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 75.5
+      },
+      "display_ranges": {
+        "武器属性": "1～150"
+      }
+    },
+    {
+      "id": "eqgrp_a2456a556ea5",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ": 6000.5
+      },
+      "display_ranges": {
+        "全ステ": "1～12000"
+      }
+    },
+    {
+      "id": "eqgrp_b9824e86b18d",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 5.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_bc5fba68ee33",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 幸運%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "幸運%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 8000.5
+      },
+      "display_ranges": {
+        "幸運": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_c45abaa01a41",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 3750.0
+      },
+      "display_ranges": {
+        "追加ダメ": "3750～3750"
+      }
+    },
+    {
+      "id": "eqgrp_ca407e023801",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv4 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "全ステータス%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 2.0
+      },
+      "display_ranges": {
+        "全ステ%": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_cdc8638de628",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 幸運%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "幸運%+d",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "幸運": 2400.0
+      },
+      "display_ranges": {
+        "幸運": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_d6b49b73eb66",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 12500.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～25000"
+      }
+    },
+    {
+      "id": "eqgrp_d859371779bc",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 12.0
+      },
+      "display_ranges": {
+        "BA": "12～12"
+      }
+    },
+    {
+      "id": "eqgrp_dab682ab4deb",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 50.5
+      },
+      "display_ranges": {
+        "最小": "1～100"
+      }
+    },
+    {
+      "id": "eqgrp_e58f0064071e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 15.0
+      },
+      "display_ranges": {
+        "最小": "15～15"
+      }
+    },
+    {
+      "id": "eqgrp_f3fc3f56b879",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_faac3587b197",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー） (エンチャ Lv4 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "最大HP%+d％",
+      "option_type": 189,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 2.0
+      },
+      "display_ranges": {
+        "HP_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_015b99d5c649",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 8000.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_08dba16d8919",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 幸運%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "幸運%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 8000.5
+      },
+      "display_ranges": {
+        "幸運": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_0ff1b502ebae",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 40.5
+      },
+      "display_ranges": {
+        "BA": "1～80"
+      }
+    },
+    {
+      "id": "eqgrp_1402438f777c",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ": 6000.5
+      },
+      "display_ranges": {
+        "全ステ": "1～12000"
+      }
+    },
+    {
+      "id": "eqgrp_14caaba941f1",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "抵抗力%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 600.0
+      },
+      "display_ranges": {
+        "抵抗": "600～600"
+      }
+    },
+    {
+      "id": "eqgrp_15180db53d17",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 75.5
+      },
+      "display_ranges": {
+        "武器属性": "1～150"
+      }
+    },
+    {
+      "id": "eqgrp_16638e56b1c6",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 12.0
+      },
+      "display_ranges": {
+        "BA": "12～12"
+      }
+    },
+    {
+      "id": "eqgrp_25918dc2ab18",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 体力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "体力%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "体力": 8000.5
+      },
+      "display_ranges": {
+        "体力": "1～16000"
+      }
+    },
+    {
+      "id": "eqgrp_2691bc1a26e0",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "防御力%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 600.0
+      },
+      "display_ranges": {
+        "防御": "600～600"
+      }
+    },
+    {
+      "id": "eqgrp_2c135bdbe197",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "最大HP%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 4.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～8"
+      }
+    },
+    {
+      "id": "eqgrp_526f0f2890b5",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 幸運%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "幸運%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "幸運": 2400.0
+      },
+      "display_ranges": {
+        "幸運": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_6164b483465e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_70c997b94152",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 5.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_7305812ab1cd",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 物理/魔法命中率%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法命中率%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理/魔法命中率%+d％": 12.0
+      },
+      "display_ranges": {
+        "物理/魔法命中率%+d％": "12～12"
+      }
+    },
+    {
+      "id": "eqgrp_834d29be9a79",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv4 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "最大HP%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 2.0
+      },
+      "display_ranges": {
+        "HP_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_85c5cee43247",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最大": 12.0
+      },
+      "display_ranges": {
+        "最大": "12～12"
+      }
+    },
+    {
+      "id": "eqgrp_89ec7769df64",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 1200.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～2400"
+      }
+    },
+    {
+      "id": "eqgrp_8bd29fcb8e45",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 15.0
+      },
+      "display_ranges": {
+        "最小": "15～15"
+      }
+    },
+    {
+      "id": "eqgrp_8daaf04b6938",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_8f7455de5150",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv4 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 2.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_8fa204796afa",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 体力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "体力%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 2400.0
+      },
+      "display_ranges": {
+        "体力": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_957e6a9da81e",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 22.0
+      },
+      "display_ranges": {
+        "武器属性": "22～22"
+      }
+    },
+    {
+      "id": "eqgrp_95a75d397251",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "防御力%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 2000.5
+      },
+      "display_ranges": {
+        "防御": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_99059586e098",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 12500.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～25000"
+      }
+    },
+    {
+      "id": "eqgrp_a08087ad7fbc",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "全ステータス%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 1800.0
+      },
+      "display_ranges": {
+        "全ステ": "1800～1800"
+      }
+    },
+    {
+      "id": "eqgrp_a1c1b90e1033",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 5.5
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_ad8439c31d88",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "魔法ダメージ減少": 360.0
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "360～360"
+      }
+    },
+    {
+      "id": "eqgrp_b817a9f01c59",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "2～2"
+      }
+    },
+    {
+      "id": "eqgrp_c619f9811f71",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 2400.0
+      },
+      "display_ranges": {
+        "筋力魔力": "2400～2400"
+      }
+    },
+    {
+      "id": "eqgrp_cbe4b81d1162",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最大": 40.5
+      },
+      "display_ranges": {
+        "最大": "1～80"
+      }
+    },
+    {
+      "id": "eqgrp_d1a68be5f5a6",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性_乗算": 5.5
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_d443edd09cad",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理/魔法命中率%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法命中率%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理/魔法命中率%+d％": 43.0
+      },
+      "display_ranges": {
+        "物理/魔法命中率%+d％": "1～85"
+      }
+    },
+    {
+      "id": "eqgrp_d7d2f74ab765",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 3750.0
+      },
+      "display_ranges": {
+        "追加ダメ": "3750～3750"
+      }
+    },
+    {
+      "id": "eqgrp_dcaa1bab5dba",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "最大HP%+d％",
+      "option_type": 190,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_e7e102a1f5d8",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 50.5
+      },
+      "display_ranges": {
+        "最小": "1～100"
+      }
+    },
+    {
+      "id": "eqgrp_ea39665587f4",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "抵抗力%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 2000.5
+      },
+      "display_ranges": {
+        "抵抗": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_fa9656d2fc3a",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv1-2 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 190,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 1200.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～2400"
+      }
+    },
+    {
+      "id": "eqgrp_fb54a5a5e2d6",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3-4",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 190,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理ダメージ減少": 360.0
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "360～360"
+      }
+    },
+    {
+      "id": "eqgrp_fc62756ff4f3",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 190,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 1.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～1"
+      }
+    },
+    {
+      "id": "eqgrp_fe1229505c0b",
+      "equipment_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
+      "display_name": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ） (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 190,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～1"
       }
     },
     {
@@ -4859,770 +6343,10 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "最小": 15.0,
-        "全ステ": 2000.0,
-        "クリダメ": 10.0
+        "クリダメ": 10.0,
+        "全ステ": 2000.0
       },
       "display_ranges": {}
-    },
-    {
-      "id": "eqgrp_08987f40cea9",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_0d3767d3ae38",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_11765d14ef8a",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_19b7457cdddb",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_2a8c2e26c440",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_2e48bfe9631d",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 ボスモンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター支配力+%0.1F%%",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス支配": 0.4
-      },
-      "display_ranges": {
-        "ボス支配": "0.4～0.4"
-      }
-    },
-    {
-      "id": "eqgrp_3595383925f3",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_3a67348f8c76",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_3f635c99e095",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 12.0
-      },
-      "display_ranges": {
-        "クリダメ": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_41a9e9362fd4",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_4449a80caaaf",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_4765bba5fea3",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_4b3892b07bbc",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 ボスモンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "ボスモンスター支配力+%0.1F%%",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス支配": 1.65
-      },
-      "display_ranges": {
-        "ボス支配": "0.1～3.2"
-      }
-    },
-    {
-      "id": "eqgrp_4ef7199cf4e4",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_50bfbf388889",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_5335f5517745",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_60274cf93209",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_6e5fc542153a",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_795cbc9c4dc8",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 2.0
-      },
-      "display_ranges": {
-        "全ステ%": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_7bb992839e32",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_809c3204ad03",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_829881af140c",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_86c82defacf3",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_973706b2f55c",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_9abdd243ce53",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_9e28f93c8249",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_a8893c075255",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.0
-      },
-      "display_ranges": {
-        "全ステ%": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_ae928f0a2c9e",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_b58a1e0fb507",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_c3dafbc7a5fa",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_d6fb4426ae13",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_db8ac510949a",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_e0e625464227",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_e31af6b2d682",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_e4ba966d9af9",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_e7f8ad9b465c",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      }
-    },
-    {
-      "id": "eqgrp_f33f84b0dfa8",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 40.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_f63c4f6a9a6f",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_fa0f948da127",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_fb4b4007c5c6",
-      "equipment_name": "ダークエルフのタトゥー",
-      "display_name": "ダークエルフのタトゥー (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
     },
     {
       "id": "eqgrp_454da1bd8005",
@@ -5635,772 +6359,12 @@ const ENCHANT_DATA = {
       "option_type": 189,
       "option_class": 3,
       "expected_values": {
-        "全ステ": 2000.0,
-        "最大": 15.0,
         "筋力魔力": 2000.0,
-        "武器属性": 10.0
+        "武器属性": 10.0,
+        "全ステ": 2000.0,
+        "最大": 15.0
       },
       "display_ranges": {}
-    },
-    {
-      "id": "eqgrp_07975f5515f2",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_15281f9d9016",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_234138b9352e",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_32bb52627bd2",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_39e227e97250",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_40c5ac5b1a93",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_455387bfdc53",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_492367ec5614",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 5.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_512fa9d061bf",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 12.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_528f7d38dbc7",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_56445c31412c",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_583179eb0942",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_62c66598461c",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 40.5
-      },
-      "display_ranges": {
-        "最大": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_6a3520aa6483",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_6ee4ac98c9ab",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_71e77480f154",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 2.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_7aeaa8f3a5cb",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_7d08891c6601",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_85add1d00747",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_939f472cf519",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_99f1ef5ed24e",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_a40f110e3e00",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_a5d756964bde",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_a6ae339fca82",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_a7924672ee4a",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 12.0
-      },
-      "display_ranges": {
-        "最大": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_b3d425665958",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_b80a998ec561",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_b878358d15b6",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 43.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "1～85"
-      }
-    },
-    {
-      "id": "eqgrp_c0334afa39d9",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_c4bb2c2cb053",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_cbf173e2502b",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_cfe0a843c112",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_d165ecee1efe",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_d3b1b62cd012",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_d88303d96bd6",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_da1543301a72",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_ded1f64bf329",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_e462141befb1",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_e61f1a225ce2",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_f2628826422e",
-      "equipment_name": "ダークエルフのメガネ",
-      "display_name": "ダークエルフのメガネ (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
     },
     {
       "id": "eqgrp_9f3e93d2494b",
@@ -6413,4534 +6377,12 @@ const ENCHANT_DATA = {
       "option_type": 190,
       "option_class": 3,
       "expected_values": {
-        "最大": 10.0,
         "筋力魔力": 2000.0,
+        "ボス追加ダメ": 2000.0,
         "武器属性": 10.0,
-        "ボス追加ダメ": 2000.0
+        "最大": 10.0
       },
       "display_ranges": {}
-    },
-    {
-      "id": "eqgrp_03d76ee00442",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 最小/最大ダメージ. %+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "最小/最大ダメージ. %+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小/最大ダメージ. %+d％": 10.0
-      },
-      "display_ranges": {
-        "最小/最大ダメージ. %+d％": "10～10"
-      }
-    },
-    {
-      "id": "eqgrp_2902a78ada95",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_30aa5e35e6ac",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_34808e6943f9",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_351dd08ee897",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_36fa109122bd",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_3b815b771955",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 一般モンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター支配力+%0.1F%%",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般支配": 1.65
-      },
-      "display_ranges": {
-        "一般支配": "0.1～3.2"
-      }
-    },
-    {
-      "id": "eqgrp_42bf1f644c84",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_4912b62cdcf1",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_4994c65e6767",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_500b1e9c7c47",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_52cde495d0e7",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_5d6905bbf49a",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_63e115e53fbf",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_677cad86e2f5",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_72758de73f16",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_73b6d3502017",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 一般モンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "一般モンスター支配力+%0.1F%%",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般支配": 0.4
-      },
-      "display_ranges": {
-        "一般支配": "0.4～0.4"
-      }
-    },
-    {
-      "id": "eqgrp_7cf0d3766f29",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 移動速度%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "移動速度%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "移動速度%+d％": 35.5
-      },
-      "display_ranges": {
-        "移動速度%+d％": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_85ef298c7d29",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_8aaca9098b79",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 最小/最大ダメージ. %+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最小/最大ダメージ. %+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小/最大ダメージ. %+d％": 35.5
-      },
-      "display_ranges": {
-        "最小/最大ダメージ. %+d％": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_8ef46bbbff6d",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 移動速度%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "移動速度%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "移動速度%+d％": 10.0
-      },
-      "display_ranges": {
-        "移動速度%+d％": "10～10"
-      }
-    },
-    {
-      "id": "eqgrp_90eb51d355e6",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_91b12174a5c8",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_94be16bb7709",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_9cae4d3b6b55",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_a3f2d0975314",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_a51d1ede4ad1",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_ace948c1db2a",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_ade3a317f002",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_b807c9438641",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_bdcdba1150dd",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_c506fd0478be",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_c6179fb16be1",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_c947619f24bd",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_d1ee48b3d580",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_e4239948869d",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_eba5cd9ce0fd",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_edb718c9b795",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_f1a31bc230c6",
-      "equipment_name": "結合したエメラルディアのストッキング",
-      "display_name": "結合したエメラルディアのストッキング (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_16802ff480e2",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_1690bbf22527",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_1e1a23ab605c",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_2626aa66d30a",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 40.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_26e3b616d954",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_2d3f4ddd02f5",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_2e09f9bd330c",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_3a2476a0a824",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_3a47a2a8e1ee",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_448a735b7ed8",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_4bbba686c230",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_5510ed380508",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_63b347a85c93",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_6696daeab420",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 2.0
-      },
-      "display_ranges": {
-        "全ステ%": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_6a363439e1d8",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 ボスモンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター支配力+%0.1F%%",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス支配": 0.4
-      },
-      "display_ranges": {
-        "ボス支配": "0.4～0.4"
-      }
-    },
-    {
-      "id": "eqgrp_6f1ea7c419ac",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_72f33b40c0d3",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_7404f2a4c834",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_7be910b5e585",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_7ca4a2955267",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_87d5ee80ab4c",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_89906e7c4b4e",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_92c888adbb26",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_9648b85f4970",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_987323a08bd5",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_a2668d041c5b",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_a8b6bbfc60f7",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_b161b18ce205",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_bac3e6ca2258",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 12.0
-      },
-      "display_ranges": {
-        "クリダメ": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_c41831659862",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_c5c3fff700fe",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_c8d67f6cf174",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 ボスモンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "ボスモンスター支配力+%0.1F%%",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス支配": 1.65
-      },
-      "display_ranges": {
-        "ボス支配": "0.1～3.2"
-      }
-    },
-    {
-      "id": "eqgrp_cb00fdced38f",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      }
-    },
-    {
-      "id": "eqgrp_d34631914d3f",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_dc27b3405d09",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_e118f4214af5",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_e4883bfb37af",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv3 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.0
-      },
-      "display_ranges": {
-        "全ステ%": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_f782db15cbdf",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_fd93c88cc5a1",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_ff7d74906371",
-      "equipment_name": "結合したエメラルディアのタトゥー",
-      "display_name": "結合したエメラルディアのタトゥー (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_02db0642dbb8",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_12f8f9ef8043",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_22add102248a",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_2c6a8fdeb2e5",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_3a978c28ce98",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_3d6213fbb59f",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 40.5
-      },
-      "display_ranges": {
-        "最大": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_50284c480eb7",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 2.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_549ef350c96e",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_56821870492a",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_5edc927b3775",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_65f9f0b052a5",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_72a242707050",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_7cc571e0339f",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 12.0
-      },
-      "display_ranges": {
-        "最大": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_870d78e7bc01",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_8becfd862e09",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 5.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_8cc8857e5ae2",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_8df0dc992150",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_8f975e788456",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_99811af01132",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_9abba18a2e20",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_9b9283dd94e6",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_a57a58bff7e1",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 43.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "1～85"
-      }
-    },
-    {
-      "id": "eqgrp_aa6e8e40eb0f",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_c1d83548538f",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_c2dfcef22058",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_c538b1b0fcbe",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_c80c23b88696",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_cdf694653099",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_d00856249d3e",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_d65e59e9d641",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_dd58419fd0bc",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_e1880f4aa57c",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 12.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_e5086c0347b0",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_e6d737b9b04e",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_e930761d54b9",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_eb5f0b0d4bdd",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_eecfa877bba8",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_f729dc623392",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_f77d9e9b5845",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_f7b81b58d91b",
-      "equipment_name": "結合したエメラルディアのメガネ",
-      "display_name": "結合したエメラルディアのメガネ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_007ba8dc92e2",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_0678c11240ae",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_0c3265a5344f",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_0d8ed7c1d607",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_0fa8f6bf2036",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_1e2eb2182fe4",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 移動速度%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "移動速度%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "移動速度%+d％": 10.0
-      },
-      "display_ranges": {
-        "移動速度%+d％": "10～10"
-      }
-    },
-    {
-      "id": "eqgrp_29ce91ab1404",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_32ae831e1cd1",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_3b33f816bd3e",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_4234b62a7af6",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_435d04149a35",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_4823c6b75a8e",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_6a048c22d31d",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_6db56d0ff108",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_6e20f086f244",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 移動速度%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "移動速度%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "移動速度%+d％": 35.5
-      },
-      "display_ranges": {
-        "移動速度%+d％": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_717f9d677e4f",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_71b43dbea188",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_7fca3fe364f0",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 一般モンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "一般モンスター支配力+%0.1F%%",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般支配": 0.4
-      },
-      "display_ranges": {
-        "一般支配": "0.4～0.4"
-      }
-    },
-    {
-      "id": "eqgrp_a1ff42960f28",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_a20b8a19335b",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_a6849c282eda",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 最小/最大ダメージ. %+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "最小/最大ダメージ. %+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小/最大ダメージ. %+d％": 10.0
-      },
-      "display_ranges": {
-        "最小/最大ダメージ. %+d％": "10～10"
-      }
-    },
-    {
-      "id": "eqgrp_abf41dd799ca",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_b946f7d2b6e4",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_bfd7ab1f5779",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_c61933f3dd7b",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_c747f6695f69",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_c8ac6b76adc7",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_c9f3f20d3b62",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_ce54f1aafeb1",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 最小/最大ダメージ. %+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最小/最大ダメージ. %+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小/最大ダメージ. %+d％": 35.5
-      },
-      "display_ranges": {
-        "最小/最大ダメージ. %+d％": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_d033ba047663",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_d17ef4a0ae96",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_d19b93cd50b6",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_d646f50ed3a9",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_e6a1ba767c44",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 一般モンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター支配力+%0.1F%%",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般支配": 1.65
-      },
-      "display_ranges": {
-        "一般支配": "0.1～3.2"
-      }
-    },
-    {
-      "id": "eqgrp_e7f3a545c35d",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_eb6552a066a9",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_eb891b87729f",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_f46792f7c639",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_fbf4a31d706a",
-      "equipment_name": "魔女のストッキング",
-      "display_name": "魔女のストッキング (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_05b8b979fcfa",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_0722be2704a8",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_0c90e705fc20",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_0cb5d74308c1",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 40.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_18566dc25f39",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_2758e0c3cb18",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_2b6ad820c021",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_2c820ed35388",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_304bb28b80ba",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_3a12497d0914",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_48e3d8fade87",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 ボスモンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター支配力+%0.1F%%",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス支配": 0.4
-      },
-      "display_ranges": {
-        "ボス支配": "0.4～0.4"
-      }
-    },
-    {
-      "id": "eqgrp_4e6b0817ab6a",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_52464eaec105",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_56835c1290bf",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_5a26a08cd3fa",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_64e613ae49ab",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_6a5f35acf60b",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      }
-    },
-    {
-      "id": "eqgrp_73a403b4355c",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 2.0
-      },
-      "display_ranges": {
-        "全ステ%": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_76e89c2fab10",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_889dd3c9aebd",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_8bd065039499",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_95befab7305d",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_9e1adb4a2acb",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_a94cc463fe6b",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_aef0b172c58a",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_b0ca2fbfbc1f",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_b6e4b50f4e7e",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 ボスモンスター支配力+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "ボスモンスター支配力+%0.1F%%",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス支配": 1.65
-      },
-      "display_ranges": {
-        "ボス支配": "0.1～3.2"
-      }
-    },
-    {
-      "id": "eqgrp_bdf3a4588c00",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_c253c0601454",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_c4740be42676",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_c763f6a3a29c",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_d214260da045",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_d670c51c8a14",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_db38beca4ab5",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "全ステータス%+d％",
-      "option_type": 189,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.0
-      },
-      "display_ranges": {
-        "全ステ%": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_e78b8d61c7cc",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_e8fa226ce32c",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_f096f959c4d4",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 189,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_f64d776908ca",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 12.0
-      },
-      "display_ranges": {
-        "クリダメ": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_f8d6504e1ea4",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_f90291eaae5a",
-      "equipment_name": "魔女のタトゥー",
-      "display_name": "魔女のタトゥー (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 189,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_03fd8fe5ba10",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 6000.5
-      },
-      "display_ranges": {
-        "全ステ": "1～12000"
-      }
-    },
-    {
-      "id": "eqgrp_12f7ad90cc5a",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_30da3a9fd024",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 8000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_34867fd32450",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 43.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "1～85"
-      }
-    },
-    {
-      "id": "eqgrp_3d616939ad48",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_4918f95601b4",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 5.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_49fa177450e2",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_4a6287fe48e0",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_4ad9fa1238f1",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 360.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "360～360"
-      }
-    },
-    {
-      "id": "eqgrp_552115919aff",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 12.0
-      },
-      "display_ranges": {
-        "BA": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_559729be39fe",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 2400.0
-      },
-      "display_ranges": {
-        "筋力魔力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_5a09fed9e385",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_5bbae658b400",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_5d030f66387e",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "防御力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_5f7908070be2",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      }
-    },
-    {
-      "id": "eqgrp_6690ffbb1826",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 8000.5
-      },
-      "display_ranges": {
-        "体力": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_68e2b9bf227a",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_6da586720ebf",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 40.5
-      },
-      "display_ranges": {
-        "最大": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_6f1ebcaf8d15",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12500.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～25000"
-      }
-    },
-    {
-      "id": "eqgrp_6f356cb6cc60",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 3750.0
-      },
-      "display_ranges": {
-        "追加ダメ": "3750～3750"
-      }
-    },
-    {
-      "id": "eqgrp_737acc71bdf3",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "幸運%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 8000.5
-      },
-      "display_ranges": {
-        "幸運": "1～16000"
-      }
-    },
-    {
-      "id": "eqgrp_74f816440c29",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
-      }
-    },
-    {
-      "id": "eqgrp_7b741e62fd3b",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_8d5fa777d3fa",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 2.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "2～2"
-      }
-    },
-    {
-      "id": "eqgrp_9235684db858",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 22.0
-      },
-      "display_ranges": {
-        "武器属性": "22～22"
-      }
-    },
-    {
-      "id": "eqgrp_97e459a50b5f",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 12.0
-      },
-      "display_ranges": {
-        "最大": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_aa4470e1f415",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 2400.0
-      },
-      "display_ranges": {
-        "幸運": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_ad5057a8e045",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_b1c49c2e86b7",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 2400.0
-      },
-      "display_ranges": {
-        "体力": "2400～2400"
-      }
-    },
-    {
-      "id": "eqgrp_b93f7eca40ba",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_bd77f6ddc90c",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 600.0
-      },
-      "display_ranges": {
-        "防御": "600～600"
-      }
-    },
-    {
-      "id": "eqgrp_bee2017219f4",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1800.0
-      },
-      "display_ranges": {
-        "全ステ": "1800～1800"
-      }
-    },
-    {
-      "id": "eqgrp_bf3ab979550d",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_c6c57066b1f9",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 40.5
-      },
-      "display_ranges": {
-        "BA": "1～80"
-      }
-    },
-    {
-      "id": "eqgrp_d4b57595270d",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "抵抗力%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_e98d67ca9ca2",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 12.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "12～12"
-      }
-    },
-    {
-      "id": "eqgrp_ec35d42efee8",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 190,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～1"
-      }
-    },
-    {
-      "id": "eqgrp_ec9467213e67",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 190,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1200.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2400"
-      }
-    },
-    {
-      "id": "eqgrp_f0742a773f51",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 15.0
-      },
-      "display_ranges": {
-        "最小": "15～15"
-      }
-    },
-    {
-      "id": "eqgrp_f6b2386dfb44",
-      "equipment_name": "魔女のメガネ",
-      "display_name": "魔女のメガネ (エンチャ Lv3-4 抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3-4",
-      "detail": "抵抗力%+d",
-      "option_type": 190,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 600.0
-      },
-      "display_ranges": {
-        "抵抗": "600～600"
-      }
     },
     {
       "id": "eqgrp_c8b756d21cbb",
@@ -10954,11 +6396,11 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "一般追加ダメ": 500.0,
-        "全ステ": 500.0,
+        "クリダメ": 5.0,
+        "ボス追加ダメ": 500.0,
         "追加ダメ": 500.0,
         "命中率": 5.0,
-        "クリダメ": 5.0,
-        "ボス追加ダメ": 500.0
+        "全ステ": 500.0
       },
       "display_ranges": {}
     },
@@ -10973,9 +6415,9 @@ const ENCHANT_DATA = {
       "option_type": 165,
       "option_class": 5,
       "expected_values": {
-        "全ステ": 1500.0,
+        "筋力魔力": 1500.0,
         "追加ダメ": 1500.0,
-        "筋力魔力": 1500.0
+        "全ステ": 1500.0
       },
       "display_ranges": {}
     },
@@ -10990,10 +6432,10 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "追加ダメ": 2900.0,
         "魔力": 2900.0,
-        "筋力": 2900.0,
         "ボス追加ダメ": 1450.0,
+        "追加ダメ": 2900.0,
+        "筋力": 2900.0,
         "最小": 10.0,
         "全ステ%": 2.0
       },
@@ -12208,10 +7650,10 @@ const ENCHANT_DATA = {
       "option_class": 13,
       "expected_values": {
         "攻撃": 16.0,
-        "全ステ": 800.0,
-        "属性": 16.0,
         "筋力魔力": 800.0,
-        "ボス追加ダメ": 800.0
+        "ボス追加ダメ": 800.0,
+        "属性": 16.0,
+        "全ステ": 800.0
       },
       "display_ranges": {}
     },
@@ -14298,9 +9740,9 @@ const ENCHANT_DATA = {
       "option_class": 13,
       "expected_values": {
         "一般追加ダメ": 800.0,
-        "全ステ": 800.0,
+        "筋力魔力": 800.0,
         "HP": 800.0,
-        "筋力魔力": 800.0
+        "全ステ": 800.0
       },
       "display_ranges": {}
     },
@@ -14316,10 +9758,10 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "一般追加ダメ": 1450.0,
+        "筋力魔力": 1450.0,
         "混乱抵抗": 29.0,
         "追加ダメ": 1450.0,
         "スタン抵抗": 29.0,
-        "筋力魔力": 1450.0,
         "武器属性": 15.0,
         "最大": 10.0
       },
@@ -14336,11 +9778,11 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "全ステ": 750.0,
-        "追加ダメ": 2500.0,
-        "最大": 3.0,
         "筋力魔力": 1000.0,
-        "ボス追加ダメ": 2500.0
+        "ボス追加ダメ": 2500.0,
+        "追加ダメ": 2500.0,
+        "全ステ": 750.0,
+        "最大": 3.0
       },
       "display_ranges": {}
     },
@@ -14982,10 +10424,10 @@ const ENCHANT_DATA = {
       "option_type": 188,
       "option_class": 4,
       "expected_values": {
-        "全ステ": 2700.0,
         "クリダメ": 21.0,
         "最大最小": 16.0,
-        "武器属性": 38.0
+        "武器属性": 38.0,
+        "全ステ": 2700.0
       },
       "display_ranges": {}
     },
@@ -15000,10 +10442,10 @@ const ENCHANT_DATA = {
       "option_type": 188,
       "option_class": 3,
       "expected_values": {
-        "全ステ": 700.0,
         "クリダメ": 6.0,
         "最大最小": 6.0,
-        "武器属性": 10.0
+        "武器属性": 10.0,
+        "全ステ": 700.0
       },
       "display_ranges": {}
     },
@@ -16074,15 +11516,15 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "攻撃": 375.0,
-        "全ステ": 5000.0,
         "一般支配": 3.9,
-        "属性": 375.0,
         "追加ダメ": 3200.0,
-        "クリダメ": 42.0,
+        "全ステ": 5000.0,
         "最大": 27.0,
-        "武器属性_乗算": 1.0,
-        "追加ダメ_乗算": 1.0
+        "攻撃": 375.0,
+        "クリダメ": 42.0,
+        "属性": 375.0,
+        "追加ダメ_乗算": 1.0,
+        "武器属性_乗算": 1.0
       },
       "display_ranges": {}
     },
@@ -16097,13 +11539,13 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "攻撃": 225.0,
-        "全ステ": 1500.0,
         "一般支配": 2.5,
-        "属性": 225.0,
         "追加ダメ": 1500.0,
+        "全ステ": 1500.0,
+        "最大": 15.0,
+        "攻撃": 225.0,
         "クリダメ": 15.0,
-        "最大": 15.0
+        "属性": 225.0
       },
       "display_ranges": {}
     },
@@ -16745,9 +12187,9 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "物理_最大": 27.0,
-        "全ステ": 5000.0,
         "一般支配": 3.9,
+        "全ステ": 5000.0,
+        "物理_最大": 27.0,
         "属性_乗算": 1.0,
         "追加ダメ_乗算": 1.0
       },
@@ -16764,9 +12206,9 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "物理_最大": 15.0,
+        "一般支配": 2.5,
         "全ステ": 1500.0,
-        "一般支配": 2.5
+        "物理_最大": 15.0
       },
       "display_ranges": {}
     },
@@ -16782,9 +12224,9 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "攻撃": 225.0,
-        "全ステ": 1500.0,
+        "一般支配": 2.5,
         "魔法_最大": 15.0,
-        "一般支配": 2.5
+        "全ステ": 1500.0
       },
       "display_ranges": {}
     },
@@ -16800,9 +12242,9 @@ const ENCHANT_DATA = {
       "option_class": 4,
       "expected_values": {
         "攻撃": 375.0,
-        "全ステ": 5000.0,
-        "魔法_最大": 27.0,
         "一般支配": 3.9,
+        "魔法_最大": 27.0,
+        "全ステ": 5000.0,
         "攻撃_乗算": 1.0
       },
       "display_ranges": {}
@@ -16819,8 +12261,8 @@ const ENCHANT_DATA = {
       "option_class": 0,
       "expected_values": {
         "一般追加ダメ": 2450.0,
-        "全ステ": 2450.0,
         "筋力魔力": 2450.0,
+        "全ステ": 2450.0,
         "武器属性": 12.0,
         "最小": 10.0,
         "最大": 10.0
@@ -16840,9 +12282,9 @@ const ENCHANT_DATA = {
       "expected_values": {
         "攻撃": 19.0,
         "一般追加ダメ": 1900.0,
+        "筋力魔力": 1900.0,
         "属性": 19.0,
-        "最大": 14.0,
-        "筋力魔力": 1900.0
+        "最大": 14.0
       },
       "display_ranges": {}
     },
@@ -16859,112 +12301,188 @@ const ENCHANT_DATA = {
       "expected_values": {
         "攻撃": 23.0,
         "一般追加ダメ": 3250.0,
+        "筋力魔力": 1620.0,
         "属性": 23.0,
-        "追加ダメ": 3250.0,
         "HP": 1620.0,
-        "筋力魔力": 1620.0
+        "追加ダメ": 3250.0
       },
       "display_ranges": {}
     },
     {
-      "id": "eqgrp_0935c58fcc33",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
+      "id": "eqgrp_008f21d1ac27",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 全ステータス%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
-      "detail": "物理/魔法最大ダメージ%+d％",
+      "detail": "全ステータス%+d",
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "最大": 35.5
+        "全ステ": 5500.5
       },
       "display_ranges": {
-        "最大": "1～70"
+        "全ステ": "1～11000"
       }
     },
     {
-      "id": "eqgrp_0a3762139563",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 筋力/魔法力%+d)",
+      "id": "eqgrp_01101eacd556",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "クリダメ": 28.5
+      },
+      "display_ranges": {
+        "クリダメ": "1～56"
+      }
+    },
+    {
+      "id": "eqgrp_0e9a40593898",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 7.5
+      },
+      "display_ranges": {
+        "BA": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_1251f122bc4d",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 880.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～1760"
+      }
+    },
+    {
+      "id": "eqgrp_13fa1e4c10f9",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
       "detail": "筋力/魔法力%+d",
       "option_type": 183,
-      "option_class": 4,
+      "option_class": 2,
       "option_group": 0,
-      "option_probability": 100.0,
+      "option_probability": 60.0,
       "expected_values": {
-        "筋力魔力": 1575.0
+        "筋力魔力": 7000.5
       },
       "display_ranges": {
-        "筋力魔力": "1050～2100"
+        "筋力魔力": "1～14000"
       }
     },
     {
-      "id": "eqgrp_0b48d3d75ca4",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 武器攻撃力/属性力%+d)",
+      "id": "eqgrp_1c0fe9f7cd0b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 体力%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
+      "level_label": "1",
+      "detail": "体力%+d",
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "武器属性": 60.5
+        "体力": 5600.5
       },
       "display_ranges": {
-        "武器属性": "1～120"
+        "体力": "1～11200"
       }
     },
     {
-      "id": "eqgrp_1149b04c53fc",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_14a43323ad58",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 防御力%+d)",
+      "id": "eqgrp_24f47b848b36",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 最大HP%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
-      "detail": "防御力%+d",
+      "detail": "最大HP%+d％",
       "option_type": 183,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "防御": 450.0
+        "HP_乗算": 1.5
       },
       "display_ranges": {
-        "防御": "300～600"
+        "HP_乗算": "1～2"
       }
     },
     {
-      "id": "eqgrp_17e724b3bd03",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
+      "id": "eqgrp_2858f95fd622",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 7.5
+      },
+      "display_ranges": {
+        "最小": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_2e0a1b4247e8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 2000.5
+      },
+      "display_ranges": {
+        "抵抗": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_2f3ce437b9ea",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
@@ -16981,9 +12499,389 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_1d6a68b0db46",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法貫通力%+d％)",
+      "id": "eqgrp_3e4cec488f07",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 1100.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～2200"
+      }
+    },
+    {
+      "id": "eqgrp_403ee577639a",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理ダメージ減少": 247.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "165～330"
+      }
+    },
+    {
+      "id": "eqgrp_4136e719c875",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 体力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "体力%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 1575.0
+      },
+      "display_ranges": {
+        "体力": "1050～2100"
+      }
+    },
+    {
+      "id": "eqgrp_433e9a12aee4",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 13.5
+      },
+      "display_ranges": {
+        "武器属性": "9～18"
+      }
+    },
+    {
+      "id": "eqgrp_43746687aad8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "防御力%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 1600.5
+      },
+      "display_ranges": {
+        "防御": "1～3200"
+      }
+    },
+    {
+      "id": "eqgrp_462001764c78",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "防御力%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 450.0
+      },
+      "display_ranges": {
+        "防御": "300～600"
+      }
+    },
+    {
+      "id": "eqgrp_47f075b1a375",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "魔法ダメージ減少": 247.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "165～330"
+      }
+    },
+    {
+      "id": "eqgrp_4ba86b716192",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "クリダメ": 35.5
+      },
+      "display_ranges": {
+        "クリダメ": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_5111ecf8c94f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 1600.5
+      },
+      "display_ranges": {
+        "抵抗": "1～3200"
+      }
+    },
+    {
+      "id": "eqgrp_62885cff30fc",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 28.5
+      },
+      "display_ranges": {
+        "BA": "1～56"
+      }
+    },
+    {
+      "id": "eqgrp_688ee82f5f4b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "クリダメ": 7.5
+      },
+      "display_ranges": {
+        "クリダメ": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_70aa1d645625",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 1100.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～2200"
+      }
+    },
+    {
+      "id": "eqgrp_75bf38ed9d7d",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "幸運%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "幸運": 1575.0
+      },
+      "display_ranges": {
+        "幸運": "1050～2100"
+      }
+    },
+    {
+      "id": "eqgrp_7e4810a9f559",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 35.5
+      },
+      "display_ranges": {
+        "最小": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_8457a27c0372",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "防御力%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 2000.5
+      },
+      "display_ranges": {
+        "防御": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_8cf2f08b520f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 880.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～1760"
+      }
+    },
+    {
+      "id": "eqgrp_8e94c8ff7c9b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 35.5
+      },
+      "display_ranges": {
+        "BA": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_914d1156ce27",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "最大HP%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 3.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_9341f0c48132",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 4.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_950e4311d8fa",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 15000.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～30000"
+      }
+    },
+    {
+      "id": "eqgrp_975df4b756ba",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法貫通力%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -17000,66 +12898,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_1fcb740a51b0",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 28.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_2998f92651ca",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "貫通": 20.5
-      },
-      "display_ranges": {
-        "貫通": "1～40"
-      }
-    },
-    {
-      "id": "eqgrp_2eaa7fe86915",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_3868d63f4168",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
+      "id": "eqgrp_99d8395ce18b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -17076,161 +12917,28 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_40d9c11936c2",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_42066aa21452",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
+      "id": "eqgrp_9d001ac851c2",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "detail": "物理/魔法最大ダメージ%+d％",
       "option_type": 183,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "BA": 7.5
+        "最大": 7.5
       },
       "display_ranges": {
-        "BA": "5～10"
+        "最大": "5～10"
       }
     },
     {
-      "id": "eqgrp_4d71d31a7874",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 28.5
-      },
-      "display_ranges": {
-        "最大": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_528075c97928",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_5fbeef19fcde",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_664df4cf0fec",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_67817a43d83c",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_6ea70b3a1073",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_6f0688f68139",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法貫通力%+d％)",
+      "id": "eqgrp_9e2120c54d28",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法貫通力%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
@@ -17247,85 +12955,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_70f14dc5e2de",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_75fc42757b52",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_7826ea4b652b",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_7c7a7ad5c32b",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_894cdf3906df",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 体力%+d)",
+      "id": "eqgrp_9fd70c4854c5",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 体力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
@@ -17342,85 +12974,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_8ad0d23159ab",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_8f5941402993",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_92113b61c8ea",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_92586865852c",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_96282c34a4d1",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 武器攻撃力/属性力%+d)",
+      "id": "eqgrp_a7415816e2a6",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 武器攻撃力/属性力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -17437,237 +12993,85 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_9dd97e22c211",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 最大HP%+d％)",
+      "id": "eqgrp_ade0aeee4b56",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 幸運%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "1",
+      "level_label": "2",
+      "detail": "幸運%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 7000.5
+      },
+      "display_ranges": {
+        "幸運": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_b3bc122e481f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 60.5
+      },
+      "display_ranges": {
+        "武器属性": "1～120"
+      }
+    },
+    {
+      "id": "eqgrp_bb54cede301d",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法貫通力%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法貫通力%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "貫通": 20.5
+      },
+      "display_ranges": {
+        "貫通": "1～40"
+      }
+    },
+    {
+      "id": "eqgrp_bb91192150f7",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
       "detail": "最大HP%+d％",
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "HP_乗算": 3.5
+        "HP_乗算": 4.0
       },
       "display_ranges": {
-        "HP_乗算": "1～6"
+        "HP_乗算": "1～7"
       }
     },
     {
-      "id": "eqgrp_9df0107248c8",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_a43a2ea3caba",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_a4495268d70b",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_a5f69b57022f",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_a6ed9ee40f30",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_a9efbce5edf3",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_af9a20ff6344",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_afb4856c6090",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_bb091a1fb662",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_c24b4e013827",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_c3092e91ce65",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_cfc5cb8fd1e5",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
+      "id": "eqgrp_c4511584b72b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -17684,142 +13088,199 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_cfdda4da6c71",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
+      "id": "eqgrp_c696400eeb4d",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 筋力/魔法力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "detail": "筋力/魔法力%+d",
       "option_type": 183,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "クリダメ": 7.5
+        "筋力魔力": 1575.0
       },
       "display_ranges": {
-        "クリダメ": "5～10"
+        "筋力魔力": "1050～2100"
       }
     },
     {
-      "id": "eqgrp_d005869ac7ed",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "id": "eqgrp_c955ab5344f0",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
+      "detail": "物理/魔法最大ダメージ%+d％",
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "追加ダメ": 15000.5
+        "最大": 35.5
       },
       "display_ranges": {
-        "追加ダメ": "1～30000"
+        "最大": "1～70"
       }
     },
     {
-      "id": "eqgrp_d7a75a3ffa97",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 35.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_d9760243acda",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "id": "eqgrp_d0a136b9bd49",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
+      "detail": "一般モンスター追加ダメージ%+d％",
       "option_type": 183,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "物理ダメージ減少": 247.5
+        "一般追加ダメ_乗算": 1.5
       },
       "display_ranges": {
-        "物理ダメージ減少": "165～330"
+        "一般追加ダメ_乗算": "1～2"
       }
     },
     {
-      "id": "eqgrp_d9d54727a73d",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
+      "id": "eqgrp_d3b2d6f5b313",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "detail": "一般モンスター追加ダメージ%+d％",
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "BA": 28.5
+        "一般追加ダメ_乗算": 3.5
       },
       "display_ranges": {
-        "BA": "1～56"
+        "一般追加ダメ_乗算": "1～6"
       }
     },
     {
-      "id": "eqgrp_e990a71151de",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 魔法ダメージ減少%+d)",
+      "id": "eqgrp_d49f8e58ae01",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 全ステータス%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
+      "level_label": "3-4",
+      "detail": "全ステータス%+d",
       "option_type": 183,
-      "option_class": 2,
+      "option_class": 4,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
-        "魔法ダメージ減少": 1100.5
+        "全ステ": 1237.5
       },
       "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
+        "全ステ": "825～1650"
       }
     },
     {
-      "id": "eqgrp_eff056c626b0",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理ダメージ減少%+d)",
+      "id": "eqgrp_d68ff975105c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 魔法抵抗力%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
+      "level_label": "3-4",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 450.0
+      },
+      "display_ranges": {
+        "抵抗": "300～600"
+      }
+    },
+    {
+      "id": "eqgrp_d729b51bd81c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法最大ダメージ%+d％",
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "物理ダメージ減少": 1100.5
+        "最大": 28.5
       },
       "display_ranges": {
-        "物理ダメージ減少": "1～2200"
+        "最大": "1～56"
       }
     },
     {
-      "id": "eqgrp_f0404ac2e8aa",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
+      "id": "eqgrp_e4bd76808c87",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 183,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 1200.0
+      },
+      "display_ranges": {
+        "追加ダメ": "1200～1200"
+      }
+    },
+    {
+      "id": "eqgrp_eac73b210e6f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 5600.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～11200"
+      }
+    },
+    {
+      "id": "eqgrp_ecdc6383c0e2",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 183,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_ef124f17961f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
@@ -17836,450 +13297,14 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_f54724b4c920",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_f97f35a34978",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      }
-    },
-    {
-      "id": "eqgrp_fd8b83faff67",
-      "equipment_name": "怠惰のイヤリング",
-      "display_name": "怠惰のイヤリング (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_fbc41ba8e09f",
-      "equipment_name": "怠惰のイヤリング / 貪欲のイヤリング",
-      "display_name": "怠惰のイヤリング / 貪欲のイヤリング (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 183,
-      "option_class": 3,
-      "expected_values": {
-        "最小": 25.0,
-        "追加ダメ": 2900.0,
-        "クリダメ": 12.0,
-        "筋力魔力": 1200.0
-      },
-      "display_ranges": {}
-    },
-    {
-      "id": "eqgrp_0494905c2eff",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_04b22af1566c",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_06e31c2550d6",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_09973b22a941",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_0d62e943d62e",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_128d8648a8ed",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_12e98f4fff04",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_1606180b6e24",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_170dbc74c592",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_18583ebf3b14",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_1b1a3a3b10d7",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_224bb6a367ba",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_258986ee2bf7",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 80.5
-      },
-      "display_ranges": {
-        "武器属性": "1～160"
-      }
-    },
-    {
-      "id": "eqgrp_2c285b4ea713",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_2f363788c298",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 5.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_34943eb517b6",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_429ffe0cc633",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_42ec4a4ce047",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_456aae796e29",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 64.5
-      },
-      "display_ranges": {
-        "武器属性": "1～128"
-      }
-    },
-    {
-      "id": "eqgrp_53e6c490cfd1",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 全ステータス%+d)",
+      "id": "eqgrp_f81ea22dca53",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 全ステータス%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
       "detail": "全ステータス%+d",
-      "option_type": 184,
+      "option_type": 183,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
@@ -18291,66 +13316,28 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_5a79307f65eb",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 最大HP%+d％)",
+      "id": "eqgrp_fb56c9387118",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（イヤリング） (エンチャ Lv1 幸運%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 4,
+      "level_label": "1",
+      "detail": "幸運%+d",
+      "option_type": 183,
+      "option_class": 2,
       "option_group": 0,
-      "option_probability": 100.0,
+      "option_probability": 60.0,
       "expected_values": {
-        "HP_乗算": 1.5
+        "幸運": 5600.5
       },
       "display_ranges": {
-        "HP_乗算": "1～2"
+        "幸運": "1～11200"
       }
     },
     {
-      "id": "eqgrp_5d964c8c7d90",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_61b3ad5f024c",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_650075d91df9",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 防御力%+d)",
+      "id": "eqgrp_002627feff55",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 防御力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
@@ -18367,142 +13354,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_656e019d78bd",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_6cdf13f8d422",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_6e8a22534b05",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 18.0
-      },
-      "display_ranges": {
-        "武器属性": "12～24"
-      }
-    },
-    {
-      "id": "eqgrp_74f28404e222",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_755f47ca4248",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      }
-    },
-    {
-      "id": "eqgrp_78b3bc2586fb",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_80ca0e887c2c",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_9127e56b3e8a",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
+      "id": "eqgrp_085584710dc2",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
@@ -18519,28 +13373,85 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_95a63fd0ed34",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
+      "id": "eqgrp_087ac55a7ae1",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 体力%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "level_label": "1",
+      "detail": "体力%+d",
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "クリダメ": 35.5
+        "体力": 5600.5
       },
       "display_ranges": {
-        "クリダメ": "1～70"
+        "体力": "1～11200"
       }
     },
     {
-      "id": "eqgrp_9c438d306711",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
+      "id": "eqgrp_094caebaaf34",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_09e4d1d8e16d",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 7.5
+      },
+      "display_ranges": {
+        "BA": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_0c7af50b643e",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 1600.5
+      },
+      "display_ranges": {
+        "抵抗": "1～3200"
+      }
+    },
+    {
+      "id": "eqgrp_162cb61e86ad",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -18557,104 +13468,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_9ce23a0aeb48",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_a8a9f31dc892",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_aebc6efff050",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_af5c5c7ed795",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_af80cc4f2bac",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_b12a102afe23",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 魔法抵抗力%+d)",
+      "id": "eqgrp_166960b604f8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 魔法抵抗力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
@@ -18671,142 +13487,28 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_b5f631384870",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_c5b7c229872a",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_c65edeacc6cc",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_ca5159da728d",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_cc320b1619f9",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_cf0241f818fe",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv2 最大HP%+d％)",
+      "id": "eqgrp_1992b2ac793a",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 物理ダメージ減少%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
-      "detail": "最大HP%+d％",
+      "detail": "物理ダメージ減少%+d",
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "HP_乗算": 4.0
+        "物理ダメージ減少": 1100.5
       },
       "display_ranges": {
-        "HP_乗算": "1～7"
+        "物理ダメージ減少": "1～2200"
       }
     },
     {
-      "id": "eqgrp_d1cd1a14da31",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_d9da91325519",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
+      "id": "eqgrp_2865ad93f2c9",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
@@ -18823,66 +13525,66 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_dceb9cb49695",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv3-4 幸運%+d)",
+      "id": "eqgrp_295a3069729b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "最大HP%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 4.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_2ad2360456ea",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 筋力/魔法力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
-      "detail": "幸運%+d",
+      "detail": "筋力/魔法力%+d",
       "option_type": 184,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "幸運": 1575.0
+        "筋力魔力": 1575.0
       },
       "display_ranges": {
-        "幸運": "1050～2100"
+        "筋力魔力": "1050～2100"
       }
     },
     {
-      "id": "eqgrp_ddbe798b1bce",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 体力%+d)",
+      "id": "eqgrp_2e411f2f20a8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
       "category": "エンチャ",
       "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d",
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "体力": 5600.5
+        "追加ダメ": 15000.5
       },
       "display_ranges": {
-        "体力": "1～11200"
+        "追加ダメ": "1～30000"
       }
     },
     {
-      "id": "eqgrp_e25d97e003a5",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_ecc3768287b5",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 筋力/魔法力%+d)",
+      "id": "eqgrp_377692df5a0f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 筋力/魔法力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -18899,9 +13601,541 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_f458e9341582",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 最大HP%+d％)",
+      "id": "eqgrp_3ca0a75bbc1f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 28.5
+      },
+      "display_ranges": {
+        "最小": "1～56"
+      }
+    },
+    {
+      "id": "eqgrp_43487cfef396",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 450.0
+      },
+      "display_ranges": {
+        "抵抗": "300～600"
+      }
+    },
+    {
+      "id": "eqgrp_558977482ebb",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "魔法ダメージ減少": 247.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "165～330"
+      }
+    },
+    {
+      "id": "eqgrp_58a220e2ee6c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "防御力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 1600.5
+      },
+      "display_ranges": {
+        "防御": "1～3200"
+      }
+    },
+    {
+      "id": "eqgrp_5a5c8c0f9380",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "防御力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 2000.5
+      },
+      "display_ranges": {
+        "防御": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_5b1262b3bfc3",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "全ステータス%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ%": 6.5
+      },
+      "display_ranges": {
+        "全ステ%": "1～12"
+      }
+    },
+    {
+      "id": "eqgrp_5dfac0869772",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 体力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "体力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "体力": 7000.5
+      },
+      "display_ranges": {
+        "体力": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_6146d87c1e7b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 7.5
+      },
+      "display_ranges": {
+        "最小": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_666df271cc63",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 4.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_68ba21f41cb5",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 880.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～1760"
+      }
+    },
+    {
+      "id": "eqgrp_730b18b1b48c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 1.5
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_73f2708d82a5",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理ダメージ減少": 247.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "165～330"
+      }
+    },
+    {
+      "id": "eqgrp_77f0c0da871a",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 18.0
+      },
+      "display_ranges": {
+        "武器属性": "12～24"
+      }
+    },
+    {
+      "id": "eqgrp_868b8d270e08",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_88643907b16f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "全ステータス%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ": 5500.5
+      },
+      "display_ranges": {
+        "全ステ": "1～11000"
+      }
+    },
+    {
+      "id": "eqgrp_8928c20159c0",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "全ステータス%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ%": 5.5
+      },
+      "display_ranges": {
+        "全ステ%": "1～10"
+      }
+    },
+    {
+      "id": "eqgrp_8df9e6512ee5",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 7000.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_8e9bdb3943ab",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 80.5
+      },
+      "display_ranges": {
+        "武器属性": "1～160"
+      }
+    },
+    {
+      "id": "eqgrp_92992c7d86e2",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 4.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_95c298bf2bbd",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "クリダメ": 35.5
+      },
+      "display_ranges": {
+        "クリダメ": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_98b9e07d2ca9",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "全ステータス%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 1237.5
+      },
+      "display_ranges": {
+        "全ステ": "825～1650"
+      }
+    },
+    {
+      "id": "eqgrp_9974bc46bfcc",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 1100.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～2200"
+      }
+    },
+    {
+      "id": "eqgrp_9acd4a5a6837",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 28.5
+      },
+      "display_ranges": {
+        "BA": "1～56"
+      }
+    },
+    {
+      "id": "eqgrp_a4e697611ac4",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 1.5
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_b9f64a7817db",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "幸運%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 7000.5
+      },
+      "display_ranges": {
+        "幸運": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_ba6f58ba2544",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 4.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_bb716ba061e3",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 12000.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～24000"
+      }
+    },
+    {
+      "id": "eqgrp_c0ae0a90ac52",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 35.5
+      },
+      "display_ranges": {
+        "最小": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_c4fb5a84da15",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 最大HP%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -18918,9 +14152,161 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_fde06d9cbaf3",
-      "equipment_name": "怠惰のマント",
-      "display_name": "怠惰のマント (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
+      "id": "eqgrp_c841848118ab",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 1.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_c9bb539b226e",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 1200.0
+      },
+      "display_ranges": {
+        "追加ダメ": "1200～1200"
+      }
+    },
+    {
+      "id": "eqgrp_cd57e721806c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "全ステータス%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 1.5
+      },
+      "display_ranges": {
+        "全ステ%": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_cd59de3e18d8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "幸運%+d",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "幸運": 1575.0
+      },
+      "display_ranges": {
+        "幸運": "1050～2100"
+      }
+    },
+    {
+      "id": "eqgrp_d01f01e8b831",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "最大HP%+d％",
+      "option_type": 184,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_d1bcb5276197",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 64.5
+      },
+      "display_ranges": {
+        "武器属性": "1～128"
+      }
+    },
+    {
+      "id": "eqgrp_d50a39070e78",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 880.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～1760"
+      }
+    },
+    {
+      "id": "eqgrp_d6fdd1838b1e",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "幸運%+d",
+      "option_type": 184,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 5600.5
+      },
+      "display_ranges": {
+        "幸運": "1～11200"
+      }
+    },
+    {
+      "id": "eqgrp_d9fc40794fb0",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -18937,109 +14323,33 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_9bb20770e797",
-      "equipment_name": "怠惰のマント / 貪欲のマント",
-      "display_name": "怠惰のマント / 貪欲のマント (強化 →+6)",
-      "category": "強化",
+      "id": "eqgrp_e8eb927ac6fd",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv1 全ステータス%+d)",
+      "category": "エンチャ",
       "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
+      "level_label": "1",
+      "detail": "全ステータス%+d",
       "option_type": 184,
-      "option_class": 3,
-      "expected_values": {
-        "最小": 25.0,
-        "追加ダメ": 1700.0,
-        "クリダメ": 12.0,
-        "筋力魔力": 1300.0,
-        "ボス追加ダメ": 1600.0
-      },
-      "display_ranges": {}
-    },
-    {
-      "id": "eqgrp_04df8c356b79",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_053f608ca0bd",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
+        "全ステ": 4400.5
       },
       "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
+        "全ステ": "1～8800"
       }
     },
     {
-      "id": "eqgrp_0a0da212f142",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_11c7f7db92f8",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_170967dfc976",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 体力%+d)",
+      "id": "eqgrp_f9d334daecb5",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（マント）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（マント） (エンチャ Lv3-4 体力%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "3-4",
       "detail": "体力%+d",
-      "option_type": 185,
+      "option_type": 184,
       "option_class": 4,
       "option_group": 0,
       "option_probability": 100.0,
@@ -19051,389 +14361,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_19de5dfbfe8a",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_19e2d785ab90",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      }
-    },
-    {
-      "id": "eqgrp_1c0f2b387363",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_23b97cff64d3",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_2b2ca89f668f",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_2dab10b029f1",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_2fc5aa3a33a6",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_43bfa6f37c64",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_4a327a908985",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_4e863e869bea",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_50aa09e30a3a",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_561feed6af98",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_5d16884031bd",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_656a6c38ae88",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 5.0
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "3～7"
-      }
-    },
-    {
-      "id": "eqgrp_6f67a6341e30",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_729b206a8b6f",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_78bd9e710e7e",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_7a7927f5690b",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_9020e80efd86",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_9a2ced104fc9",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_9be2e27c465d",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
+      "id": "eqgrp_038fcdf56b89",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
@@ -19450,142 +14380,28 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_a5cfc78c72e7",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 魔法ダメージ減少%+d)",
+      "id": "eqgrp_0545f39f44e1",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
+      "detail": "ボスモンスター追加ダメージ%+d％",
       "option_type": 185,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 60.0,
       "expected_values": {
-        "魔法ダメージ減少": 1100.5
+        "ボス追加ダメ_乗算": 4.0
       },
       "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
+        "ボス追加ダメ_乗算": "1～7"
       }
     },
     {
-      "id": "eqgrp_a846b079c22e",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_a992726aa937",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_addaa0381df7",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_ae695d84ef1b",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 20.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～40"
-      }
-    },
-    {
-      "id": "eqgrp_af1b338ecd5a",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_ba98e71568be",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_bea3a3417c0c",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
+      "id": "eqgrp_06beb75b7083",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -19602,332 +14418,9 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_c784bcf06b58",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 60.5
-      },
-      "display_ranges": {
-        "武器属性": "1～120"
-      }
-    },
-    {
-      "id": "eqgrp_ca68c5e217ce",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_cf2d05aad3a4",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_d1d4b1c750bc",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_d362256822c9",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_d3d33259aebd",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_d40091f0cab7",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_d554622957dd",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_d59f08026733",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_d60e61a17028",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_d9346b02dd66",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_db59060944e1",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 25.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～50"
-      }
-    },
-    {
-      "id": "eqgrp_dbd7e5936d8a",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_e17524fe4305",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_e7ecd4fbd952",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 48.5
-      },
-      "display_ranges": {
-        "武器属性": "1～96"
-      }
-    },
-    {
-      "id": "eqgrp_eb2f8f2968a5",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_f6d6abb92ab3",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_f84e5f8cf700",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 武器攻撃力/属性力%+d％)",
+      "id": "eqgrp_09512b7ff62b",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 武器攻撃力/属性力%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -19944,9 +14437,427 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_fd3267b5c365",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv1 魔法ダメージ減少%+d)",
+      "id": "eqgrp_0ac4078a2219",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 20.5
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "1～40"
+      }
+    },
+    {
+      "id": "eqgrp_0ca6afa28bbe",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "最大HP%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 3.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_15de0558ff55",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 1575.0
+      },
+      "display_ranges": {
+        "筋力魔力": "1050～2100"
+      }
+    },
+    {
+      "id": "eqgrp_20b3b7509207",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 5.0
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "3～7"
+      }
+    },
+    {
+      "id": "eqgrp_268eb6c08039",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 1100.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～2200"
+      }
+    },
+    {
+      "id": "eqgrp_26c06ccb0e66",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 15000.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～30000"
+      }
+    },
+    {
+      "id": "eqgrp_2a8509a052c3",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "最大HP%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "HP_乗算": 4.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_2d1370fc97ad",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ": 12000.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～24000"
+      }
+    },
+    {
+      "id": "eqgrp_2fab0472bbf7",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 1.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_3280f5fc8077",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 1200.0
+      },
+      "display_ranges": {
+        "追加ダメ": "1200～1200"
+      }
+    },
+    {
+      "id": "eqgrp_33c555d02102",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 35.5
+      },
+      "display_ranges": {
+        "BA": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_36118ec3ec90",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_437b0b5dd930",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 13.5
+      },
+      "display_ranges": {
+        "武器属性": "9～18"
+      }
+    },
+    {
+      "id": "eqgrp_4823eea6b809",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 35.5
+      },
+      "display_ranges": {
+        "最小": "1～70"
+      }
+    },
+    {
+      "id": "eqgrp_4f1d43a5f455",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 28.5
+      },
+      "display_ranges": {
+        "最小": "1～56"
+      }
+    },
+    {
+      "id": "eqgrp_539beb72e442",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 1.5
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_55b1f7a95868",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 1.5
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_574ed83cdc03",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "幸運%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 7000.5
+      },
+      "display_ranges": {
+        "幸運": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_5dd35808a6a8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 体力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "体力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "体力": 5600.5
+      },
+      "display_ranges": {
+        "体力": "1～11200"
+      }
+    },
+    {
+      "id": "eqgrp_5f3f66737d09",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 7.5
+      },
+      "display_ranges": {
+        "BA": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_645c802f61a1",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 体力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "体力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "体力": 7000.5
+      },
+      "display_ranges": {
+        "体力": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_671c0a2a3981",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "最大HP%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～2"
+      }
+    },
+    {
+      "id": "eqgrp_67624bde61fc",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 魔法ダメージ減少%+d)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "1",
@@ -19963,9 +14874,199 @@ const ENCHANT_DATA = {
       }
     },
     {
-      "id": "eqgrp_ff583ad01213",
-      "equipment_name": "怠惰の指輪",
-      "display_name": "怠惰の指輪 (エンチャ Lv2 武器攻撃力/属性力%+d％)",
+      "id": "eqgrp_6803079af8d0",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "防御力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 2000.5
+      },
+      "display_ranges": {
+        "防御": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_68a24217c9c0",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 7000.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～14000"
+      }
+    },
+    {
+      "id": "eqgrp_6adcda0be028",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最大": 7.5
+      },
+      "display_ranges": {
+        "最大": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_6b60ad91ed7a",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～6"
+      }
+    },
+    {
+      "id": "eqgrp_6bc6b25002e9",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "追加ダメ_乗算": 4.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～7"
+      }
+    },
+    {
+      "id": "eqgrp_6e466f0928bd",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "魔法ダメージ減少": 1100.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "1～2200"
+      }
+    },
+    {
+      "id": "eqgrp_72f5638f888c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "全ステータス%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ": 5500.5
+      },
+      "display_ranges": {
+        "全ステ": "1～11000"
+      }
+    },
+    {
+      "id": "eqgrp_758025e68cfd",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 体力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "体力%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 1575.0
+      },
+      "display_ranges": {
+        "体力": "1050～2100"
+      }
+    },
+    {
+      "id": "eqgrp_76372e3f7981",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 7.5
+      },
+      "display_ranges": {
+        "最小": "5～10"
+      }
+    },
+    {
+      "id": "eqgrp_8720d83149b1",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 魔法ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "魔法ダメージ減少%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "魔法ダメージ減少": 247.5
+      },
+      "display_ranges": {
+        "魔法ダメージ減少": "165～330"
+      }
+    },
+    {
+      "id": "eqgrp_8bca3820d26f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 武器攻撃力/属性力%+d％)",
       "category": "エンチャ",
       "level": 7000,
       "level_label": "2",
@@ -19982,6 +15083,347 @@ const ENCHANT_DATA = {
       }
     },
     {
+      "id": "eqgrp_90da28fc2f82",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "全ステータス%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 1237.5
+      },
+      "display_ranges": {
+        "全ステ": "825～1650"
+      }
+    },
+    {
+      "id": "eqgrp_9fe3dcf73eea",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "防御力%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 450.0
+      },
+      "display_ranges": {
+        "防御": "300～600"
+      }
+    },
+    {
+      "id": "eqgrp_a8e4ef4c2523",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "筋力魔力": 5600.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～11200"
+      }
+    },
+    {
+      "id": "eqgrp_ac7b6b30f4f8",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "物理ダメージ減少": 880.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "1～1760"
+      }
+    },
+    {
+      "id": "eqgrp_b16f72ffee15",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "幸運%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "幸運": 5600.5
+      },
+      "display_ranges": {
+        "幸運": "1～11200"
+      }
+    },
+    {
+      "id": "eqgrp_b19578c780dc",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 幸運%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "幸運%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "幸運": 1575.0
+      },
+      "display_ranges": {
+        "幸運": "1050～2100"
+      }
+    },
+    {
+      "id": "eqgrp_bb7d38de3833",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 防御力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "防御力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "防御": 1600.5
+      },
+      "display_ranges": {
+        "防御": "1～3200"
+      }
+    },
+    {
+      "id": "eqgrp_bc9ee1129ff0",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "物理ダメージ減少%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "物理ダメージ減少": 247.5
+      },
+      "display_ranges": {
+        "物理ダメージ減少": "165～330"
+      }
+    },
+    {
+      "id": "eqgrp_c38023286de9",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "BA": 28.5
+      },
+      "display_ranges": {
+        "BA": "1～56"
+      }
+    },
+    {
+      "id": "eqgrp_c50b1bdaaa3f",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "全ステータス%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "全ステ": 4400.5
+      },
+      "display_ranges": {
+        "全ステ": "1～8800"
+      }
+    },
+    {
+      "id": "eqgrp_c64f02f69abf",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 1600.5
+      },
+      "display_ranges": {
+        "抵抗": "1～3200"
+      }
+    },
+    {
+      "id": "eqgrp_cde1aabdee4c",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "抵抗": 2000.5
+      },
+      "display_ranges": {
+        "抵抗": "1～4000"
+      }
+    },
+    {
+      "id": "eqgrp_d8f5cfa946ee",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 25.5
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "1～50"
+      }
+    },
+    {
+      "id": "eqgrp_e1a4cf3b57c3",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv1 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "1",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 48.5
+      },
+      "display_ranges": {
+        "武器属性": "1～96"
+      }
+    },
+    {
+      "id": "eqgrp_efb510c23f41",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv3-4 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "3-4",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 185,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 450.0
+      },
+      "display_ranges": {
+        "抵抗": "300～600"
+      }
+    },
+    {
+      "id": "eqgrp_ffba73e1581a",
+      "equipment_name": "怠惰 / 貪欲 / 結合した涙（指輪）",
+      "display_name": "怠惰 / 貪欲 / 結合した涙（指輪） (エンチャ Lv2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 7000,
+      "level_label": "2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 185,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 60.5
+      },
+      "display_ranges": {
+        "武器属性": "1～120"
+      }
+    },
+    {
+      "id": "eqgrp_fbc41ba8e09f",
+      "equipment_name": "怠惰のイヤリング / 貪欲のイヤリング",
+      "display_name": "怠惰のイヤリング / 貪欲のイヤリング (強化 →+6)",
+      "category": "強化",
+      "level": 7000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 183,
+      "option_class": 3,
+      "expected_values": {
+        "筋力魔力": 1200.0,
+        "最小": 25.0,
+        "クリダメ": 12.0,
+        "追加ダメ": 2900.0
+      },
+      "display_ranges": {}
+    },
+    {
+      "id": "eqgrp_9bb20770e797",
+      "equipment_name": "怠惰のマント / 貪欲のマント",
+      "display_name": "怠惰のマント / 貪欲のマント (強化 →+6)",
+      "category": "強化",
+      "level": 7000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 184,
+      "option_class": 3,
+      "expected_values": {
+        "筋力魔力": 1300.0,
+        "最小": 25.0,
+        "クリダメ": 12.0,
+        "ボス追加ダメ": 1600.0,
+        "追加ダメ": 1700.0
+      },
+      "display_ranges": {}
+    },
+    {
       "id": "eqgrp_256b137bd53e",
       "equipment_name": "怠惰の指輪 / 貪欲の指輪",
       "display_name": "怠惰の指輪 / 貪欲の指輪 (強化 →+6)",
@@ -19992,10 +15434,10 @@ const ENCHANT_DATA = {
       "option_type": 185,
       "option_class": 3,
       "expected_values": {
-        "追加ダメ": 2900.0,
-        "最大": 12.0,
         "筋力魔力": 1200.0,
-        "武器属性": 12.0
+        "追加ダメ": 2900.0,
+        "武器属性": 12.0,
+        "最大": 12.0
       },
       "display_ranges": {}
     },
@@ -20011,10 +15453,10 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "一般追加ダメ": 850.0,
-        "追加ダメ": 950.0,
-        "HP": 850.0,
         "クリダメ": 6.0,
-        "ボス追加ダメ": 1300.0
+        "ボス追加ダメ": 1300.0,
+        "HP": 850.0,
+        "追加ダメ": 950.0
       },
       "display_ranges": {}
     },
@@ -20031,6167 +15473,11 @@ const ENCHANT_DATA = {
       "expected_values": {
         "攻撃": 9.0,
         "一般追加ダメ": 1050.0,
+        "ボス追加ダメ": 1300.0,
         "属性": 9.0,
-        "追加ダメ": 2000.0,
-        "ボス追加ダメ": 1300.0
+        "追加ダメ": 2000.0
       },
       "display_ranges": {}
-    },
-    {
-      "id": "eqgrp_06eda3c7d0bc",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 28.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_0a3165c26d81",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_11142b8f256a",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_121ea493c1ee",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_21c6e16e47e9",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 28.5
-      },
-      "display_ranges": {
-        "最大": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_2cc243886076",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_2d5ea42f2b8e",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_30728188c5e1",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      }
-    },
-    {
-      "id": "eqgrp_3218e93b461d",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_3316d48240ca",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_350455f49a2b",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_3b796b8a3069",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_3cfbf809b33d",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_3da56560adba",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 7.5
-      },
-      "display_ranges": {
-        "クリダメ": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_41445d9c89c0",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_43e2fbfa9ad8",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_43eef82c5c87",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "貫通": 16.5
-      },
-      "display_ranges": {
-        "貫通": "1～32"
-      }
-    },
-    {
-      "id": "eqgrp_53be71eba970",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_58e97615c01d",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 60.5
-      },
-      "display_ranges": {
-        "武器属性": "1～120"
-      }
-    },
-    {
-      "id": "eqgrp_592080f610c0",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_6189de6e4e1d",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_64eee98b7db5",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_6790643477df",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_6e9f7cf6fbfb",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_6f8f4bac40a6",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_754cd7560026",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_77527cf2d4b9",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_7ebab1421422",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_7ef8c94460d2",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_84d1c73c84fc",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_8d63e7a30eb3",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_91850303f9c8",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_94abc64b881e",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_a01a82d500fa",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_ab6005d47305",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_ac9a69382018",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_afda4d760562",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_b90cef36aeac",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "貫通": 4.5
-      },
-      "display_ranges": {
-        "貫通": "3～6"
-      }
-    },
-    {
-      "id": "eqgrp_b969a9cf25a8",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_be7833f8bc15",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_c01acc49a399",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 35.5
-      },
-      "display_ranges": {
-        "最大": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_c5d04d39f9b1",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_c7c8cf421f2c",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_c8c4b047713e",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 35.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_c9677d76959e",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_ce5836aa5318",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_d307ff1a6f05",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 48.5
-      },
-      "display_ranges": {
-        "武器属性": "1～96"
-      }
-    },
-    {
-      "id": "eqgrp_d763d1348168",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_dc07370dcdf9",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_ddf41783a500",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_e3855cf4c7e6",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_e86016dd51a5",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_ea996b4d18c6",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_fa96a8e9ed04",
-      "equipment_name": "結合した涙のイヤリング",
-      "display_name": "結合した涙のイヤリング (エンチャ Lv2 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "貫通": 20.5
-      },
-      "display_ranges": {
-        "貫通": "1～40"
-      }
-    },
-    {
-      "id": "eqgrp_010ba690ab0e",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_05afb64eec85",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_0b77adbc7629",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_0baa288b785b",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 18.0
-      },
-      "display_ranges": {
-        "武器属性": "12～24"
-      }
-    },
-    {
-      "id": "eqgrp_0c1f6673dde1",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 64.5
-      },
-      "display_ranges": {
-        "武器属性": "1～128"
-      }
-    },
-    {
-      "id": "eqgrp_16d802b465f8",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_18b748018be7",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_193e0bda668a",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_1e68694cd8d7",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_27c34e21fe33",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_305624bf3bfa",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_343fb33a9923",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 7.5
-      },
-      "display_ranges": {
-        "クリダメ": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_358eec6cc14b",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_38b6eb5d423b",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_4068a4ee3ed0",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_4a2eb1632c31",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_590f7b7a905c",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_5dd42bf0b8d4",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_6679612d94f0",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_6dfdd6f04887",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_707e44194121",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_79c6b42b418c",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_79cab26bc343",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_7d0658c3c1e4",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 28.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_7dee271f8c3d",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_82c74cb81e84",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_85bc4f1b75bc",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_8a30f32c331c",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_92ad6d77ca14",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_93ee5db34945",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_974cf1d477c6",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_9875e71b6f3e",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_99afdf181c4a",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 5.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_9a23f26eb0bc",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_9dbcd6061f68",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_afa6e302a0e0",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 80.5
-      },
-      "display_ranges": {
-        "武器属性": "1～160"
-      }
-    },
-    {
-      "id": "eqgrp_b3cc826a4afd",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_b945c9c0dd28",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_b9a7f4987c7e",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_beb60c6b4814",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_c2b170d9a584",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_c5db43e751a1",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_c8ac67886d3d",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      }
-    },
-    {
-      "id": "eqgrp_d1bb486ef6f2",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_d363b5e41c80",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_d533a7ac258f",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_dfcb53db6ac3",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_e552cc04f380",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_f06eea4a8fa1",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_f0bf04847bfc",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_f283beac2b5a",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_f5194b2a7c16",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_f69bc05d970d",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_fe237e6ea158",
-      "equipment_name": "結合した涙のマント",
-      "display_name": "結合した涙のマント (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 35.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_0124fad15822",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_068c3ea7048a",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_0dc25f10e53e",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_117b6e149589",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_1245acb455ea",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_17b4c77c6cd8",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_184f68b95288",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_1bf4ccfb323a",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_203669e844d1",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 28.5
-      },
-      "display_ranges": {
-        "最大": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_283bb6336164",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_2c11f766a40c",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_38702380d9e3",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_3e2a4abb55dc",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_44c76b24fd07",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_4d88f86200b3",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_4f1c2fa6b8b8",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      }
-    },
-    {
-      "id": "eqgrp_50a1358bdab3",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_54840b2d62ad",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_592d0ce05ae1",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_5baa82c3dcc1",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_61ecbf9209bd",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_653a455ff354",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 5.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_70652685ce69",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 20.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～40"
-      }
-    },
-    {
-      "id": "eqgrp_788d6efae1bc",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 4.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_7a6ca37da271",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_7e368cf6397e",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_819e2ed045c9",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_8741e8e93111",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_8823932fde19",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_8b310189ddb9",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_98d7f060533b",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_a59b606b143f",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_a79b96d036f8",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 35.5
-      },
-      "display_ranges": {
-        "最大": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_ae418aec0e04",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_af008f6bbfdb",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_c0cc9f86d6c8",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_c18098f78920",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_c483d0868b5b",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_c9ff6d1ec28c",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_cd22bd513758",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_cd3eacc5203d",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_d5851481c024",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_d677b7507bd3",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_d8f6c9eec7a0",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_dd8ff899249c",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_e2dd80192639",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_e5db77ff2b8a",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_e69c95295609",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_ebe10461b3f4",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_ede1334527f5",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 25.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～50"
-      }
-    },
-    {
-      "id": "eqgrp_f40506d44f61",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 60.5
-      },
-      "display_ranges": {
-        "武器属性": "1～120"
-      }
-    },
-    {
-      "id": "eqgrp_f762082874bf",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv3-4 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 5.0
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "3～7"
-      }
-    },
-    {
-      "id": "eqgrp_fdc34f8e4791",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 48.5
-      },
-      "display_ranges": {
-        "武器属性": "1～96"
-      }
-    },
-    {
-      "id": "eqgrp_ff9686f00c5b",
-      "equipment_name": "結合した涙の指輪",
-      "display_name": "結合した涙の指輪 (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_0427c8e01588",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_061e2ba9d029",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_09ee9afbcaa0",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_106f7952a9a1",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_11a27ee6e989",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_15acd6d5af0e",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_2364b1d14ba1",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_23dadf763ff5",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "貫通": 16.5
-      },
-      "display_ranges": {
-        "貫通": "1～32"
-      }
-    },
-    {
-      "id": "eqgrp_2a5f979464de",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_2aef0c15ce2f",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_2dd914b91887",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_2e62c987afd6",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "貫通": 4.5
-      },
-      "display_ranges": {
-        "貫通": "3～6"
-      }
-    },
-    {
-      "id": "eqgrp_305451455124",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_37daedbad764",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_38840d9e0822",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_38eb48edc089",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_3b1a308682c1",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_3fea3f8c5bc1",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_41979b2a1a81",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_465e98ffce8a",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_468595bbf807",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_4ad5a01c1000",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_4fada9803adb",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 48.5
-      },
-      "display_ranges": {
-        "武器属性": "1～96"
-      }
-    },
-    {
-      "id": "eqgrp_54d3b0acb88c",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_5751a0dbee7a",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_5cce5ecf644a",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      }
-    },
-    {
-      "id": "eqgrp_60ece0b5595f",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_66d26f3c16e9",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_68108ad514d7",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_6a67fcd4e026",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_6b57c59528aa",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 60.5
-      },
-      "display_ranges": {
-        "武器属性": "1～120"
-      }
-    },
-    {
-      "id": "eqgrp_70df59fabe37",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_72dbe42c5f1a",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_771685ed3da1",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_7aad73f4641e",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_8119d4122977",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_898544c206d9",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 28.5
-      },
-      "display_ranges": {
-        "最大": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_9c0cb714eaea",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_9dbd9c74ea5c",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_a137ff0fe895",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 35.5
-      },
-      "display_ranges": {
-        "最大": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_a58819bf198c",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_a7641550c56f",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "貫通": 20.5
-      },
-      "display_ranges": {
-        "貫通": "1～40"
-      }
-    },
-    {
-      "id": "eqgrp_ab483f45a8a6",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_afe2f404a688",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_b588e5dec08e",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_bfa08ee83d67",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 7.5
-      },
-      "display_ranges": {
-        "クリダメ": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_c77c2b9c017d",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_c81faadcf284",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 35.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_cd66d00ae5cc",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 28.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_d843d69e5c26",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_dfe3f024c30e",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_e4a92c4f35bb",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_e72cd0f0dc49",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_eee557b4f2e9",
-      "equipment_name": "貪欲のイヤリング",
-      "display_name": "貪欲のイヤリング (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_02268e2d32ae",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_02ba72eca397",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_02da36a0f64a",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_03982af136c1",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_0496f07117d8",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_04f2c722777d",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_083042646797",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_0d0d2d35bdbd",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_1184950672b3",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_1fd86b81cc0a",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 35.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_2100506f931d",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_274967d4dd4e",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_2d79ff4ae0d3",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_2f8f02673a37",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_3747e4b62d7b",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "クリダメ": 28.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_40b5d17f0a4c",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_4971447e38bf",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_5055e52b2065",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_55f3308494b1",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_586e8af7f7c1",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_5c1ecb260f10",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_5e188bf6a3cf",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_6cca2ede514d",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_747091606cb2",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_7c17076d4a68",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_7ce6c5921614",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_7ce9a5cb89f3",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_804977e28955",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 18.0
-      },
-      "display_ranges": {
-        "武器属性": "12～24"
-      }
-    },
-    {
-      "id": "eqgrp_8896f2e442f3",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_8b26d72ac604",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_8f866091046d",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_8ffe76a4f615",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_94ce6a2fffef",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 7.5
-      },
-      "display_ranges": {
-        "クリダメ": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_9cfb2a0484fe",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 5.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_a15152077b5a",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_a7c14c46fb12",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_b2dfc5fac753",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_b50b1ed33cfe",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_bb1b01b504d8",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_c2d023036cef",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_c3f92fcd7601",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 80.5
-      },
-      "display_ranges": {
-        "武器属性": "1～160"
-      }
-    },
-    {
-      "id": "eqgrp_c7eaec8cbb65",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_c9ff86b05f86",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_cf7d0fd9cda3",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_d0686649f789",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_d06ca7fe2ebf",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_db5723c05376",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      }
-    },
-    {
-      "id": "eqgrp_e47adff3eb9d",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_e6682dcb2a48",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_e83e113f097b",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_eb07684a5336",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_ef4dac3027ff",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_f956185e053b",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 64.5
-      },
-      "display_ranges": {
-        "武器属性": "1～128"
-      }
-    },
-    {
-      "id": "eqgrp_f9f1be5742a2",
-      "equipment_name": "貪欲のマント",
-      "display_name": "貪欲のマント (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_019cfa3140c9",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_07200cd39e71",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      }
-    },
-    {
-      "id": "eqgrp_0c5326eedea7",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 5.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～10"
-      }
-    },
-    {
-      "id": "eqgrp_0e39de842e57",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_109f2e1f300f",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_143e731c8b2e",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_14fd581a4426",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_20d8c76f7883",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_2350b35b0d15",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_272930c6a53a",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_280da002a165",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_33d28a54d29a",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_36bdc6c202b7",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 48.5
-      },
-      "display_ranges": {
-        "武器属性": "1～96"
-      }
-    },
-    {
-      "id": "eqgrp_37614850fae0",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_3956ae42f815",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 25.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～50"
-      }
-    },
-    {
-      "id": "eqgrp_3c42dd77b1f7",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      }
-    },
-    {
-      "id": "eqgrp_3e922a8b6f5c",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性_乗算": 4.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～8"
-      }
-    },
-    {
-      "id": "eqgrp_4010859a0ce9",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      }
-    },
-    {
-      "id": "eqgrp_48360aba3604",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      }
-    },
-    {
-      "id": "eqgrp_4f93a2c4fe63",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      }
-    },
-    {
-      "id": "eqgrp_5748831d665d",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_57df016b3d46",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_5dcfa190d5e2",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 20.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～40"
-      }
-    },
-    {
-      "id": "eqgrp_6231b89a775a",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_64602cba607f",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_6bc545376700",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 5.0
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "3～7"
-      }
-    },
-    {
-      "id": "eqgrp_7643d28e2b23",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      }
-    },
-    {
-      "id": "eqgrp_765a04a6b9f3",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_7eba583cebd8",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_80b55862788d",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      }
-    },
-    {
-      "id": "eqgrp_8511170cedaa",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_8800a210354c",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      }
-    },
-    {
-      "id": "eqgrp_97576c58ac30",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_9983314e729c",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      }
-    },
-    {
-      "id": "eqgrp_a7eb1308857b",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_b0726e364e4b",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      }
-    },
-    {
-      "id": "eqgrp_b097ddbd3105",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_b2142784f7cf",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_b29e6b97b697",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～2"
-      }
-    },
-    {
-      "id": "eqgrp_b5e2f603e3b4",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      }
-    },
-    {
-      "id": "eqgrp_bed5dd495d56",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      }
-    },
-    {
-      "id": "eqgrp_c0186687ea90",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      }
-    },
-    {
-      "id": "eqgrp_c97c3bfe2ce5",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      }
-    },
-    {
-      "id": "eqgrp_cb2e4768c2af",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_cf8689ecbe99",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      }
-    },
-    {
-      "id": "eqgrp_d16225378ded",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_d1e32d671d70",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 28.5
-      },
-      "display_ranges": {
-        "最大": "1～56"
-      }
-    },
-    {
-      "id": "eqgrp_daa7bbef8a67",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      }
-    },
-    {
-      "id": "eqgrp_dd98c4359eb4",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      }
-    },
-    {
-      "id": "eqgrp_ebde508faf71",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 60.5
-      },
-      "display_ranges": {
-        "武器属性": "1～120"
-      }
-    },
-    {
-      "id": "eqgrp_ede2131e6ae2",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      }
-    },
-    {
-      "id": "eqgrp_f8907dbb1914",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      }
-    },
-    {
-      "id": "eqgrp_fa85351f7881",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      }
-    },
-    {
-      "id": "eqgrp_fbfeacdba9c2",
-      "equipment_name": "貪欲の指輪",
-      "display_name": "貪欲の指輪 (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 35.5
-      },
-      "display_ranges": {
-        "最大": "1～70"
-      }
     }
   ],
   "equipment_names": [
@@ -26199,11 +15485,11 @@ const ENCHANT_DATA = {
     "アクセ装備",
     "アンドレアスの教本",
     "グノーシスのトーテム",
-    "ダークエルフのストッキング",
+    "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
+    "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
+    "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
     "ダークエルフのストッキング / 魔女のストッキング",
-    "ダークエルフのタトゥー",
     "ダークエルフのタトゥー / 魔女のタトゥー",
-    "ダークエルフのメガネ",
     "ダークエルフのメガネ / 魔女のメガネ",
     "ティレニアのブローチ",
     "ドミトリーのチャーム",
@@ -26214,11 +15500,11 @@ const ENCHANT_DATA = {
     "封印された赤い結晶 / 封印された青い結晶",
     "封印された青い結晶",
     "封印された黄色い結晶",
-    "怠惰のイヤリング",
+    "怠惰 / 貪欲 / 結合した涙（イヤリング）",
+    "怠惰 / 貪欲 / 結合した涙（マント）",
+    "怠惰 / 貪欲 / 結合した涙（指輪）",
     "怠惰のイヤリング / 貪欲のイヤリング",
-    "怠惰のマント",
     "怠惰のマント / 貪欲のマント",
-    "怠惰の指輪",
     "怠惰の指輪 / 貪欲の指輪",
     "滅亡の精霊石",
     "滅亡装備",
@@ -26230,24 +15516,12 @@ const ENCHANT_DATA = {
     "無限の4番目のバッジ",
     "特殊装備",
     "突然変異キャンサーの6番バッジ",
-    "結合したエメラルディアのストッキング",
-    "結合したエメラルディアのタトゥー",
-    "結合したエメラルディアのメガネ",
-    "結合した涙のイヤリング",
-    "結合した涙のマント",
-    "結合した涙の指輪",
-    "貪欲のイヤリング",
-    "貪欲のマント",
-    "貪欲の指輪",
-    "魔女のストッキング",
-    "魔女のタトゥー",
-    "魔女のメガネ",
     "黒龍のネックレス",
     "黒龍の時計"
   ],
   "counts": {
     "覚醒": 107,
-    "エンチャ": 1209,
+    "エンチャ": 647,
     "強化": 29
   }
 };
