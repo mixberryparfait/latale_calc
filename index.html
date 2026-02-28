@@ -46,7 +46,7 @@
 	<script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
 </head>
 
-<body class="min-h-screen text-text">
+<body class="min-h-screen bg-bg text-text">
 	<div class="container mx-auto max-w-5xl p-4">
 		<!-- タイトル部分 -->
 		<div class="title-container">
@@ -512,6 +512,17 @@
 	</div>
 		</div>
 
+			<!-- 装備ランキングフィルタ -->
+			<div v-if="['equipUpgrade', 'equipEnchant', 'equipAwaken'].includes(activeMainTab)" class="filter-group">
+				<div class="flex flex-wrap items-center gap-3">
+					<label class="text-sm">装備</label>
+					<select v-model="装備ランキング選択装備" class="min-w-[240px]">
+						<option value="">すべて</option>
+						<option v-for="equipName in 装備ランキング装備候補_現在タブ" :key="equipName" :value="equipName">{{ equipName }}</option>
+					</select>
+				</div>
+			</div>
+
 			<!-- ギルドスキルフィルタ（特殊UI） -->
 			<div v-if="activeMainTab === 'guild'" class="filter-group">
 				<label v-for="grade in ['初級', '中級', '上級']" :key="grade" class="filter-checkbox">
@@ -553,6 +564,7 @@
 	<script src="js/data/pet-passives-data.js"></script>
 	<script src="js/data/awaken-skills-data.js"></script>
 	<script src="js/data/awaken-coords-data.js"></script>
+	<script src="js/data/enchant-data.js"></script>
 	<!-- メインアプリケーション -->
 	<script src="bundle.min.js"></script>
 </body>
