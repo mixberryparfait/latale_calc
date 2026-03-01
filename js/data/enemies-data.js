@@ -87,6 +87,60 @@ const ENEMIES_DATA = {
         }
       ]
     },
+    "7000": {
+      "dungeon": {
+        "id": 425,
+        "name": "ノルニルの涙(超越Lv.7000++)",
+        "level": 7000
+      },
+      "enemies": [
+        {
+          "id": 810010650,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 133421,
+            "luck": 2081722,
+            "critReduce": 600,
+            "dmgReduce": 1243169,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 124316,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 372950,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 745901,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 1243169,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            },
+            "5": {
+              "dmgReduce": 1243169,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
     "8000": {
       "dungeon": {
         "id": 435,
@@ -187,6 +241,108 @@ const ENEMIES_DATA = {
             },
             "5": {
               "dmgReduce": 1504233,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "9800": {
+      "dungeon": {
+        "id": 448,
+        "name": "賢者の海(超越Lv.9800++)",
+        "level": 9800
+      },
+      "enemies": [
+        {
+          "id": 810011919,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 203231,
+            "luck": 3170979,
+            "critReduce": 600,
+            "dmgReduce": 1988338,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 198833,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 596501,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1193002,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 1988338,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10000": {
+      "dungeon": {
+        "id": 449,
+        "name": "イカロスの翼(超越Lv.9999++)",
+        "level": 9999
+      },
+      "enemies": [
+        {
+          "id": 810011936,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 600,
+            "dmgReduce": 2187171,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 218717,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 656151,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1312302,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2187171,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            },
+            "5": {
+              "dmgReduce": 2187171,
               "dmgReduceRatio": 0,
               "guard": 53,
               "critReduce": 600
@@ -598,92 +754,98 @@ const ENEMIES_DATA = {
     },
     "7000": {
       "dungeon": {
-        "id": 447,
-        "name": "[ｱｶｳﾝﾄ]次元の狭間(超越Lv.7000++)",
+        "id": 425,
+        "name": "ノルニルの涙(超越Lv.7000++)",
         "level": 7000
       },
       "enemies": [
         {
-          "id": 810011721,
-          "name": "ドクターSD",
+          "id": 810010652,
+          "name": "ニルヴァーナ",
           "type": "ボス",
           "baseStats": {
-            "defense": 31119,
-            "luck": 534053,
-            "critReduce": 500,
-            "dmgReduce": 299520,
+            "defense": 133421,
+            "luck": 2081722,
+            "critReduce": 700,
+            "dmgReduce": 2243169,
             "dmgReduceRatio": 0,
-            "guard": 40
+            "guard": 70
           },
           "difficultyStats": {
             "1": {
-              "dmgReduce": 299520,
+              "dmgReduce": 224316,
               "dmgReduceRatio": 0,
-              "guard": 40,
-              "critReduce": 500
+              "guard": 30,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 672950,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 1345901,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 2243169,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 2243169,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
             }
           }
         },
         {
-          "id": 810011658,
-          "name": "バーモン",
+          "id": 810010653,
+          "name": "グレモリークイーン",
           "type": "ボス",
           "baseStats": {
-            "defense": 48870,
-            "luck": 762491,
-            "critReduce": 500,
-            "dmgReduce": 455347,
+            "defense": 133421,
+            "luck": 2081722,
+            "critReduce": 700,
+            "dmgReduce": 3082239,
             "dmgReduceRatio": 0,
-            "guard": 40
+            "guard": 75
           },
           "difficultyStats": {
             "1": {
-              "dmgReduce": 455347,
+              "dmgReduce": 308223,
               "dmgReduceRatio": 0,
-              "guard": 40,
-              "critReduce": 500
-            }
-          }
-        },
-        {
-          "id": 810011710,
-          "name": "フリン",
-          "type": "ボス",
-          "baseStats": {
-            "defense": 82416,
-            "luck": 1285892,
-            "critReduce": 500,
-            "dmgReduce": 767913,
-            "dmgReduceRatio": 0,
-            "guard": 40
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 767913,
+              "guard": 35,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 924671,
               "dmgReduceRatio": 0,
-              "guard": 40,
-              "critReduce": 500
-            }
-          }
-        },
-        {
-          "id": 810011689,
-          "name": "パーシパエー",
-          "type": "ボス",
-          "baseStats": {
-            "defense": 66735,
-            "luck": 1041222,
-            "critReduce": 500,
-            "dmgReduce": 621801,
-            "dmgReduceRatio": 0,
-            "guard": 40
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 621801,
+              "guard": 55,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 1849343,
               "dmgReduceRatio": 0,
-              "guard": 40,
-              "critReduce": 500
+              "guard": 60,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 3082239,
+              "dmgReduceRatio": 0,
+              "guard": 75,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 3082239,
+              "dmgReduceRatio": 0,
+              "guard": 75,
+              "critReduce": 700
             }
           }
         }
@@ -937,6 +1099,246 @@ const ENEMIES_DATA = {
           }
         }
       ]
+    },
+    "7001": {
+      "dungeon": {
+        "id": 447,
+        "name": "[ｱｶｳﾝﾄ]次元の狭間(超越Lv.7000++)",
+        "level": 7000
+      },
+      "enemies": [
+        {
+          "id": 810011721,
+          "name": "ドクターSD",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 31119,
+            "luck": 534053,
+            "critReduce": 500,
+            "dmgReduce": 299520,
+            "dmgReduceRatio": 0,
+            "guard": 40
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 299520,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            }
+          }
+        },
+        {
+          "id": 810011658,
+          "name": "バーモン",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 48870,
+            "luck": 762491,
+            "critReduce": 500,
+            "dmgReduce": 455347,
+            "dmgReduceRatio": 0,
+            "guard": 40
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 455347,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            }
+          }
+        },
+        {
+          "id": 810011710,
+          "name": "フリン",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 82416,
+            "luck": 1285892,
+            "critReduce": 500,
+            "dmgReduce": 767913,
+            "dmgReduceRatio": 0,
+            "guard": 40
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 767913,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            }
+          }
+        },
+        {
+          "id": 810011689,
+          "name": "パーシパエー",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 66735,
+            "luck": 1041222,
+            "critReduce": 500,
+            "dmgReduce": 621801,
+            "dmgReduceRatio": 0,
+            "guard": 40
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 621801,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            }
+          }
+        }
+      ]
+    },
+    "9800": {
+      "dungeon": {
+        "id": 448,
+        "name": "賢者の海(超越Lv.9800++)",
+        "level": 9800
+      },
+      "enemies": [
+        {
+          "id": 810011937,
+          "name": "ガブリエラ",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 203231,
+            "luck": 3170979,
+            "critReduce": 700,
+            "dmgReduce": 2988338,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 298833,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 896501,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 1793002,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 2988338,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 700
+            }
+          }
+        }
+      ]
+    },
+    "10000": {
+      "dungeon": {
+        "id": 449,
+        "name": "イカロスの翼(超越Lv.9999++)",
+        "level": 9999
+      },
+      "enemies": [
+        {
+          "id": 810011939,
+          "name": "フレディア",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 700,
+            "dmgReduce": 4374342,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 437434,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 1312302,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 2624605,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 4374342,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 4374342,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            }
+          }
+        },
+        {
+          "id": 810011940,
+          "name": "グランデル",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 700,
+            "dmgReduce": 4374342,
+            "dmgReduceRatio": 0,
+            "guard": 80
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 437434,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 1312302,
+              "dmgReduceRatio": 0,
+              "guard": 60,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 2624605,
+              "dmgReduceRatio": 0,
+              "guard": 65,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 4374342,
+              "dmgReduceRatio": 0,
+              "guard": 80,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 4374342,
+              "dmgReduceRatio": 0,
+              "guard": 80,
+              "critReduce": 700
+            }
+          }
+        }
+      ]
     }
   }
 };
@@ -952,12 +1354,24 @@ const DUNGEON_LIST = {
       "name": "アトラス庭園(超越Lv.6000++)"
     },
     {
+      "level": "7000",
+      "name": "ノルニルの涙(超越Lv.7000++)"
+    },
+    {
       "level": "8000",
       "name": "プレーローマ(超越Lv.8000++)"
     },
     {
       "level": "9000",
       "name": "エメラルディア(超越Lv.9000++)"
+    },
+    {
+      "level": "9800",
+      "name": "賢者の海(超越Lv.9800++)"
+    },
+    {
+      "level": "10000",
+      "name": "イカロスの翼(超越Lv.9999++)"
     },
     {
       "level": "10001",
@@ -1007,6 +1421,10 @@ const DUNGEON_LIST = {
     },
     {
       "level": "7000",
+      "name": "ノルニルの涙(超越Lv.7000++)"
+    },
+    {
+      "level": "7001",
       "name": "[ｱｶｳﾝﾄ]次元の狭間(超越Lv.7000++)"
     },
     {
@@ -1018,8 +1436,16 @@ const DUNGEON_LIST = {
       "name": "エメラルディア(超越Lv.9000++)"
     },
     {
+      "level": "9800",
+      "name": "賢者の海(超越Lv.9800++)"
+    },
+    {
       "level": "9999",
       "name": "[ｱｶｳﾝﾄ]未知の海辺(超越Lv.9999++)"
+    },
+    {
+      "level": "10000",
+      "name": "イカロスの翼(超越Lv.9999++)"
     }
   ]
 };
