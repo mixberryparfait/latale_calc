@@ -53,74 +53,74 @@ const ENCHANT_DATA = {
     ],
     "weapon_upgrade_outlier_max_cluster_size": 2,
     "weapon_upgrade_group_map": {
-      "滅亡のMG": "滅亡記憶武器（物理）",
-      "滅亡のオーブ": "滅亡記憶武器（魔法）",
-      "滅亡のガントレット": "滅亡記憶武器（物理）",
-      "滅亡のガンブレイド": "滅亡記憶武器（物理）",
-      "滅亡のガーディアン": "滅亡記憶武器（物理）",
-      "滅亡のギガントポール": "滅亡記憶武器（物理）",
-      "滅亡のギター": "滅亡記憶武器（魔法）",
-      "滅亡のサイキックハンド": "滅亡記憶武器（物理）",
-      "滅亡のショット": "滅亡記憶武器（物理）",
-      "滅亡のジュエルキット": "滅亡記憶武器（魔法）",
-      "滅亡のスタッフ": "滅亡記憶武器（魔法）",
-      "滅亡のスパイラルソード": "滅亡記憶武器（物理）",
-      "滅亡のソウル": "滅亡記憶武器（魔法）",
-      "滅亡のタクト": "滅亡記憶武器（魔法）",
-      "滅亡のチェーンソード": "滅亡記憶武器（物理）",
-      "滅亡のナックル": "滅亡記憶武器（物理）",
-      "滅亡のバット": "滅亡記憶武器（魔法）",
-      "滅亡のボゥガン": "滅亡記憶武器（物理）",
-      "滅亡のマジックロッド": "滅亡記憶武器（魔法）",
-      "滅亡のマナカード": "滅亡記憶武器（魔法）",
-      "滅亡のメイス": "滅亡記憶武器（物理）",
-      "滅亡のランス": "滅亡記憶武器（魔法）",
-      "滅亡のリングブレイド": "滅亡記憶武器（物理）",
-      "滅亡の両手剣": "滅亡記憶武器（物理）",
-      "滅亡の二刀": "滅亡記憶武器（物理）",
-      "滅亡の傘": "滅亡記憶武器（魔法）",
-      "滅亡の弓": "滅亡記憶武器（物理）",
-      "滅亡の扇": "滅亡記憶武器（物理）",
-      "滅亡の槍": "滅亡記憶武器（物理）",
-      "滅亡の流星剣": "滅亡記憶武器（物理）",
-      "滅亡の片手剣": "滅亡記憶武器（物理）",
-      "滅亡の短剣": "滅亡記憶武器（物理）",
-      "滅亡の飛燕剣": "滅亡記憶武器（物理）",
-      "滅亡の黒狼玉": "滅亡記憶武器（物理）",
-      "記憶のMG": "滅亡記憶武器（物理）",
-      "記憶のオーブ": "滅亡記憶武器（魔法）",
-      "記憶のガントレット": "滅亡記憶武器（物理）",
-      "記憶のガンブレイド": "滅亡記憶武器（物理）",
-      "記憶のガーディアン": "滅亡記憶武器（物理）",
-      "記憶のギガントポール": "滅亡記憶武器（物理）",
-      "記憶のギター": "滅亡記憶武器（魔法）",
-      "記憶のサイキックハンド": "滅亡記憶武器（物理）",
-      "記憶のショット": "滅亡記憶武器（物理）",
-      "記憶のジュエルキット": "滅亡記憶武器（魔法）",
-      "記憶のスタッフ": "滅亡記憶武器（魔法）",
-      "記憶のスパイラルソード": "滅亡記憶武器（物理）",
-      "記憶のソウル": "滅亡記憶武器（魔法）",
-      "記憶のタクト": "滅亡記憶武器（魔法）",
-      "記憶のチェーンソード": "滅亡記憶武器（物理）",
-      "記憶のナックル": "滅亡記憶武器（物理）",
-      "記憶のバット": "滅亡記憶武器（魔法）",
-      "記憶のボゥガン": "滅亡記憶武器（物理）",
-      "記憶のマジックロッド": "滅亡記憶武器（魔法）",
-      "記憶のマナカード": "滅亡記憶武器（魔法）",
-      "記憶のメイス": "滅亡記憶武器（物理）",
-      "記憶のランス": "滅亡記憶武器（魔法）",
-      "記憶のリングブレイド": "滅亡記憶武器（物理）",
-      "記憶の両手剣": "滅亡記憶武器（物理）",
-      "記憶の二刀": "滅亡記憶武器（物理）",
-      "記憶の傘": "滅亡記憶武器（魔法）",
-      "記憶の弓": "滅亡記憶武器（物理）",
-      "記憶の扇": "滅亡記憶武器（物理）",
-      "記憶の槍": "滅亡記憶武器（物理）",
-      "記憶の流星剣": "滅亡記憶武器（物理）",
-      "記憶の片手剣": "滅亡記憶武器（物理）",
-      "記憶の短剣": "滅亡記憶武器（物理）",
-      "記憶の飛燕剣": "滅亡記憶武器（物理）",
-      "記憶の黒狼玉": "滅亡記憶武器（物理）"
+      "滅亡のMG": "滅亡記憶武器（魔法）",
+      "滅亡のオーブ": "滅亡記憶武器（物理）",
+      "滅亡のガントレット": "滅亡記憶武器（魔法）",
+      "滅亡のガンブレイド": "滅亡記憶武器（魔法）",
+      "滅亡のガーディアン": "滅亡記憶武器（魔法）",
+      "滅亡のギガントポール": "滅亡記憶武器（魔法）",
+      "滅亡のギター": "滅亡記憶武器（物理）",
+      "滅亡のサイキックハンド": "滅亡記憶武器（魔法）",
+      "滅亡のショット": "滅亡記憶武器（魔法）",
+      "滅亡のジュエルキット": "滅亡記憶武器（物理）",
+      "滅亡のスタッフ": "滅亡記憶武器（物理）",
+      "滅亡のスパイラルソード": "滅亡記憶武器（魔法）",
+      "滅亡のソウル": "滅亡記憶武器（物理）",
+      "滅亡のタクト": "滅亡記憶武器（物理）",
+      "滅亡のチェーンソード": "滅亡記憶武器（魔法）",
+      "滅亡のナックル": "滅亡記憶武器（魔法）",
+      "滅亡のバット": "滅亡記憶武器（物理）",
+      "滅亡のボゥガン": "滅亡記憶武器（魔法）",
+      "滅亡のマジックロッド": "滅亡記憶武器（物理）",
+      "滅亡のマナカード": "滅亡記憶武器（物理）",
+      "滅亡のメイス": "滅亡記憶武器（魔法）",
+      "滅亡のランス": "滅亡記憶武器（物理）",
+      "滅亡のリングブレイド": "滅亡記憶武器（魔法）",
+      "滅亡の両手剣": "滅亡記憶武器（魔法）",
+      "滅亡の二刀": "滅亡記憶武器（魔法）",
+      "滅亡の傘": "滅亡記憶武器（物理）",
+      "滅亡の弓": "滅亡記憶武器（魔法）",
+      "滅亡の扇": "滅亡記憶武器（魔法）",
+      "滅亡の槍": "滅亡記憶武器（魔法）",
+      "滅亡の流星剣": "滅亡記憶武器（魔法）",
+      "滅亡の片手剣": "滅亡記憶武器（魔法）",
+      "滅亡の短剣": "滅亡記憶武器（魔法）",
+      "滅亡の飛燕剣": "滅亡記憶武器（魔法）",
+      "滅亡の黒狼玉": "滅亡記憶武器（魔法）",
+      "記憶のMG": "滅亡記憶武器（魔法）",
+      "記憶のオーブ": "滅亡記憶武器（物理）",
+      "記憶のガントレット": "滅亡記憶武器（魔法）",
+      "記憶のガンブレイド": "滅亡記憶武器（魔法）",
+      "記憶のガーディアン": "滅亡記憶武器（魔法）",
+      "記憶のギガントポール": "滅亡記憶武器（魔法）",
+      "記憶のギター": "滅亡記憶武器（物理）",
+      "記憶のサイキックハンド": "滅亡記憶武器（魔法）",
+      "記憶のショット": "滅亡記憶武器（魔法）",
+      "記憶のジュエルキット": "滅亡記憶武器（物理）",
+      "記憶のスタッフ": "滅亡記憶武器（物理）",
+      "記憶のスパイラルソード": "滅亡記憶武器（魔法）",
+      "記憶のソウル": "滅亡記憶武器（物理）",
+      "記憶のタクト": "滅亡記憶武器（物理）",
+      "記憶のチェーンソード": "滅亡記憶武器（魔法）",
+      "記憶のナックル": "滅亡記憶武器（魔法）",
+      "記憶のバット": "滅亡記憶武器（物理）",
+      "記憶のボゥガン": "滅亡記憶武器（魔法）",
+      "記憶のマジックロッド": "滅亡記憶武器（物理）",
+      "記憶のマナカード": "滅亡記憶武器（物理）",
+      "記憶のメイス": "滅亡記憶武器（魔法）",
+      "記憶のランス": "滅亡記憶武器（物理）",
+      "記憶のリングブレイド": "滅亡記憶武器（魔法）",
+      "記憶の両手剣": "滅亡記憶武器（魔法）",
+      "記憶の二刀": "滅亡記憶武器（魔法）",
+      "記憶の傘": "滅亡記憶武器（物理）",
+      "記憶の弓": "滅亡記憶武器（魔法）",
+      "記憶の扇": "滅亡記憶武器（魔法）",
+      "記憶の槍": "滅亡記憶武器（魔法）",
+      "記憶の流星剣": "滅亡記憶武器（魔法）",
+      "記憶の片手剣": "滅亡記憶武器（魔法）",
+      "記憶の短剣": "滅亡記憶武器（魔法）",
+      "記憶の飛燕剣": "滅亡記憶武器（魔法）",
+      "記憶の黒狼玉": "滅亡記憶武器（魔法）"
     },
     "upgrade_pair_group_map": {
       "イカロスのクリップ": "イカロスのクリップ / グランデルのクリップ",
@@ -133,20 +133,8 @@ const ENCHANT_DATA = {
       "グランデルのブーツ": "イカロスのブーツ / グランデルのブーツ",
       "グランデルのプレート": "イカロスのプレート / グランデルのプレート",
       "グランデルのヘルメット": "イカロスのヘルメット / グランデルのヘルメット",
-      "ダークエルフのストッキング": "ダークエルフのストッキング / 魔女のストッキング",
-      "ダークエルフのタトゥー": "ダークエルフのタトゥー / 魔女のタトゥー",
-      "ダークエルフのメガネ": "ダークエルフのメガネ / 魔女のメガネ",
       "封印された赤い結晶": "封印された赤い結晶 / 封印された青い結晶",
-      "封印された青い結晶": "封印された赤い結晶 / 封印された青い結晶",
-      "怠惰のイヤリング": "怠惰のイヤリング / 貪欲のイヤリング",
-      "怠惰のマント": "怠惰のマント / 貪欲のマント",
-      "怠惰の指輪": "怠惰の指輪 / 貪欲の指輪",
-      "貪欲のイヤリング": "怠惰のイヤリング / 貪欲のイヤリング",
-      "貪欲のマント": "怠惰のマント / 貪欲のマント",
-      "貪欲の指輪": "怠惰の指輪 / 貪欲の指輪",
-      "魔女のストッキング": "ダークエルフのストッキング / 魔女のストッキング",
-      "魔女のタトゥー": "ダークエルフのタトゥー / 魔女のタトゥー",
-      "魔女のメガネ": "ダークエルフのメガネ / 魔女のメガネ"
+      "封印された青い結晶": "封印された赤い結晶 / 封印された青い結晶"
     },
     "awaken_profile_group_map": {
       "Mr.デモニックの3番目のバッジ": "特殊装備",
@@ -286,40 +274,40 @@ const ENCHANT_DATA = {
     },
     "ikaros_grandel_group_maps": {
       "強化": {
-        "イカロスのクリップ": "イカロス / グランデル（クリップ）",
-        "イカロスのグローブ": "イカロス / グランデル（グローブ）",
-        "イカロスのブーツ": "イカロス / グランデル（ブーツ）",
-        "イカロスのプレート": "イカロス / グランデル（プレート）",
-        "イカロスのヘルメット": "イカロス / グランデル（ヘルメット）",
-        "グランデルのクリップ": "イカロス / グランデル（クリップ）",
-        "グランデルのグローブ": "イカロス / グランデル（グローブ）",
-        "グランデルのブーツ": "イカロス / グランデル（ブーツ）",
-        "グランデルのプレート": "イカロス / グランデル（プレート）",
-        "グランデルのヘルメット": "イカロス / グランデル（ヘルメット）"
+        "イカロスのクリップ": "イカロスクリップ",
+        "イカロスのグローブ": "イカロスグローブ",
+        "イカロスのブーツ": "イカロスブーツ",
+        "イカロスのプレート": "イカロスプレート",
+        "イカロスのヘルメット": "イカロスヘルメット",
+        "グランデルのクリップ": "イカロスクリップ",
+        "グランデルのグローブ": "イカロスグローブ",
+        "グランデルのブーツ": "イカロスブーツ",
+        "グランデルのプレート": "イカロスプレート",
+        "グランデルのヘルメット": "イカロスヘルメット"
       },
       "エンチャ": {
-        "イカロスのクリップ": "イカロス / グランデル（クリップ）",
-        "イカロスのグローブ": "イカロス / グランデル（グローブ）",
-        "イカロスのブーツ": "イカロス / グランデル（ブーツ）",
-        "イカロスのプレート": "イカロス / グランデル（プレート）",
-        "イカロスのヘルメット": "イカロス / グランデル（ヘルメット）",
-        "グランデルのクリップ": "イカロス / グランデル（クリップ）",
-        "グランデルのグローブ": "イカロス / グランデル（グローブ）",
-        "グランデルのブーツ": "イカロス / グランデル（ブーツ）",
-        "グランデルのプレート": "イカロス / グランデル（プレート）",
-        "グランデルのヘルメット": "イカロス / グランデル（ヘルメット）"
+        "イカロスのクリップ": "イカロスクリップ",
+        "イカロスのグローブ": "イカロスグローブ",
+        "イカロスのブーツ": "イカロスブーツ",
+        "イカロスのプレート": "イカロスプレート",
+        "イカロスのヘルメット": "イカロスヘルメット",
+        "グランデルのクリップ": "イカロスクリップ",
+        "グランデルのグローブ": "イカロスグローブ",
+        "グランデルのブーツ": "イカロスブーツ",
+        "グランデルのプレート": "イカロスプレート",
+        "グランデルのヘルメット": "イカロスヘルメット"
       },
       "覚醒": {
-        "イカロスのクリップ": "イカロス / グランデル（クリップ）",
-        "イカロスのグローブ": "イカロス / グランデル（グローブ）",
-        "イカロスのブーツ": "イカロス / グランデル（ブーツ）",
-        "イカロスのプレート": "イカロス / グランデル（プレート）",
-        "イカロスのヘルメット": "イカロス / グランデル（ヘルメット）",
-        "グランデルのクリップ": "イカロス / グランデル（クリップ）",
-        "グランデルのグローブ": "イカロス / グランデル（グローブ）",
-        "グランデルのブーツ": "イカロス / グランデル（ブーツ）",
-        "グランデルのプレート": "イカロス / グランデル（プレート）",
-        "グランデルのヘルメット": "イカロス / グランデル（ヘルメット）"
+        "イカロスのクリップ": "イカロスクリップ",
+        "イカロスのグローブ": "イカロスグローブ",
+        "イカロスのブーツ": "イカロスブーツ",
+        "イカロスのプレート": "イカロスプレート",
+        "イカロスのヘルメット": "イカロスヘルメット",
+        "グランデルのクリップ": "イカロスクリップ",
+        "グランデルのグローブ": "イカロスグローブ",
+        "グランデルのブーツ": "イカロスブーツ",
+        "グランデルのプレート": "イカロスプレート",
+        "グランデルのヘルメット": "イカロスヘルメット"
       }
     },
     "special_equipment_anchor": "アンドレアスの教本",
@@ -338,6 +326,36 @@ const ENCHANT_DATA = {
       "無限の4番目のバッジ",
       "黒龍のネックレス"
     ],
+    "special_equipment_merged_names_by_category": {
+      "エンチャ": [
+        "Mr.デモニックの3番目のバッジ",
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "ヤンカスの1番目のバッジ",
+        "無限の2番目のバッジ",
+        "無限の4番目のバッジ",
+        "黒龍のネックレス"
+      ],
+      "覚醒": [
+        "Mr.デモニックの3番目のバッジ",
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "ヤンカスの1番目のバッジ",
+        "無限の2番目のバッジ",
+        "無限の4番目のバッジ",
+        "黒龍のネックレス"
+      ]
+    },
     "special_equipment_exclude_tokens": [
       "チャーム",
       "5番",
@@ -350,24 +368,34 @@ const ENCHANT_DATA = {
   },
   "entries": [
     {
-      "id": "eqgrp_665cbfd731d5",
+      "id": "eqgrp_3e08c10483bc",
       "equipment_name": "イカロスクリップ",
-      "display_name": "イカロスクリップ (強化 →+6)",
+      "display_name": "イカロスクリップ (強化 +6→超越)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "→+6",
+      "detail": "+6→超越",
       "option_type": 195,
-      "option_class": 3,
+      "option_class": 4,
       "expected_values": {
-        "追加ダメ": 2500.0,
-        "ボス追加ダメ": 2500.0,
-        "HP": 7500.0,
-        "ダメ減": 10.0,
-        "全ステ": 2500.0,
-        "最小": 25.0,
-        "防御": 200.0,
-        "一般追加ダメ": 2500.0
+        "ボス追加ダメ": 7100.0,
+        "追加ダメ": 4100.0,
+        "防御": 276.0,
+        "HP": 12500.0,
+        "最小": 40.0,
+        "ダメ減": 13.0,
+        "全ステ": 4200.0,
+        "一般追加ダメ": 7100.0
+      },
+      "base_expected_values": {
+        "防御": 2973.0,
+        "ダメ減": 147.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "最小": 295.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -378,24 +406,34 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_91660350a62a",
+      "id": "eqgrp_d0791e8b09fe",
       "equipment_name": "イカロスクリップ",
-      "display_name": "イカロスクリップ (強化 +6→超越)",
+      "display_name": "イカロスクリップ (強化 →+6)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "+6→超越",
+      "detail": "→+6",
       "option_type": 195,
-      "option_class": 4,
+      "option_class": 3,
       "expected_values": {
-        "追加ダメ": 4100.0,
-        "ボス追加ダメ": 7100.0,
-        "HP": 12500.0,
-        "ダメ減": 13.0,
-        "全ステ": 4200.0,
-        "最小": 40.0,
-        "防御": 276.0,
-        "一般追加ダメ": 7100.0
+        "ボス追加ダメ": 2500.0,
+        "追加ダメ": 2500.0,
+        "防御": 200.0,
+        "HP": 7500.0,
+        "最小": 25.0,
+        "ダメ減": 10.0,
+        "全ステ": 2500.0,
+        "一般追加ダメ": 2500.0
+      },
+      "base_expected_values": {
+        "防御": 2973.0,
+        "ダメ減": 147.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "最小": 295.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -425,6 +463,7 @@ const ENCHANT_DATA = {
       "option_group": 30013,
       "option_check": 1,
       "option_probability": 1.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ"
@@ -451,6 +490,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～19"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -479,6 +519,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -507,6 +548,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスブーツ",
@@ -535,6 +577,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～24"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスブーツ",
@@ -563,6 +606,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "15～15"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスプレート"
@@ -589,6 +633,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～120"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスプレート",
@@ -617,6 +662,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス支配": "0.3～0.3"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスグローブ"
       ],
@@ -642,6 +688,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス支配": "0.1～5"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスグローブ"
       ],
@@ -650,25 +697,36 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_1bd8fa66c7a7",
+      "id": "eqgrp_1e31cf89ca3a",
       "equipment_name": "イカロスグローブ",
-      "display_name": "イカロスグローブ (強化 →+6)",
+      "display_name": "イカロスグローブ (強化 +6→超越)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "→+6",
+      "detail": "+6→超越",
       "option_type": 193,
-      "option_class": 3,
+      "option_class": 4,
       "expected_values": {
-        "追加ダメ": 2500.0,
-        "ボス追加ダメ": 2500.0,
-        "HP": 7500.0,
-        "武器属性": 25.0,
-        "ダメ減": 4.0,
-        "全ステ": 2500.0,
-        "防御": 100.0,
-        "クリダメ": 5.0,
-        "一般追加ダメ": 2500.0
+        "ボス追加ダメ": 7100.0,
+        "追加ダメ": 4100.0,
+        "防御": 138.0,
+        "クリダメ": 9.0,
+        "HP": 12500.0,
+        "武器属性": 59.0,
+        "ダメ減": 5.0,
+        "全ステ": 4200.0,
+        "一般追加ダメ": 7100.0
+      },
+      "base_expected_values": {
+        "防御": 1471.0,
+        "ダメ減": 55.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "武器属性": 196.0,
+        "クリダメ": 55.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -679,25 +737,36 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_af702d37f387",
+      "id": "eqgrp_bbc9823515c5",
       "equipment_name": "イカロスグローブ",
-      "display_name": "イカロスグローブ (強化 +6→超越)",
+      "display_name": "イカロスグローブ (強化 →+6)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "+6→超越",
+      "detail": "→+6",
       "option_type": 193,
-      "option_class": 4,
+      "option_class": 3,
       "expected_values": {
-        "追加ダメ": 4100.0,
-        "ボス追加ダメ": 7100.0,
-        "HP": 12500.0,
-        "武器属性": 59.0,
-        "ダメ減": 5.0,
-        "全ステ": 4200.0,
-        "防御": 138.0,
-        "クリダメ": 9.0,
-        "一般追加ダメ": 7100.0
+        "ボス追加ダメ": 2500.0,
+        "追加ダメ": 2500.0,
+        "防御": 100.0,
+        "クリダメ": 5.0,
+        "HP": 7500.0,
+        "武器属性": 25.0,
+        "ダメ減": 4.0,
+        "全ステ": 2500.0,
+        "一般追加ダメ": 2500.0
+      },
+      "base_expected_values": {
+        "防御": 1471.0,
+        "ダメ減": 55.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "武器属性": 196.0,
+        "クリダメ": 55.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -727,6 +796,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 1.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスグローブ"
@@ -753,6 +823,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "15～15"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスグローブ",
         "イカロスヘルメット"
@@ -780,6 +851,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "1～120"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスグローブ",
         "イカロスヘルメット"
@@ -807,6 +879,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "移動速度%+d％": "20～20"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスブーツ"
       ],
@@ -832,6 +905,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "移動速度%+d％": "1～170"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスブーツ"
       ],
@@ -857,6 +931,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "18～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスブーツ"
       ],
@@ -865,7 +940,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_68d59f67518d",
+      "id": "eqgrp_439ca26eec3e",
       "equipment_name": "イカロスブーツ",
       "display_name": "イカロスブーツ (強化 +6→超越)",
       "category": "強化",
@@ -875,14 +950,24 @@ const ENCHANT_DATA = {
       "option_type": 197,
       "option_class": 4,
       "expected_values": {
-        "追加ダメ": 4100.0,
         "ボス追加ダメ": 7100.0,
+        "追加ダメ": 4100.0,
+        "防御": 138.0,
         "HP": 12500.0,
         "ダメ減": 8.0,
         "全ステ": 4200.0,
-        "防御": 138.0,
         "一般追加ダメ": 7100.0,
         "移動": 4.0
+      },
+      "base_expected_values": {
+        "防御": 1602.0,
+        "ダメ減": 82.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "移動": 66.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -893,7 +978,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_f33adafc13bd",
+      "id": "eqgrp_68e38e9dddea",
       "equipment_name": "イカロスブーツ",
       "display_name": "イカロスブーツ (強化 →+6)",
       "category": "強化",
@@ -903,13 +988,23 @@ const ENCHANT_DATA = {
       "option_type": 197,
       "option_class": 3,
       "expected_values": {
-        "追加ダメ": 2500.0,
         "ボス追加ダメ": 2500.0,
+        "追加ダメ": 2500.0,
+        "防御": 100.0,
         "HP": 7500.0,
         "ダメ減": 6.0,
         "全ステ": 2500.0,
-        "防御": 100.0,
         "一般追加ダメ": 2500.0
+      },
+      "base_expected_values": {
+        "防御": 1602.0,
+        "ダメ減": 82.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "移動": 66.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -937,6 +1032,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "1～150"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスブーツ",
         "滅亡記憶武器"
@@ -947,24 +1043,34 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_4acd7aaff07c",
+      "id": "eqgrp_1a80cccad9b2",
       "equipment_name": "イカロスプレート",
-      "display_name": "イカロスプレート (強化 +6→超越)",
+      "display_name": "イカロスプレート (強化 →+6)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "+6→超越",
+      "detail": "→+6",
       "option_type": 194,
-      "option_class": 4,
+      "option_class": 3,
       "expected_values": {
-        "追加ダメ": 4100.0,
-        "ボス追加ダメ": 7100.0,
-        "HP": 12500.0,
-        "最大": 40.0,
-        "ダメ減": 6.0,
-        "全ステ": 4200.0,
-        "防御": 345.0,
-        "一般追加ダメ": 7100.0
+        "ボス追加ダメ": 2500.0,
+        "最大": 25.0,
+        "追加ダメ": 2500.0,
+        "防御": 250.0,
+        "HP": 7500.0,
+        "ダメ減": 5.0,
+        "全ステ": 2500.0,
+        "一般追加ダメ": 2500.0
+      },
+      "base_expected_values": {
+        "防御": 3657.0,
+        "ダメ減": 105.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "最大": 285.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -975,24 +1081,34 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_d7e6b27d01c8",
+      "id": "eqgrp_d2908e5cebd3",
       "equipment_name": "イカロスプレート",
-      "display_name": "イカロスプレート (強化 →+6)",
+      "display_name": "イカロスプレート (強化 +6→超越)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "→+6",
+      "detail": "+6→超越",
       "option_type": 194,
-      "option_class": 3,
+      "option_class": 4,
       "expected_values": {
-        "追加ダメ": 2500.0,
-        "ボス追加ダメ": 2500.0,
-        "HP": 7500.0,
-        "最大": 25.0,
-        "ダメ減": 5.0,
-        "全ステ": 2500.0,
-        "防御": 250.0,
-        "一般追加ダメ": 2500.0
+        "ボス追加ダメ": 7100.0,
+        "最大": 40.0,
+        "追加ダメ": 4100.0,
+        "防御": 345.0,
+        "HP": 12500.0,
+        "ダメ減": 6.0,
+        "全ステ": 4200.0,
+        "一般追加ダメ": 7100.0
+      },
+      "base_expected_values": {
+        "防御": 3657.0,
+        "ダメ減": 105.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "最大": 285.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -1022,6 +1138,7 @@ const ENCHANT_DATA = {
       "option_group": 30012,
       "option_check": 1,
       "option_probability": 1.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスプレート"
@@ -1048,6 +1165,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理/魔法命中率%+d％": "1～170"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスヘルメット"
       ],
@@ -1073,6 +1191,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般支配": "0.1～5"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスヘルメット"
       ],
@@ -1098,6 +1217,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般支配": "0.3～0.3"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスヘルメット"
       ],
@@ -1123,6 +1243,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理/魔法命中率%+d％": "20～20"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスヘルメット"
       ],
@@ -1131,24 +1252,34 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_b0d0867d68e5",
+      "id": "eqgrp_b9c3b7388f87",
       "equipment_name": "イカロスヘルメット",
-      "display_name": "イカロスヘルメット (強化 +6→超越)",
+      "display_name": "イカロスヘルメット (強化 →+6)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "+6→超越",
+      "detail": "→+6",
       "option_type": 196,
-      "option_class": 4,
+      "option_class": 3,
       "expected_values": {
-        "命中率": 8.0,
-        "追加ダメ": 4100.0,
-        "ボス追加ダメ": 7100.0,
-        "HP": 12500.0,
-        "ダメ減": 8.0,
-        "全ステ": 4200.0,
-        "防御": 138.0,
-        "一般追加ダメ": 7100.0
+        "ボス追加ダメ": 2500.0,
+        "命中率": 5.0,
+        "追加ダメ": 2500.0,
+        "防御": 100.0,
+        "HP": 7500.0,
+        "ダメ減": 6.0,
+        "全ステ": 2500.0,
+        "一般追加ダメ": 2500.0
+      },
+      "base_expected_values": {
+        "防御": 1736.0,
+        "ダメ減": 95.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "命中率": 56.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -1159,24 +1290,34 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_fddc199c6b8c",
+      "id": "eqgrp_e5810269bc89",
       "equipment_name": "イカロスヘルメット",
-      "display_name": "イカロスヘルメット (強化 →+6)",
+      "display_name": "イカロスヘルメット (強化 +6→超越)",
       "category": "強化",
       "level": 9999,
       "level_label": "",
-      "detail": "→+6",
+      "detail": "+6→超越",
       "option_type": 196,
-      "option_class": 3,
+      "option_class": 4,
       "expected_values": {
-        "命中率": 5.0,
-        "追加ダメ": 2500.0,
-        "ボス追加ダメ": 2500.0,
-        "HP": 7500.0,
-        "ダメ減": 6.0,
-        "全ステ": 2500.0,
-        "防御": 100.0,
-        "一般追加ダメ": 2500.0
+        "ボス追加ダメ": 7100.0,
+        "命中率": 8.0,
+        "追加ダメ": 4100.0,
+        "防御": 138.0,
+        "HP": 12500.0,
+        "ダメ減": 8.0,
+        "全ステ": 4200.0,
+        "一般追加ダメ": 7100.0
+      },
+      "base_expected_values": {
+        "防御": 1736.0,
+        "ダメ減": 95.0,
+        "全ステ": 10800.0,
+        "HP": 31000.0,
+        "追加ダメ": 7400.0,
+        "一般追加ダメ": 27400.0,
+        "ボス追加ダメ": 27400.0,
+        "命中率": 56.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -1206,6 +1347,7 @@ const ENCHANT_DATA = {
       "option_group": 30011,
       "option_check": 1,
       "option_probability": 1.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスヘルメット"
@@ -1232,6 +1374,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "2300～2300"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1264,6 +1407,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "500～500"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1296,6 +1440,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～240"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1328,6 +1473,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "1～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1360,6 +1506,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1392,6 +1539,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "3000～3000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1424,6 +1572,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "1～120"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1456,6 +1605,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～19"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1488,6 +1638,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ": "6000～6000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1520,6 +1671,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ": "1～48000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1552,6 +1704,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1584,6 +1737,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "1～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1616,6 +1770,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1～24000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1648,6 +1803,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "500～500"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1680,6 +1836,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "15～15"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1712,6 +1869,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "3000～3000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1744,6 +1902,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "750～750"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1776,6 +1935,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "3000～3000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1808,6 +1968,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ": "6000～6000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1840,6 +2001,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～19000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1872,6 +2034,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "1～24000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1904,6 +2067,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～6000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1936,6 +2100,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ": "1～48000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -1968,6 +2133,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "750～750"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -2000,6 +2166,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "18～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -2032,6 +2199,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -2064,6 +2232,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～6000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -2096,6 +2265,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "30～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -2128,6 +2298,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1～24000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -2162,6 +2333,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2198,6 +2370,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2234,6 +2407,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2270,6 +2444,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2306,6 +2481,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2342,6 +2518,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2378,6 +2555,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2414,6 +2592,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2450,6 +2629,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2486,6 +2666,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2522,6 +2703,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2558,6 +2740,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2594,6 +2777,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2630,6 +2814,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2666,6 +2851,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2702,6 +2888,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2738,6 +2925,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2774,6 +2962,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2810,6 +2999,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2846,6 +3036,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2882,6 +3073,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2918,6 +3110,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2954,6 +3147,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -2990,6 +3184,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3026,6 +3221,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3062,6 +3258,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3098,6 +3295,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 1.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3134,6 +3332,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 6.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3170,6 +3369,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3206,6 +3406,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3242,6 +3443,7 @@ const ENCHANT_DATA = {
       "option_group": 30014,
       "option_check": 1,
       "option_probability": 5.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "イカロスクリップ",
@@ -3276,6 +3478,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～150"
       },
+      "base_expected_values": {},
       "filter_names": [
         "イカロスクリップ",
         "イカロスグローブ",
@@ -3290,6 +3493,41 @@ const ENCHANT_DATA = {
         "イカロスブーツ",
         "イカロスヘルメット",
         "滅亡の精霊石"
+      ]
+    },
+    {
+      "id": "eqgrp_174c82befe6a",
+      "equipment_name": "クラフトキーパーの教本",
+      "display_name": "クラフトキーパーの教本 (強化 →+6)",
+      "category": "強化",
+      "level": 9999,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 137,
+      "option_class": 20,
+      "expected_values": {
+        "属性": 7.0,
+        "最大": 8.0,
+        "攻撃": 7.0,
+        "全ステ": 800.0,
+        "筋力魔力": 800.0,
+        "一般追加ダメ": 500.0
+      },
+      "base_expected_values": {
+        "最大": 101.0,
+        "クリ率": 3.0,
+        "全ステ": 2600.0,
+        "属性": 122.0,
+        "攻撃": 122.0,
+        "一般追加ダメ": 7400.0,
+        "筋力魔力": 5100.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "クラフトキーパーの教本"
+      ],
+      "selectable_options": [
+        "クラフトキーパーの教本"
       ]
     },
     {
@@ -3312,6 +3550,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3346,6 +3585,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3380,6 +3620,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3414,6 +3655,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3448,6 +3690,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3482,6 +3725,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3516,6 +3760,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3550,6 +3795,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3584,6 +3830,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3618,6 +3865,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3652,6 +3900,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3686,6 +3935,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3720,6 +3970,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3754,6 +4005,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3788,6 +4040,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3822,6 +4075,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3856,6 +4110,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3890,6 +4145,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3924,6 +4180,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3958,6 +4215,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -3992,6 +4250,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4026,6 +4285,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4060,6 +4320,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4094,6 +4355,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4128,6 +4390,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4162,6 +4425,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4196,6 +4460,7 @@ const ENCHANT_DATA = {
       "option_group": 50002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "ドミトリーのチャーム",
@@ -4208,6 +4473,41 @@ const ENCHANT_DATA = {
         "特殊装備",
         "突然変異キャンサーの6番バッジ",
         "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_1d6a5975815d",
+      "equipment_name": "フレディアの4番目バッジ",
+      "display_name": "フレディアの4番目バッジ (強化 →+6)",
+      "category": "強化",
+      "level": 9999,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 137,
+      "option_class": 20,
+      "expected_values": {
+        "属性": 8.0,
+        "ボス追加ダメ": 1000.0,
+        "追加ダメ": 1500.0,
+        "攻撃": 8.0,
+        "全ステ": 500.0,
+        "一般追加ダメ": 750.0
+      },
+      "base_expected_values": {
+        "全ステ": 3600.0,
+        "属性": 96.0,
+        "攻撃": 96.0,
+        "追加ダメ": 12700.0,
+        "一般追加ダメ": 9100.0,
+        "スタン抵抗": 140.0,
+        "ボス追加ダメ": 3100.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "フレディアの4番目バッジ"
+      ],
+      "selectable_options": [
+        "フレディアの4番目バッジ"
       ]
     },
     {
@@ -4228,6 +4528,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4253,6 +4554,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～432"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4278,6 +4580,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4303,6 +4606,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～204"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4328,6 +4632,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～918"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4353,6 +4658,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～78"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4378,6 +4684,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～288"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4403,6 +4710,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～270"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4428,6 +4736,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～276"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4453,6 +4762,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～156"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4478,6 +4788,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～192"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4503,6 +4814,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～1296"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4528,6 +4840,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～66"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4553,6 +4866,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4578,6 +4892,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～276"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4603,6 +4918,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～288"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4628,6 +4944,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4653,6 +4970,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～1134"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4678,6 +4996,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～1188"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4703,6 +5022,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～324"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4728,6 +5048,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～360"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4753,6 +5074,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～252"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4778,6 +5100,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4803,6 +5126,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～144"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4828,6 +5152,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～42"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4853,6 +5178,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～60"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4878,6 +5204,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～144"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4903,6 +5230,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～378"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4928,6 +5256,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4953,6 +5282,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～864"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -4978,6 +5308,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～108"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5003,6 +5334,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～66"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5028,6 +5360,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～120"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5053,6 +5386,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～180"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5078,6 +5412,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～48"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5103,6 +5438,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～135"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5128,6 +5464,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～1242"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5153,6 +5490,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5178,6 +5516,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～216"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5203,6 +5542,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5228,6 +5568,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～204"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5253,6 +5594,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～216"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5278,6 +5620,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～96"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5303,6 +5646,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～252"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5328,6 +5672,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5353,6 +5698,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～288"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5378,6 +5724,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～1080"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5403,6 +5750,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～162"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5428,6 +5776,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～342"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5453,6 +5802,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5478,6 +5828,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～306"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5503,6 +5854,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5528,6 +5880,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～78"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5553,6 +5906,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～180"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5578,6 +5932,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～360"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5603,6 +5958,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5628,6 +5984,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～468"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5653,6 +6010,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～396"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5678,6 +6036,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5703,6 +6062,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～78"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5728,6 +6088,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～153"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5753,6 +6114,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～414"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5778,6 +6140,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～42"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5803,6 +6166,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～60"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5828,6 +6192,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～432"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5853,6 +6218,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～264"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5878,6 +6244,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～1026"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5903,6 +6270,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～504"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5928,6 +6296,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～228"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5953,6 +6322,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～171"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -5978,6 +6348,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～180"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6003,6 +6374,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～198"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6028,6 +6400,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "Ely獲得量%+d％": "1～3"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6053,6 +6426,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～48"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6078,6 +6452,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～216"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6103,6 +6478,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～48"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6128,6 +6504,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6153,6 +6530,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～240"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6178,6 +6556,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～180"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6203,6 +6582,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～972"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6228,6 +6608,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～66"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6253,6 +6634,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6278,6 +6660,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～207"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6303,6 +6686,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～288"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6328,6 +6712,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～810"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6353,6 +6738,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6378,6 +6764,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "Ely獲得量%+d％": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6403,6 +6790,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～240"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6428,6 +6816,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～60"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6453,6 +6842,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6478,6 +6868,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～264"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6503,6 +6894,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～189"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6528,6 +6920,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～42"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6553,6 +6946,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～396"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6578,6 +6972,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～168"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6603,6 +6998,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6628,6 +7024,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6653,6 +7050,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～252"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6678,6 +7076,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～192"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6703,6 +7102,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～324"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6728,6 +7128,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "1～216"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6753,6 +7154,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～228"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6778,6 +7180,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～132"
       },
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6803,58 +7206,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～60"
       },
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_03e15afb45e9",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+6)",
-      "category": "強化",
-      "level": 9999,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "攻撃": 8.0,
-        "追加ダメ": 1500.0,
-        "ボス追加ダメ": 1000.0,
-        "全ステ": 500.0,
-        "属性": 8.0,
-        "一般追加ダメ": 750.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_092b643ef743",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+6)",
-      "category": "強化",
-      "level": 9999,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "攻撃": 7.0,
-        "筋力魔力": 800.0,
-        "最大": 8.0,
-        "全ステ": 800.0,
-        "属性": 7.0,
-        "一般追加ダメ": 500.0
-      },
-      "display_ranges": {},
+      "base_expected_values": {},
       "filter_names": [
         "特殊装備"
       ],
@@ -6880,6 +7232,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス支配": "0.1～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "突然変異キャンサーの6番バッジ"
       ],
@@ -6905,6 +7258,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～180"
       },
+      "base_expected_values": {},
       "filter_names": [
         "突然変異キャンサーの6番バッジ"
       ],
@@ -6930,6 +7284,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～80"
       },
+      "base_expected_values": {},
       "filter_names": [
         "突然変異キャンサーの6番バッジ"
       ],
@@ -6955,6 +7310,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "100～25000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "突然変異キャンサーの6番バッジ"
       ],
@@ -6980,6 +7336,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～100"
       },
+      "base_expected_values": {},
       "filter_names": [
         "突然変異キャンサーの6番バッジ"
       ],
@@ -6988,7 +7345,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_b165a6179bb2",
+      "id": "eqgrp_5ebdbf953bc3",
       "equipment_name": "突然変異キャンサーの6番バッジ",
       "display_name": "突然変異キャンサーの6番バッジ (強化 →+30)",
       "category": "強化",
@@ -6998,12 +7355,20 @@ const ENCHANT_DATA = {
       "option_type": 192,
       "option_class": 1,
       "expected_values": {
-        "攻撃": 29.0,
-        "HP": 3770.0,
-        "筋力": 5800.0,
-        "魔力": 5800.0,
         "属性": 29.0,
+        "筋力": 5800.0,
+        "HP": 3770.0,
+        "魔力": 5800.0,
+        "攻撃": 29.0,
         "一般追加ダメ": 2900.0
+      },
+      "base_expected_values": {
+        "筋力": 8600.0,
+        "魔力": 8600.0,
+        "属性": 72.0,
+        "攻撃": 72.0,
+        "一般追加ダメ": 6200.0,
+        "HP": 3200.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -7014,9 +7379,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_0dbe65279b1e",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+30)",
+      "id": "eqgrp_3314759de694",
+      "equipment_name": "ガブリエラの2番目バッジ",
+      "display_name": "ガブリエラの2番目バッジ (強化 →+30)",
       "category": "強化",
       "level": 9800,
       "level_label": "",
@@ -7024,8 +7389,8 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "追加ダメ": 1450.0,
         "ボス追加ダメ": 1450.0,
+        "追加ダメ": 1450.0,
         "HP": 1450.0,
         "全ステ": 870.0,
         "一般追加ダメ": 1450.0,
@@ -7033,18 +7398,28 @@ const ENCHANT_DATA = {
         "攻撃_乗算": 1.0,
         "属性_乗算": 1.0
       },
+      "base_expected_values": {
+        "全ステ": 3600.0,
+        "HP": 8600.0,
+        "攻撃_乗算": 8.0,
+        "属性_乗算": 8.0,
+        "クリダメ": 76.0,
+        "一般追加ダメ": 9600.0,
+        "追加ダメ": 3600.0,
+        "ボス追加ダメ": 3100.0
+      },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "ガブリエラの2番目バッジ"
       ],
       "selectable_options": [
-        "特殊装備"
+        "ガブリエラの2番目バッジ"
       ]
     },
     {
-      "id": "eqgrp_f63f75732baa",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+30)",
+      "id": "eqgrp_e0e6d1431234",
+      "equipment_name": "ティレニアのブローチ",
+      "display_name": "ティレニアのブローチ (強化 →+30)",
       "category": "強化",
       "level": 9500,
       "level_label": "",
@@ -7053,20 +7428,30 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "抵抗": 870.0,
-        "筋力魔力": 2900.0,
-        "ボス追加ダメ": 1450.0,
         "全ステ": 870.0,
-        "経験値": 29.0,
+        "ボス追加ダメ": 1450.0,
         "防御": 870.0,
+        "経験値": 29.0,
+        "筋力魔力": 2900.0,
         "一般追加ダメ": 1450.0,
         "ドロップ率": 7.0
       },
+      "base_expected_values": {
+        "防御": 9030.0,
+        "抵抗": 9030.0,
+        "ドロップ率": 70.0,
+        "経験値": 155.0,
+        "一般追加ダメ": 8450.0,
+        "ボス追加ダメ": 8450.0,
+        "全ステ": 3030.0,
+        "筋力魔力": 8000.0
+      },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "ティレニアのブローチ"
       ],
       "selectable_options": [
-        "特殊装備"
+        "ティレニアのブローチ"
       ]
     },
     {
@@ -7087,6 +7472,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "400～2000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7112,6 +7498,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "3～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7137,6 +7524,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "160～800"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7162,6 +7550,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1200～6000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7187,6 +7576,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "600～3000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7212,6 +7602,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "2～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7237,6 +7628,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "貫通": "3～7"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7262,6 +7654,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "240～1200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7287,6 +7680,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "2～14"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7312,6 +7706,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "480～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7337,6 +7732,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "4～22"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7362,6 +7758,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "320～1600"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7387,6 +7784,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1000～5000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7412,6 +7810,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "560～2800"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7437,6 +7836,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "5～26"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7462,6 +7862,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "400～2000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7487,6 +7888,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "800～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7512,6 +7914,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "2～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7537,6 +7940,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1400～7000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ドミトリーのチャーム"
       ],
@@ -7545,7 +7949,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_a1165c6d361a",
+      "id": "eqgrp_dd524c9a5765",
       "equipment_name": "ドミトリーのチャーム",
       "display_name": "ドミトリーのチャーム (強化 →+9)",
       "category": "強化",
@@ -7555,12 +7959,20 @@ const ENCHANT_DATA = {
       "option_type": 182,
       "option_class": 6,
       "expected_values": {
-        "筋力魔力": 1000.0,
+        "全ステ": 1000.0,
         "追加ダメ": 900.0,
         "武器属性": 10.0,
-        "ボス追加ダメ": 900.0,
         "Ely獲得量": 8.0,
-        "全ステ": 1000.0
+        "ボス追加ダメ": 900.0,
+        "筋力魔力": 1000.0
+      },
+      "base_expected_values": {
+        "Ely獲得量": 61.0,
+        "武器属性": 76.0,
+        "全ステ": 4200.0,
+        "筋力魔力": 4900.0,
+        "ボス追加ダメ": 3000.0,
+        "追加ダメ": 2000.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -7588,6 +8000,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "1～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7617,6 +8030,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1800～1800"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7646,6 +8060,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "360～360"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7675,6 +8090,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "1～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7704,6 +8120,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "600～600"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7733,6 +8150,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "360～360"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7762,6 +8180,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "2400～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7791,6 +8210,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "2400～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7820,6 +8240,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1～16000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7849,6 +8270,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7878,6 +8300,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～100"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7907,6 +8330,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～8"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7936,6 +8360,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "12～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7965,6 +8390,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "600～600"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -7994,6 +8420,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1～16000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8023,6 +8450,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "2400～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8052,6 +8480,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "15～15"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8081,6 +8510,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8110,6 +8540,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "1～16000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8139,6 +8570,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "3750～3750"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8168,6 +8600,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "1～80"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8197,6 +8630,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "22～22"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8226,6 +8660,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～12000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -8257,6 +8692,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8290,6 +8726,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8323,6 +8760,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8356,6 +8794,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8389,6 +8828,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8422,6 +8862,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8455,6 +8896,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8488,6 +8930,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8521,6 +8964,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8554,6 +8998,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8587,6 +9032,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8620,6 +9066,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8653,6 +9100,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8686,6 +9134,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8719,6 +9168,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8752,6 +9202,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8785,6 +9236,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8818,6 +9270,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8851,6 +9304,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8884,6 +9338,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8917,6 +9372,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8950,6 +9406,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -8983,6 +9440,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9016,6 +9474,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9049,6 +9508,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9082,6 +9542,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9115,6 +9576,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9148,6 +9610,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9181,6 +9644,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9214,6 +9678,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9247,6 +9712,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9280,6 +9746,7 @@ const ENCHANT_DATA = {
       "option_group": 40002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "エメラルディアストッキング",
@@ -9311,6 +9778,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9342,6 +9810,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9373,6 +9842,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～150"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9404,6 +9874,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9435,6 +9906,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～25000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9466,6 +9938,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ_乗算": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9497,6 +9970,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9528,6 +10002,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9559,6 +10034,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9590,6 +10066,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ_乗算": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
@@ -9621,6 +10098,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小/最大ダメージ. %+d％": "10～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング"
       ],
@@ -9646,6 +10124,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "移動速度%+d％": "10～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング"
       ],
@@ -9671,6 +10150,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般支配": "0.1～3.2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング"
       ],
@@ -9696,6 +10176,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "移動速度%+d％": "1～70"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング"
       ],
@@ -9721,6 +10202,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小/最大ダメージ. %+d％": "1～70"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング"
       ],
@@ -9746,6 +10228,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般支配": "0.4～0.4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアストッキング"
       ],
@@ -9754,7 +10237,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_390eddd69070",
+      "id": "eqgrp_6c2c46fbd0e3",
       "equipment_name": "エメラルディアストッキング",
       "display_name": "エメラルディアストッキング (強化 →+6)",
       "category": "強化",
@@ -9765,8 +10248,45 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "最小": 15.0,
-        "全ステ": 2000.0,
-        "クリダメ": 10.0
+        "クリダメ": 10.0,
+        "全ステ": 2000.0
+      },
+      "base_expected_values": {
+        "全ステ": 6500.0,
+        "最小": 105.0,
+        "クリダメ": 110.0,
+        "武器属性_乗算": 4.0,
+        "一般追加ダメ": 17000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "エメラルディアストッキング"
+      ],
+      "selectable_options": [
+        "エメラルディアストッキング"
+      ]
+    },
+    {
+      "id": "eqgrp_dc5f55055dd9",
+      "equipment_name": "エメラルディアストッキング",
+      "display_name": "エメラルディアストッキング (強化 →+6)",
+      "category": "強化",
+      "level": 9000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 191,
+      "option_class": 3,
+      "expected_values": {
+        "最小": 15.0,
+        "クリダメ": 10.0,
+        "全ステ": 2000.0
+      },
+      "base_expected_values": {
+        "全ステ": 6500.0,
+        "最小": 105.0,
+        "クリダメ": 110.0,
+        "武器属性_乗算": 4.0,
+        "ボス追加ダメ": 17000.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -9794,6 +10314,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス支配": "0.4～0.4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー"
       ],
@@ -9819,6 +10340,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス支配": "0.1～3.2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー"
       ],
@@ -9844,6 +10366,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー"
       ],
@@ -9869,6 +10392,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "1～80"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー"
       ],
@@ -9894,6 +10418,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "12～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー"
       ],
@@ -9902,7 +10427,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_d89c0c56836f",
+      "id": "eqgrp_1ce2543b44bd",
       "equipment_name": "エメラルディアタトゥー",
       "display_name": "エメラルディアタトゥー (強化 →+6)",
       "category": "強化",
@@ -9912,10 +10437,50 @@ const ENCHANT_DATA = {
       "option_type": 189,
       "option_class": 3,
       "expected_values": {
-        "筋力魔力": 2000.0,
         "最大": 15.0,
         "武器属性": 10.0,
-        "全ステ": 2000.0
+        "全ステ": 2000.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "全ステ": 6100.0,
+        "最大": 100.0,
+        "武器属性": 90.0,
+        "筋力魔力": 3000.0,
+        "武器属性_乗算": 4.0,
+        "一般追加ダメ": 17000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "エメラルディアタトゥー"
+      ],
+      "selectable_options": [
+        "エメラルディアタトゥー"
+      ]
+    },
+    {
+      "id": "eqgrp_377fdf248ba7",
+      "equipment_name": "エメラルディアタトゥー",
+      "display_name": "エメラルディアタトゥー (強化 →+6)",
+      "category": "強化",
+      "level": 9000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 189,
+      "option_class": 3,
+      "expected_values": {
+        "最大": 15.0,
+        "武器属性": 10.0,
+        "全ステ": 2000.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "全ステ": 6100.0,
+        "最大": 100.0,
+        "武器属性": 90.0,
+        "筋力魔力": 3000.0,
+        "武器属性_乗算": 4.0,
+        "ボス追加ダメ": 17000.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -9943,6 +10508,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー",
         "滅亡記憶武器"
@@ -9970,6 +10536,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアタトゥー",
         "滅亡記憶武器"
@@ -9997,6 +10564,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ"
       ],
@@ -10022,6 +10590,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理/魔法命中率%+d％": "12～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ"
       ],
@@ -10047,6 +10616,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理/魔法命中率%+d％": "1～85"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ"
       ],
@@ -10072,6 +10642,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "12～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ"
       ],
@@ -10097,6 +10668,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～80"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ"
       ],
@@ -10105,7 +10677,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_5d63e3135a2a",
+      "id": "eqgrp_06b88b6ae753",
       "equipment_name": "エメラルディアメガネ",
       "display_name": "エメラルディアメガネ (強化 →+6)",
       "category": "強化",
@@ -10115,10 +10687,49 @@ const ENCHANT_DATA = {
       "option_type": 190,
       "option_class": 3,
       "expected_values": {
-        "筋力魔力": 2000.0,
         "最大": 10.0,
         "武器属性": 10.0,
-        "ボス追加ダメ": 2000.0
+        "ボス追加ダメ": 2000.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "最大": 120.0,
+        "武器属性": 100.0,
+        "ボス追加ダメ": 7000.0,
+        "筋力魔力": 3000.0,
+        "武器属性_乗算": 4.0,
+        "一般追加ダメ": 17000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアメガネ"
+      ]
+    },
+    {
+      "id": "eqgrp_d7992e7b0345",
+      "equipment_name": "エメラルディアメガネ",
+      "display_name": "エメラルディアメガネ (強化 →+6)",
+      "category": "強化",
+      "level": 9000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 190,
+      "option_class": 3,
+      "expected_values": {
+        "最大": 10.0,
+        "武器属性": 10.0,
+        "ボス追加ダメ": 2000.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "最大": 120.0,
+        "武器属性": 100.0,
+        "ボス追加ダメ": 24000.0,
+        "筋力魔力": 3000.0,
+        "武器属性_乗算": 4.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -10146,6 +10757,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ",
         "滅亡記憶武器"
@@ -10173,6 +10785,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "エメラルディアメガネ",
         "滅亡記憶武器"
@@ -10183,9 +10796,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_35cc8217b0aa",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+6)",
+      "id": "eqgrp_85a93148b440",
+      "equipment_name": "黒龍のネックレス",
+      "display_name": "黒龍のネックレス (強化 →+6)",
       "category": "強化",
       "level": 9000,
       "level_label": "",
@@ -10193,23 +10806,32 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
+        "ボス追加ダメ": 500.0,
         "命中率": 5.0,
         "追加ダメ": 500.0,
-        "ボス追加ダメ": 500.0,
-        "全ステ": 500.0,
         "クリダメ": 5.0,
+        "全ステ": 500.0,
         "一般追加ダメ": 500.0
+      },
+      "base_expected_values": {
+        "全ステ": 4100.0,
+        "命中率": 74.0,
+        "クリダメ": 81.0,
+        "追加ダメ": 8500.0,
+        "一般追加ダメ": 8500.0,
+        "スタン抵抗": 140.0,
+        "ボス追加ダメ": 2100.0
       },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "黒龍のネックレス"
       ],
       "selectable_options": [
-        "特殊装備"
+        "黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_189ed7c14918",
+      "id": "eqgrp_1f3c3c1fdc5b",
       "equipment_name": "黒龍の時計",
       "display_name": "黒龍の時計 (強化 →+6)",
       "category": "強化",
@@ -10219,9 +10841,16 @@ const ENCHANT_DATA = {
       "option_type": 165,
       "option_class": 5,
       "expected_values": {
-        "筋力魔力": 1500.0,
         "追加ダメ": 1500.0,
-        "全ステ": 1500.0
+        "全ステ": 1500.0,
+        "筋力魔力": 1500.0
+      },
+      "base_expected_values": {
+        "全ステ": 200.0,
+        "追加ダメ": 200.0,
+        "筋力魔力": 200.0,
+        "筋力魔力_乗算": 1.0,
+        "武器属性_乗算": 1.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -10232,9 +10861,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_bbccc9cb1852",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+30)",
+      "id": "eqgrp_f10874442137",
+      "equipment_name": "バニーバニーベルト",
+      "display_name": "バニーバニーベルト (強化 →+30)",
       "category": "強化",
       "level": 8800,
       "level_label": "",
@@ -10242,19 +10871,29 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "追加ダメ": 2900.0,
-        "ボス追加ダメ": 1450.0,
-        "魔力": 2900.0,
         "筋力": 2900.0,
+        "追加ダメ": 2900.0,
+        "魔力": 2900.0,
+        "ボス追加ダメ": 1450.0,
         "最小": 10.0,
         "全ステ%": 2.0
       },
+      "base_expected_values": {
+        "スタン抵抗": 250.0,
+        "混乱抵抗": 250.0,
+        "全ステ%": 15.0,
+        "最小": 118.0,
+        "追加ダメ": 17800.0,
+        "筋力": 17800.0,
+        "魔力": 17800.0,
+        "ボス追加ダメ": 1650.0
+      },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "バニーバニーベルト"
       ],
       "selectable_options": [
-        "特殊装備"
+        "バニーバニーベルト"
       ]
     },
     {
@@ -10275,6 +10914,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "属性力%+d": "1～5"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10300,6 +10940,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "39～114"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10325,6 +10966,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "45～198"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10350,6 +10992,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "59～204"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10375,6 +11018,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "3～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10400,6 +11044,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "59～306"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10425,6 +11070,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "51～252"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10450,6 +11096,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "45～198"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10475,6 +11122,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "3～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10500,6 +11148,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "27～108"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10525,6 +11174,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "67～400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10550,6 +11200,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "属性力%+d": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10575,6 +11226,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "51～252"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10600,6 +11252,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "9～24"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10625,6 +11278,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器攻撃力%+d": "1～3"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10650,6 +11304,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "30～126"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10675,6 +11330,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "27～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10700,6 +11356,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "27～108"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10725,6 +11382,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "21～81"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10750,6 +11408,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "21～81"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10775,6 +11434,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "9～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10800,6 +11460,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器攻撃力%+d": "1～5"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10825,6 +11486,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "30～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10850,6 +11512,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "15～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10875,6 +11538,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "59～306"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10900,6 +11564,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "39～171"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10925,6 +11590,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "15～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10950,6 +11616,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "67～550"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -10975,6 +11642,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "39～171"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11000,6 +11668,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理貫通力%+d％": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11025,6 +11694,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "9～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11050,6 +11720,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "属性力%+d": "1～3"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11075,6 +11746,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器攻撃力%+d": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11100,6 +11772,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "30～126"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11125,6 +11798,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "45～132"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11150,6 +11824,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法追加ダメージ%+d": "3～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11175,6 +11850,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理貫通力%+d％": "2～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11200,6 +11876,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "67～550"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11225,6 +11902,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "21～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11250,6 +11928,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力": "51～168"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11275,6 +11954,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理追加ダメージ%+d": "15～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶"
       ],
@@ -11283,7 +11963,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_1fe6e1df127c",
+      "id": "eqgrp_910e7d73c95a",
       "equipment_name": "封印された赤い結晶 / 封印された青い結晶",
       "display_name": "封印された赤い結晶 / 封印された青い結晶 (強化 →+9)",
       "category": "強化",
@@ -11293,11 +11973,18 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "expected_values": {
-        "攻撃": 16.0,
-        "筋力魔力": 800.0,
+        "属性": 16.0,
         "ボス追加ダメ": 800.0,
+        "攻撃": 16.0,
         "全ステ": 800.0,
-        "属性": 16.0
+        "筋力魔力": 800.0
+      },
+      "base_expected_values": {
+        "属性": 120.0,
+        "攻撃": 120.0,
+        "全ステ": 2300.0,
+        "筋力魔力": 3500.0,
+        "ボス追加ダメ": 2500.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -11326,6 +12013,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "21～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11355,6 +12043,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "39～114"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11384,6 +12073,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "3～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11413,6 +12103,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "51～168"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11442,6 +12133,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "59～204"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11471,6 +12163,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "9～24"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11500,6 +12193,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "30～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11529,6 +12223,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "27～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11558,6 +12253,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "15～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11587,6 +12283,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "45～132"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11616,6 +12313,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "67～400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された青い結晶",
@@ -11645,6 +12343,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "220～1430"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11672,6 +12371,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "80～234"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11699,6 +12399,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "120～900"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11726,6 +12427,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "80～336"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11753,6 +12455,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "80～216"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11780,6 +12483,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "40～138"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11807,6 +12511,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "120～472"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11834,6 +12539,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "120～520"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11861,6 +12567,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "40～132"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11888,6 +12595,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "120～618"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11915,6 +12623,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP": "40～144"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された赤い結晶",
         "封印された黄色い結晶"
@@ -11942,6 +12651,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "21～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -11967,6 +12677,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "40～200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -11992,6 +12703,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "20～48"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12017,6 +12729,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "30～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12042,6 +12755,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "4～32"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12067,6 +12781,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "40～148"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12092,6 +12807,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "2～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12117,6 +12833,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "50～276"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12142,6 +12859,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "40～163"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12167,6 +12885,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "2～20"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12192,6 +12911,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "45～132"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12217,6 +12937,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "2～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12242,6 +12963,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "15～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12267,6 +12989,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "20～44"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12292,6 +13015,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "2～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12317,6 +13041,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "30～78"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12342,6 +13067,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "4～20"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12367,6 +13093,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "59～204"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12392,6 +13119,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法貫通力%+d％": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12417,6 +13145,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "60～440"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12442,6 +13171,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "9～24"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12467,6 +13197,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12492,6 +13223,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "2～16"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12517,6 +13249,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12542,6 +13275,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "51～168"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12567,6 +13301,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法貫通力%+d％": "2～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12592,6 +13327,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "8～40"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12617,6 +13353,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12642,6 +13379,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "2～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12667,6 +13405,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "3～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12692,6 +13431,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "30～105"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12717,6 +13457,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "27～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12742,6 +13483,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "20～46"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12767,6 +13509,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "67～400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12792,6 +13535,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "30～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12817,6 +13561,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔力": "39～114"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶"
       ],
@@ -12842,6 +13587,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "4～32"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -12869,6 +13615,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "4～20"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -12896,6 +13643,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "2～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -12923,6 +13671,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "8～40"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -12950,6 +13699,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "2～20"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -12977,6 +13727,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "2～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -13004,6 +13755,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "2～16"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された青い結晶",
         "封印された黄色い結晶"
@@ -13031,6 +13783,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "60～440"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13056,6 +13809,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13081,6 +13835,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "50～276"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13106,6 +13861,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "39～114"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13131,6 +13887,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "20～46"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13156,6 +13913,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "27～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13181,6 +13939,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "30～78"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13206,6 +13965,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "21～54"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13231,6 +13991,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "40～148"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13256,6 +14017,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13281,6 +14043,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "45～132"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13306,6 +14069,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "3～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13331,6 +14095,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "9～24"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13356,6 +14121,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "15～36"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13381,6 +14147,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "30～72"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13406,6 +14173,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "40～163"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13431,6 +14199,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "20～44"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13456,6 +14225,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "67～400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13481,6 +14251,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13506,6 +14277,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "40～200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13531,6 +14303,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "51～168"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13556,6 +14329,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "20～48"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13581,6 +14355,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "30～105"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13606,6 +14381,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "59～204"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13631,6 +14407,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～4"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13656,6 +14433,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "30～84"
       },
+      "base_expected_values": {},
       "filter_names": [
         "封印された黄色い結晶"
       ],
@@ -13664,7 +14442,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_5d79c1a4917b",
+      "id": "eqgrp_4a530ae533c0",
       "equipment_name": "封印された黄色い結晶",
       "display_name": "封印された黄色い結晶 (強化 →+9)",
       "category": "強化",
@@ -13674,10 +14452,17 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "expected_values": {
-        "筋力魔力": 800.0,
         "HP": 800.0,
         "全ステ": 800.0,
+        "筋力魔力": 800.0,
         "一般追加ダメ": 800.0
+      },
+      "base_expected_values": {
+        "HP": 7100.0,
+        "一般追加ダメ": 2500.0,
+        "貫通": 20.0,
+        "全ステ": 4500.0,
+        "筋力魔力": 3500.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -13688,9 +14473,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_303ff8e1a275",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+30)",
+      "id": "eqgrp_72dfbc03efa3",
+      "equipment_name": "ノトリアのステッカー",
+      "display_name": "ノトリアのステッカー (強化 →+30)",
       "category": "強化",
       "level": 8300,
       "level_label": "",
@@ -13698,20 +14483,62 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "筋力魔力": 1450.0,
         "追加ダメ": 1450.0,
         "武器属性": 15.0,
         "混乱抵抗": 29.0,
         "スタン抵抗": 29.0,
+        "筋力魔力": 1450.0,
         "一般追加ダメ": 1450.0,
+        "最大": 10.0
+      },
+      "base_expected_values": {
+        "スタン抵抗": 251.0,
+        "混乱抵抗": 251.0,
+        "筋力魔力": 7300.0,
+        "武器属性": 113.0,
+        "追加ダメ": 7300.0,
+        "一般追加ダメ": 5100.0,
         "最大": 10.0
       },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "ノトリアのステッカー"
       ],
       "selectable_options": [
-        "特殊装備"
+        "ノトリアのステッカー"
+      ]
+    },
+    {
+      "id": "eqgrp_48179855c612",
+      "equipment_name": "Mr.デモニックの3番目のバッジ",
+      "display_name": "Mr.デモニックの3番目のバッジ (強化 →+6)",
+      "category": "強化",
+      "level": 8000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 137,
+      "option_class": 20,
+      "expected_values": {
+        "ボス追加ダメ": 2500.0,
+        "最大": 3.0,
+        "追加ダメ": 2500.0,
+        "全ステ": 750.0,
+        "筋力魔力": 1000.0
+      },
+      "base_expected_values": {
+        "SP増加": 2600.0,
+        "全ステ": 2800.0,
+        "追加ダメ": 9700.0,
+        "ボス追加ダメ": 9700.0,
+        "筋力魔力": 4200.0,
+        "最大": 11.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "Mr.デモニックの3番目のバッジ"
+      ],
+      "selectable_options": [
+        "Mr.デモニックの3番目のバッジ"
       ]
     },
     {
@@ -13732,6 +14559,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "300～300"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13757,6 +14585,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "18～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13782,6 +14611,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13807,6 +14637,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理/魔法命中率%+d％": "1～50"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13832,6 +14663,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～9"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13857,6 +14689,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "1～2500"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13882,6 +14715,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "300～300"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13907,6 +14741,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "1～150"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13932,6 +14767,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13957,6 +14793,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ": "1～23000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -13982,6 +14819,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1～14000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14007,6 +14845,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1～14000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14032,6 +14871,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14057,6 +14897,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "18～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14082,6 +14923,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "14～14"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14107,6 +14949,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1700～1700"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14132,6 +14975,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "1～2500"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14157,6 +15001,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～20000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14182,6 +15027,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "2400～2400"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14207,6 +15053,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理/魔法命中率%+d％": "6～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14232,6 +15079,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ": "2800～2800"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14257,6 +15105,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力_乗算": "1～9"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14282,6 +15131,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1700～1700"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14307,6 +15157,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "18～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14332,6 +15183,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ": "1～23000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14357,6 +15209,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～11000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14382,6 +15235,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1300～1300"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14407,6 +15261,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ": "2800～2800"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡の精霊石"
       ],
@@ -14415,7 +15270,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_8f352b4e0a19",
+      "id": "eqgrp_77ecc3c6551d",
       "equipment_name": "滅亡の精霊石",
       "display_name": "滅亡の精霊石 (強化 +6→超越)",
       "category": "強化",
@@ -14427,8 +15282,17 @@ const ENCHANT_DATA = {
       "expected_values": {
         "クリダメ": 21.0,
         "武器属性": 38.0,
-        "最大最小": 16.0,
-        "全ステ": 2700.0
+        "全ステ": 2700.0,
+        "最大最小": 16.0
+      },
+      "base_expected_values": {
+        "武器属性": 225.0,
+        "クリダメ": 78.0,
+        "全ステ": 3700.0,
+        "全ステ%": 4.0,
+        "貫通": 28.0,
+        "最大最小": 53.0,
+        "CT減少": 40.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -14439,7 +15303,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_e7eea09887e9",
+      "id": "eqgrp_9c4d31c3acb6",
       "equipment_name": "滅亡の精霊石",
       "display_name": "滅亡の精霊石 (強化 →+6)",
       "category": "強化",
@@ -14451,8 +15315,17 @@ const ENCHANT_DATA = {
       "expected_values": {
         "クリダメ": 6.0,
         "武器属性": 10.0,
-        "最大最小": 6.0,
-        "全ステ": 700.0
+        "全ステ": 700.0,
+        "最大最小": 6.0
+      },
+      "base_expected_values": {
+        "武器属性": 225.0,
+        "クリダメ": 78.0,
+        "全ステ": 3700.0,
+        "全ステ%": 4.0,
+        "貫通": 28.0,
+        "最大最小": 53.0,
+        "CT減少": 40.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -14482,6 +15355,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14512,6 +15386,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14542,6 +15417,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14572,6 +15448,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14602,6 +15479,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14632,6 +15510,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14662,6 +15541,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14692,6 +15572,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14722,6 +15603,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14752,6 +15634,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14782,6 +15665,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14812,6 +15696,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14842,6 +15727,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14872,6 +15758,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14902,6 +15789,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14932,6 +15820,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14962,6 +15851,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -14992,6 +15882,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15022,6 +15913,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15052,6 +15944,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15082,6 +15975,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15112,6 +16006,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15142,6 +16037,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15172,6 +16068,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15202,6 +16099,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15232,6 +16130,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15262,6 +16161,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15292,6 +16192,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15322,6 +16223,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15352,6 +16254,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15382,6 +16285,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15412,6 +16316,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15442,6 +16347,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15472,6 +16378,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15502,6 +16409,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15532,6 +16440,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15562,6 +16471,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15592,6 +16502,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15622,6 +16533,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15652,6 +16564,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15682,6 +16595,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15712,6 +16626,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15742,6 +16657,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 10.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15772,6 +16688,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15802,6 +16719,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15832,6 +16750,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15862,6 +16781,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 7.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15892,6 +16812,7 @@ const ENCHANT_DATA = {
       "option_group": 10002,
       "option_check": 1,
       "option_probability": 3.0,
+      "base_expected_values": {},
       "level_label": "",
       "filter_names": [
         "滅亡の精霊石",
@@ -15903,23 +16824,37 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_19b486b16e07",
+      "id": "eqgrp_eb2f4246ff8f",
       "equipment_name": "滅亡記憶のバトルサイズ",
-      "display_name": "滅亡記憶のバトルサイズ (強化 →+6)",
+      "display_name": "滅亡記憶のバトルサイズ (強化 +6→超越)",
       "category": "強化",
       "level": 8000,
       "level_label": "",
-      "detail": "→+6",
+      "detail": "+6→超越",
       "option_type": 187,
-      "option_class": 3,
+      "option_class": 4,
       "expected_values": {
-        "攻撃": 225.0,
-        "追加ダメ": 1500.0,
-        "最大": 15.0,
-        "一般支配": 2.5,
-        "全ステ": 1500.0,
-        "属性": 225.0,
-        "クリダメ": 15.0
+        "属性": 375.0,
+        "追加ダメ": 3200.0,
+        "攻撃": 375.0,
+        "一般支配": 3.9,
+        "最大": 27.0,
+        "クリダメ": 42.0,
+        "全ステ": 5000.0,
+        "追加ダメ_乗算": 1.0,
+        "武器属性_乗算": 1.0
+      },
+      "base_expected_values": {
+        "属性": 2200.0,
+        "攻撃": 2200.0,
+        "最大": 110.0,
+        "クリダメ": 85.0,
+        "追加ダメ": 10500.0,
+        "全ステ": 8200.0,
+        "追加ダメ_乗算": 11.0,
+        "武器属性_乗算": 11.0,
+        "一般支配": 9.1,
+        "CT減少": 60.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -15930,25 +16865,35 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_80006575b67b",
+      "id": "eqgrp_f07d74ae23a3",
       "equipment_name": "滅亡記憶のバトルサイズ",
-      "display_name": "滅亡記憶のバトルサイズ (強化 +6→超越)",
+      "display_name": "滅亡記憶のバトルサイズ (強化 →+6)",
       "category": "強化",
       "level": 8000,
       "level_label": "",
-      "detail": "+6→超越",
+      "detail": "→+6",
       "option_type": 187,
-      "option_class": 4,
+      "option_class": 3,
       "expected_values": {
-        "攻撃": 375.0,
-        "追加ダメ": 3200.0,
-        "最大": 27.0,
-        "一般支配": 3.9,
-        "全ステ": 5000.0,
-        "属性": 375.0,
-        "クリダメ": 42.0,
-        "追加ダメ_乗算": 1.0,
-        "武器属性_乗算": 1.0
+        "属性": 225.0,
+        "追加ダメ": 1500.0,
+        "攻撃": 225.0,
+        "一般支配": 2.5,
+        "最大": 15.0,
+        "クリダメ": 15.0,
+        "全ステ": 1500.0
+      },
+      "base_expected_values": {
+        "属性": 2200.0,
+        "攻撃": 2200.0,
+        "最大": 110.0,
+        "クリダメ": 85.0,
+        "追加ダメ": 10500.0,
+        "全ステ": 8200.0,
+        "追加ダメ_乗算": 11.0,
+        "武器属性_乗算": 11.0,
+        "一般支配": 9.1,
+        "CT減少": 60.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -15976,6 +16921,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1～22000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16001,6 +16947,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～220"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16026,6 +16973,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "30～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16051,6 +16999,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "貫通": "1～50"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16076,6 +17025,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "2600～2600"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16101,6 +17051,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～250"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16126,6 +17077,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "26～26"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16151,6 +17103,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "貫通": "6～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16176,6 +17129,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "1～250"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16201,6 +17155,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ_乗算": "2～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16226,6 +17181,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～14"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16251,6 +17207,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "2200～2200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16276,6 +17233,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～18000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16301,6 +17259,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ_乗算": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16326,6 +17285,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～250"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16351,6 +17311,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "30～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16376,6 +17337,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ_乗算": "1～1"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16401,6 +17363,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～14"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16426,6 +17389,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "18～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16451,6 +17415,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "3000～3000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16476,6 +17441,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "30～30"
       },
+      "base_expected_values": {},
       "filter_names": [
         "滅亡記憶武器"
       ],
@@ -16484,30 +17450,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_79733b66aced",
-      "equipment_name": "滅亡記憶武器（物理）",
-      "display_name": "滅亡記憶武器（物理） (強化 →+6)",
-      "category": "強化",
-      "level": 8000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 187,
-      "option_class": 3,
-      "expected_values": {
-        "物理_最大": 15.0,
-        "一般支配": 2.5,
-        "全ステ": 1500.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "滅亡記憶武器（物理）"
-      ],
-      "selectable_options": [
-        "滅亡記憶武器（物理）"
-      ]
-    },
-    {
-      "id": "eqgrp_e300fbef2ce8",
+      "id": "eqgrp_2e570ac01be7",
       "equipment_name": "滅亡記憶武器（物理）",
       "display_name": "滅亡記憶武器（物理） (強化 +6→超越)",
       "category": "強化",
@@ -16517,11 +17460,19 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "物理_最大": 27.0,
         "一般支配": 3.9,
+        "魔法_最大": 27.0,
+        "攻撃": 375.0,
         "全ステ": 5000.0,
-        "追加ダメ_乗算": 1.0,
-        "属性_乗算": 1.0
+        "攻撃_乗算": 1.0
+      },
+      "base_expected_values": {
+        "攻撃": 2200.0,
+        "魔法_最大": 110.0,
+        "全ステ": 8200.0,
+        "攻撃_乗算": 11.0,
+        "一般支配": 9.1,
+        "CT減少": 60.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -16532,7 +17483,39 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_b8e78095e6a8",
+      "id": "eqgrp_c72a974e0282",
+      "equipment_name": "滅亡記憶武器（物理）",
+      "display_name": "滅亡記憶武器（物理） (強化 →+6)",
+      "category": "強化",
+      "level": 8000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 187,
+      "option_class": 3,
+      "expected_values": {
+        "一般支配": 2.5,
+        "魔法_最大": 15.0,
+        "攻撃": 225.0,
+        "全ステ": 1500.0
+      },
+      "base_expected_values": {
+        "攻撃": 2200.0,
+        "魔法_最大": 110.0,
+        "全ステ": 8200.0,
+        "攻撃_乗算": 11.0,
+        "一般支配": 9.1,
+        "CT減少": 60.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "滅亡記憶武器（物理）"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器（物理）"
+      ]
+    },
+    {
+      "id": "eqgrp_57b2ecf4d659",
       "equipment_name": "滅亡記憶武器（魔法）",
       "display_name": "滅亡記憶武器（魔法） (強化 →+6)",
       "category": "強化",
@@ -16542,10 +17525,17 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "攻撃": 225.0,
-        "魔法_最大": 15.0,
         "一般支配": 2.5,
+        "物理_最大": 15.0,
         "全ステ": 1500.0
+      },
+      "base_expected_values": {
+        "物理_最大": 110.0,
+        "全ステ": 8200.0,
+        "追加ダメ_乗算": 11.0,
+        "属性_乗算": 11.0,
+        "一般支配": 9.1,
+        "CT減少": 60.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -16556,7 +17546,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_c22870b20e82",
+      "id": "eqgrp_8d26fd45d13d",
       "equipment_name": "滅亡記憶武器（魔法）",
       "display_name": "滅亡記憶武器（魔法） (強化 +6→超越)",
       "category": "強化",
@@ -16566,11 +17556,19 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "攻撃": 375.0,
-        "魔法_最大": 27.0,
         "一般支配": 3.9,
+        "物理_最大": 27.0,
         "全ステ": 5000.0,
-        "攻撃_乗算": 1.0
+        "属性_乗算": 1.0,
+        "追加ダメ_乗算": 1.0
+      },
+      "base_expected_values": {
+        "物理_最大": 110.0,
+        "全ステ": 8200.0,
+        "追加ダメ_乗算": 11.0,
+        "属性_乗算": 11.0,
+        "一般支配": 9.1,
+        "CT減少": 60.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -16581,32 +17579,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_e5193c8e3bf3",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+6)",
-      "category": "強化",
-      "level": 8000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "筋力魔力": 1000.0,
-        "追加ダメ": 2500.0,
-        "ボス追加ダメ": 2500.0,
-        "最大": 3.0,
-        "全ステ": 750.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_f54d322e3af6",
+      "id": "eqgrp_6407a61c26ad",
       "equipment_name": "グノーシスのトーテム",
       "display_name": "グノーシスのトーテム (強化 →+50)",
       "category": "強化",
@@ -16616,12 +17589,20 @@ const ENCHANT_DATA = {
       "option_type": 0,
       "option_class": 0,
       "expected_values": {
-        "筋力魔力": 2450.0,
         "全ステ": 2450.0,
+        "筋力魔力": 2450.0,
         "一般追加ダメ": 2450.0,
         "武器属性": 12.0,
         "最大": 10.0,
         "最小": 10.0
+      },
+      "base_expected_values": {
+        "全ステ": 9200.0,
+        "最小": 108.0,
+        "最大": 108.0,
+        "一般追加ダメ": 13400.0,
+        "武器属性": 49.0,
+        "筋力魔力": 5300.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -16632,9 +17613,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_8525a74c9545",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+20)",
+      "id": "eqgrp_c5143d289175",
+      "equipment_name": "アンドレアスの教本",
+      "display_name": "アンドレアスの教本 (強化 →+20)",
       "category": "強化",
       "level": 7500,
       "level_label": "",
@@ -16642,24 +17623,33 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
+        "属性": 19.0,
+        "最大": 14.0,
         "攻撃": 19.0,
         "筋力魔力": 1900.0,
-        "最大": 14.0,
-        "属性": 19.0,
         "一般追加ダメ": 1900.0
+      },
+      "base_expected_values": {
+        "最大": 86.0,
+        "クリ率": 3.0,
+        "全ステ": 2500.0,
+        "属性": 101.0,
+        "攻撃": 101.0,
+        "一般追加ダメ": 5300.0,
+        "筋力魔力": 3000.0
       },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "アンドレアスの教本"
       ],
       "selectable_options": [
-        "特殊装備"
+        "アンドレアスの教本"
       ]
     },
     {
-      "id": "eqgrp_723066e4ac6b",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+20)",
+      "id": "eqgrp_79c223b8b9b0",
+      "equipment_name": "ヤンカスの1番目のバッジ",
+      "display_name": "ヤンカスの1番目のバッジ (強化 →+20)",
       "category": "強化",
       "level": 7300,
       "level_label": "",
@@ -16667,19 +17657,29 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "攻撃": 23.0,
-        "筋力魔力": 1620.0,
+        "属性": 23.0,
         "追加ダメ": 3250.0,
         "HP": 1620.0,
-        "属性": 23.0,
+        "攻撃": 23.0,
+        "筋力魔力": 1620.0,
         "一般追加ダメ": 3250.0
+      },
+      "base_expected_values": {
+        "HP": 6800.0,
+        "全ステ": 3700.0,
+        "攻撃": 121.0,
+        "属性": 121.0,
+        "一般追加ダメ": 9100.0,
+        "クリ率": 1.0,
+        "追加ダメ": 9100.0,
+        "筋力魔力": 3800.0
       },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "ヤンカスの1番目のバッジ"
       ],
       "selectable_options": [
-        "特殊装備"
+        "ヤンカスの1番目のバッジ"
       ]
     },
     {
@@ -16700,6 +17700,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～24000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16729,6 +17730,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "5～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16758,6 +17760,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1～11200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16787,6 +17790,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "300～600"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16816,6 +17820,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16845,6 +17850,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "165～330"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16874,6 +17880,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "1～1760"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16903,6 +17910,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～70"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16932,6 +17940,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16961,6 +17970,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1～14000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -16990,6 +18000,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "1～2200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17019,6 +18030,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "5～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17048,6 +18060,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～3200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17077,6 +18090,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17106,6 +18120,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "1～11200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17135,6 +18150,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "物理ダメージ減少": "1～2200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17164,6 +18180,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "300～600"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17193,6 +18210,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1～14000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17222,6 +18240,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1200～1200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17251,6 +18270,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "825～1650"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17280,6 +18300,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "抵抗": "1～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17309,6 +18330,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "165～330"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17338,6 +18360,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "1～14000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17367,6 +18390,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1050～2100"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17396,6 +18420,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "1～70"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17425,6 +18450,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "体力": "1～11200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17454,6 +18480,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～11000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17483,6 +18510,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最小": "1～56"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17512,6 +18540,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ": "1～30000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17541,6 +18570,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～4000"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17570,6 +18600,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "幸運": "1050～2100"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17599,6 +18630,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "追加ダメ_乗算": "1～7"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17628,6 +18660,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "BA": "1～56"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17657,6 +18690,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "魔法ダメージ減少": "1～1760"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17686,6 +18720,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "筋力魔力": "1050～2100"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17715,6 +18750,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ": "1～8800"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17744,6 +18780,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "防御": "1～3200"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17773,6 +18810,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～7"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17802,6 +18840,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "HP_乗算": "1～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント",
@@ -17831,6 +18870,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "貫通": "1～40"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング"
       ],
@@ -17856,6 +18896,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "貫通": "1～32"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング"
       ],
@@ -17881,6 +18922,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "貫通": "3～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング"
       ],
@@ -17889,7 +18931,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_6ded3ba0e844",
+      "id": "eqgrp_445f3e8e8b8e",
       "equipment_name": "ノルニルイヤリング",
       "display_name": "ノルニルイヤリング (強化 →+6)",
       "category": "強化",
@@ -17899,10 +18941,48 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 3,
       "expected_values": {
-        "筋力魔力": 1200.0,
         "追加ダメ": 2900.0,
         "最小": 25.0,
-        "クリダメ": 12.0
+        "クリダメ": 12.0,
+        "筋力魔力": 1200.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 4600.0,
+        "最小": 110.0,
+        "クリダメ": 66.0,
+        "追加ダメ": 7100.0,
+        "一般追加ダメ": 17000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ノルニルイヤリング"
+      ],
+      "selectable_options": [
+        "ノルニルイヤリング"
+      ]
+    },
+    {
+      "id": "eqgrp_6af847fca6bc",
+      "equipment_name": "ノルニルイヤリング",
+      "display_name": "ノルニルイヤリング (強化 →+6)",
+      "category": "強化",
+      "level": 7000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 183,
+      "option_class": 3,
+      "expected_values": {
+        "追加ダメ": 2900.0,
+        "最小": 25.0,
+        "クリダメ": 12.0,
+        "筋力魔力": 1200.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 4600.0,
+        "最小": 110.0,
+        "クリダメ": 66.0,
+        "追加ダメ": 7100.0,
+        "ボス追加ダメ": 17000.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -17930,6 +19010,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ_乗算": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント"
@@ -17957,6 +19038,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ_乗算": "1～7"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント"
@@ -17984,6 +19066,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "5～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント"
@@ -18011,6 +19094,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "1～70"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント"
@@ -18038,6 +19122,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "一般追加ダメ_乗算": "1～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント"
@@ -18065,6 +19150,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "クリダメ": "1～56"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニルマント"
@@ -18092,6 +19178,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "5～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニル指輪"
@@ -18119,6 +19206,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "9～18"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニル指輪"
@@ -18146,6 +19234,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～96"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニル指輪"
@@ -18173,6 +19262,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～70"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニル指輪"
@@ -18200,6 +19290,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "最大": "1～56"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニル指輪"
@@ -18227,6 +19318,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～120"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルイヤリング",
         "ノルニル指輪"
@@ -18254,6 +19346,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント"
       ],
@@ -18279,6 +19372,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～128"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント"
       ],
@@ -18304,6 +19398,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "12～24"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント"
       ],
@@ -18329,6 +19424,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント"
       ],
@@ -18354,6 +19450,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "全ステ%": "1～12"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント"
       ],
@@ -18379,6 +19476,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性": "1～160"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント"
       ],
@@ -18387,7 +19485,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_43959be0d4e8",
+      "id": "eqgrp_662138437dc3",
       "equipment_name": "ノルニルマント",
       "display_name": "ノルニルマント (強化 →+6)",
       "category": "強化",
@@ -18397,11 +19495,51 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 3,
       "expected_values": {
-        "筋力魔力": 1300.0,
         "追加ダメ": 1700.0,
-        "ボス追加ダメ": 1600.0,
         "最小": 25.0,
-        "クリダメ": 12.0
+        "クリダメ": 12.0,
+        "ボス追加ダメ": 1600.0,
+        "筋力魔力": 1300.0
+      },
+      "base_expected_values": {
+        "最小": 90.0,
+        "クリダメ": 86.0,
+        "ボス追加ダメ": 22600.0,
+        "筋力魔力": 1000.0,
+        "追加ダメ": 3000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ノルニルマント"
+      ],
+      "selectable_options": [
+        "ノルニルマント"
+      ]
+    },
+    {
+      "id": "eqgrp_902815e753eb",
+      "equipment_name": "ノルニルマント",
+      "display_name": "ノルニルマント (強化 →+6)",
+      "category": "強化",
+      "level": 7000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 184,
+      "option_class": 3,
+      "expected_values": {
+        "追加ダメ": 1700.0,
+        "最小": 25.0,
+        "クリダメ": 12.0,
+        "ボス追加ダメ": 1600.0,
+        "筋力魔力": 1300.0
+      },
+      "base_expected_values": {
+        "最小": 90.0,
+        "クリダメ": 86.0,
+        "ボス追加ダメ": 5600.0,
+        "筋力魔力": 1000.0,
+        "追加ダメ": 3000.0,
+        "一般追加ダメ": 17000.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -18429,6 +19567,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ_乗算": "1～6"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント",
         "ノルニル指輪"
@@ -18456,6 +19595,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ_乗算": "1～7"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント",
         "ノルニル指輪"
@@ -18483,6 +19623,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "ボス追加ダメ_乗算": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニルマント",
         "ノルニル指輪"
@@ -18510,6 +19651,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "スキルクールタイム減少+%0.1F%%": "1～40"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニル指輪"
       ],
@@ -18535,6 +19677,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "スキルクールタイム減少+%0.1F%%": "1～50"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニル指輪"
       ],
@@ -18560,6 +19703,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～10"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニル指輪"
       ],
@@ -18585,6 +19729,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "スキルクールタイム減少+%0.1F%%": "3～7"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニル指輪"
       ],
@@ -18610,6 +19755,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～2"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニル指輪"
       ],
@@ -18635,6 +19781,7 @@ const ENCHANT_DATA = {
       "display_ranges": {
         "武器属性_乗算": "1～8"
       },
+      "base_expected_values": {},
       "filter_names": [
         "ノルニル指輪"
       ],
@@ -18643,7 +19790,7 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_383ec154c8c7",
+      "id": "eqgrp_086382d76bbf",
       "equipment_name": "ノルニル指輪",
       "display_name": "ノルニル指輪 (強化 →+6)",
       "category": "強化",
@@ -18653,10 +19800,17 @@ const ENCHANT_DATA = {
       "option_type": 185,
       "option_class": 3,
       "expected_values": {
-        "筋力魔力": 1200.0,
+        "最大": 12.0,
         "追加ダメ": 2900.0,
         "武器属性": 12.0,
-        "最大": 12.0
+        "筋力魔力": 1200.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 4600.0,
+        "最大": 106.0,
+        "武器属性": 86.0,
+        "追加ダメ": 7100.0,
+        "ボス追加ダメ": 17000.0
       },
       "display_ranges": {},
       "filter_names": [
@@ -18667,9 +19821,40 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_2301099dd666",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+6)",
+      "id": "eqgrp_66d7bb876601",
+      "equipment_name": "ノルニル指輪",
+      "display_name": "ノルニル指輪 (強化 →+6)",
+      "category": "強化",
+      "level": 7000,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 185,
+      "option_class": 3,
+      "expected_values": {
+        "最大": 12.0,
+        "追加ダメ": 2900.0,
+        "武器属性": 12.0,
+        "筋力魔力": 1200.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 4600.0,
+        "最大": 106.0,
+        "武器属性": 86.0,
+        "追加ダメ": 7100.0,
+        "一般追加ダメ": 17000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ノルニル指輪"
+      ],
+      "selectable_options": [
+        "ノルニル指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_d02d92b13d79",
+      "equipment_name": "無限の2番目のバッジ",
+      "display_name": "無限の2番目のバッジ (強化 →+6)",
       "category": "強化",
       "level": 7000,
       "level_label": "",
@@ -18677,24 +19862,34 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "追加ダメ": 950.0,
         "ボス追加ダメ": 1300.0,
+        "追加ダメ": 950.0,
         "HP": 850.0,
         "クリダメ": 6.0,
         "一般追加ダメ": 850.0
       },
+      "base_expected_values": {
+        "全ステ": 3500.0,
+        "HP": 7500.0,
+        "攻撃_乗算": 8.0,
+        "属性_乗算": 8.0,
+        "クリダメ": 68.0,
+        "一般追加ダメ": 8500.0,
+        "追加ダメ": 2400.0,
+        "ボス追加ダメ": 1500.0
+      },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "無限の2番目のバッジ"
       ],
       "selectable_options": [
-        "特殊装備"
+        "無限の2番目のバッジ"
       ]
     },
     {
-      "id": "eqgrp_5f0a3a32d251",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (強化 →+6)",
+      "id": "eqgrp_9ac9d389bccb",
+      "equipment_name": "無限の4番目のバッジ",
+      "display_name": "無限の4番目のバッジ (強化 →+6)",
       "category": "強化",
       "level": 7000,
       "level_label": "",
@@ -18702,23 +19897,34 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "攻撃": 9.0,
-        "追加ダメ": 2000.0,
-        "ボス追加ダメ": 1300.0,
         "属性": 9.0,
+        "ボス追加ダメ": 1300.0,
+        "追加ダメ": 2000.0,
+        "攻撃": 9.0,
         "一般追加ダメ": 1050.0
+      },
+      "base_expected_values": {
+        "全ステ": 3500.0,
+        "属性": 85.0,
+        "攻撃": 85.0,
+        "追加ダメ": 10200.0,
+        "一般追加ダメ": 7800.0,
+        "スタン抵抗": 130.0,
+        "ボス追加ダメ": 1500.0
       },
       "display_ranges": {},
       "filter_names": [
-        "特殊装備"
+        "無限の4番目のバッジ"
       ],
       "selectable_options": [
-        "特殊装備"
+        "無限の4番目のバッジ"
       ]
     }
   ],
   "equipment_options_by_category": {
     "強化": [
+      "Mr.デモニックの3番目のバッジ",
+      "アンドレアスの教本",
       "イカロスクリップ",
       "イカロスグローブ",
       "イカロスブーツ",
@@ -18727,19 +19933,28 @@ const ENCHANT_DATA = {
       "エメラルディアストッキング",
       "エメラルディアタトゥー",
       "エメラルディアメガネ",
+      "ガブリエラの2番目バッジ",
+      "クラフトキーパーの教本",
       "グノーシスのトーテム",
+      "ティレニアのブローチ",
       "ドミトリーのチャーム",
+      "ノトリアのステッカー",
       "ノルニルイヤリング",
       "ノルニルマント",
       "ノルニル指輪",
+      "バニーバニーベルト",
+      "フレディアの4番目バッジ",
+      "ヤンカスの1番目のバッジ",
       "封印された赤い結晶 / 封印された青い結晶",
       "封印された黄色い結晶",
       "滅亡の精霊石",
       "滅亡記憶のバトルサイズ",
       "滅亡記憶武器（物理）",
       "滅亡記憶武器（魔法）",
-      "特殊装備",
+      "無限の2番目のバッジ",
+      "無限の4番目のバッジ",
       "突然変異キャンサーの6番バッジ",
+      "黒龍のネックレス",
       "黒龍の時計"
     ],
     "覚醒": [
@@ -18779,6 +19994,12 @@ const ENCHANT_DATA = {
   },
   "equipment_option_defs_by_category": {
     "強化": {
+      "Mr.デモニックの3番目のバッジ": [
+        "Mr.デモニックの3番目のバッジ"
+      ],
+      "アンドレアスの教本": [
+        "アンドレアスの教本"
+      ],
       "イカロスクリップ": [
         "イカロスクリップ"
       ],
@@ -18803,11 +20024,23 @@ const ENCHANT_DATA = {
       "エメラルディアメガネ": [
         "エメラルディアメガネ"
       ],
+      "ガブリエラの2番目バッジ": [
+        "ガブリエラの2番目バッジ"
+      ],
+      "クラフトキーパーの教本": [
+        "クラフトキーパーの教本"
+      ],
       "グノーシスのトーテム": [
         "グノーシスのトーテム"
       ],
+      "ティレニアのブローチ": [
+        "ティレニアのブローチ"
+      ],
       "ドミトリーのチャーム": [
         "ドミトリーのチャーム"
+      ],
+      "ノトリアのステッカー": [
+        "ノトリアのステッカー"
       ],
       "ノルニルイヤリング": [
         "ノルニルイヤリング"
@@ -18817,6 +20050,15 @@ const ENCHANT_DATA = {
       ],
       "ノルニル指輪": [
         "ノルニル指輪"
+      ],
+      "バニーバニーベルト": [
+        "バニーバニーベルト"
+      ],
+      "フレディアの4番目バッジ": [
+        "フレディアの4番目バッジ"
+      ],
+      "ヤンカスの1番目のバッジ": [
+        "ヤンカスの1番目のバッジ"
       ],
       "封印された赤い結晶 / 封印された青い結晶": [
         "封印された赤い結晶",
@@ -18837,11 +20079,17 @@ const ENCHANT_DATA = {
       "滅亡記憶武器（魔法）": [
         "滅亡記憶武器（魔法）"
       ],
-      "特殊装備": [
-        "特殊装備"
+      "無限の2番目のバッジ": [
+        "無限の2番目のバッジ"
+      ],
+      "無限の4番目のバッジ": [
+        "無限の4番目のバッジ"
       ],
       "突然変異キャンサーの6番バッジ": [
         "突然変異キャンサーの6番バッジ"
+      ],
+      "黒龍のネックレス": [
+        "黒龍のネックレス"
       ],
       "黒龍の時計": [
         "黒龍の時計"
@@ -18949,7 +20197,9 @@ const ENCHANT_DATA = {
     }
   },
   "equipment_names": [
+    "Mr.デモニックの3番目のバッジ",
     "アクセ",
+    "アンドレアスの教本",
     "イカロスクリップ",
     "イカロスクリップ / イカロスプレート",
     "イカロスグローブ",
@@ -18959,11 +20209,18 @@ const ENCHANT_DATA = {
     "エメラルディアストッキング",
     "エメラルディアタトゥー",
     "エメラルディアメガネ",
+    "ガブリエラの2番目バッジ",
+    "クラフトキーパーの教本",
     "グノーシスのトーテム",
+    "ティレニアのブローチ",
     "ドミトリーのチャーム",
+    "ノトリアのステッカー",
     "ノルニルイヤリング",
     "ノルニルマント",
     "ノルニル指輪",
+    "バニーバニーベルト",
+    "フレディアの4番目バッジ",
+    "ヤンカスの1番目のバッジ",
     "封印された赤い結晶",
     "封印された赤い結晶 / 封印された青い結晶",
     "封印された青い結晶",
@@ -18973,12 +20230,15 @@ const ENCHANT_DATA = {
     "滅亡記憶武器",
     "滅亡記憶武器（物理）",
     "滅亡記憶武器（魔法）",
+    "無限の2番目のバッジ",
+    "無限の4番目のバッジ",
     "特殊装備",
     "突然変異キャンサーの6番バッジ",
+    "黒龍のネックレス",
     "黒龍の時計"
   ],
   "counts": {
-    "強化": 42,
+    "強化": 48,
     "覚醒": 142,
     "エンチャ": 479
   }
