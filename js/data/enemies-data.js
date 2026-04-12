@@ -33,60 +33,6 @@ const ENEMIES_DATA = {
         }
       ]
     },
-    "6000": {
-      "dungeon": {
-        "id": 403,
-        "name": "アトラス庭園(超越Lv.6000++)",
-        "level": 6000
-      },
-      "enemies": [
-        {
-          "id": 810010429,
-          "name": "一般MOB共有",
-          "type": "一般",
-          "baseStats": {
-            "defense": 100241,
-            "luck": 1564029,
-            "critReduce": 600,
-            "dmgReduce": 934012,
-            "dmgReduceRatio": 0,
-            "guard": 53
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 93401,
-              "dmgReduceRatio": 0,
-              "guard": 13,
-              "critReduce": 600
-            },
-            "2": {
-              "dmgReduce": 280203,
-              "dmgReduceRatio": 0,
-              "guard": 33,
-              "critReduce": 600
-            },
-            "3": {
-              "dmgReduce": 560407,
-              "dmgReduceRatio": 0,
-              "guard": 38,
-              "critReduce": 600
-            },
-            "4": {
-              "dmgReduce": 934012,
-              "dmgReduceRatio": 0,
-              "guard": 53,
-              "critReduce": 600
-            },
-            "5": {
-              "dmgReduce": 934012,
-              "dmgReduceRatio": 0,
-              "guard": 53,
-              "critReduce": 600
-            }
-          }
-        }
-      ]
-    },
     "7000": {
       "dungeon": {
         "id": 425,
@@ -342,6 +288,102 @@ const ENEMIES_DATA = {
               "critReduce": 600
             },
             "5": {
+              "dmgReduce": 2187171,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10200": {
+      "dungeon": {
+        "id": 453,
+        "name": "夢想の公園(超越ⅡLv.2++)",
+        "level": 10200
+      },
+      "enemies": [
+        {
+          "id": 810012139,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 600,
+            "dmgReduce": 2187171,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 218717,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 656151,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1312302,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2187171,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10201": {
+      "dungeon": {
+        "id": 454,
+        "name": "ネクターサーカス場(超越ⅡLv.2++)",
+        "level": 10200
+      },
+      "enemies": [
+        {
+          "id": 810012142,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 245909,
+            "luck": 3836883,
+            "critReduce": 600,
+            "dmgReduce": 2187171,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 218717,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 656151,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1312302,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
               "dmgReduce": 2187171,
               "dmgReduceRatio": 0,
               "guard": 53,
@@ -636,13 +678,13 @@ const ENEMIES_DATA = {
             "defense": 34230,
             "luck": 587458,
             "critReduce": 500,
-            "dmgReduce": 1459472,
+            "dmgReduce": 2913835,
             "dmgReduceRatio": 0,
             "guard": 53
           },
           "difficultyStats": {
             "1": {
-              "dmgReduce": 1459472,
+              "dmgReduce": 2913835,
               "dmgReduceRatio": 0,
               "guard": 53,
               "critReduce": 500
@@ -653,105 +695,6 @@ const ENEMIES_DATA = {
     }
   },
   "ボス": {
-    "6000": {
-      "dungeon": {
-        "id": 403,
-        "name": "アトラス庭園(超越Lv.6000++)",
-        "level": 6000
-      },
-      "enemies": [
-        {
-          "id": 810010430,
-          "name": "メノイティ",
-          "type": "ボス",
-          "baseStats": {
-            "defense": 100241,
-            "luck": 1564029,
-            "critReduce": 700,
-            "dmgReduce": 934012,
-            "dmgReduceRatio": 0,
-            "guard": 65
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 93401,
-              "dmgReduceRatio": 0,
-              "guard": 25,
-              "critReduce": 700
-            },
-            "2": {
-              "dmgReduce": 280203,
-              "dmgReduceRatio": 0,
-              "guard": 45,
-              "critReduce": 700
-            },
-            "3": {
-              "dmgReduce": 560407,
-              "dmgReduceRatio": 0,
-              "guard": 50,
-              "critReduce": 700
-            },
-            "4": {
-              "dmgReduce": 934012,
-              "dmgReduceRatio": 0,
-              "guard": 65,
-              "critReduce": 700
-            },
-            "5": {
-              "dmgReduce": 934012,
-              "dmgReduceRatio": 0,
-              "guard": 65,
-              "critReduce": 700
-            }
-          }
-        },
-        {
-          "id": 810010431,
-          "name": "メテウス",
-          "type": "ボス",
-          "baseStats": {
-            "defense": 100241,
-            "luck": 1564029,
-            "critReduce": 700,
-            "dmgReduce": 934012,
-            "dmgReduceRatio": 0,
-            "guard": 75
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 93401,
-              "dmgReduceRatio": 0,
-              "guard": 35,
-              "critReduce": 700
-            },
-            "2": {
-              "dmgReduce": 280203,
-              "dmgReduceRatio": 0,
-              "guard": 55,
-              "critReduce": 700
-            },
-            "3": {
-              "dmgReduce": 560407,
-              "dmgReduceRatio": 0,
-              "guard": 60,
-              "critReduce": 700
-            },
-            "4": {
-              "dmgReduce": 934012,
-              "dmgReduceRatio": 0,
-              "guard": 75,
-              "critReduce": 700
-            },
-            "5": {
-              "dmgReduce": 934012,
-              "dmgReduceRatio": 0,
-              "guard": 75,
-              "critReduce": 700
-            }
-          }
-        }
-      ]
-    },
     "7000": {
       "dungeon": {
         "id": 425,
@@ -1339,6 +1282,102 @@ const ENEMIES_DATA = {
           }
         }
       ]
+    },
+    "10200": {
+      "dungeon": {
+        "id": 453,
+        "name": "夢想の公園(超越ⅡLv.2++)",
+        "level": 10200
+      },
+      "enemies": [
+        {
+          "id": 810012143,
+          "name": "インスピレーションのタイヤマン",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 600,
+            "dmgReduce": 2405888,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 240588,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 721766,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1443532,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2405888,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10201": {
+      "dungeon": {
+        "id": 454,
+        "name": "ネクターサーカス場(超越ⅡLv.2++)",
+        "level": 10200
+      },
+      "enemies": [
+        {
+          "id": 810012145,
+          "name": "レオ",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 245909,
+            "luck": 3836883,
+            "critReduce": 600,
+            "dmgReduce": 2405888,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 240588,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 721766,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1443532,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2405888,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
     }
   }
 };
@@ -1348,10 +1387,6 @@ const DUNGEON_LIST = {
     {
       "level": "5001",
       "name": "エリーダンジョン上級共通"
-    },
-    {
-      "level": "6000",
-      "name": "アトラス庭園(超越Lv.6000++)"
     },
     {
       "level": "7000",
@@ -1412,13 +1447,17 @@ const DUNGEON_LIST = {
     {
       "level": "10045",
       "name": "証明の塔45階"
+    },
+    {
+      "level": "10200",
+      "name": "夢想の公園(超越ⅡLv.2++)"
+    },
+    {
+      "level": "10201",
+      "name": "ネクターサーカス場(超越ⅡLv.2++)"
     }
   ],
   "ボス": [
-    {
-      "level": "6000",
-      "name": "アトラス庭園(超越Lv.6000++)"
-    },
     {
       "level": "7000",
       "name": "ノルニルの涙(超越Lv.7000++)"
@@ -1446,6 +1485,14 @@ const DUNGEON_LIST = {
     {
       "level": "10000",
       "name": "イカロスの翼(超越Lv.9999++)"
+    },
+    {
+      "level": "10200",
+      "name": "夢想の公園(超越ⅡLv.2++)"
+    },
+    {
+      "level": "10201",
+      "name": "ネクターサーカス場(超越ⅡLv.2++)"
     }
   ]
 };
