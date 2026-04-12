@@ -137,7 +137,6 @@ const ENCHANT_DATA = {
       "封印された青い結晶": "封印された赤い結晶 / 封印された青い結晶"
     },
     "awaken_profile_group_map": {
-      "Mr.デモニックの3番目のバッジ": "特殊装備",
       "アンドレアスの教本": "特殊装備",
       "イカロスのクリップ": "アクセ装備",
       "イカロスのグローブ": "アクセ装備",
@@ -151,6 +150,8 @@ const ENCHANT_DATA = {
       "グランデルのブーツ": "アクセ装備",
       "グランデルのプレート": "アクセ装備",
       "グランデルのヘルメット": "アクセ装備",
+      "サーカス場の3番目のバッジ": "特殊装備",
+      "タイヤマンの1番目のバッジ": "特殊装備",
       "ダークエルフのストッキング": "アクセ装備",
       "ダークエルフのタトゥー": "アクセ装備",
       "ダークエルフのメガネ": "アクセ装備",
@@ -159,7 +160,6 @@ const ENCHANT_DATA = {
       "ノトリアのステッカー": "特殊装備",
       "バニーバニーベルト": "特殊装備",
       "フレディアの4番目バッジ": "特殊装備",
-      "ヤンカスの1番目のバッジ": "特殊装備",
       "怠惰のイヤリング": "アクセ装備",
       "怠惰のマント": "アクセ装備",
       "怠惰の指輪": "アクセ装備",
@@ -196,11 +196,8 @@ const ENCHANT_DATA = {
       "滅亡の流星剣": "滅亡装備",
       "滅亡の片手剣": "滅亡装備",
       "滅亡の短剣": "滅亡装備",
-      "滅亡の精霊石": "滅亡装備",
       "滅亡の飛燕剣": "滅亡装備",
       "滅亡の黒狼玉": "滅亡装備",
-      "無限の2番目のバッジ": "特殊装備",
-      "無限の4番目のバッジ": "特殊装備",
       "突然変異キャンサーの6番バッジ": "特殊装備",
       "結合したエメラルディアのストッキング": "アクセ装備",
       "結合したエメラルディアのタトゥー": "アクセ装備",
@@ -313,46 +310,28 @@ const ENCHANT_DATA = {
     "special_equipment_anchor": "アンドレアスの教本",
     "special_equipment_merged_name": "特殊装備",
     "special_equipment_merged_names": [
-      "Mr.デモニックの3番目のバッジ",
       "アンドレアスの教本",
       "ガブリエラの2番目バッジ",
       "クラフトキーパーの教本",
+      "サーカス場の3番目のバッジ",
+      "タイヤマンの1番目のバッジ",
       "ティレニアのブローチ",
       "ノトリアのステッカー",
       "バニーバニーベルト",
       "フレディアの4番目バッジ",
-      "ヤンカスの1番目のバッジ",
-      "無限の2番目のバッジ",
-      "無限の4番目のバッジ",
       "黒龍のネックレス"
     ],
     "special_equipment_merged_names_by_category": {
-      "エンチャ": [
-        "Mr.デモニックの3番目のバッジ",
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "ヤンカスの1番目のバッジ",
-        "無限の2番目のバッジ",
-        "無限の4番目のバッジ",
-        "黒龍のネックレス"
-      ],
       "覚醒": [
-        "Mr.デモニックの3番目のバッジ",
         "アンドレアスの教本",
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
         "ティレニアのブローチ",
         "ノトリアのステッカー",
         "バニーバニーベルト",
         "フレディアの4番目バッジ",
-        "ヤンカスの1番目のバッジ",
-        "無限の2番目のバッジ",
-        "無限の4番目のバッジ",
         "黒龍のネックレス"
       ]
     },
@@ -368,6 +347,5128 @@ const ENCHANT_DATA = {
   },
   "entries": [
     {
+      "id": "eqgrp_0c5f58dd9c61",
+      "equipment_name": "サーカス場の3番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ (強化 →+20)",
+      "category": "強化",
+      "level": 10200,
+      "level_label": "",
+      "detail": "→+20",
+      "option_type": 204,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 1900.0,
+        "筋力魔力": 950.0,
+        "ボス追加ダメ": 1900.0,
+        "全ステ": 1170.0,
+        "最大": 4.0
+      },
+      "base_expected_values": {
+        "SP増加": 2600.0,
+        "全ステ": 3800.0,
+        "追加ダメ": 13000.0,
+        "ボス追加ダメ": 13000.0,
+        "筋力魔力": 5500.0,
+        "最大": 15.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_054b4b04092f",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "5",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 7.0
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_0852c01fcdb2",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "5",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 21.5
+      },
+      "display_ranges": {
+        "武器属性": "7～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_0e75354aba41",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 Ely獲得%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "4",
+      "detail": "Ely獲得%+d％",
+      "option_type": 203,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得%+d％": 6.0
+      },
+      "display_ranges": {
+        "Ely獲得%+d％": "2～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_0ee5ff0cad9d",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "4",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 6.0
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "2～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_1b38883d95c5",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "5",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 7.0
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_378bae482d8b",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "4",
+      "detail": "全ステータス%+d",
+      "option_type": 203,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 750.0
+      },
+      "display_ranges": {
+        "全ステ": "250～1250"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_3bb137f19908",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "3",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 14.5
+      },
+      "display_ranges": {
+        "武器属性": "5～24"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_3c36e93af8f4",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "1",
+      "detail": "全ステータス%+d",
+      "option_type": 203,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 300.0
+      },
+      "display_ranges": {
+        "全ステ": "100～500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_47f3ff1df497",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 18.0
+      },
+      "display_ranges": {
+        "武器属性": "6～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_57a0d91b0612",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "4",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 6.0
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "2～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_62dac112aa96",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "2",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 3.5
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_6a00b0a45ff4",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "1",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 2.5
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_99256d9a3f46",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "3",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 5.0
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "2～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_993c5fc0035f",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 Ely獲得%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "2",
+      "detail": "Ely獲得%+d％",
+      "option_type": 203,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得%+d％": 3.5
+      },
+      "display_ranges": {
+        "Ely獲得%+d％": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_9a98c0de0396",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "3",
+      "detail": "全ステータス%+d",
+      "option_type": 203,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 600.0
+      },
+      "display_ranges": {
+        "全ステ": "200～1000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_a4ffebeedb22",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 Ely獲得%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "5",
+      "detail": "Ely獲得%+d％",
+      "option_type": 203,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得%+d％": 7.0
+      },
+      "display_ranges": {
+        "Ely獲得%+d％": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_a657e40dda97",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "1",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 2.5
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_aec26e27bc7c",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "2",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 3.5
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_bd5f3111fc41",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 Ely獲得%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "1",
+      "detail": "Ely獲得%+d％",
+      "option_type": 203,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得%+d％": 2.5
+      },
+      "display_ranges": {
+        "Ely獲得%+d％": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_c62e09cae838",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 11.0
+      },
+      "display_ranges": {
+        "武器属性": "4～18"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_d0f10354af9c",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "2",
+      "detail": "全ステータス%+d",
+      "option_type": 203,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 450.0
+      },
+      "display_ranges": {
+        "全ステ": "150～750"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_d1036277e1ba",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "5",
+      "detail": "全ステータス%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 900.0
+      },
+      "display_ranges": {
+        "全ステ": "300～1500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_e14e6aaee63d",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "1",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 7.0
+      },
+      "display_ranges": {
+        "武器属性": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_e5b84eab1d52",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 Ely獲得%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "3",
+      "detail": "Ely獲得%+d％",
+      "option_type": 203,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得%+d％": 5.0
+      },
+      "display_ranges": {
+        "Ely獲得%+d％": "2～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_f3617cc4fb11",
+      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10200,
+      "level_label": "3",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 203,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 5.0
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "2～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_6ac12ae05f1d",
+      "equipment_name": "タイヤマンの1番目のバッジ",
+      "display_name": "タイヤマンの1番目のバッジ (強化 →+20)",
+      "category": "強化",
+      "level": 10200,
+      "level_label": "",
+      "detail": "→+20",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 1350.0,
+        "筋力魔力": 1820.0,
+        "攻撃": 23.0,
+        "一般追加ダメ": 1350.0,
+        "HP": 1820.0,
+        "全ステ": 1150.0,
+        "属性": 23.0
+      },
+      "base_expected_values": {
+        "HP": 9600.0,
+        "全ステ": 3800.0,
+        "攻撃": 146.0,
+        "属性": 146.0,
+        "一般追加ダメ": 12600.0,
+        "クリ率": 1.0,
+        "追加ダメ": 12600.0,
+        "筋力魔力": 5600.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "タイヤマンの1番目のバッジ"
+      ],
+      "selectable_options": [
+        "タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_0f07761e1bf1",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]全ステータス%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "全ステ": 250.0
+      },
+      "display_ranges": {
+        "全ステ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_18338538be78",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "ボス追加ダメ": 90.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_1d0c01d9e942",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]体力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]体力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "体力": 90.0
+      },
+      "display_ranges": {
+        "体力": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_25fe5b408ea2",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "一般追加ダメ": 90.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_2d46b7a5fde4",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "ボス追加ダメ": 450.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_3a79e62b7d92",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "ボス追加ダメ": 250.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_3e3ecf20a20d",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]幸運%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]幸運%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "幸運": 450.0
+      },
+      "display_ranges": {
+        "幸運": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_59583eb09752",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "武器属性": 9.0
+      },
+      "display_ranges": {
+        "武器属性": "3～15"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_6b896e4a69b8",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]最大HP%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]最大HP%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "HP": 450.0
+      },
+      "display_ranges": {
+        "HP": "200～700"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_74d04a6c6c56",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]最大HP%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]最大HP%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "HP": 1700.0
+      },
+      "display_ranges": {
+        "HP": "400～3000"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_779b4b0d1bd1",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]筋力/魔法力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "筋力魔力": 250.0
+      },
+      "display_ranges": {
+        "筋力魔力": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_7de5106eaf78",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]筋力/魔法力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "筋力魔力": 450.0
+      },
+      "display_ranges": {
+        "筋力魔力": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_8a1cd2b72646",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]全ステータス%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "全ステ": 450.0
+      },
+      "display_ranges": {
+        "全ステ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_8e98a980dd95",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "一般追加ダメ": 250.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9011789c187b",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "武器属性": 14.0
+      },
+      "display_ranges": {
+        "武器属性": "3～25"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_96ad9fc205f5",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]体力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]体力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "体力": 250.0
+      },
+      "display_ranges": {
+        "体力": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_96e3d85793ef",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]体力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]体力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "体力": 450.0
+      },
+      "display_ranges": {
+        "体力": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_96f4062d9377",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 450.0
+      },
+      "display_ranges": {
+        "追加ダメ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9e45139494e6",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "一般追加ダメ": 450.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9ea46c240279",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]最大HP%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]最大HP%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "HP": 950.0
+      },
+      "display_ranges": {
+        "HP": "400～1500"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9eadb131ada7",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 250.0
+      },
+      "display_ranges": {
+        "追加ダメ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_b3a0db6a5360",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]武器攻撃力/属性力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "武器属性": 3.0
+      },
+      "display_ranges": {
+        "武器属性": "1～5"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_b75a20608587",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]幸運%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [2]幸運%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "幸運": 250.0
+      },
+      "display_ranges": {
+        "幸運": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_d86aa668e4b5",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]幸運%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]幸運%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "幸運": 90.0
+      },
+      "display_ranges": {
+        "幸運": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_dc52972d50b1",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]筋力/魔法力%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "筋力魔力": 90.0
+      },
+      "display_ranges": {
+        "筋力魔力": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_dd5abcd6b7f3",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 90.0
+      },
+      "display_ranges": {
+        "追加ダメ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_f2751c626277",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 10200,
+      "detail": "段階6 [1]全ステータス%+d",
+      "option_type": 203,
+      "option_class": 5,
+      "expected_values": {
+        "全ステ": 90.0
+      },
+      "display_ranges": {
+        "全ステ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_008f7f66cc2a",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 36.5
+      },
+      "display_ranges": {
+        "抵抗": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_00d76941e63a",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 42.5
+      },
+      "display_ranges": {
+        "抵抗": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_02e74af7c0a8",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "抵抗": 96.5
+      },
+      "display_ranges": {
+        "抵抗": "1～192"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_03355407f728",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 27.5
+      },
+      "display_ranges": {
+        "抵抗": "1～54"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_0518c1234162",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 513.5
+      },
+      "display_ranges": {
+        "HP": "1～1026"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_095f848db0d1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 180.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～360"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_0f076ff4f41a",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 42.5
+      },
+      "display_ranges": {
+        "全ステ": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_0faec8414edf",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 30.5
+      },
+      "display_ranges": {
+        "抵抗": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_14991a44b2fd",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 66.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～132"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_17ea19503087",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 60.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～120"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_18834205e368",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 81.5
+      },
+      "display_ranges": {
+        "全ステ": "1～162"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_18ceca542ba2",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1-9 Ely獲得量%+d％)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1-9",
+      "detail": "Ely獲得量%+d％",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得量%+d％": 1.5
+      },
+      "display_ranges": {
+        "Ely獲得量%+d％": "1～2"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1bc5c25c542b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "追加ダメ": 144.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～288"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1c249cd67821",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "全ステ": 68.0
+      },
+      "display_ranges": {
+        "全ステ": "1～135"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1c3dfdf86610",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 21.5
+      },
+      "display_ranges": {
+        "全ステ": "1～42"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1ddcdf0b6aad",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 48.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～96"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1e822ad4e0a8",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 171.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～342"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1e9f38528b7a",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 77.0
+      },
+      "display_ranges": {
+        "全ステ": "1～153"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2010f76ea501",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 138.5
+      },
+      "display_ranges": {
+        "防御": "1～276"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_20a2a2758205",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 114.5
+      },
+      "display_ranges": {
+        "抵抗": "1～228"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2378b8d57378",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "HP": 405.5
+      },
+      "display_ranges": {
+        "HP": "1～810"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_264e814e45e2",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 18.5
+      },
+      "display_ranges": {
+        "抵抗": "1～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2681fffea059",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 90.5
+      },
+      "display_ranges": {
+        "全ステ": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_275eb075a5c5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 108.5
+      },
+      "display_ranges": {
+        "防御": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_287369d1653e",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 21.5
+      },
+      "display_ranges": {
+        "防御": "1～42"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2ae8138b54c9",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 648.5
+      },
+      "display_ranges": {
+        "HP": "1～1296"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2e607a855ab4",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 42.5
+      },
+      "display_ranges": {
+        "防御": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2ebb2c19df57",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 144.5
+      },
+      "display_ranges": {
+        "抵抗": "1～288"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2f7d99d1392b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 126.5
+      },
+      "display_ranges": {
+        "防御": "1～252"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_336ebfbd93cf",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 27.5
+      },
+      "display_ranges": {
+        "全ステ": "1～54"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3430483363a0",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 126.5
+      },
+      "display_ranges": {
+        "抵抗": "1～252"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_35ff70eeccd8",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 21.5
+      },
+      "display_ranges": {
+        "抵抗": "1～42"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_375299bfd715",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 162.5
+      },
+      "display_ranges": {
+        "HP": "1～324"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_38aa841e9570",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 33.5
+      },
+      "display_ranges": {
+        "防御": "1～66"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_399df78f9245",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 180.5
+      },
+      "display_ranges": {
+        "HP": "1～360"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3a6d0c65916d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 144.5
+      },
+      "display_ranges": {
+        "HP": "1～288"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3d5993b7050b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 30.5
+      },
+      "display_ranges": {
+        "全ステ": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3ed5714fb614",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 15.5
+      },
+      "display_ranges": {
+        "全ステ": "1～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3f3277b01ecd",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 15.5
+      },
+      "display_ranges": {
+        "防御": "1～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_407d241c1191",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 138.5
+      },
+      "display_ranges": {
+        "抵抗": "1～276"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_40a6816d1b0e",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 567.5
+      },
+      "display_ranges": {
+        "HP": "1～1134"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_40d2fee6503b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 27.5
+      },
+      "display_ranges": {
+        "防御": "1～54"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4675d6bb80e0",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 132.5
+      },
+      "display_ranges": {
+        "防御": "1～264"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4725dec2aa29",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 198.5
+      },
+      "display_ranges": {
+        "HP": "1～396"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4a949170b0f3",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 234.5
+      },
+      "display_ranges": {
+        "HP": "1～468"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4f50db79ef9c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 15.5
+      },
+      "display_ranges": {
+        "抵抗": "1～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_53b6502e7918",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 18.5
+      },
+      "display_ranges": {
+        "防御": "1～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_54b677d3c968",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 216.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～432"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5697f77b81d5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 30.5
+      },
+      "display_ranges": {
+        "防御": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5847ab181187",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 42.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5886523d2149",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 144.5
+      },
+      "display_ranges": {
+        "防御": "1～288"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5ab0202c1906",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 252.5
+      },
+      "display_ranges": {
+        "HP": "1～504"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5d0b6f2b20b5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 108.5
+      },
+      "display_ranges": {
+        "全ステ": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_601442ac9b0c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 30.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6184d3b417c3",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 78.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～156"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_64c6a59d055d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 126.5
+      },
+      "display_ranges": {
+        "HP": "1～252"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6790531dec4e",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10-20 Ely獲得量%+d％)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10-20",
+      "detail": "Ely獲得量%+d％",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得量%+d％": 2.0
+      },
+      "display_ranges": {
+        "Ely獲得量%+d％": "1～3"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6b55b3c8f236",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 36.5
+      },
+      "display_ranges": {
+        "全ステ": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6ca423ce9cea",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 84.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～168"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6cad626b98cf",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 86.0
+      },
+      "display_ranges": {
+        "全ステ": "1～171"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6d03371a0ebb",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 162.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～324"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6d0f50e7d96c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 120.5
+      },
+      "display_ranges": {
+        "抵抗": "1～240"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6f962e032d0c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 540.5
+      },
+      "display_ranges": {
+        "HP": "1～1080"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_765b6a3857ca",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "抵抗": 90.5
+      },
+      "display_ranges": {
+        "抵抗": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_78fec07b0f37",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 99.5
+      },
+      "display_ranges": {
+        "全ステ": "1～198"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7a40dcace339",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 594.5
+      },
+      "display_ranges": {
+        "HP": "1～1188"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7d69c86815d6",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 207.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～414"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_843710bbf69d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11-20 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11-20",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "武器属性": 3.5
+      },
+      "display_ranges": {
+        "武器属性": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_84fcff1a1d3c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "追加ダメ": 135.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～270"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_87cb5be0837b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 95.0
+      },
+      "display_ranges": {
+        "全ステ": "1～189"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_88dfb5bdee85",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 39.5
+      },
+      "display_ranges": {
+        "防御": "1～78"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_894725d24240",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 153.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～306"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_8ce640ca99fc",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 102.5
+      },
+      "display_ranges": {
+        "防御": "1～204"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_91c0f5f87da4",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "防御": 96.5
+      },
+      "display_ranges": {
+        "防御": "1～192"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_923194ac4bb0",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "防御": 90.5
+      },
+      "display_ranges": {
+        "防御": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_92d95a19a9a1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 36.5
+      },
+      "display_ranges": {
+        "防御": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_94508d1c3570",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 39.5
+      },
+      "display_ranges": {
+        "抵抗": "1～78"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9491648f16a9",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 114.5
+      },
+      "display_ranges": {
+        "防御": "1～228"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9baa4ac5e143",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "HP": 432.5
+      },
+      "display_ranges": {
+        "HP": "1～864"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9e5c4fa9f075",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "全ステ": 72.5
+      },
+      "display_ranges": {
+        "全ステ": "1～144"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9e934f6a16a1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 39.5
+      },
+      "display_ranges": {
+        "全ステ": "1～78"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9f9877bad32c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 120.5
+      },
+      "display_ranges": {
+        "防御": "1～240"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_a0d84333c8a5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 108.5
+      },
+      "display_ranges": {
+        "抵抗": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_a2250040c797",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 104.0
+      },
+      "display_ranges": {
+        "全ステ": "1～207"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_aed7d5baa516",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 102.5
+      },
+      "display_ranges": {
+        "抵抗": "1～204"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_b317557cf2aa",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 108.5
+      },
+      "display_ranges": {
+        "HP": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_cf37c86295d5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 486.5
+      },
+      "display_ranges": {
+        "HP": "1～972"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_cfe341f5b661",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 24.5
+      },
+      "display_ranges": {
+        "全ステ": "1～48"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_d2b07fbb32ef",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 459.5
+      },
+      "display_ranges": {
+        "HP": "1～918"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_d61dd0fc66a6",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 54.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～108"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_de53c54acfcb",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 132.5
+      },
+      "display_ranges": {
+        "抵抗": "1～264"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_de70c025b8e1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 621.5
+      },
+      "display_ranges": {
+        "HP": "1～1242"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e5c61d9392bf",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 198.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～396"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e857f525133e",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 33.5
+      },
+      "display_ranges": {
+        "全ステ": "1～66"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_ea03d13820fb",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 90.5
+      },
+      "display_ranges": {
+        "HP": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_eae962e679c7",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 33.5
+      },
+      "display_ranges": {
+        "抵抗": "1～66"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f16c7654967a",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 36.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f2a8e35c71ee",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 24.5
+      },
+      "display_ranges": {
+        "抵抗": "1～48"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f4fa3b22381f",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 24.5
+      },
+      "display_ranges": {
+        "防御": "1～48"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f6c0635a500b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 72.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～144"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_fb6b004635ce",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 216.5
+      },
+      "display_ranges": {
+        "HP": "1～432"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_fc9408509486",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 18.5
+      },
+      "display_ranges": {
+        "全ステ": "1～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_fe48dbc24cc4",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1-10 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1-10",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 2.5
+      },
+      "display_ranges": {
+        "武器属性": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_ffadddc590f3",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 189.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～378"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
       "id": "eqgrp_3e08c10483bc",
       "equipment_name": "イカロスクリップ",
       "display_name": "イカロスクリップ (強化 +6→超越)",
@@ -378,14 +5479,14 @@ const ENCHANT_DATA = {
       "option_type": 195,
       "option_class": 4,
       "expected_values": {
-        "ボス追加ダメ": 7100.0,
         "追加ダメ": 4100.0,
-        "防御": 276.0,
-        "HP": 12500.0,
         "最小": 40.0,
         "ダメ減": 13.0,
+        "一般追加ダメ": 7100.0,
+        "防御": 276.0,
+        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
-        "一般追加ダメ": 7100.0
+        "HP": 12500.0
       },
       "base_expected_values": {
         "防御": 2973.0,
@@ -416,14 +5517,14 @@ const ENCHANT_DATA = {
       "option_type": 195,
       "option_class": 3,
       "expected_values": {
-        "ボス追加ダメ": 2500.0,
         "追加ダメ": 2500.0,
-        "防御": 200.0,
-        "HP": 7500.0,
         "最小": 25.0,
         "ダメ減": 10.0,
+        "一般追加ダメ": 2500.0,
+        "防御": 200.0,
+        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
-        "一般追加ダメ": 2500.0
+        "HP": 7500.0
       },
       "base_expected_values": {
         "防御": 2973.0,
@@ -589,6 +5690,33 @@ const ENCHANT_DATA = {
       ]
     },
     {
+      "id": "eqgrp_55f4681e77e4",
+      "equipment_name": "イカロスクリップ / イカロスプレート",
+      "display_name": "イカロスクリップ / イカロスプレート (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1-2",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 194,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最大": 60.5
+      },
+      "display_ranges": {
+        "最大": "1～120"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスプレート"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート"
+      ]
+    },
+    {
       "id": "eqgrp_f88c16a9de73",
       "equipment_name": "イカロスクリップ / イカロスプレート",
       "display_name": "イカロスクリップ / イカロスプレート (エンチャ Lv3-5 物理/魔法最大ダメージ%+d％)",
@@ -613,35 +5741,6 @@ const ENCHANT_DATA = {
       ],
       "selectable_options": [
         "イカロスクリップ / イカロスプレート"
-      ]
-    },
-    {
-      "id": "eqgrp_d8cd34554ebe",
-      "equipment_name": "イカロスクリップ / イカロスプレート / 滅亡の精霊石",
-      "display_name": "イカロスクリップ / イカロスプレート / 滅亡の精霊石 (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1-2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 194,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最大": 60.5
-      },
-      "display_ranges": {
-        "最大": "1～120"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスプレート",
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "滅亡の精霊石"
       ]
     },
     {
@@ -707,15 +5806,15 @@ const ENCHANT_DATA = {
       "option_type": 193,
       "option_class": 4,
       "expected_values": {
-        "ボス追加ダメ": 7100.0,
         "追加ダメ": 4100.0,
-        "防御": 138.0,
         "クリダメ": 9.0,
-        "HP": 12500.0,
         "武器属性": 59.0,
         "ダメ減": 5.0,
+        "一般追加ダメ": 7100.0,
+        "防御": 138.0,
+        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
-        "一般追加ダメ": 7100.0
+        "HP": 12500.0
       },
       "base_expected_values": {
         "防御": 1471.0,
@@ -747,15 +5846,15 @@ const ENCHANT_DATA = {
       "option_type": 193,
       "option_class": 3,
       "expected_values": {
-        "ボス追加ダメ": 2500.0,
         "追加ダメ": 2500.0,
-        "防御": 100.0,
         "クリダメ": 5.0,
-        "HP": 7500.0,
         "武器属性": 25.0,
         "ダメ減": 4.0,
+        "一般追加ダメ": 2500.0,
+        "防御": 100.0,
+        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
-        "一般追加ダメ": 2500.0
+        "HP": 7500.0
       },
       "base_expected_values": {
         "防御": 1471.0,
@@ -950,13 +6049,13 @@ const ENCHANT_DATA = {
       "option_type": 197,
       "option_class": 4,
       "expected_values": {
-        "ボス追加ダメ": 7100.0,
         "追加ダメ": 4100.0,
-        "防御": 138.0,
-        "HP": 12500.0,
         "ダメ減": 8.0,
-        "全ステ": 4200.0,
         "一般追加ダメ": 7100.0,
+        "防御": 138.0,
+        "ボス追加ダメ": 7100.0,
+        "全ステ": 4200.0,
+        "HP": 12500.0,
         "移動": 4.0
       },
       "base_expected_values": {
@@ -988,13 +6087,13 @@ const ENCHANT_DATA = {
       "option_type": 197,
       "option_class": 3,
       "expected_values": {
-        "ボス追加ダメ": 2500.0,
         "追加ダメ": 2500.0,
-        "防御": 100.0,
-        "HP": 7500.0,
         "ダメ減": 6.0,
+        "一般追加ダメ": 2500.0,
+        "防御": 100.0,
+        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
-        "一般追加ダメ": 2500.0
+        "HP": 7500.0
       },
       "base_expected_values": {
         "防御": 1602.0,
@@ -1053,14 +6152,14 @@ const ENCHANT_DATA = {
       "option_type": 194,
       "option_class": 3,
       "expected_values": {
-        "ボス追加ダメ": 2500.0,
         "最大": 25.0,
         "追加ダメ": 2500.0,
-        "防御": 250.0,
-        "HP": 7500.0,
         "ダメ減": 5.0,
+        "一般追加ダメ": 2500.0,
+        "防御": 250.0,
+        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
-        "一般追加ダメ": 2500.0
+        "HP": 7500.0
       },
       "base_expected_values": {
         "防御": 3657.0,
@@ -1091,14 +6190,14 @@ const ENCHANT_DATA = {
       "option_type": 194,
       "option_class": 4,
       "expected_values": {
-        "ボス追加ダメ": 7100.0,
         "最大": 40.0,
         "追加ダメ": 4100.0,
-        "防御": 345.0,
-        "HP": 12500.0,
         "ダメ減": 6.0,
+        "一般追加ダメ": 7100.0,
+        "防御": 345.0,
+        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
-        "一般追加ダメ": 7100.0
+        "HP": 12500.0
       },
       "base_expected_values": {
         "防御": 3657.0,
@@ -1262,14 +6361,14 @@ const ENCHANT_DATA = {
       "option_type": 196,
       "option_class": 3,
       "expected_values": {
-        "ボス追加ダメ": 2500.0,
-        "命中率": 5.0,
         "追加ダメ": 2500.0,
-        "防御": 100.0,
-        "HP": 7500.0,
         "ダメ減": 6.0,
+        "一般追加ダメ": 2500.0,
+        "防御": 100.0,
+        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
-        "一般追加ダメ": 2500.0
+        "HP": 7500.0,
+        "命中率": 5.0
       },
       "base_expected_values": {
         "防御": 1736.0,
@@ -1300,14 +6399,14 @@ const ENCHANT_DATA = {
       "option_type": 196,
       "option_class": 4,
       "expected_values": {
-        "ボス追加ダメ": 7100.0,
-        "命中率": 8.0,
         "追加ダメ": 4100.0,
-        "防御": 138.0,
-        "HP": 12500.0,
         "ダメ減": 8.0,
+        "一般追加ダメ": 7100.0,
+        "防御": 138.0,
+        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
-        "一般追加ダメ": 7100.0
+        "HP": 12500.0,
+        "命中率": 8.0
       },
       "base_expected_values": {
         "防御": 1736.0,
@@ -1505,6 +6604,39 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "追加ダメ_乗算": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスプレート",
+        "イカロスヘルメット"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスヘルメット"
+      ]
+    },
+    {
+      "id": "eqgrp_266018fd1f87",
+      "equipment_name": "イカロス防具",
+      "display_name": "イカロス防具 (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 193,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "最小": 75.5
+      },
+      "display_ranges": {
+        "最小": "1～150"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -3461,41 +8593,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_94449a1e7b49",
-      "equipment_name": "イカロス防具 / 滅亡の精霊石",
-      "display_name": "イカロス防具 / 滅亡の精霊石 (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 193,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 75.5
-      },
-      "display_ranges": {
-        "最小": "1～150"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスプレート",
-        "イカロスヘルメット",
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスヘルメット",
-        "滅亡の精霊石"
-      ]
-    },
-    {
       "id": "eqgrp_174c82befe6a",
       "equipment_name": "クラフトキーパーの教本",
       "display_name": "クラフトキーパーの教本 (強化 →+6)",
@@ -3506,12 +8603,12 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "属性": 7.0,
         "最大": 8.0,
-        "攻撃": 7.0,
-        "全ステ": 800.0,
         "筋力魔力": 800.0,
-        "一般追加ダメ": 500.0
+        "攻撃": 7.0,
+        "一般追加ダメ": 500.0,
+        "全ステ": 800.0,
+        "属性": 7.0
       },
       "base_expected_values": {
         "最大": 101.0,
@@ -3531,951 +8628,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_0f07761e1bf1",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]全ステータス%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "全ステ": 250.0
-      },
-      "display_ranges": {
-        "全ステ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_18338538be78",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "ボス追加ダメ": 90.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_1d0c01d9e942",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]体力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]体力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "体力": 90.0
-      },
-      "display_ranges": {
-        "体力": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_25fe5b408ea2",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "一般追加ダメ": 90.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_2d46b7a5fde4",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "ボス追加ダメ": 450.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_3a79e62b7d92",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "ボス追加ダメ": 250.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_3e3ecf20a20d",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]幸運%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]幸運%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "幸運": 450.0
-      },
-      "display_ranges": {
-        "幸運": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_59583eb09752",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]武器攻撃力/属性力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "武器属性": 9.0
-      },
-      "display_ranges": {
-        "武器属性": "3～15"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_6b896e4a69b8",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]最大HP%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]最大HP%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "HP": 450.0
-      },
-      "display_ranges": {
-        "HP": "200～700"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_74d04a6c6c56",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]最大HP%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]最大HP%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "HP": 1700.0
-      },
-      "display_ranges": {
-        "HP": "400～3000"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_779b4b0d1bd1",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]筋力/魔法力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "筋力魔力": 250.0
-      },
-      "display_ranges": {
-        "筋力魔力": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_7de5106eaf78",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]筋力/魔法力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "筋力魔力": 450.0
-      },
-      "display_ranges": {
-        "筋力魔力": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_8a1cd2b72646",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]全ステータス%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "全ステ": 450.0
-      },
-      "display_ranges": {
-        "全ステ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_8e98a980dd95",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "一般追加ダメ": 250.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9011789c187b",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]武器攻撃力/属性力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "武器属性": 14.0
-      },
-      "display_ranges": {
-        "武器属性": "3～25"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_96ad9fc205f5",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]体力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]体力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "体力": 250.0
-      },
-      "display_ranges": {
-        "体力": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_96e3d85793ef",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]体力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]体力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "体力": 450.0
-      },
-      "display_ranges": {
-        "体力": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_96f4062d9377",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "追加ダメ": 450.0
-      },
-      "display_ranges": {
-        "追加ダメ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9e45139494e6",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "一般追加ダメ": 450.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9ea46c240279",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]最大HP%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]最大HP%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "HP": 950.0
-      },
-      "display_ranges": {
-        "HP": "400～1500"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9eadb131ada7",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "追加ダメ": 250.0
-      },
-      "display_ranges": {
-        "追加ダメ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_b3a0db6a5360",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]武器攻撃力/属性力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "武器属性": 3.0
-      },
-      "display_ranges": {
-        "武器属性": "1～5"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_b75a20608587",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]幸運%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [2]幸運%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "幸運": 250.0
-      },
-      "display_ranges": {
-        "幸運": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_d86aa668e4b5",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]幸運%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]幸運%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "幸運": 90.0
-      },
-      "display_ranges": {
-        "幸運": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_dc52972d50b1",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]筋力/魔法力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "筋力魔力": 90.0
-      },
-      "display_ranges": {
-        "筋力魔力": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_dd5abcd6b7f3",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "追加ダメ": 90.0
-      },
-      "display_ranges": {
-        "追加ダメ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_f2751c626277",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 9999,
-      "detail": "段階6 [1]全ステータス%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "全ステ": 90.0
-      },
-      "display_ranges": {
-        "全ステ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
       "id": "eqgrp_1d6a5975815d",
       "equipment_name": "フレディアの4番目バッジ",
       "display_name": "フレディアの4番目バッジ (強化 →+6)",
@@ -4486,12 +8638,12 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "属性": 8.0,
-        "ボス追加ダメ": 1000.0,
         "追加ダメ": 1500.0,
         "攻撃": 8.0,
+        "一般追加ダメ": 750.0,
+        "ボス追加ダメ": 1000.0,
         "全ステ": 500.0,
-        "一般追加ダメ": 750.0
+        "属性": 8.0
       },
       "base_expected_values": {
         "全ステ": 3600.0,
@@ -4508,2710 +8660,6 @@ const ENCHANT_DATA = {
       ],
       "selectable_options": [
         "フレディアの4番目バッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_024635953072",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 15.5
-      },
-      "display_ranges": {
-        "抵抗": "1～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_0533f763df49",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv8 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 216.5
-      },
-      "display_ranges": {
-        "HP": "1～432"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_063593f34aa1",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv8 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 36.5
-      },
-      "display_ranges": {
-        "全ステ": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_075785ff794c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv13 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 102.5
-      },
-      "display_ranges": {
-        "抵抗": "1～204"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_081d101bcaef",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv13 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 459.5
-      },
-      "display_ranges": {
-        "HP": "1～918"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_0eee7840802b",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv9 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 39.5
-      },
-      "display_ranges": {
-        "抵抗": "1～78"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_119092ed3e7b",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv4 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 144.5
-      },
-      "display_ranges": {
-        "HP": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_13461acf2280",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv11 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "追加ダメ": 135.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～270"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_1532f6f9c56a",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv19 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 138.5
-      },
-      "display_ranges": {
-        "抵抗": "1～276"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_1f1add44c703",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv9 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 78.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～156"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_1f9452265775",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv12 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "防御": 96.5
-      },
-      "display_ranges": {
-        "防御": "1～192"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_25c42411cfd3",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv20 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 648.5
-      },
-      "display_ranges": {
-        "HP": "1～1296"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_2775efaba3d3",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv7 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 33.5
-      },
-      "display_ranges": {
-        "全ステ": "1～66"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_29e404dd7b33",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv10 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 42.5
-      },
-      "display_ranges": {
-        "全ステ": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_2b655a11b6ad",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv19 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 138.5
-      },
-      "display_ranges": {
-        "防御": "1～276"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_2c460984fe04",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv20 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 144.5
-      },
-      "display_ranges": {
-        "抵抗": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_2d852f98cc9c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv5 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 27.5
-      },
-      "display_ranges": {
-        "全ステ": "1～54"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_2dc4ac1875d2",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv17 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 567.5
-      },
-      "display_ranges": {
-        "HP": "1～1134"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_2eb399967dcd",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv18 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 594.5
-      },
-      "display_ranges": {
-        "HP": "1～1188"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_309b659fde15",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv5 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 162.5
-      },
-      "display_ranges": {
-        "HP": "1～324"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_30efcb8ba7f6",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv6 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 180.5
-      },
-      "display_ranges": {
-        "HP": "1～360"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_317a37386144",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv3 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 126.5
-      },
-      "display_ranges": {
-        "HP": "1～252"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_337ca42b7d9b",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 15.5
-      },
-      "display_ranges": {
-        "防御": "1～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_33a1c91a3de3",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv12 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "全ステ": 72.5
-      },
-      "display_ranges": {
-        "全ステ": "1～144"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_369c36fdd387",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv3 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 21.5
-      },
-      "display_ranges": {
-        "防御": "1～42"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_37c620396bca",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv6 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 30.5
-      },
-      "display_ranges": {
-        "全ステ": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_3a7c7c4ad5e6",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv8 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 72.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～144"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_3c29eb441058",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv17 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 189.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～378"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_3dfa6704c1f6",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv3 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 42.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_3e51cee5074e",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv12 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "HP": 432.5
-      },
-      "display_ranges": {
-        "HP": "1～864"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_3f0c3e8ba781",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv5 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 54.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～108"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_3f374a0ccabb",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv7 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 33.5
-      },
-      "display_ranges": {
-        "抵抗": "1～66"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_418361845861",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv6 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 60.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～120"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_42ca5ba3f29d",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv11 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "防御": 90.5
-      },
-      "display_ranges": {
-        "防御": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_436989eabc0d",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 24.5
-      },
-      "display_ranges": {
-        "全ステ": "1～48"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_45527faa9362",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv11 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "全ステ": 68.0
-      },
-      "display_ranges": {
-        "全ステ": "1～135"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_46eccd3b62fb",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv19 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 621.5
-      },
-      "display_ranges": {
-        "HP": "1～1242"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_471db1a7ac2c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv10 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 42.5
-      },
-      "display_ranges": {
-        "防御": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_482b2ea277ba",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv14 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 108.5
-      },
-      "display_ranges": {
-        "抵抗": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_4dca5a5be9ef",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv8 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 36.5
-      },
-      "display_ranges": {
-        "防御": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_4e553c8dee9a",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv13 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 102.5
-      },
-      "display_ranges": {
-        "防御": "1～204"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_57a3e66f92da",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv20 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 108.5
-      },
-      "display_ranges": {
-        "全ステ": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_5ab91d33c4ad",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 48.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～96"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_5ad2eb825afc",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv17 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 126.5
-      },
-      "display_ranges": {
-        "抵抗": "1～252"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_5d1851adcdc6",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv8 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 36.5
-      },
-      "display_ranges": {
-        "抵抗": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_5d5c6a964880",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv12 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "追加ダメ": 144.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_5e21301982d0",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv16 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 540.5
-      },
-      "display_ranges": {
-        "HP": "1～1080"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_5e311965c1ec",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv14 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 81.5
-      },
-      "display_ranges": {
-        "全ステ": "1～162"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_618efd18a221",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv15 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 171.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～342"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_6a2451b16507",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 18.5
-      },
-      "display_ranges": {
-        "抵抗": "1～36"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_6bd0ce531934",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv13 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 153.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～306"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_726853250893",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv10 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 42.5
-      },
-      "display_ranges": {
-        "抵抗": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_72e8f633836d",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv9 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 39.5
-      },
-      "display_ranges": {
-        "防御": "1～78"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_79ad8d2f2d24",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv11 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "抵抗": 90.5
-      },
-      "display_ranges": {
-        "抵抗": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_79cd05cf6200",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv16 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 180.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～360"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_7e3fbd37f063",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 18.5
-      },
-      "display_ranges": {
-        "防御": "1～36"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_7f9a23d7df5c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv9 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 234.5
-      },
-      "display_ranges": {
-        "HP": "1～468"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_80835376c600",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv18 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 198.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～396"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_80c4d8a32795",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 15.5
-      },
-      "display_ranges": {
-        "全ステ": "1～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_838eb758e262",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv9 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 39.5
-      },
-      "display_ranges": {
-        "全ステ": "1～78"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_83b4125b8e77",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv13 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 77.0
-      },
-      "display_ranges": {
-        "全ステ": "1～153"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_8833eee62bf3",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv19 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 207.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～414"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_89aa72d59727",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv3 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 21.5
-      },
-      "display_ranges": {
-        "抵抗": "1～42"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_8c7a32cf5791",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv6 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 30.5
-      },
-      "display_ranges": {
-        "防御": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_8d2aa1c701ac",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv20 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 216.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～432"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_8e46f2720b0c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv18 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 132.5
-      },
-      "display_ranges": {
-        "防御": "1～264"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_9024045cf7fa",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv15 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 513.5
-      },
-      "display_ranges": {
-        "HP": "1～1026"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_95eb6583ec31",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv10 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 252.5
-      },
-      "display_ranges": {
-        "HP": "1～504"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_96685715792d",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv15 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 114.5
-      },
-      "display_ranges": {
-        "防御": "1～228"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_975025fed4ca",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv15 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 86.0
-      },
-      "display_ranges": {
-        "全ステ": "1～171"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_9c3963a90624",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 90.5
-      },
-      "display_ranges": {
-        "HP": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_9cceb342a7e1",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv18 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 99.5
-      },
-      "display_ranges": {
-        "全ステ": "1～198"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_9fb98d0cc84d",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv10-20 Ely獲得量%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10-20",
-      "detail": "Ely獲得量%+d％",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "Ely獲得量%+d％": 2.0
-      },
-      "display_ranges": {
-        "Ely獲得量%+d％": "1～3"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_a73e2130a79b",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 24.5
-      },
-      "display_ranges": {
-        "防御": "1～48"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_a74fa9a85747",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv14 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 108.5
-      },
-      "display_ranges": {
-        "防御": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_a75ee635a119",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 24.5
-      },
-      "display_ranges": {
-        "抵抗": "1～48"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_abe6a34ebd62",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv5 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 27.5
-      },
-      "display_ranges": {
-        "抵抗": "1～54"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_ae3db4d2c2ee",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv16 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 120.5
-      },
-      "display_ranges": {
-        "抵抗": "1～240"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_b08bf22ac8cc",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv16 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 90.5
-      },
-      "display_ranges": {
-        "全ステ": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_b8701b6bda22",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv14 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 486.5
-      },
-      "display_ranges": {
-        "HP": "1～972"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_b913da430301",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv7 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 33.5
-      },
-      "display_ranges": {
-        "防御": "1～66"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_ba633f9f7197",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv5 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 27.5
-      },
-      "display_ranges": {
-        "防御": "1～54"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_bad4bfbb36fa",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv19 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 104.0
-      },
-      "display_ranges": {
-        "全ステ": "1～207"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_bff174178204",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv20 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 144.5
-      },
-      "display_ranges": {
-        "防御": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_c2fba88ed46c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv11 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "HP": 405.5
-      },
-      "display_ranges": {
-        "HP": "1～810"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_c4b6f5984a90",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv11-20 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11-20",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "武器属性": 3.5
-      },
-      "display_ranges": {
-        "武器属性": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_c5ec0efe50ee",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1-9 Ely獲得量%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1-9",
-      "detail": "Ely獲得量%+d％",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "Ely獲得量%+d％": 1.5
-      },
-      "display_ranges": {
-        "Ely獲得量%+d％": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_c6d9c51b096e",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv16 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 120.5
-      },
-      "display_ranges": {
-        "防御": "1～240"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_c87b8837a0f7",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv6 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 30.5
-      },
-      "display_ranges": {
-        "抵抗": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_c9b92f01a05f",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 36.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_cac7f2622046",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv18 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 132.5
-      },
-      "display_ranges": {
-        "抵抗": "1～264"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_d2b8c85127cf",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv17 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 95.0
-      },
-      "display_ranges": {
-        "全ステ": "1～189"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_d892a62cde99",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv3 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 21.5
-      },
-      "display_ranges": {
-        "全ステ": "1～42"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_dabf75703216",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv7 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 198.5
-      },
-      "display_ranges": {
-        "HP": "1～396"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_df794156d49c",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv10 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 84.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～168"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_e28ab5187557",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 18.5
-      },
-      "display_ranges": {
-        "全ステ": "1～36"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_e330dfa3a3f5",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1-10 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1-10",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 2.5
-      },
-      "display_ranges": {
-        "武器属性": "1～4"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_e52b86ce94d7",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv17 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 126.5
-      },
-      "display_ranges": {
-        "防御": "1～252"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_e905fe021199",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv12 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "抵抗": 96.5
-      },
-      "display_ranges": {
-        "抵抗": "1～192"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_e9a3cd929588",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv14 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 162.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～324"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_eb848f85f18f",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv2 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 108.5
-      },
-      "display_ranges": {
-        "HP": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_f58b0d3847af",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv15 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 114.5
-      },
-      "display_ranges": {
-        "抵抗": "1～228"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_f64c569226f0",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv7 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 66.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～132"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
-      ]
-    },
-    {
-      "id": "eqgrp_fa660489cae9",
-      "equipment_name": "特殊装備",
-      "display_name": "特殊装備 (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 30.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "特殊装備"
-      ],
-      "selectable_options": [
-        "特殊装備"
       ]
     },
     {
@@ -7355,12 +8803,12 @@ const ENCHANT_DATA = {
       "option_type": 192,
       "option_class": 1,
       "expected_values": {
-        "属性": 29.0,
-        "筋力": 5800.0,
-        "HP": 3770.0,
-        "魔力": 5800.0,
         "攻撃": 29.0,
-        "一般追加ダメ": 2900.0
+        "一般追加ダメ": 2900.0,
+        "HP": 3770.0,
+        "筋力": 5800.0,
+        "属性": 29.0,
+        "魔力": 5800.0
       },
       "base_expected_values": {
         "筋力": 8600.0,
@@ -7389,11 +8837,11 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "ボス追加ダメ": 1450.0,
         "追加ダメ": 1450.0,
-        "HP": 1450.0,
-        "全ステ": 870.0,
         "一般追加ダメ": 1450.0,
+        "ボス追加ダメ": 1450.0,
+        "全ステ": 870.0,
+        "HP": 1450.0,
         "クリダメ": 10.0,
         "攻撃_乗算": 1.0,
         "属性_乗算": 1.0
@@ -7428,12 +8876,12 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "抵抗": 870.0,
-        "全ステ": 870.0,
-        "ボス追加ダメ": 1450.0,
-        "防御": 870.0,
-        "経験値": 29.0,
         "筋力魔力": 2900.0,
+        "経験値": 29.0,
         "一般追加ダメ": 1450.0,
+        "防御": 870.0,
+        "ボス追加ダメ": 1450.0,
+        "全ステ": 870.0,
         "ドロップ率": 7.0
       },
       "base_expected_values": {
@@ -7959,12 +9407,12 @@ const ENCHANT_DATA = {
       "option_type": 182,
       "option_class": 6,
       "expected_values": {
-        "全ステ": 1000.0,
         "追加ダメ": 900.0,
         "武器属性": 10.0,
+        "筋力魔力": 1000.0,
         "Ely獲得量": 8.0,
         "ボス追加ダメ": 900.0,
-        "筋力魔力": 1000.0
+        "全ステ": 1000.0
       },
       "base_expected_values": {
         "Ely獲得量": 61.0,
@@ -8119,6 +9567,36 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "抵抗": "600～600"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ]
+    },
+    {
+      "id": "eqgrp_22a9b55aa039",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (エンチャ Lv3 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "3",
+      "detail": "最大HP%+d％",
+      "option_type": 191,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～1"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -8343,6 +9821,36 @@ const ENCHANT_DATA = {
       ]
     },
     {
+      "id": "eqgrp_523a7ee60d5e",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (エンチャ Lv4 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "4",
+      "detail": "最大HP%+d％",
+      "option_type": 191,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 2.0
+      },
+      "display_ranges": {
+        "HP_乗算": "2～2"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ]
+    },
+    {
       "id": "eqgrp_562fa9a2919d",
       "equipment_name": "エメラルディアアクセ",
       "display_name": "エメラルディアアクセ (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
@@ -8479,6 +9987,36 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "最小": "15～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ]
+    },
+    {
+      "id": "eqgrp_a22a264207f0",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9000,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 191,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 60.0,
+      "expected_values": {
+        "武器属性": 75.5
+      },
+      "display_ranges": {
+        "武器属性": "1～150"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -9761,102 +11299,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_596bd7f9d437",
-      "equipment_name": "エメラルディアアクセ / 滅亡の精霊石",
-      "display_name": "エメラルディアアクセ / 滅亡の精霊石 (エンチャ Lv3 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "3",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_69aa9f843a72",
-      "equipment_name": "エメラルディアアクセ / 滅亡の精霊石",
-      "display_name": "エメラルディアアクセ / 滅亡の精霊石 (エンチャ Lv4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "4",
-      "detail": "最大HP%+d％",
-      "option_type": 191,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 2.0
-      },
-      "display_ranges": {
-        "HP_乗算": "2～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_e20c3d031306",
-      "equipment_name": "エメラルディアアクセ / 滅亡の精霊石",
-      "display_name": "エメラルディアアクセ / 滅亡の精霊石 (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 75.5
-      },
-      "display_ranges": {
-        "武器属性": "1～150"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "滅亡の精霊石"
-      ]
-    },
-    {
       "id": "eqgrp_149095af0ce4",
       "equipment_name": "エメラルディアアクセ / 滅亡記憶武器",
       "display_name": "エメラルディアアクセ / 滅亡記憶武器 (エンチャ Lv3 物理/魔法追加ダメージ%+d％)",
@@ -10247,8 +11689,8 @@ const ENCHANT_DATA = {
       "option_type": 191,
       "option_class": 3,
       "expected_values": {
-        "最小": 15.0,
         "クリダメ": 10.0,
+        "最小": 15.0,
         "全ステ": 2000.0
       },
       "base_expected_values": {
@@ -10277,8 +11719,8 @@ const ENCHANT_DATA = {
       "option_type": 191,
       "option_class": 3,
       "expected_values": {
-        "最小": 15.0,
         "クリダメ": 10.0,
+        "最小": 15.0,
         "全ステ": 2000.0
       },
       "base_expected_values": {
@@ -10439,8 +11881,8 @@ const ENCHANT_DATA = {
       "expected_values": {
         "最大": 15.0,
         "武器属性": 10.0,
-        "全ステ": 2000.0,
-        "筋力魔力": 2000.0
+        "筋力魔力": 2000.0,
+        "全ステ": 2000.0
       },
       "base_expected_values": {
         "全ステ": 6100.0,
@@ -10471,8 +11913,8 @@ const ENCHANT_DATA = {
       "expected_values": {
         "最大": 15.0,
         "武器属性": 10.0,
-        "全ステ": 2000.0,
-        "筋力魔力": 2000.0
+        "筋力魔力": 2000.0,
+        "全ステ": 2000.0
       },
       "base_expected_values": {
         "全ステ": 6100.0,
@@ -10689,8 +12131,8 @@ const ENCHANT_DATA = {
       "expected_values": {
         "最大": 10.0,
         "武器属性": 10.0,
-        "ボス追加ダメ": 2000.0,
-        "筋力魔力": 2000.0
+        "筋力魔力": 2000.0,
+        "ボス追加ダメ": 2000.0
       },
       "base_expected_values": {
         "最大": 120.0,
@@ -10721,8 +12163,8 @@ const ENCHANT_DATA = {
       "expected_values": {
         "最大": 10.0,
         "武器属性": 10.0,
-        "ボス追加ダメ": 2000.0,
-        "筋力魔力": 2000.0
+        "筋力魔力": 2000.0,
+        "ボス追加ダメ": 2000.0
       },
       "base_expected_values": {
         "最大": 120.0,
@@ -10806,12 +12248,12 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "ボス追加ダメ": 500.0,
-        "命中率": 5.0,
-        "追加ダメ": 500.0,
         "クリダメ": 5.0,
+        "追加ダメ": 500.0,
+        "一般追加ダメ": 500.0,
+        "ボス追加ダメ": 500.0,
         "全ステ": 500.0,
-        "一般追加ダメ": 500.0
+        "命中率": 5.0
       },
       "base_expected_values": {
         "全ステ": 4100.0,
@@ -10842,8 +12284,8 @@ const ENCHANT_DATA = {
       "option_class": 5,
       "expected_values": {
         "追加ダメ": 1500.0,
-        "全ステ": 1500.0,
-        "筋力魔力": 1500.0
+        "筋力魔力": 1500.0,
+        "全ステ": 1500.0
       },
       "base_expected_values": {
         "全ステ": 200.0,
@@ -10871,10 +12313,10 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "筋力": 2900.0,
         "追加ダメ": 2900.0,
-        "魔力": 2900.0,
         "ボス追加ダメ": 1450.0,
+        "筋力": 2900.0,
+        "魔力": 2900.0,
         "最小": 10.0,
         "全ステ%": 2.0
       },
@@ -11973,11 +13415,11 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "expected_values": {
-        "属性": 16.0,
-        "ボス追加ダメ": 800.0,
+        "筋力魔力": 800.0,
         "攻撃": 16.0,
+        "ボス追加ダメ": 800.0,
         "全ステ": 800.0,
-        "筋力魔力": 800.0
+        "属性": 16.0
       },
       "base_expected_values": {
         "属性": 120.0,
@@ -14452,10 +15894,10 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "expected_values": {
-        "HP": 800.0,
-        "全ステ": 800.0,
         "筋力魔力": 800.0,
-        "一般追加ダメ": 800.0
+        "一般追加ダメ": 800.0,
+        "HP": 800.0,
+        "全ステ": 800.0
       },
       "base_expected_values": {
         "HP": 7100.0,
@@ -14483,9 +15925,9 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
+        "混乱抵抗": 29.0,
         "追加ダメ": 1450.0,
         "武器属性": 15.0,
-        "混乱抵抗": 29.0,
         "スタン抵抗": 29.0,
         "筋力魔力": 1450.0,
         "一般追加ダメ": 1450.0,
@@ -14509,2318 +15951,167 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_48179855c612",
-      "equipment_name": "Mr.デモニックの3番目のバッジ",
-      "display_name": "Mr.デモニックの3番目のバッジ (強化 →+6)",
-      "category": "強化",
-      "level": 8000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "ボス追加ダメ": 2500.0,
-        "最大": 3.0,
-        "追加ダメ": 2500.0,
-        "全ステ": 750.0,
-        "筋力魔力": 1000.0
-      },
-      "base_expected_values": {
-        "SP増加": 2600.0,
-        "全ステ": 2800.0,
-        "追加ダメ": 9700.0,
-        "ボス追加ダメ": 9700.0,
-        "筋力魔力": 4200.0,
-        "最大": 11.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "Mr.デモニックの3番目のバッジ"
-      ],
-      "selectable_options": [
-        "Mr.デモニックの3番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_10566424a0b4",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理ダメージ減少%+d)",
+      "id": "eqgrp_32a996041bca",
+      "equipment_name": "強靭なゼフィロスのバッジ",
+      "display_name": "強靭なゼフィロスのバッジ (エンチャ Lv1-55 物理/魔法命中率%+d％)",
       "category": "エンチャ",
       "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 300.0
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "300～300"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_1ca03bc2357f",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 18.0
-      },
-      "display_ranges": {
-        "BA": "18～18"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_22ad6663c8bf",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "最大HP%+d％",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "HP_乗算": 5.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_316aba909afb",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
+      "level_label": "1-55",
       "detail": "物理/魔法命中率%+d％",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 25.5
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "1～50"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_387995f0a22e",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ_乗算": 5.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～9"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_3a342e0c87eb",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "物理ダメージ減少": 1250.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2500"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_3a3ef22d40f0",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 188,
-      "option_class": 4,
+      "option_type": 129,
+      "option_class": 55,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "魔法ダメージ減少": 300.0
+        "物理/魔法命中率%+d％": 1.0
       },
       "display_ranges": {
-        "魔法ダメージ減少": "300～300"
+        "物理/魔法命中率%+d％": "1～1"
       },
       "base_expected_values": {},
       "filter_names": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ],
       "selectable_options": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ]
     },
     {
-      "id": "eqgrp_3aa1295fc93e",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "id": "eqgrp_5b0c33b15afd",
+      "equipment_name": "強靭なゼフィロスのバッジ",
+      "display_name": "強靭なゼフィロスのバッジ (エンチャ Lv1-55 物理/魔法ダメージ%+d)",
       "category": "エンチャ",
       "level": 8000,
-      "level_label": "1-2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "BA": 75.5
-      },
-      "display_ranges": {
-        "BA": "1～150"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_543940e4df83",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 筋力/魔法力%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d％",
-      "option_type": 188,
-      "option_class": 4,
+      "level_label": "1-55",
+      "detail": "物理/魔法ダメージ%+d",
+      "option_type": 129,
+      "option_class": 55,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "筋力魔力_乗算": 1.0
+        "物理/魔法ダメージ%+d": 100.0
       },
       "display_ranges": {
-        "筋力魔力_乗算": "1～1"
+        "物理/魔法ダメージ%+d": "100～100"
       },
       "base_expected_values": {},
       "filter_names": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ],
       "selectable_options": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ]
     },
     {
-      "id": "eqgrp_62071e3d1774",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 ボスモンスター追加ダメージ%+d)",
+      "id": "eqgrp_a8f06137f575",
+      "equipment_name": "強靭なゼフィロスのバッジ",
+      "display_name": "強靭なゼフィロスのバッジ (エンチャ Lv1-55 最大HP%+d)",
       "category": "エンチャ",
       "level": 8000,
-      "level_label": "1-2",
-      "detail": "ボスモンスター追加ダメージ%+d",
-      "option_type": 188,
-      "option_class": 2,
+      "level_label": "1-55",
+      "detail": "最大HP%+d",
+      "option_type": 129,
+      "option_class": 55,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
-        "ボス追加ダメ": 11500.5
+        "HP": 250.0
       },
       "display_ranges": {
-        "ボス追加ダメ": "1～23000"
+        "HP": "250～250"
       },
       "base_expected_values": {},
       "filter_names": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ],
       "selectable_options": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ]
     },
     {
-      "id": "eqgrp_6940dd82b0f4",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "id": "eqgrp_d2185e1465ae",
+      "equipment_name": "強靭なゼフィロスのバッジ",
+      "display_name": "強靭なゼフィロスのバッジ (エンチャ Lv1-55 筋力/魔法力%+d)",
       "category": "エンチャ",
       "level": 8000,
-      "level_label": "1-2",
+      "level_label": "1-55",
       "detail": "筋力/魔法力%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_6aba8e20ce8b",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 体力%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "体力%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_6b5a86e85fe9",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 188,
-      "option_class": 4,
+      "option_type": 129,
+      "option_class": 55,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "追加ダメ_乗算": 1.0
+        "筋力魔力": 70.0
       },
       "display_ranges": {
-        "追加ダメ_乗算": "1～1"
+        "筋力魔力": "70～70"
       },
       "base_expected_values": {},
       "filter_names": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ],
       "selectable_options": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ]
     },
     {
-      "id": "eqgrp_6f7d85b08ba5",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
+      "id": "eqgrp_f248582026de",
+      "equipment_name": "強靭なゼフィロスのバッジ",
+      "display_name": "強靭なゼフィロスのバッジ (エンチャ Lv1-55 抵抗力%+d)",
       "category": "エンチャ",
       "level": 8000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 188,
-      "option_class": 4,
+      "level_label": "1-55",
+      "detail": "抵抗力%+d",
+      "option_type": 129,
+      "option_class": 55,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "武器属性": 18.0
+        "抵抗": 100.0
       },
       "display_ranges": {
-        "武器属性": "18～18"
+        "抵抗": "100～100"
       },
       "base_expected_values": {},
       "filter_names": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ],
       "selectable_options": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ]
     },
     {
-      "id": "eqgrp_733fdeed4951",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 14.0
-      },
-      "display_ranges": {
-        "最大": "14～14"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_754361c9e48a",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1700.0
-      },
-      "display_ranges": {
-        "体力": "1700～1700"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_7f3084812e75",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1250.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2500"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_84a91d6e3caf",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "追加ダメ": 10000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～20000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_9d65d4dc602c",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 2400.0
-      },
-      "display_ranges": {
-        "追加ダメ": "2400～2400"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_a43216e48f76",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理/魔法命中率%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理/魔法命中率%+d％",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理/魔法命中率%+d％": 6.0
-      },
-      "display_ranges": {
-        "物理/魔法命中率%+d％": "6～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_a7feb25c6e99",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 一般モンスター追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ": 2800.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "2800～2800"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_ad1dcfd30b69",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 筋力/魔法力%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "筋力/魔法力%+d％",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "筋力魔力_乗算": 5.0
-      },
-      "display_ranges": {
-        "筋力魔力_乗算": "1～9"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_b4b353cacf9c",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1700.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1700～1700"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_b5a5afd20218",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 18.0
-      },
-      "display_ranges": {
-        "最小": "18～18"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_c53685f8baa3",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 一般モンスター追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "一般モンスター追加ダメージ%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "一般追加ダメ": 11500.5
-      },
-      "display_ranges": {
-        "一般追加ダメ": "1～23000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_dccbb60f1ffa",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv1-2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "全ステータス%+d",
-      "option_type": 188,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_f07fc8c71770",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1300.0
-      },
-      "display_ranges": {
-        "全ステ": "1300～1300"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_f18a32099ce0",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d",
-      "option_type": 188,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ": 2800.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "2800～2800"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_77ecc3c6551d",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (強化 +6→超越)",
+      "id": "eqgrp_d7cd4b5e1958",
+      "equipment_name": "強靭なゼフィロスのバッジ",
+      "display_name": "強靭なゼフィロスのバッジ (強化 →+30)",
       "category": "強化",
       "level": 8000,
       "level_label": "",
-      "detail": "+6→超越",
-      "option_type": 188,
-      "option_class": 4,
+      "detail": "→+30",
+      "option_type": 129,
+      "option_class": 50,
       "expected_values": {
-        "クリダメ": 21.0,
-        "武器属性": 38.0,
-        "全ステ": 2700.0,
-        "最大最小": 16.0
+        "最大": 15.0,
+        "追加ダメ": 2900.0,
+        "クリダメ": 15.0,
+        "一般追加ダメ": 2900.0,
+        "HP": 2900.0,
+        "全ステ": 2320.0
       },
       "base_expected_values": {
-        "武器属性": 225.0,
-        "クリダメ": 78.0,
-        "全ステ": 3700.0,
-        "全ステ%": 4.0,
-        "貫通": 28.0,
-        "最大最小": 53.0,
-        "CT減少": 40.0
+        "HP": 27200.0,
+        "全ステ": 17600.0,
+        "最大": 129.0,
+        "クリダメ": 129.0,
+        "追加ダメ": 19800.0,
+        "一般追加ダメ": 19800.0
       },
       "display_ranges": {},
       "filter_names": [
-        "滅亡の精霊石"
+        "強靭なゼフィロスのバッジ"
       ],
       "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_9c4d31c3acb6",
-      "equipment_name": "滅亡の精霊石",
-      "display_name": "滅亡の精霊石 (強化 →+6)",
-      "category": "強化",
-      "level": 8000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 188,
-      "option_class": 3,
-      "expected_values": {
-        "クリダメ": 6.0,
-        "武器属性": 10.0,
-        "全ステ": 700.0,
-        "最大最小": 6.0
-      },
-      "base_expected_values": {
-        "武器属性": 225.0,
-        "クリダメ": 78.0,
-        "全ステ": 3700.0,
-        "全ステ%": 4.0,
-        "貫通": 28.0,
-        "最大最小": 53.0,
-        "CT減少": 40.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "滅亡の精霊石"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石"
-      ]
-    },
-    {
-      "id": "eqgrp_0b301cabb288",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ": 1100.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_0bdddf238621",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]幸運%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]幸運%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "幸運": 625.0
-      },
-      "display_ranges": {
-        "幸運": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_0dc81f9d44a6",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]全ステータス%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "全ステ": 300.0
-      },
-      "display_ranges": {
-        "全ステ": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_0e9a66eb585c",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]全ステータス%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "全ステ": 1100.0
-      },
-      "display_ranges": {
-        "全ステ": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_18283df2bf1d",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ": 300.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_2011da0ed5a6",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]武器攻撃力/属性力%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]武器攻撃力/属性力%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性_乗算": 4.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～8"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_28def1395f01",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ": 625.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_2b60e4996565",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]全ステータス%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "全ステ": 625.0
-      },
-      "display_ranges": {
-        "全ステ": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_363c8313f16d",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "2～5"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_3948e6100bd4",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]最小/最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]最小/最大ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最大最小": 23.5
-      },
-      "display_ranges": {
-        "最大最小": "7～40"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_493834bbfe00",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]体力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]体力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "体力": 625.0
-      },
-      "display_ranges": {
-        "体力": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_49643ed75371",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]武器攻撃力/属性力%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]武器攻撃力/属性力%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性_乗算": 1.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～2"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_4c15eb23cca6",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]物理/魔法最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]物理/魔法最大ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最大": 23.5
-      },
-      "display_ranges": {
-        "最大": "7～40"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_4eeb8604b131",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]物理/魔法バックアタックダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]物理/魔法バックアタックダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "BA": 5.5
-      },
-      "display_ranges": {
-        "BA": "1～10"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_54d3be16a901",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]最小/最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]最小/最大ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最大最小": 8.0
-      },
-      "display_ranges": {
-        "最大最小": "3～13"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_5660853d139e",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]物理/魔法最小ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]物理/魔法最小ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最小": 8.0
-      },
-      "display_ranges": {
-        "最小": "3～13"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_569449234ea6",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ": 625.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_57cabac23f9a",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]一般モンスター追加ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～5"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_59f6f4d9c7d6",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]幸運%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]幸運%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "幸運": 1100.0
-      },
-      "display_ranges": {
-        "幸運": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_5ef9f15d5e35",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]一般モンスター追加ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～3"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_610be490be1c",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]武器攻撃力/属性力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性": 60.0
-      },
-      "display_ranges": {
-        "武器属性": "20～100"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_6f1683d06b43",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]幸運%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]幸運%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "幸運": 300.0
-      },
-      "display_ranges": {
-        "幸運": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_70c754e85e90",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]筋力/魔法力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "筋力魔力": 1100.0
-      },
-      "display_ranges": {
-        "筋力魔力": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_781494b26c6a",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]一般モンスター追加ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ_乗算": 5.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "2～8"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_896c0270058f",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ": 1100.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_8e0ce8ca6399",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]筋力/魔法力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "筋力魔力": 625.0
-      },
-      "display_ranges": {
-        "筋力魔力": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_95fe44416950",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]武器攻撃力/属性力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性": 35.0
-      },
-      "display_ranges": {
-        "武器属性": "20～50"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_9bbcceb53bca",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]最小/最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]最小/最大ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最大最小": 16.0
-      },
-      "display_ranges": {
-        "最大最小": "7～25"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_9fde2c0ba554",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]物理/魔法クリティカルダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]物理/魔法クリティカルダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "クリダメ": 23.5
-      },
-      "display_ranges": {
-        "クリダメ": "7～40"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_a12376522a7a",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "追加ダメ": 1100.0
-      },
-      "display_ranges": {
-        "追加ダメ": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_a8e1a0a044a2",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]物理/魔法最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]物理/魔法最大ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最大": 8.0
-      },
-      "display_ranges": {
-        "最大": "3～13"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_b6fe2943bd7a",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]物理/魔法バックアタックダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]物理/魔法バックアタックダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "BA": 12.5
-      },
-      "display_ranges": {
-        "BA": "5～20"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_b9d796c8c943",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]物理/魔法クリティカルダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]物理/魔法クリティカルダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "クリダメ": 8.0
-      },
-      "display_ranges": {
-        "クリダメ": "3～13"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_baff7b6bdac0",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 5.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "2～8"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_bef8bd6c2346",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]物理/魔法最小ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]物理/魔法最小ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最小": 23.5
-      },
-      "display_ranges": {
-        "最小": "7～40"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_bf299a1815b4",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]体力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]体力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "体力": 300.0
-      },
-      "display_ranges": {
-        "体力": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_c11fe10249ce",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "追加ダメ": 300.0
-      },
-      "display_ranges": {
-        "追加ダメ": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_c15ebb275ce4",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]武器攻撃力/属性力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性": 15.0
-      },
-      "display_ranges": {
-        "武器属性": "5～25"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_c5a613d5c027",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ": 300.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_c8a96d78f4be",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "追加ダメ": 625.0
-      },
-      "display_ranges": {
-        "追加ダメ": "250～1000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_ca552d59e232",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 2.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～3"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_cef01d9c4f65",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]体力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]体力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "体力": 1100.0
-      },
-      "display_ranges": {
-        "体力": "200～2000"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_e39ca3c9295e",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [1]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [1]筋力/魔法力%+d",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "筋力魔力": 300.0
-      },
-      "display_ranges": {
-        "筋力魔力": "100～500"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_ea67f1681da3",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]物理/魔法最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]物理/魔法最大ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最大": 16.0
-      },
-      "display_ranges": {
-        "最大": "7～25"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_ea808c30161c",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]物理/魔法最小ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]物理/魔法最小ダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "最小": 16.0
-      },
-      "display_ranges": {
-        "最小": "7～25"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_f9218e843f91",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]武器攻撃力/属性力%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]武器攻撃力/属性力%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性_乗算": 3.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～5"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_f9a6acc45a9c",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [2]物理/魔法クリティカルダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [2]物理/魔法クリティカルダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "クリダメ": 16.0
-      },
-      "display_ranges": {
-        "クリダメ": "7～25"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_f9cc8975fbb0",
-      "equipment_name": "滅亡の精霊石 / 滅亡記憶武器",
-      "display_name": "滅亡の精霊石 / 滅亡記憶武器 (覚醒 段階6 [3]物理/魔法バックアタックダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 8000,
-      "detail": "段階6 [3]物理/魔法バックアタックダメージ%+d%%",
-      "option_type": 187,
-      "option_class": 4,
-      "expected_values": {
-        "BA": 17.5
-      },
-      "display_ranges": {
-        "BA": "5～30"
-      },
-      "potential_kind": 1002,
-      "potential_step": 6,
-      "option_group": 10002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡の精霊石",
-        "滅亡記憶武器"
+        "強靭なゼフィロスのバッジ"
       ]
     },
     {
@@ -16834,15 +16125,15 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "属性": 375.0,
+        "最大": 27.0,
         "追加ダメ": 3200.0,
         "攻撃": 375.0,
-        "一般支配": 3.9,
-        "最大": 27.0,
-        "クリダメ": 42.0,
         "全ステ": 5000.0,
-        "追加ダメ_乗算": 1.0,
-        "武器属性_乗算": 1.0
+        "属性": 375.0,
+        "クリダメ": 42.0,
+        "一般支配": 3.9,
+        "武器属性_乗算": 1.0,
+        "追加ダメ_乗算": 1.0
       },
       "base_expected_values": {
         "属性": 2200.0,
@@ -16875,13 +16166,13 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "属性": 225.0,
+        "最大": 15.0,
         "追加ダメ": 1500.0,
         "攻撃": 225.0,
-        "一般支配": 2.5,
-        "最大": 15.0,
+        "全ステ": 1500.0,
+        "属性": 225.0,
         "クリダメ": 15.0,
-        "全ステ": 1500.0
+        "一般支配": 2.5
       },
       "base_expected_values": {
         "属性": 2200.0,
@@ -17450,6 +16741,1398 @@ const ENCHANT_DATA = {
       ]
     },
     {
+      "id": "eqgrp_03a09536f819",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]物理/魔法最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]物理/魔法最大ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 8.0
+      },
+      "display_ranges": {
+        "最大": "3～13"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_0b9dbbbe74d6",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]筋力/魔法力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 300.0
+      },
+      "display_ranges": {
+        "筋力魔力": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_0cbedb00dd16",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]物理/魔法最小ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]物理/魔法最小ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 8.0
+      },
+      "display_ranges": {
+        "最小": "3～13"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_1076d5fe5323",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 5.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "2～8"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_171ffef1e72d",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]幸運%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]幸運%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 625.0
+      },
+      "display_ranges": {
+        "幸運": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_1aeb0a93f362",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]一般モンスター追加ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "2～5"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_1d34f2223f3a",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]筋力/魔法力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 1100.0
+      },
+      "display_ranges": {
+        "筋力魔力": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_1d7310d98b18",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]物理/魔法バックアタックダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]物理/魔法バックアタックダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "BA": 12.5
+      },
+      "display_ranges": {
+        "BA": "5～20"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_27557323baa1",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 1100.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_284bc16b4c90",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]幸運%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]幸運%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 1100.0
+      },
+      "display_ranges": {
+        "幸運": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_28e37a5f9235",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]一般モンスター追加ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ_乗算": 5.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "2～8"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_2ce40cdb601f",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]武器攻撃力/属性力%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]武器攻撃力/属性力%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性_乗算": 3.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～5"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_30d8c197e410",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]武器攻撃力/属性力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性": 15.0
+      },
+      "display_ranges": {
+        "武器属性": "5～25"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_3bb64383eb5b",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]全ステータス%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 625.0
+      },
+      "display_ranges": {
+        "全ステ": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_3bc28e55e364",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]物理/魔法最小ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]物理/魔法最小ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 23.5
+      },
+      "display_ranges": {
+        "最小": "7～40"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_44c25a418fa2",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]全ステータス%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 300.0
+      },
+      "display_ranges": {
+        "全ステ": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_48a017772cf4",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 3.5
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "2～5"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_568f33dc6f0a",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]体力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]体力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 625.0
+      },
+      "display_ranges": {
+        "体力": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_5d189d71c993",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]武器攻撃力/属性力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性": 35.0
+      },
+      "display_ranges": {
+        "武器属性": "20～50"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_63ec7bc7aa70",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 1100.0
+      },
+      "display_ranges": {
+        "追加ダメ": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_6a26cee8f38a",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]物理/魔法クリティカルダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]物理/魔法クリティカルダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "クリダメ": 23.5
+      },
+      "display_ranges": {
+        "クリダメ": "7～40"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_738decd338f5",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]物理/魔法バックアタックダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]物理/魔法バックアタックダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "BA": 17.5
+      },
+      "display_ranges": {
+        "BA": "5～30"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_78d9254f0168",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]体力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]体力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 300.0
+      },
+      "display_ranges": {
+        "体力": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_854539435c22",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～3"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_8ccebd4b50f4",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 625.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_9014508190ad",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]最小/最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]最小/最大ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最大最小": 16.0
+      },
+      "display_ranges": {
+        "最大最小": "7～25"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_980695d0a6d6",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]最小/最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]最小/最大ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最大最小": 8.0
+      },
+      "display_ranges": {
+        "最大最小": "3～13"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_98560918bd4d",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]物理/魔法最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]物理/魔法最大ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 23.5
+      },
+      "display_ranges": {
+        "最大": "7～40"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_9990cc9174c1",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 300.0
+      },
+      "display_ranges": {
+        "追加ダメ": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_9ccbd4e3c73c",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]筋力/魔法力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 625.0
+      },
+      "display_ranges": {
+        "筋力魔力": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_9e037bb1825e",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]武器攻撃力/属性力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性": 60.0
+      },
+      "display_ranges": {
+        "武器属性": "20～100"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_a0a95f48a7e2",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]最小/最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]最小/最大ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最大最小": 23.5
+      },
+      "display_ranges": {
+        "最大最小": "7～40"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_a242c5aa7334",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 300.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_a5bc34dfcff8",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 300.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_a9a3b5363778",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 625.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_b0d6a7736c09",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]幸運%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]幸運%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 300.0
+      },
+      "display_ranges": {
+        "幸運": "100～500"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_b484b5f7ddc2",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 625.0
+      },
+      "display_ranges": {
+        "追加ダメ": "250～1000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_bcf9720174ec",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]一般モンスター追加ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ_乗算": 2.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～3"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_c176f051640c",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 1100.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_c5afdcb633b3",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]物理/魔法最小ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]物理/魔法最小ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 16.0
+      },
+      "display_ranges": {
+        "最小": "7～25"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_c9eb7767cbac",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]物理/魔法クリティカルダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]物理/魔法クリティカルダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "クリダメ": 8.0
+      },
+      "display_ranges": {
+        "クリダメ": "3～13"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_cc05c5c1fa25",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]武器攻撃力/属性力%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]武器攻撃力/属性力%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性_乗算": 1.5
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～2"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_cf66ee879198",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]物理/魔法最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]物理/魔法最大ダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 16.0
+      },
+      "display_ranges": {
+        "最大": "7～25"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_e3c488cfb147",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [2]物理/魔法クリティカルダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [2]物理/魔法クリティカルダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "クリダメ": 16.0
+      },
+      "display_ranges": {
+        "クリダメ": "7～25"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_e53840f6328a",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]武器攻撃力/属性力%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]武器攻撃力/属性力%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性_乗算": 4.5
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～8"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_e92d61d79108",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]体力%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]体力%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 1100.0
+      },
+      "display_ranges": {
+        "体力": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_f37267009543",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [1]物理/魔法バックアタックダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [1]物理/魔法バックアタックダメージ%+d%%",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "BA": 5.5
+      },
+      "display_ranges": {
+        "BA": "1～10"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
+      "id": "eqgrp_fd8ed601a024",
+      "equipment_name": "滅亡記憶武器",
+      "display_name": "滅亡記憶武器 (覚醒 段階6 [3]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 8000,
+      "detail": "段階6 [3]全ステータス%+d",
+      "option_type": 187,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 1100.0
+      },
+      "display_ranges": {
+        "全ステ": "200～2000"
+      },
+      "potential_kind": 1002,
+      "potential_step": 6,
+      "option_group": 10002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "滅亡記憶武器"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器"
+      ]
+    },
+    {
       "id": "eqgrp_2e570ac01be7",
       "equipment_name": "滅亡記憶武器（物理）",
       "display_name": "滅亡記憶武器（物理） (強化 +6→超越)",
@@ -17460,10 +18143,10 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "一般支配": 3.9,
-        "魔法_最大": 27.0,
         "攻撃": 375.0,
         "全ステ": 5000.0,
+        "一般支配": 3.9,
+        "魔法_最大": 27.0,
         "攻撃_乗算": 1.0
       },
       "base_expected_values": {
@@ -17493,10 +18176,10 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "一般支配": 2.5,
-        "魔法_最大": 15.0,
         "攻撃": 225.0,
-        "全ステ": 1500.0
+        "全ステ": 1500.0,
+        "一般支配": 2.5,
+        "魔法_最大": 15.0
       },
       "base_expected_values": {
         "攻撃": 2200.0,
@@ -17525,9 +18208,9 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
+        "全ステ": 1500.0,
         "一般支配": 2.5,
-        "物理_最大": 15.0,
-        "全ステ": 1500.0
+        "物理_最大": 15.0
       },
       "base_expected_values": {
         "物理_最大": 110.0,
@@ -17556,9 +18239,9 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
+        "全ステ": 5000.0,
         "一般支配": 3.9,
         "物理_最大": 27.0,
-        "全ステ": 5000.0,
         "属性_乗算": 1.0,
         "追加ダメ_乗算": 1.0
       },
@@ -17589,9 +18272,9 @@ const ENCHANT_DATA = {
       "option_type": 0,
       "option_class": 0,
       "expected_values": {
-        "全ステ": 2450.0,
         "筋力魔力": 2450.0,
         "一般追加ダメ": 2450.0,
+        "全ステ": 2450.0,
         "武器属性": 12.0,
         "最大": 10.0,
         "最小": 10.0
@@ -17623,11 +18306,11 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "属性": 19.0,
         "最大": 14.0,
-        "攻撃": 19.0,
         "筋力魔力": 1900.0,
-        "一般追加ダメ": 1900.0
+        "攻撃": 19.0,
+        "一般追加ダメ": 1900.0,
+        "属性": 19.0
       },
       "base_expected_values": {
         "最大": 86.0,
@@ -17644,42 +18327,6 @@ const ENCHANT_DATA = {
       ],
       "selectable_options": [
         "アンドレアスの教本"
-      ]
-    },
-    {
-      "id": "eqgrp_79c223b8b9b0",
-      "equipment_name": "ヤンカスの1番目のバッジ",
-      "display_name": "ヤンカスの1番目のバッジ (強化 →+20)",
-      "category": "強化",
-      "level": 7300,
-      "level_label": "",
-      "detail": "→+20",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "属性": 23.0,
-        "追加ダメ": 3250.0,
-        "HP": 1620.0,
-        "攻撃": 23.0,
-        "筋力魔力": 1620.0,
-        "一般追加ダメ": 3250.0
-      },
-      "base_expected_values": {
-        "HP": 6800.0,
-        "全ステ": 3700.0,
-        "攻撃": 121.0,
-        "属性": 121.0,
-        "一般追加ダメ": 9100.0,
-        "クリ率": 1.0,
-        "追加ダメ": 9100.0,
-        "筋力魔力": 3800.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ヤンカスの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "ヤンカスの1番目のバッジ"
       ]
     },
     {
@@ -18941,10 +19588,10 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 3,
       "expected_values": {
-        "追加ダメ": 2900.0,
-        "最小": 25.0,
         "クリダメ": 12.0,
-        "筋力魔力": 1200.0
+        "追加ダメ": 2900.0,
+        "筋力魔力": 1200.0,
+        "最小": 25.0
       },
       "base_expected_values": {
         "筋力魔力": 4600.0,
@@ -18972,10 +19619,10 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 3,
       "expected_values": {
-        "追加ダメ": 2900.0,
-        "最小": 25.0,
         "クリダメ": 12.0,
-        "筋力魔力": 1200.0
+        "追加ダメ": 2900.0,
+        "筋力魔力": 1200.0,
+        "最小": 25.0
       },
       "base_expected_values": {
         "筋力魔力": 4600.0,
@@ -19495,11 +20142,11 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 3,
       "expected_values": {
-        "追加ダメ": 1700.0,
-        "最小": 25.0,
         "クリダメ": 12.0,
-        "ボス追加ダメ": 1600.0,
-        "筋力魔力": 1300.0
+        "追加ダメ": 1700.0,
+        "筋力魔力": 1300.0,
+        "最小": 25.0,
+        "ボス追加ダメ": 1600.0
       },
       "base_expected_values": {
         "最小": 90.0,
@@ -19527,11 +20174,11 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 3,
       "expected_values": {
-        "追加ダメ": 1700.0,
-        "最小": 25.0,
         "クリダメ": 12.0,
-        "ボス追加ダメ": 1600.0,
-        "筋力魔力": 1300.0
+        "追加ダメ": 1700.0,
+        "筋力魔力": 1300.0,
+        "最小": 25.0,
+        "ボス追加ダメ": 1600.0
       },
       "base_expected_values": {
         "最小": 90.0,
@@ -19850,80 +20497,10 @@ const ENCHANT_DATA = {
       "selectable_options": [
         "ノルニル指輪"
       ]
-    },
-    {
-      "id": "eqgrp_d02d92b13d79",
-      "equipment_name": "無限の2番目のバッジ",
-      "display_name": "無限の2番目のバッジ (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "ボス追加ダメ": 1300.0,
-        "追加ダメ": 950.0,
-        "HP": 850.0,
-        "クリダメ": 6.0,
-        "一般追加ダメ": 850.0
-      },
-      "base_expected_values": {
-        "全ステ": 3500.0,
-        "HP": 7500.0,
-        "攻撃_乗算": 8.0,
-        "属性_乗算": 8.0,
-        "クリダメ": 68.0,
-        "一般追加ダメ": 8500.0,
-        "追加ダメ": 2400.0,
-        "ボス追加ダメ": 1500.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "無限の2番目のバッジ"
-      ],
-      "selectable_options": [
-        "無限の2番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_9ac9d389bccb",
-      "equipment_name": "無限の4番目のバッジ",
-      "display_name": "無限の4番目のバッジ (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "属性": 9.0,
-        "ボス追加ダメ": 1300.0,
-        "追加ダメ": 2000.0,
-        "攻撃": 9.0,
-        "一般追加ダメ": 1050.0
-      },
-      "base_expected_values": {
-        "全ステ": 3500.0,
-        "属性": 85.0,
-        "攻撃": 85.0,
-        "追加ダメ": 10200.0,
-        "一般追加ダメ": 7800.0,
-        "スタン抵抗": 130.0,
-        "ボス追加ダメ": 1500.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "無限の4番目のバッジ"
-      ],
-      "selectable_options": [
-        "無限の4番目のバッジ"
-      ]
     }
   ],
   "equipment_options_by_category": {
     "強化": [
-      "Mr.デモニックの3番目のバッジ",
       "アンドレアスの教本",
       "イカロスクリップ",
       "イカロスグローブ",
@@ -19936,6 +20513,8 @@ const ENCHANT_DATA = {
       "ガブリエラの2番目バッジ",
       "クラフトキーパーの教本",
       "グノーシスのトーテム",
+      "サーカス場の3番目のバッジ",
+      "タイヤマンの1番目のバッジ",
       "ティレニアのブローチ",
       "ドミトリーのチャーム",
       "ノトリアのステッカー",
@@ -19944,18 +20523,36 @@ const ENCHANT_DATA = {
       "ノルニル指輪",
       "バニーバニーベルト",
       "フレディアの4番目バッジ",
-      "ヤンカスの1番目のバッジ",
       "封印された赤い結晶 / 封印された青い結晶",
       "封印された黄色い結晶",
-      "滅亡の精霊石",
+      "強靭なゼフィロスのバッジ",
       "滅亡記憶のバトルサイズ",
       "滅亡記憶武器（物理）",
       "滅亡記憶武器（魔法）",
-      "無限の2番目のバッジ",
-      "無限の4番目のバッジ",
       "突然変異キャンサーの6番バッジ",
       "黒龍のネックレス",
       "黒龍の時計"
+    ],
+    "エンチャ": [
+      "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "イカロスクリップ / イカロスプレート",
+      "イカロスグローブ",
+      "イカロスブーツ",
+      "イカロスヘルメット",
+      "エメラルディアストッキング",
+      "エメラルディアタトゥー",
+      "エメラルディアメガネ",
+      "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+      "ドミトリーのチャーム",
+      "ノルニルイヤリング",
+      "ノルニルマント",
+      "ノルニル指輪",
+      "封印された赤い結晶",
+      "封印された青い結晶",
+      "封印された黄色い結晶",
+      "強靭なゼフィロスのバッジ",
+      "滅亡記憶武器",
+      "突然変異キャンサーの6番バッジ"
     ],
     "覚醒": [
       "アクセ",
@@ -19965,38 +20562,14 @@ const ENCHANT_DATA = {
       "イカロスプレート",
       "イカロスヘルメット",
       "ドミトリーのチャーム",
-      "滅亡の精霊石",
       "滅亡記憶武器",
       "特殊装備",
       "突然変異キャンサーの6番バッジ",
       "黒龍の時計"
-    ],
-    "エンチャ": [
-      "イカロスクリップ / イカロスプレート",
-      "イカロスグローブ",
-      "イカロスブーツ",
-      "イカロスヘルメット",
-      "エメラルディアストッキング",
-      "エメラルディアタトゥー",
-      "エメラルディアメガネ",
-      "ドミトリーのチャーム",
-      "ノルニルイヤリング",
-      "ノルニルマント",
-      "ノルニル指輪",
-      "封印された赤い結晶",
-      "封印された青い結晶",
-      "封印された黄色い結晶",
-      "滅亡の精霊石",
-      "滅亡記憶武器",
-      "特殊装備",
-      "突然変異キャンサーの6番バッジ"
     ]
   },
   "equipment_option_defs_by_category": {
     "強化": {
-      "Mr.デモニックの3番目のバッジ": [
-        "Mr.デモニックの3番目のバッジ"
-      ],
       "アンドレアスの教本": [
         "アンドレアスの教本"
       ],
@@ -20033,6 +20606,12 @@ const ENCHANT_DATA = {
       "グノーシスのトーテム": [
         "グノーシスのトーテム"
       ],
+      "サーカス場の3番目のバッジ": [
+        "サーカス場の3番目のバッジ"
+      ],
+      "タイヤマンの1番目のバッジ": [
+        "タイヤマンの1番目のバッジ"
+      ],
       "ティレニアのブローチ": [
         "ティレニアのブローチ"
       ],
@@ -20057,9 +20636,6 @@ const ENCHANT_DATA = {
       "フレディアの4番目バッジ": [
         "フレディアの4番目バッジ"
       ],
-      "ヤンカスの1番目のバッジ": [
-        "ヤンカスの1番目のバッジ"
-      ],
       "封印された赤い結晶 / 封印された青い結晶": [
         "封印された赤い結晶",
         "封印された青い結晶"
@@ -20067,8 +20643,8 @@ const ENCHANT_DATA = {
       "封印された黄色い結晶": [
         "封印された黄色い結晶"
       ],
-      "滅亡の精霊石": [
-        "滅亡の精霊石"
+      "強靭なゼフィロスのバッジ": [
+        "強靭なゼフィロスのバッジ"
       ],
       "滅亡記憶のバトルサイズ": [
         "滅亡記憶のバトルサイズ"
@@ -20079,12 +20655,6 @@ const ENCHANT_DATA = {
       "滅亡記憶武器（魔法）": [
         "滅亡記憶武器（魔法）"
       ],
-      "無限の2番目のバッジ": [
-        "無限の2番目のバッジ"
-      ],
-      "無限の4番目のバッジ": [
-        "無限の4番目のバッジ"
-      ],
       "突然変異キャンサーの6番バッジ": [
         "突然変異キャンサーの6番バッジ"
       ],
@@ -20093,6 +20663,74 @@ const ENCHANT_DATA = {
       ],
       "黒龍の時計": [
         "黒龍の時計"
+      ]
+    },
+    "エンチャ": {
+      "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "ノトリアのステッカー",
+        "バニーバニーベルト",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "イカロスクリップ / イカロスプレート": [
+        "イカロスクリップ",
+        "イカロスプレート"
+      ],
+      "イカロスグローブ": [
+        "イカロスグローブ"
+      ],
+      "イカロスブーツ": [
+        "イカロスブーツ"
+      ],
+      "イカロスヘルメット": [
+        "イカロスヘルメット"
+      ],
+      "エメラルディアストッキング": [
+        "エメラルディアストッキング"
+      ],
+      "エメラルディアタトゥー": [
+        "エメラルディアタトゥー"
+      ],
+      "エメラルディアメガネ": [
+        "エメラルディアメガネ"
+      ],
+      "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ": [
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ"
+      ],
+      "ドミトリーのチャーム": [
+        "ドミトリーのチャーム"
+      ],
+      "ノルニルイヤリング": [
+        "ノルニルイヤリング"
+      ],
+      "ノルニルマント": [
+        "ノルニルマント"
+      ],
+      "ノルニル指輪": [
+        "ノルニル指輪"
+      ],
+      "封印された赤い結晶": [
+        "封印された赤い結晶"
+      ],
+      "封印された青い結晶": [
+        "封印された青い結晶"
+      ],
+      "封印された黄色い結晶": [
+        "封印された黄色い結晶"
+      ],
+      "強靭なゼフィロスのバッジ": [
+        "強靭なゼフィロスのバッジ"
+      ],
+      "滅亡記憶武器": [
+        "滅亡記憶武器"
+      ],
+      "突然変異キャンサーの6番バッジ": [
+        "突然変異キャンサーの6番バッジ"
       ]
     },
     "覚醒": {
@@ -20122,9 +20760,6 @@ const ENCHANT_DATA = {
       "ドミトリーのチャーム": [
         "ドミトリーのチャーム"
       ],
-      "滅亡の精霊石": [
-        "滅亡の精霊石"
-      ],
       "滅亡記憶武器": [
         "滅亡記憶武器"
       ],
@@ -20137,69 +20772,12 @@ const ENCHANT_DATA = {
       "黒龍の時計": [
         "黒龍の時計"
       ]
-    },
-    "エンチャ": {
-      "イカロスクリップ / イカロスプレート": [
-        "イカロスクリップ",
-        "イカロスプレート"
-      ],
-      "イカロスグローブ": [
-        "イカロスグローブ"
-      ],
-      "イカロスブーツ": [
-        "イカロスブーツ"
-      ],
-      "イカロスヘルメット": [
-        "イカロスヘルメット"
-      ],
-      "エメラルディアストッキング": [
-        "エメラルディアストッキング"
-      ],
-      "エメラルディアタトゥー": [
-        "エメラルディアタトゥー"
-      ],
-      "エメラルディアメガネ": [
-        "エメラルディアメガネ"
-      ],
-      "ドミトリーのチャーム": [
-        "ドミトリーのチャーム"
-      ],
-      "ノルニルイヤリング": [
-        "ノルニルイヤリング"
-      ],
-      "ノルニルマント": [
-        "ノルニルマント"
-      ],
-      "ノルニル指輪": [
-        "ノルニル指輪"
-      ],
-      "封印された赤い結晶": [
-        "封印された赤い結晶"
-      ],
-      "封印された青い結晶": [
-        "封印された青い結晶"
-      ],
-      "封印された黄色い結晶": [
-        "封印された黄色い結晶"
-      ],
-      "滅亡の精霊石": [
-        "滅亡の精霊石"
-      ],
-      "滅亡記憶武器": [
-        "滅亡記憶武器"
-      ],
-      "特殊装備": [
-        "特殊装備"
-      ],
-      "突然変異キャンサーの6番バッジ": [
-        "突然変異キャンサーの6番バッジ"
-      ]
     }
   },
   "equipment_names": [
-    "Mr.デモニックの3番目のバッジ",
     "アクセ",
     "アンドレアスの教本",
+    "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
     "イカロスクリップ",
     "イカロスクリップ / イカロスプレート",
     "イカロスグローブ",
@@ -20212,6 +20790,9 @@ const ENCHANT_DATA = {
     "ガブリエラの2番目バッジ",
     "クラフトキーパーの教本",
     "グノーシスのトーテム",
+    "サーカス場の3番目のバッジ",
+    "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
+    "タイヤマンの1番目のバッジ",
     "ティレニアのブローチ",
     "ドミトリーのチャーム",
     "ノトリアのステッカー",
@@ -20220,26 +20801,23 @@ const ENCHANT_DATA = {
     "ノルニル指輪",
     "バニーバニーベルト",
     "フレディアの4番目バッジ",
-    "ヤンカスの1番目のバッジ",
     "封印された赤い結晶",
     "封印された赤い結晶 / 封印された青い結晶",
     "封印された青い結晶",
     "封印された黄色い結晶",
-    "滅亡の精霊石",
+    "強靭なゼフィロスのバッジ",
     "滅亡記憶のバトルサイズ",
     "滅亡記憶武器",
     "滅亡記憶武器（物理）",
     "滅亡記憶武器（魔法）",
-    "無限の2番目のバッジ",
-    "無限の4番目のバッジ",
     "特殊装備",
     "突然変異キャンサーの6番バッジ",
     "黒龍のネックレス",
     "黒龍の時計"
   ],
   "counts": {
-    "強化": 48,
-    "覚醒": 142,
-    "エンチャ": 479
+    "強化": 45,
+    "エンチャ": 481,
+    "覚醒": 142
   }
 };
