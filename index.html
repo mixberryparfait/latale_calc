@@ -13,22 +13,25 @@
 			theme: {
 				extend: {
 					colors: {
-						'bg': '#FFF5F7',
-						'bg-secondary': '#FFE4E9',
-						'bg-tertiary': '#FFDDE4',
-						'border': '#FFB3BA',
-						'border-light': '#FFCCDB',
-						'text': '#3D2E40',
-						'text-muted': '#6B5D6E',
-						'text-dim': '#8B7D8E',
-						'accent': '#E91E8C',
-						'accent-hover': '#D61478',
-						'danger': '#E6346D',
-						'warning': '#E6A800',
-						'success': '#2FA088',
-						'input-bg': '#FFFFFF',
-						'tab-active': '#FFE4E9',
-						'tab-inactive': '#FFF5F7',
+						'bg': '#0B0F1A',
+						'bg-secondary': '#131A2A',
+						'bg-tertiary': '#1A2338',
+						'border': '#263250',
+						'border-light': '#1E2740',
+						'text': '#E9EDF5',
+						'text-muted': '#94A0B8',
+						'text-dim': '#5D6A85',
+						'accent': '#FF4D8D',
+						'accent-hover': '#FF6BA3',
+						'danger': '#FF5C6C',
+						'warning': '#F5B841',
+						'success': '#2DD4A7',
+						'input-bg': '#0E1524',
+						'tab-active': '#1A2338',
+						'tab-inactive': '#131A2A',
+					},
+					borderColor: {
+						DEFAULT: '#263250',
 					},
 					fontSize: {
 						'2xs': '0.625rem',
@@ -43,7 +46,6 @@
 	<!-- コンパイル済みCSS -->
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
-	<script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
 </head>
 
 <body class="min-h-screen bg-bg text-text">
@@ -66,13 +68,233 @@
 			</div>
 		</details>
 
-		<label class="dropzone">
-			<input type="file" id="file-input" class="hidden">
-			<span class="text-xs">📷 スクリーンショットから自動入力</span>
-		</label>
-	<p id="progress" class="progress-text"></p>
-
 	<div id="app">
+		<div class="json-import-panel">
+			<label for="json-input">ステータスJSON</label>
+			<details class="json-prompt-details">
+				<summary>ChatGPTでJSONを作る手順</summary>
+				<ol class="json-prompt-steps">
+					<li>ChatGPT にステータス画面の画像を渡します。</li>
+					<li>下の「コピーするプロンプト」欄の文章だけを一緒に送ります。</li>
+					<li>ChatGPT が出力したJSONを、この下の「ステータスJSON」入力欄に貼り付けて読み込みます。</li>
+				</ol>
+				<div class="json-prompt-copy-row">
+					<span>コピーするプロンプト</span>
+					<button type="button" @click="copyJsonPrompt">プロンプトをコピー</button>
+					<span class="json-prompt-copy-message">{{ jsonプロンプトコピー結果 }}</span>
+				</div>
+				<textarea id="json-prompt-text" readonly spellcheck="false">以下のJSONフォーマットと完全に同じキー構造で出力してください。
+画像から読めない数値は null にしてください。
+数値はカンマなしの number 型にしてください。
+% 表記の数値も number 型にしてください。
+画像内に存在しない推測キーは追加しないでください。
+extraction_confidence などの注釈メタ情報は出力しないでください。
+
+{
+  "ability_detail": {
+    "combat_power": null,
+    "basic_stats": {
+      "strength": null,
+      "magic_power": null,
+      "stamina": null,
+      "luck": null,
+      "hp": null,
+      "sp": null,
+      "weapon_attack": {
+        "max": null,
+        "min": null
+      },
+      "attribute_power": null,
+      "defense": null,
+      "resistance": null
+    },
+    "physical_magic_stats": {
+      "accuracy": {
+        "physical": null,
+        "magic": null
+      },
+      "penetration": {
+        "physical": null,
+        "magic": null
+      },
+      "critical_rate": {
+        "physical": null,
+        "magic": null
+      },
+      "critical_damage": {
+        "physical": null,
+        "magic": null
+      },
+      "min_damage": {
+        "physical": null,
+        "magic": null
+      },
+      "max_damage": {
+        "physical": null,
+        "magic": null
+      },
+      "back_attack_damage": {
+        "physical": null,
+        "magic": null
+      },
+      "additional_damage": {
+        "physical": null,
+        "magic": null
+      },
+      "damage_reduction": {
+        "physical": null,
+        "magic": null
+      },
+      "evasion": {
+        "physical": null,
+        "magic": null
+      }
+    },
+    "general_boss_stats": {
+      "monster_additional_damage": {
+        "normal": null,
+        "boss": null
+      },
+      "monster_domination": {
+        "normal": null,
+        "boss": null
+      }
+    },
+    "misc": {
+      "cooldown_reduction": null,
+      "experience": null,
+      "ely_gain": null,
+      "quest_reward": null,
+      "item_drop_rate": null,
+      "movement_speed": null
+    }
+  },
+  "additional_detail": {
+    "hit_damage": {
+      "direct_hit": {
+        "physical": null,
+        "magic": null
+      },
+      "summon_hit": {
+        "physical": null,
+        "magic": null
+      }
+    },
+    "stat_bonus": {
+      "strength": {
+        "value": null,
+        "percent": null
+      },
+      "magic_power": {
+        "value": null,
+        "percent": null
+      },
+      "stamina": {
+        "value": null,
+        "percent": null
+      },
+      "luck": {
+        "value": null,
+        "percent": null
+      },
+      "hp": {
+        "value": null,
+        "percent": null
+      },
+      "weapon_attack": {
+        "value": {
+          "max": null,
+          "min": null
+        },
+        "percent": {
+          "max": null,
+          "min": null
+        }
+      },
+      "attribute_power": {
+        "value": null,
+        "percent": null
+      },
+      "normal_monster_damage": {
+        "value": null,
+        "percent": null
+      },
+      "boss_monster_damage": {
+        "value": null,
+        "percent": null
+      }
+    },
+    "physical_magic_bonus": {
+      "critical_damage": {
+        "physical": {
+          "value": null,
+          "percent": null
+        },
+        "magic": {
+          "value": null,
+          "percent": null
+        }
+      },
+      "min_damage": {
+        "physical": {
+          "value": null,
+          "percent": null
+        },
+        "magic": {
+          "value": null,
+          "percent": null
+        }
+      },
+      "max_damage": {
+        "physical": {
+          "value": null,
+          "percent": null
+        },
+        "magic": {
+          "value": null,
+          "percent": null
+        }
+      },
+      "additional_damage": {
+        "physical": {
+          "value": null,
+          "percent": null
+        },
+        "magic": {
+          "value": null,
+          "percent": null
+        }
+      },
+      "strength_magic_power_efficiency": {
+        "physical": null,
+        "magic": null
+      }
+    },
+    "damage_misc": {
+      "melee_damage": null,
+      "status_abnormal_damage": null,
+      "damage_reduction_percent": null
+    },
+    "point_and_option_bonus": {
+      "option_activation_rate": null,
+      "skill_target_count_increase": null,
+      "superhuman_point_addition": null,
+      "summon_exp_addition": null,
+      "constellation_point_addition": null,
+      "treasure_point_addition": null
+    }
+  }
+}</textarea>
+			</details>
+			<textarea id="json-input" v-model="json入力" rows="7" spellcheck="false"
+				placeholder='{"ability_detail": {...}, "additional_detail": {...}}'></textarea>
+			<div class="json-import-actions">
+				<button type="button" @click="loadStatsFromJsonInput">JSONを読み込み</button>
+				<span :class="{ error: json入力メッセージ種別 === 'error', success: json入力メッセージ種別 === 'success' }">
+					{{ json入力メッセージ }}
+				</span>
+			</div>
+		</div>
 
 		<!-- メインタブナビゲーション -->
 		<div class="tab-container">
@@ -116,21 +338,14 @@
 			</div>
 			</div>
 
-				<button id="copy" class="copy-button">
+				<button id="copy" class="copy-button" type="button" @click="copyStatConversionsCsv">
 					コピーする
 				</button>
 
 				<div class="skill-settings mb-4">
 					<div class="label-accent">スキル設定</div>
 					
-				<div class="flex items-end gap-4 mb-3">
-					<div>
-						<label>職業</label>
-						<select v-model="共通職業" @change="onCommonJobChange" :class="{ 'unselected': !共通職業 }">
-							<option value="" disabled>職業を選択</option>
-							<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
-						</select>
-					</div>
+				<div class="flex items-center gap-4 mb-3">
 					<div class="flex items-center gap-1">
 						<label v-for="type in ['物理', '魔法']" :key="type" class="radio-group">
 							<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ">
@@ -143,22 +358,9 @@
 					<div v-if="スキルリスト.length === 1" class="grid grid-cols-4 gap-3">
 						<div>
 							<label>スキル名</label>
-				<select v-model="スキルリスト[0].スキルID" @change="onSkillChange(0)"
-					class="skill-name-select" :title="スキルリスト[0].スキル名">
-					<option value="">選択</option>
-					<option v-for="s in 共通職業選択可能スキル" :key="s.ID" 
-						:value="s.ID" :title="s.スキル名">
-						{{ s.スキル名 }}
-					</option>
-						</select>
-					</div>
-					<div>
-						<label>レベル</label>
-						<input type="number" v-model.lazy.number="スキルリスト[0].レベル" 
-							min="1" :max="getSkillMaxLevel(スキルリスト[0])"
-							@change="onSkillLevelChange(0)"
-							class="input-full">
-					</div>
+							<input type="text" v-model.lazy="スキルリスト[0].スキル名"
+								placeholder="任意（メモ用）" class="input-full">
+						</div>
 					<div>
 						<label>タイプ</label>
 						<button @click="スキルリスト[0].タイプ = スキルリスト[0].タイプ === '召喚' ? '攻撃' : '召喚'"
@@ -199,7 +401,6 @@
 							<tr>
 							<th></th>
 							<th class="text-left">スキル名</th>
-							<th>Lv</th>
 							<th>タイプ</th>
 							<th>係数</th>
 							<th>追加ダメ</th>
@@ -221,22 +422,9 @@
 						class="sr-only">
 				</td>
 									<td class="skill-name-cell">
-					<select v-model="skill.スキルID" @change="onSkillChange(index)"
-						class="skill-name-select" :title="skill.スキル名">
-						<option value="">選択</option>
-					<option v-for="s in 共通職業選択可能スキル" :key="s.ID" 
-						:value="s.ID" :title="s.スキル名">
-						{{ s.スキル名 }}
-					</option>
-										</select>
+										<input type="text" v-model.lazy="skill.スキル名"
+											placeholder="任意（メモ用）" class="input-full" :title="skill.スキル名">
 									</td>
-							<!-- レベル -->
-							<td>
-								<input type="number" v-model.lazy.number="skill.レベル" 
-									min="1" :max="getSkillMaxLevel(skill)"
-									@change="onSkillLevelChange(index)"
-									class="input-numeric-xs">
-							</td>
 							<!-- タイプ（攻撃/召喚） -->
 							<td>
 								<button @click="skill.タイプ = skill.タイプ === '召喚' ? '攻撃' : '召喚'"
@@ -387,6 +575,18 @@
 								title="HP100%増加を火力何％換算するか" @blur="triggerCalculation">
 							<span>%</span>
 						</div>
+						<div class="hp-value-setting">
+							<label>近距離ダメ反映</label>
+							<input type="range" v-model.number="inputs.近距離ダメージ反映" min="0" max="100"
+								title="近距離ダメージを火力何％分として反映するか">
+							<span>{{ inputs.近距離ダメージ反映 }}%</span>
+						</div>
+						<div class="hp-value-setting">
+							<label>BA反映</label>
+							<input type="range" v-model.number="inputs.バックアタック反映" min="0" max="100"
+								title="バックアタックダメージを火力何％分として反映するか">
+							<span>{{ inputs.バックアタック反映 }}%</span>
+						</div>
 						<!-- 換算方法選択 -->
 						<div>
 							<label>換算方法</label>
@@ -460,6 +660,62 @@
 					</h3>
 
 	<!-- 覚醒ポイント入力（覚醒1と覚醒2） -->
+	<div v-if="activeMainTab === 'stoneAwakening'" class="space-y-3">
+		<div class="other-settings">
+			<div class="label-accent">覚醒石シミュレーション</div>
+			<div class="awakening-stone-controls">
+				<div class="awakening-stone-control">
+					<label>種別</label>
+					<label class="filter-checkbox awakening-stone-grade-toggle">
+						<input type="checkbox" v-model="awakeningStoneIsAdvanced">
+						<span>上級</span>
+					</label>
+				</div>
+				<div>
+					<label>回数</label>
+					<input type="number" v-model.number="awakeningStoneSimulationCount" min="1" max="1000000" class="w-28">
+				</div>
+				<div class="awakening-stone-control">
+					<label>&nbsp;</label>
+					<button type="button" @click="runAwakeningStoneSimulation"
+						class="px-3 py-1 bg-accent text-white text-sm rounded hover:bg-accent-hover transition-colors">
+						シミュレーション
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-wrapper awakening-stone-ranking">
+			<table class="data-table">
+				<thead>
+					<tr>
+						<th>順位</th>
+						<th>OP</th>
+						<th>スコア</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-if="activeRanking.data.length === 0">
+						<td colspan="3" class="text-center">シミュレーション結果はまだありません</td>
+					</tr>
+					<tr v-for="(stone, index) in activeRanking.data" :key="stone.id">
+						<td class="rank-cell">{{ index + 1 }}</td>
+						<td>
+							<div class="awakening-stone-options">
+								<div v-for="option in stone.options" :key="option.name" class="awakening-stone-option">
+									<span class="awakening-stone-option-name">{{ option.name }}</span>
+									<span class="awakening-stone-option-value">+{{ option.value }}{{ option.suffix }}</span>
+									<span class="awakening-stone-option-score">({{ formatRankingDamage(option.score) }})</span>
+								</div>
+							</div>
+						</td>
+						<td class="score-cell">{{ formatRankingDamage(stone.totalScore) }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 	<div v-if="activeMainTab === 'awaken1' || activeMainTab === 'awaken2'" class="mb-4">
 		<div class="flex items-center gap-4 mb-3">
 			<div class="flex items-center gap-2 px-3 py-2 bg-bg-secondary border border-border rounded-lg">
@@ -538,7 +794,7 @@
 				</label>
 			</div>
 
-		<div v-if="!activeMainTab.startsWith('awaken')" class="table-wrapper">
+		<div v-if="!['awaken1', 'awaken2', 'stoneAwakening'].includes(activeMainTab)" class="table-wrapper">
 					<table class="data-table">
 						<thead>
 							<tr>
@@ -564,7 +820,6 @@
 	</div>
 
 	<!-- 静的データファイル -->
-	<script src="js/data/skills-data.js"></script>
 	<script src="js/data/enemies-data.js"></script>
 	<script src="js/data/transcend-skills-data.js"></script>
 	<script src="js/data/guild-skills-data.js"></script>
