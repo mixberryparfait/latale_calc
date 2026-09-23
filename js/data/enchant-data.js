@@ -12349,7 +12349,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "属性力%+d": 3.0
       },
@@ -12609,7 +12609,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "筋力": 233.5
       },
@@ -12895,7 +12895,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "武器攻撃力%+d": 3.0
       },
@@ -13051,7 +13051,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "魔法追加ダメージ%+d": 308.5
       },
@@ -13311,7 +13311,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "物理追加ダメージ%+d": 308.5
       },
@@ -13748,7 +13748,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "体力": 233.5
       },
@@ -13778,7 +13778,7 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "HP": 825.0
       },
@@ -14242,7 +14242,7 @@ const ENCHANT_DATA = {
       "option_type": 157,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "BA": 4.0
       },
@@ -14580,7 +14580,7 @@ const ENCHANT_DATA = {
       "option_type": 157,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "抵抗": 250.0
       },
@@ -14632,7 +14632,7 @@ const ENCHANT_DATA = {
       "option_type": 157,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "最大": 2.5
       },
@@ -14762,7 +14762,7 @@ const ENCHANT_DATA = {
       "option_type": 157,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "魔法ダメージ減少": 24.0
       },
@@ -14944,7 +14944,7 @@ const ENCHANT_DATA = {
       "option_type": 157,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "魔力": 233.5
       },
@@ -15106,7 +15106,7 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "物理ダメージ減少": 24.0
       },
@@ -15218,7 +15218,7 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "防御": 250.0
       },
@@ -15452,7 +15452,7 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "最小": 2.5
       },
@@ -15660,7 +15660,7 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "幸運": 233.5
       },
@@ -15842,7 +15842,7 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "option_group": 0,
-      "option_probability": 5.0,
+      "option_probability": 10.0,
       "expected_values": {
         "武器属性": 2.5
       },
@@ -18340,7 +18340,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "追加ダメ": 12000.5
       },
@@ -18400,7 +18400,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "筋力魔力": 5600.5
       },
@@ -18520,7 +18520,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "物理ダメージ減少": 880.5
       },
@@ -18550,7 +18550,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "最小": 35.5
       },
@@ -18610,7 +18610,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "筋力魔力": 7000.5
       },
@@ -18640,7 +18640,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "魔法ダメージ減少": 1100.5
       },
@@ -18700,7 +18700,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "抵抗": 1600.5
       },
@@ -18730,7 +18730,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "追加ダメ_乗算": 3.5
       },
@@ -18760,7 +18760,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "幸運": 5600.5
       },
@@ -18790,7 +18790,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "物理ダメージ減少": 1100.5
       },
@@ -18850,7 +18850,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "体力": 7000.5
       },
@@ -18940,7 +18940,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "抵抗": 2000.5
       },
@@ -19000,7 +19000,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "幸運": 7000.5
       },
@@ -19060,7 +19060,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "BA": 35.5
       },
@@ -19090,7 +19090,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "体力": 5600.5
       },
@@ -19120,7 +19120,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "全ステ": 5500.5
       },
@@ -19150,7 +19150,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "最小": 28.5
       },
@@ -19180,7 +19180,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "追加ダメ": 15000.5
       },
@@ -19210,7 +19210,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "防御": 2000.5
       },
@@ -19270,7 +19270,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "追加ダメ_乗算": 4.0
       },
@@ -19300,7 +19300,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "BA": 28.5
       },
@@ -19330,7 +19330,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "魔法ダメージ減少": 880.5
       },
@@ -19390,7 +19390,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "全ステ": 4400.5
       },
@@ -19420,7 +19420,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "防御": 1600.5
       },
@@ -19450,7 +19450,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "HP_乗算": 4.0
       },
@@ -19480,7 +19480,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "HP_乗算": 3.5
       },
@@ -19510,7 +19510,7 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "貫通": 20.5
       },
@@ -19536,7 +19536,7 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "貫通": 16.5
       },
@@ -19678,7 +19678,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "一般追加ダメ_乗算": 4.0
       },
@@ -19734,7 +19734,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "クリダメ": 35.5
       },
@@ -19762,7 +19762,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "一般追加ダメ_乗算": 3.5
       },
@@ -19790,7 +19790,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "クリダメ": 28.5
       },
@@ -19874,7 +19874,7 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "武器属性": 48.5
       },
@@ -19902,7 +19902,7 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "最大": 35.5
       },
@@ -19930,7 +19930,7 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "最大": 28.5
       },
@@ -19958,7 +19958,7 @@ const ENCHANT_DATA = {
       "option_type": 183,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "武器属性": 60.5
       },
@@ -20012,7 +20012,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "武器属性": 64.5
       },
@@ -20064,7 +20064,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "全ステ%": 5.5
       },
@@ -20090,7 +20090,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "全ステ%": 6.5
       },
@@ -20116,7 +20116,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "武器属性": 80.5
       },
@@ -20207,7 +20207,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "ボス追加ダメ_乗算": 3.5
       },
@@ -20235,7 +20235,7 @@ const ENCHANT_DATA = {
       "option_type": 184,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "ボス追加ダメ_乗算": 4.0
       },
@@ -20291,7 +20291,7 @@ const ENCHANT_DATA = {
       "option_type": 185,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "スキルクールタイム減少+%0.1F%%": 20.5
       },
@@ -20317,7 +20317,7 @@ const ENCHANT_DATA = {
       "option_type": 185,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "スキルクールタイム減少+%0.1F%%": 25.5
       },
@@ -20343,7 +20343,7 @@ const ENCHANT_DATA = {
       "option_type": 185,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "武器属性_乗算": 5.5
       },
@@ -20421,7 +20421,7 @@ const ENCHANT_DATA = {
       "option_type": 185,
       "option_class": 2,
       "option_group": 0,
-      "option_probability": 60.0,
+      "option_probability": 100.0,
       "expected_values": {
         "武器属性_乗算": 4.5
       },
