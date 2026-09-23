@@ -1064,6 +1064,12 @@ const ENEMIES_DATA = {
           },
           "difficultyStats": {
             "1": {
+              "dmgReduce": 89856,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            },
+            "2": {
               "dmgReduce": 299520,
               "dmgReduceRatio": 0,
               "guard": 40,
@@ -1085,6 +1091,12 @@ const ENEMIES_DATA = {
           },
           "difficultyStats": {
             "1": {
+              "dmgReduce": 136604,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            },
+            "2": {
               "dmgReduce": 455347,
               "dmgReduceRatio": 0,
               "guard": 40,
@@ -1106,6 +1118,12 @@ const ENEMIES_DATA = {
           },
           "difficultyStats": {
             "1": {
+              "dmgReduce": 230373,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            },
+            "2": {
               "dmgReduce": 767913,
               "dmgReduceRatio": 0,
               "guard": 40,
@@ -1127,6 +1145,12 @@ const ENEMIES_DATA = {
           },
           "difficultyStats": {
             "1": {
+              "dmgReduce": 186540,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 500
+            },
+            "2": {
               "dmgReduce": 621801,
               "dmgReduceRatio": 0,
               "guard": 40,
