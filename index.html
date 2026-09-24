@@ -346,6 +346,13 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					<div class="label-accent">スキル設定</div>
 					
 				<div class="flex items-center gap-4 mb-3">
+					<div>
+						<label for="skill-job">職業</label>
+						<select id="skill-job" v-model="共通職業" @change="onCommonJobChange" :class="{ 'unselected': !共通職業 }">
+							<option value="">職業を選択</option>
+							<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
+						</select>
+					</div>
 					<div class="flex items-center gap-1">
 						<label v-for="type in ['物理', '魔法']" :key="type" class="radio-group">
 							<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ">
@@ -355,12 +362,24 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 				</div>
 
 					<!-- スキルが1個の時：横表示 -->
-					<div v-if="スキルリスト.length === 1" class="grid grid-cols-4 gap-3">
+					<div v-if="スキルリスト.length === 1" class="single-skill-row">
 						<div>
 							<label>スキル名</label>
-							<input type="text" v-model.lazy="スキルリスト[0].スキル名"
-								placeholder="任意（メモ用）" class="input-full">
+							<select aria-label="スキル選択" v-model="スキルリスト[0].スキルID" @change="onSkillChange(0)" class="input-full" :disabled="!共通職業">
+								<option value="">手動入力</option>
+								<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ s.スキルタイプ }}）</option>
+							</select>
 						</div>
+					<div>
+						<label>レベル</label>
+						<div class="skill-level-control">
+							<input aria-label="スキルレベル" type="number" :value="スキルリスト[0].レベル" min="1" step="1" :disabled="スキルリスト[0].スキルID === ''" @input="onSkillLevelChange(0, $event.target.value)">
+							<div class="skill-level-buttons">
+								<button type="button" aria-label="スキルレベルを上げる" :disabled="スキルリスト[0].スキルID === ''" @click="stepSkillLevel(0, 1)">▲</button>
+								<button type="button" aria-label="スキルレベルを下げる" :disabled="スキルリスト[0].スキルID === '' || スキルリスト[0].レベル <= 1" @click="stepSkillLevel(0, -1)">▼</button>
+							</div>
+						</div>
+					</div>
 					<div>
 						<label>タイプ</label>
 						<button @click="スキルリスト[0].タイプ = スキルリスト[0].タイプ === '召喚' ? '攻撃' : '召喚'"
@@ -401,6 +420,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 							<tr>
 							<th></th>
 							<th class="text-left">スキル名</th>
+							<th>レベル</th>
 							<th>タイプ</th>
 							<th>係数</th>
 							<th>追加ダメ</th>
@@ -422,9 +442,20 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 						class="sr-only">
 				</td>
 									<td class="skill-name-cell">
-										<input type="text" v-model.lazy="skill.スキル名"
-											placeholder="任意（メモ用）" class="input-full" :title="skill.スキル名">
+										<select :aria-label="'スキル選択 ' + (index + 1)" v-model="skill.スキルID" @change="onSkillChange(index)" class="input-full" :disabled="!共通職業">
+											<option value="">手動入力</option>
+											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ s.スキルタイプ }}）</option>
+										</select>
 									</td>
+							<td>
+								<div class="skill-level-control">
+									<input :aria-label="'スキルレベル ' + (index + 1)" type="number" :value="skill.レベル" min="1" step="1" :disabled="skill.スキルID === ''" @input="onSkillLevelChange(index, $event.target.value)">
+									<div class="skill-level-buttons">
+										<button type="button" :aria-label="'スキルレベルを上げる ' + (index + 1)" :disabled="skill.スキルID === ''" @click="stepSkillLevel(index, 1)">▲</button>
+										<button type="button" :aria-label="'スキルレベルを下げる ' + (index + 1)" :disabled="skill.スキルID === '' || skill.レベル <= 1" @click="stepSkillLevel(index, -1)">▼</button>
+									</div>
+								</div>
+							</td>
 							<!-- タイプ（攻撃/召喚） -->
 							<td>
 								<button @click="skill.タイプ = skill.タイプ === '召喚' ? '攻撃' : '召喚'"
@@ -795,7 +826,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 			</div>
 
 		<div v-if="!['awaken1', 'awaken2', 'stoneAwakening'].includes(activeMainTab)" class="table-wrapper">
-					<table class="data-table">
+					<table class="data-table" :class="{ 'equipment-option-table': ['equipEnchant', 'equipAwaken'].includes(activeMainTab) }">
 						<thead>
 							<tr>
 								<th v-for="header in activeRanking.headers" :key="header">{{ header }}</th>
@@ -809,7 +840,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 								<td v-if="'route' in item">{{ item.route }}</td>
 								<td v-if="'stats' in item">{{ item.stats }}</td>
 								<td v-if="'effect' in item" v-html="item.effect"></td>
-								<td v-if="'level' in item">{{ item.level }}</td>
+								<td v-if="'level' in item" class="ranking-level-cell">{{ item.level }}</td>
 								<td v-if="'cost' in item">{{ item.cost }}</td>
 				<td v-if="'damage' in item">{{ formatRankingDamage(item.damage) }}</td>
 							</tr>
@@ -820,6 +851,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 	</div>
 
 	<!-- 静的データファイル -->
+	<script src="js/data/skills-data.js"></script>
 	<script src="js/data/enemies-data.js"></script>
 	<script src="js/data/transcend-skills-data.js"></script>
 	<script src="js/data/guild-skills-data.js"></script>
