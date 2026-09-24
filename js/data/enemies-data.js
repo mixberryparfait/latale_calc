@@ -33,60 +33,6 @@ const ENEMIES_DATA = {
         }
       ]
     },
-    "7000": {
-      "dungeon": {
-        "id": 425,
-        "name": "ノルニルの涙(超越Lv.7000++)",
-        "level": 7000
-      },
-      "enemies": [
-        {
-          "id": 810010650,
-          "name": "一般MOB共有",
-          "type": "一般",
-          "baseStats": {
-            "defense": 133421,
-            "luck": 2081722,
-            "critReduce": 600,
-            "dmgReduce": 1243169,
-            "dmgReduceRatio": 0,
-            "guard": 53
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 124316,
-              "dmgReduceRatio": 0,
-              "guard": 13,
-              "critReduce": 600
-            },
-            "2": {
-              "dmgReduce": 372950,
-              "dmgReduceRatio": 0,
-              "guard": 33,
-              "critReduce": 600
-            },
-            "3": {
-              "dmgReduce": 745901,
-              "dmgReduceRatio": 0,
-              "guard": 38,
-              "critReduce": 600
-            },
-            "4": {
-              "dmgReduce": 1243169,
-              "dmgReduceRatio": 0,
-              "guard": 53,
-              "critReduce": 600
-            },
-            "5": {
-              "dmgReduce": 1243169,
-              "dmgReduceRatio": 0,
-              "guard": 53,
-              "critReduce": 600
-            }
-          }
-        }
-      ]
-    },
     "8000": {
       "dungeon": {
         "id": 435,
@@ -385,6 +331,204 @@ const ENEMIES_DATA = {
             },
             "4": {
               "dmgReduce": 2187171,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10500": {
+      "dungeon": {
+        "id": 455,
+        "name": "盲目の鳥の巣(超越ⅡLv.5++)",
+        "level": 10500
+      },
+      "enemies": [
+        {
+          "id": 810012186,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 600,
+            "dmgReduce": 2296529,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 229652,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 688958,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1377917,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2296529,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10501": {
+      "dungeon": {
+        "id": 456,
+        "name": "リキモペルケ(超越ⅡLv.5++)",
+        "level": 10500
+      },
+      "enemies": [
+        {
+          "id": 810012211,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 245909,
+            "luck": 3836883,
+            "critReduce": 600,
+            "dmgReduce": 2296529,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 229652,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 688958,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1377917,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2296529,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            },
+            "5": {
+              "dmgReduce": 2296529,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10700": {
+      "dungeon": {
+        "id": 458,
+        "name": "キャメロット牧場(超越ⅡLv.7++)",
+        "level": 10700
+      },
+      "enemies": [
+        {
+          "id": 810012331,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 234731,
+            "luck": 3662479,
+            "critReduce": 600,
+            "dmgReduce": 2411355,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 241135,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 723406,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1446813,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2411355,
+              "dmgReduceRatio": 0,
+              "guard": 53,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10701": {
+      "dungeon": {
+        "id": 459,
+        "name": "沈黙の螺旋(超越ⅡLv.7++)",
+        "level": 10700
+      },
+      "enemies": [
+        {
+          "id": 810012342,
+          "name": "一般MOB共有",
+          "type": "一般",
+          "baseStats": {
+            "defense": 234731,
+            "luck": 3662479,
+            "critReduce": 600,
+            "dmgReduce": 2411355,
+            "dmgReduceRatio": 0,
+            "guard": 53
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 241135,
+              "dmgReduceRatio": 0,
+              "guard": 13,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 723406,
+              "dmgReduceRatio": 0,
+              "guard": 33,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1446813,
+              "dmgReduceRatio": 0,
+              "guard": 38,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2411355,
               "dmgReduceRatio": 0,
               "guard": 53,
               "critReduce": 600
@@ -695,105 +839,6 @@ const ENEMIES_DATA = {
     }
   },
   "ボス": {
-    "7000": {
-      "dungeon": {
-        "id": 425,
-        "name": "ノルニルの涙(超越Lv.7000++)",
-        "level": 7000
-      },
-      "enemies": [
-        {
-          "id": 810010652,
-          "name": "ニルヴァーナ",
-          "type": "ボス",
-          "baseStats": {
-            "defense": 133421,
-            "luck": 2081722,
-            "critReduce": 700,
-            "dmgReduce": 2243169,
-            "dmgReduceRatio": 0,
-            "guard": 70
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 224316,
-              "dmgReduceRatio": 0,
-              "guard": 30,
-              "critReduce": 700
-            },
-            "2": {
-              "dmgReduce": 672950,
-              "dmgReduceRatio": 0,
-              "guard": 50,
-              "critReduce": 700
-            },
-            "3": {
-              "dmgReduce": 1345901,
-              "dmgReduceRatio": 0,
-              "guard": 55,
-              "critReduce": 700
-            },
-            "4": {
-              "dmgReduce": 2243169,
-              "dmgReduceRatio": 0,
-              "guard": 70,
-              "critReduce": 700
-            },
-            "5": {
-              "dmgReduce": 2243169,
-              "dmgReduceRatio": 0,
-              "guard": 70,
-              "critReduce": 700
-            }
-          }
-        },
-        {
-          "id": 810010653,
-          "name": "グレモリークイーン",
-          "type": "ボス",
-          "baseStats": {
-            "defense": 133421,
-            "luck": 2081722,
-            "critReduce": 700,
-            "dmgReduce": 3082239,
-            "dmgReduceRatio": 0,
-            "guard": 75
-          },
-          "difficultyStats": {
-            "1": {
-              "dmgReduce": 308223,
-              "dmgReduceRatio": 0,
-              "guard": 35,
-              "critReduce": 700
-            },
-            "2": {
-              "dmgReduce": 924671,
-              "dmgReduceRatio": 0,
-              "guard": 55,
-              "critReduce": 700
-            },
-            "3": {
-              "dmgReduce": 1849343,
-              "dmgReduceRatio": 0,
-              "guard": 60,
-              "critReduce": 700
-            },
-            "4": {
-              "dmgReduce": 3082239,
-              "dmgReduceRatio": 0,
-              "guard": 75,
-              "critReduce": 700
-            },
-            "5": {
-              "dmgReduce": 3082239,
-              "dmgReduceRatio": 0,
-              "guard": 75,
-              "critReduce": 700
-            }
-          }
-        }
-      ]
-    },
     "8000": {
       "dungeon": {
         "id": 435,
@@ -1402,6 +1447,294 @@ const ENEMIES_DATA = {
           }
         }
       ]
+    },
+    "10500": {
+      "dungeon": {
+        "id": 455,
+        "name": "盲目の鳥の巣(超越ⅡLv.5++)",
+        "level": 10500
+      },
+      "enemies": [
+        {
+          "id": 810012201,
+          "name": "ペリドット",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 600,
+            "dmgReduce": 2296529,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 229652,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 688958,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1377917,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2296529,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10501": {
+      "dungeon": {
+        "id": 456,
+        "name": "リキモペルケ(超越ⅡLv.5++)",
+        "level": 10500
+      },
+      "enemies": [
+        {
+          "id": 810012202,
+          "name": "ギルティネ",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 700,
+            "dmgReduce": 4593058,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 459305,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 1377917,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 2755834,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 4593058,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 4593058,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            }
+          }
+        },
+        {
+          "id": 810012203,
+          "name": "ラウマ",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 700,
+            "dmgReduce": 4593058,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 459305,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 1377917,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 2755834,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 4593058,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 4593058,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 700
+            }
+          }
+        },
+        {
+          "id": 810012204,
+          "name": "ベリアル",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 223554,
+            "luck": 3488076,
+            "critReduce": 700,
+            "dmgReduce": 4593058,
+            "dmgReduceRatio": 0,
+            "guard": 80
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 459305,
+              "dmgReduceRatio": 0,
+              "guard": 40,
+              "critReduce": 700
+            },
+            "2": {
+              "dmgReduce": 1377917,
+              "dmgReduceRatio": 0,
+              "guard": 60,
+              "critReduce": 700
+            },
+            "3": {
+              "dmgReduce": 2755834,
+              "dmgReduceRatio": 0,
+              "guard": 65,
+              "critReduce": 700
+            },
+            "4": {
+              "dmgReduce": 4593058,
+              "dmgReduceRatio": 0,
+              "guard": 80,
+              "critReduce": 700
+            },
+            "5": {
+              "dmgReduce": 4593058,
+              "dmgReduceRatio": 0,
+              "guard": 80,
+              "critReduce": 700
+            }
+          }
+        }
+      ]
+    },
+    "10700": {
+      "dungeon": {
+        "id": 458,
+        "name": "キャメロット牧場(超越ⅡLv.7++)",
+        "level": 10700
+      },
+      "enemies": [
+        {
+          "id": 810012332,
+          "name": "キャプテンキャメロット",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 234731,
+            "luck": 3662479,
+            "critReduce": 600,
+            "dmgReduce": 2411355,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 241135,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 723406,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1446813,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2411355,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
+    },
+    "10701": {
+      "dungeon": {
+        "id": 459,
+        "name": "沈黙の螺旋(超越ⅡLv.7++)",
+        "level": 10700
+      },
+      "enemies": [
+        {
+          "id": 810012343,
+          "name": "螺旋のメヌエット",
+          "type": "ボス",
+          "baseStats": {
+            "defense": 234731,
+            "luck": 3662479,
+            "critReduce": 600,
+            "dmgReduce": 2411355,
+            "dmgReduceRatio": 0,
+            "guard": 70
+          },
+          "difficultyStats": {
+            "1": {
+              "dmgReduce": 241135,
+              "dmgReduceRatio": 0,
+              "guard": 30,
+              "critReduce": 600
+            },
+            "2": {
+              "dmgReduce": 723406,
+              "dmgReduceRatio": 0,
+              "guard": 50,
+              "critReduce": 600
+            },
+            "3": {
+              "dmgReduce": 1446813,
+              "dmgReduceRatio": 0,
+              "guard": 55,
+              "critReduce": 600
+            },
+            "4": {
+              "dmgReduce": 2411355,
+              "dmgReduceRatio": 0,
+              "guard": 70,
+              "critReduce": 600
+            }
+          }
+        }
+      ]
     }
   }
 };
@@ -1411,10 +1744,6 @@ const DUNGEON_LIST = {
     {
       "level": "5001",
       "name": "エリーダンジョン上級共通"
-    },
-    {
-      "level": "7000",
-      "name": "ノルニルの涙(超越Lv.7000++)"
     },
     {
       "level": "8000",
@@ -1479,13 +1808,25 @@ const DUNGEON_LIST = {
     {
       "level": "10201",
       "name": "ネクターサーカス場(超越ⅡLv.2++)"
+    },
+    {
+      "level": "10500",
+      "name": "盲目の鳥の巣(超越ⅡLv.5++)"
+    },
+    {
+      "level": "10501",
+      "name": "リキモペルケ(超越ⅡLv.5++)"
+    },
+    {
+      "level": "10700",
+      "name": "キャメロット牧場(超越ⅡLv.7++)"
+    },
+    {
+      "level": "10701",
+      "name": "沈黙の螺旋(超越ⅡLv.7++)"
     }
   ],
   "ボス": [
-    {
-      "level": "7000",
-      "name": "ノルニルの涙(超越Lv.7000++)"
-    },
     {
       "level": "7001",
       "name": "[ｱｶｳﾝﾄ]次元の狭間(超越Lv.7000++)"
@@ -1517,6 +1858,22 @@ const DUNGEON_LIST = {
     {
       "level": "10201",
       "name": "ネクターサーカス場(超越ⅡLv.2++)"
+    },
+    {
+      "level": "10500",
+      "name": "盲目の鳥の巣(超越ⅡLv.5++)"
+    },
+    {
+      "level": "10501",
+      "name": "リキモペルケ(超越ⅡLv.5++)"
+    },
+    {
+      "level": "10700",
+      "name": "キャメロット牧場(超越ⅡLv.7++)"
+    },
+    {
+      "level": "10701",
+      "name": "沈黙の螺旋(超越ⅡLv.7++)"
     }
   ]
 };

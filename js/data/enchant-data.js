@@ -32,8 +32,8 @@ const ENCHANT_DATA = {
     "weapon": "option_type=187 の装備は滅亡/記憶を比較し、全カテゴリで同一なら 滅亡記憶武器 へ統合",
     "ikaros_grandel": "イカロス/グランデルは同部位ペアをカテゴリ別に強制統合",
     "upgrade_pairs": "強化のみ、完全一致で2件ペアの装備は '装備A / 装備B' へ統合",
-    "enchant_parts": "エンチャのみ、指定3系統（ダークエルフ/魔女/結合エメラルディア と 怠惰/貪欲/結合涙）を部位ごとに統合",
-    "merge_identical_entries": "同一能力（カテゴリ/Lv/詳細/期待値/範囲一致）は1エントリ化。装備名は短い表記へ寄せ、イカロス/グランデルはイカロス系に統一、エメラルディア/ノルニルは系列名へ短縮。選択肢判定用に filter_names（最小粒度名）を付与",
+    "enchant_parts": "エンチャのみ、ダークエルフ/魔女/結合エメラルディアを部位ごとに統合",
+    "merge_identical_entries": "同一能力（カテゴリ/Lv/詳細/期待値/範囲一致）は1エントリ化。装備名は短い表記へ寄せ、イカロス/グランデルはイカロス系に統一、エメラルディアは系列名へ短縮。選択肢判定用に filter_names（最小粒度名）を付与",
     "awaken_profiles": "覚醒の同一プロファイル候補は grouping_info.awaken_profile_group_map に参考出力（表示統合は merge_identical_entries を優先）",
     "special_equipment": "アンドレアスの教本とエンチャ/覚醒が同一の装備を 特殊装備 へ統合（チャーム/5番/6番を含む名称は除外）",
     "non_weapon": "非武器は自動統合せず、同一候補は grouping_info.non_weapon_merge_candidates に出力",
@@ -133,8 +133,14 @@ const ENCHANT_DATA = {
       "グランデルのブーツ": "イカロスのブーツ / グランデルのブーツ",
       "グランデルのプレート": "イカロスのプレート / グランデルのプレート",
       "グランデルのヘルメット": "イカロスのヘルメット / グランデルのヘルメット",
+      "ベリアルのイヤリング": "ベリアルのイヤリング / 鏡のイヤリング",
+      "ベリアルのマント": "ベリアルのマント / 鏡のマント",
+      "ベリアルの指輪": "ベリアルの指輪 / 鏡の指輪",
       "封印された赤い結晶": "封印された赤い結晶 / 封印された青い結晶",
-      "封印された青い結晶": "封印された赤い結晶 / 封印された青い結晶"
+      "封印された青い結晶": "封印された赤い結晶 / 封印された青い結晶",
+      "鏡のイヤリング": "ベリアルのイヤリング / 鏡のイヤリング",
+      "鏡のマント": "ベリアルのマント / 鏡のマント",
+      "鏡の指輪": "ベリアルの指輪 / 鏡の指輪"
     },
     "awaken_profile_group_map": {
       "アンドレアスの教本": "特殊装備",
@@ -144,6 +150,7 @@ const ENCHANT_DATA = {
       "イカロスのプレート": "アクセ装備",
       "イカロスのヘルメット": "アクセ装備",
       "ガブリエラの2番目バッジ": "特殊装備",
+      "キャメロットのステッカー": "特殊装備",
       "クラフトキーパーの教本": "特殊装備",
       "グランデルのクリップ": "アクセ装備",
       "グランデルのグローブ": "アクセ装備",
@@ -157,12 +164,14 @@ const ENCHANT_DATA = {
       "ダークエルフのメガネ": "アクセ装備",
       "ティレニアのブローチ": "特殊装備",
       "ドミトリーのチャーム": "特殊装備",
-      "ノトリアのステッカー": "特殊装備",
-      "バニーバニーベルト": "特殊装備",
       "フレディアの4番目バッジ": "特殊装備",
-      "怠惰のイヤリング": "アクセ装備",
-      "怠惰のマント": "アクセ装備",
-      "怠惰の指輪": "アクセ装備",
+      "ベリアルのイヤリング": "アクセ装備",
+      "ベリアルのイヤリング[神話]": "アクセ装備",
+      "ベリアルのマント": "アクセ装備",
+      "ベリアルのマント[神話]": "アクセ装備",
+      "ベリアルの指輪": "アクセ装備",
+      "ベリアルの指輪[神話]": "アクセ装備",
+      "メヌエットのベルト": "特殊装備",
       "滅亡のMG": "滅亡装備",
       "滅亡のオーブ": "滅亡装備",
       "滅亡のガントレット": "滅亡装備",
@@ -202,9 +211,6 @@ const ENCHANT_DATA = {
       "結合したエメラルディアのストッキング": "アクセ装備",
       "結合したエメラルディアのタトゥー": "アクセ装備",
       "結合したエメラルディアのメガネ": "アクセ装備",
-      "結合した涙のイヤリング": "アクセ装備",
-      "結合した涙のマント": "アクセ装備",
-      "結合した涙の指輪": "アクセ装備",
       "記憶のMG": "滅亡装備",
       "記憶のオーブ": "滅亡装備",
       "記憶のガントレット": "滅亡装備",
@@ -240,9 +246,9 @@ const ENCHANT_DATA = {
       "記憶の短剣": "滅亡装備",
       "記憶の飛燕剣": "滅亡装備",
       "記憶の黒狼玉": "滅亡装備",
-      "貪欲のイヤリング": "アクセ装備",
-      "貪欲のマント": "アクセ装備",
-      "貪欲の指輪": "アクセ装備",
+      "鏡のイヤリング": "アクセ装備",
+      "鏡のマント": "アクセ装備",
+      "鏡の指輪": "アクセ装備",
       "魔女のストッキング": "アクセ装備",
       "魔女のタトゥー": "アクセ装備",
       "魔女のメガネ": "アクセ装備",
@@ -253,18 +259,9 @@ const ENCHANT_DATA = {
       "ダークエルフのストッキング": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
       "ダークエルフのタトゥー": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
       "ダークエルフのメガネ": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
-      "怠惰のイヤリング": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
-      "怠惰のマント": "怠惰 / 貪欲 / 結合した涙（マント）",
-      "怠惰の指輪": "怠惰 / 貪欲 / 結合した涙（指輪）",
       "結合したエメラルディアのストッキング": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
       "結合したエメラルディアのタトゥー": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
       "結合したエメラルディアのメガネ": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）",
-      "結合した涙のイヤリング": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
-      "結合した涙のマント": "怠惰 / 貪欲 / 結合した涙（マント）",
-      "結合した涙の指輪": "怠惰 / 貪欲 / 結合した涙（指輪）",
-      "貪欲のイヤリング": "怠惰 / 貪欲 / 結合した涙（イヤリング）",
-      "貪欲のマント": "怠惰 / 貪欲 / 結合した涙（マント）",
-      "貪欲の指輪": "怠惰 / 貪欲 / 結合した涙（指輪）",
       "魔女のストッキング": "ダークエルフ / 魔女 / 結合したエメラルディア（ストッキング）",
       "魔女のタトゥー": "ダークエルフ / 魔女 / 結合したエメラルディア（タトゥー）",
       "魔女のメガネ": "ダークエルフ / 魔女 / 結合したエメラルディア（メガネ）"
@@ -312,26 +309,26 @@ const ENCHANT_DATA = {
     "special_equipment_merged_names": [
       "アンドレアスの教本",
       "ガブリエラの2番目バッジ",
+      "キャメロットのステッカー",
       "クラフトキーパーの教本",
       "サーカス場の3番目のバッジ",
       "タイヤマンの1番目のバッジ",
       "ティレニアのブローチ",
-      "ノトリアのステッカー",
-      "バニーバニーベルト",
       "フレディアの4番目バッジ",
+      "メヌエットのベルト",
       "黒龍のネックレス"
     ],
     "special_equipment_merged_names_by_category": {
       "覚醒": [
         "アンドレアスの教本",
         "ガブリエラの2番目バッジ",
+        "キャメロットのステッカー",
         "クラフトキーパーの教本",
         "サーカス場の3番目のバッジ",
         "タイヤマンの1番目のバッジ",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
+        "メヌエットのベルト",
         "黒龍のネックレス"
       ]
     },
@@ -347,6 +344,5332 @@ const ENCHANT_DATA = {
   },
   "entries": [
     {
+      "id": "eqgrp_4fcd47c0c7a0",
+      "equipment_name": "キャメロットのステッカー",
+      "display_name": "キャメロットのステッカー (強化 →+30)",
+      "category": "強化",
+      "level": 10700,
+      "level_label": "",
+      "detail": "→+30",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 1450.0,
+        "武器属性": 15.0,
+        "混乱抵抗": 17.0,
+        "一般追加ダメ": 1450.0,
+        "スタン抵抗": 17.0,
+        "筋力魔力": 1450.0,
+        "最大": 10.0
+      },
+      "base_expected_values": {
+        "スタン抵抗": 282.0,
+        "混乱抵抗": 282.0,
+        "筋力魔力": 8900.0,
+        "武器属性": 129.0,
+        "追加ダメ": 8900.0,
+        "一般追加ダメ": 6700.0,
+        "最大": 20.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "キャメロットのステッカー"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー"
+      ]
+    },
+    {
+      "id": "eqgrp_02eab29864f7",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv4 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "4",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 18.0
+      },
+      "display_ranges": {
+        "武器属性": "6～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_04373dc7008f",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 11.0
+      },
+      "display_ranges": {
+        "武器属性": "4～18"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_32af6dce89e6",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv5 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "5",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 7.0
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_36a9bb9fcd97",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv1 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "1",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 2.5
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_41aefbc91fd2",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv4 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "4",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 6.0
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "2～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_643084feeb11",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv5 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "5",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 21.5
+      },
+      "display_ranges": {
+        "武器属性": "7～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_7d20c186f1d9",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv3 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "3",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 5.0
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "2～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_7d66dd8c2fd3",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv3 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "3",
+      "detail": "全ステータス%+d",
+      "option_type": 222,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 600.0
+      },
+      "display_ranges": {
+        "全ステ": "200～1000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_7ff0458f7e82",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv1 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "1",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 2.5
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_9d8f5fc0607c",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv2 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "2",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 3.5
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_a4829486c306",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv4 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "4",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 6.0
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "2～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_aa88fbf7eb5e",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv2 近距離ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "2",
+      "detail": "近距離ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "近距離ダメージ%+d％": 3.5
+      },
+      "display_ranges": {
+        "近距離ダメージ%+d％": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_b8709e2e8054",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv1 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "1",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 7.0
+      },
+      "display_ranges": {
+        "武器属性": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_c54835712c93",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv1 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "1",
+      "detail": "全ステータス%+d",
+      "option_type": 222,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 300.0
+      },
+      "display_ranges": {
+        "全ステ": "100～500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_c5adc9fd4746",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "4",
+      "detail": "全ステータス%+d",
+      "option_type": 222,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 750.0
+      },
+      "display_ranges": {
+        "全ステ": "250～1250"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_d8ea57a087c1",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv3 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "3",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 5.0
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "2～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_db597a9ed1bf",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "2",
+      "detail": "全ステータス%+d",
+      "option_type": 222,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 450.0
+      },
+      "display_ranges": {
+        "全ステ": "150～750"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_dcc60c34a614",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv5 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "5",
+      "detail": "全ステータス%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 900.0
+      },
+      "display_ranges": {
+        "全ステ": "300～1500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_ea18d4d68c7e",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv3 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "3",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 14.5
+      },
+      "display_ranges": {
+        "武器属性": "5～24"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_f685b44a7d12",
+      "equipment_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ / メヌエットのベルト (エンチャ Lv5 状態異常ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "5",
+      "detail": "状態異常ダメージ%+d％",
+      "option_type": 222,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "状態異常ダメージ%+d％": 7.0
+      },
+      "display_ranges": {
+        "状態異常ダメージ%+d％": "2～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "サーカス場の3番目のバッジ",
+        "タイヤマンの1番目のバッジ",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト",
+        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
+      ]
+    },
+    {
+      "id": "eqgrp_0a0c2ecacd16",
+      "equipment_name": "キャメロットのステッカー / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / メヌエットのベルト (エンチャ Lv4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 1800.0
+      },
+      "display_ranges": {
+        "追加ダメ": "600～3000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト"
+      ]
+    },
+    {
+      "id": "eqgrp_27c14e0f40ec",
+      "equipment_name": "キャメロットのステッカー / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / メヌエットのベルト (エンチャ Lv3 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "3",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 1500.0
+      },
+      "display_ranges": {
+        "追加ダメ": "600～2400"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト"
+      ]
+    },
+    {
+      "id": "eqgrp_38e93b404d8c",
+      "equipment_name": "キャメロットのステッカー / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / メヌエットのベルト (エンチャ Lv5 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "5",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 2100.0
+      },
+      "display_ranges": {
+        "追加ダメ": "600～3600"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト"
+      ]
+    },
+    {
+      "id": "eqgrp_531f224f48f9",
+      "equipment_name": "キャメロットのステッカー / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / メヌエットのベルト (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 750.0
+      },
+      "display_ranges": {
+        "追加ダメ": "300～1200"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト"
+      ]
+    },
+    {
+      "id": "eqgrp_f68ebe0cf7df",
+      "equipment_name": "キャメロットのステッカー / メヌエットのベルト",
+      "display_name": "キャメロットのステッカー / メヌエットのベルト (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10700,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 1050.0
+      },
+      "display_ranges": {
+        "追加ダメ": "300～1800"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "キャメロットのステッカー",
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "キャメロットのステッカー / メヌエットのベルト"
+      ]
+    },
+    {
+      "id": "eqgrp_0f07761e1bf1",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]全ステータス%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "全ステ": 250.0
+      },
+      "display_ranges": {
+        "全ステ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_18338538be78",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "ボス追加ダメ": 90.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_1d0c01d9e942",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]体力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]体力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "体力": 90.0
+      },
+      "display_ranges": {
+        "体力": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_25fe5b408ea2",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "一般追加ダメ": 90.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_2d46b7a5fde4",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "ボス追加ダメ": 450.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_3a79e62b7d92",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "ボス追加ダメ": 250.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_3e3ecf20a20d",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]幸運%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]幸運%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "幸運": 450.0
+      },
+      "display_ranges": {
+        "幸運": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_59583eb09752",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "武器属性": 9.0
+      },
+      "display_ranges": {
+        "武器属性": "3～15"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_6b896e4a69b8",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]最大HP%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]最大HP%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "HP": 450.0
+      },
+      "display_ranges": {
+        "HP": "200～700"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_74d04a6c6c56",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]最大HP%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]最大HP%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "HP": 1700.0
+      },
+      "display_ranges": {
+        "HP": "400～3000"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_779b4b0d1bd1",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]筋力/魔法力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "筋力魔力": 250.0
+      },
+      "display_ranges": {
+        "筋力魔力": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_7de5106eaf78",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]筋力/魔法力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "筋力魔力": 450.0
+      },
+      "display_ranges": {
+        "筋力魔力": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_8a1cd2b72646",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]全ステータス%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "全ステ": 450.0
+      },
+      "display_ranges": {
+        "全ステ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_8e98a980dd95",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "一般追加ダメ": 250.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9011789c187b",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "武器属性": 14.0
+      },
+      "display_ranges": {
+        "武器属性": "3～25"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_96ad9fc205f5",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]体力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]体力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "体力": 250.0
+      },
+      "display_ranges": {
+        "体力": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_96e3d85793ef",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]体力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]体力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "体力": 450.0
+      },
+      "display_ranges": {
+        "体力": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_96f4062d9377",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 450.0
+      },
+      "display_ranges": {
+        "追加ダメ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9e45139494e6",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "一般追加ダメ": 450.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "100～800"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9ea46c240279",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]最大HP%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]最大HP%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "HP": 950.0
+      },
+      "display_ranges": {
+        "HP": "400～1500"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_9eadb131ada7",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 250.0
+      },
+      "display_ranges": {
+        "追加ダメ": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_b3a0db6a5360",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]武器攻撃力/属性力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]武器攻撃力/属性力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "武器属性": 3.0
+      },
+      "display_ranges": {
+        "武器属性": "1～5"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_b75a20608587",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]幸運%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [2]幸運%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "幸運": 250.0
+      },
+      "display_ranges": {
+        "幸運": "100～400"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_d86aa668e4b5",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]幸運%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]幸運%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "幸運": 90.0
+      },
+      "display_ranges": {
+        "幸運": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_dc52972d50b1",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]筋力/魔法力%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "筋力魔力": 90.0
+      },
+      "display_ranges": {
+        "筋力魔力": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_dd5abcd6b7f3",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 90.0
+      },
+      "display_ranges": {
+        "追加ダメ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_f2751c626277",
+      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
+      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 10700,
+      "detail": "段階6 [1]全ステータス%+d",
+      "option_type": 222,
+      "option_class": 5,
+      "expected_values": {
+        "全ステ": 90.0
+      },
+      "display_ranges": {
+        "全ステ": "30～150"
+      },
+      "potential_kind": 5002,
+      "potential_step": 6,
+      "option_group": 50002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ],
+      "selectable_options": [
+        "ドミトリーのチャーム",
+        "特殊装備",
+        "突然変異キャンサーの6番バッジ",
+        "黒龍の時計"
+      ]
+    },
+    {
+      "id": "eqgrp_46a502eb7ec1",
+      "equipment_name": "メヌエットのベルト",
+      "display_name": "メヌエットのベルト (強化 →+30)",
+      "category": "強化",
+      "level": 10700,
+      "level_label": "",
+      "detail": "→+30",
+      "option_type": 223,
+      "option_class": 5,
+      "expected_values": {
+        "追加ダメ": 2900.0,
+        "魔力": 2900.0,
+        "ボス追加ダメ": 1450.0,
+        "筋力": 2900.0,
+        "最小": 10.0,
+        "全ステ%": 2.0
+      },
+      "base_expected_values": {
+        "スタン抵抗": 250.0,
+        "混乱抵抗": 250.0,
+        "全ステ%": 18.0,
+        "最小": 129.0,
+        "追加ダメ": 20900.0,
+        "筋力": 20900.0,
+        "魔力": 20900.0,
+        "ボス追加ダメ": 3160.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "メヌエットのベルト"
+      ],
+      "selectable_options": [
+        "メヌエットのベルト"
+      ]
+    },
+    {
+      "id": "eqgrp_3837d5fbb932",
+      "equipment_name": "イカロスクリップ / イカロスグローブ / イカロスプレート / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡の指輪",
+      "display_name": "イカロスクリップ / イカロスグローブ / イカロスプレート / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡の指輪 (エンチャ Lv3-5 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 207,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 1.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスグローブ",
+        "イカロスプレート",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスグローブ",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_cb2f1cd15bd6",
+      "equipment_name": "イカロスクリップ / イカロスブーツ / イカロスプレート / ベリアルのマント / ベリアルのマント[神話] / 鏡のマント",
+      "display_name": "イカロスクリップ / イカロスブーツ / イカロスプレート / ベリアルのマント / ベリアルのマント[神話] / 鏡のマント (エンチャ Lv3-5 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "全ステータス%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 1.0
+      },
+      "display_ranges": {
+        "全ステ%": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスブーツ",
+        "イカロスプレート",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスブーツ",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_9fa840d5ccd7",
+      "equipment_name": "イカロス防具 / ベリアルのマント / ベリアルのマント[神話] / 鏡のマント",
+      "display_name": "イカロス防具 / ベリアルのマント / ベリアルのマント[神話] / 鏡のマント (エンチャ Lv3-5 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 30.0
+      },
+      "display_ranges": {
+        "武器属性": "30～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスプレート",
+        "イカロスヘルメット",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスヘルメット",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_3cc59e456b59",
+      "equipment_name": "イカロス防具 / ベリアルアクセ / 鏡アクセ",
+      "display_name": "イカロス防具 / ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスプレート",
+        "イカロスヘルメット",
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスヘルメット",
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_3e4293e2e7aa",
+      "equipment_name": "イカロス防具 / ベリアルアクセ / 鏡アクセ",
+      "display_name": "イカロス防具 / ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "最大HP%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 1.0
+      },
+      "display_ranges": {
+        "HP_乗算": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスプレート",
+        "イカロスヘルメット",
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスヘルメット",
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_2e7aad116a08",
+      "equipment_name": "イカロス防具 / 鏡のマント",
+      "display_name": "イカロス防具 / 鏡のマント (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 120.5
+      },
+      "display_ranges": {
+        "武器属性": "1～240"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "イカロスクリップ",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスプレート",
+        "イカロスヘルメット",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "イカロスクリップ / イカロスプレート",
+        "イカロスグローブ",
+        "イカロスブーツ",
+        "イカロスヘルメット",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_38e404e5ed08",
+      "equipment_name": "エメラルディアアクセ / 鏡アクセ",
+      "display_name": "エメラルディアアクセ / 鏡アクセ (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 50.5
+      },
+      "display_ranges": {
+        "最小": "1～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_32fafb808102",
+      "equipment_name": "ベリアル / 鏡のイヤリング",
+      "display_name": "ベリアル / 鏡のイヤリング (強化 →+6)",
+      "category": "強化",
+      "level": 10500,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 205,
+      "option_class": 3,
+      "expected_values": {
+        "追加ダメ": 2500.0,
+        "一般追加ダメ": 10000.0,
+        "クリダメ": 15.0,
+        "最小": 25.0,
+        "ボス追加ダメ": 5000.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 6000.0,
+        "最小": 140.0,
+        "クリダメ": 80.0,
+        "追加ダメ": 10500.0,
+        "ボス追加ダメ": 32000.0,
+        "一般追加ダメ": 35000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "鏡のイヤリング"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / 鏡のイヤリング"
+      ]
+    },
+    {
+      "id": "eqgrp_9a790bfbe9b8",
+      "equipment_name": "ベリアル / 鏡のイヤリング",
+      "display_name": "ベリアル / 鏡のイヤリング (強化 +6→超越)",
+      "category": "強化",
+      "level": 10500,
+      "level_label": "",
+      "detail": "+6→超越",
+      "option_type": 205,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 4000.0,
+        "一般追加ダメ": 15000.0,
+        "クリダメ": 27.0,
+        "最小": 45.0,
+        "ボス追加ダメ": 9000.0,
+        "筋力魔力": 2900.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 6000.0,
+        "最小": 140.0,
+        "クリダメ": 80.0,
+        "追加ダメ": 10500.0,
+        "ボス追加ダメ": 32000.0,
+        "一般追加ダメ": 35000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "鏡のイヤリング"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / 鏡のイヤリング"
+      ]
+    },
+    {
+      "id": "eqgrp_7c9a5c78cf43",
+      "equipment_name": "ベリアル / 鏡のマント",
+      "display_name": "ベリアル / 鏡のマント (強化 →+6)",
+      "category": "強化",
+      "level": 10500,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 206,
+      "option_class": 3,
+      "expected_values": {
+        "追加ダメ": 2000.0,
+        "一般追加ダメ": 10000.0,
+        "クリダメ": 15.0,
+        "最小": 35.0,
+        "ボス追加ダメ": 10000.0,
+        "筋力魔力": 1500.0
+      },
+      "base_expected_values": {
+        "最小": 120.0,
+        "クリダメ": 100.0,
+        "ボス追加ダメ": 35000.0,
+        "筋力魔力": 2500.0,
+        "追加ダメ": 5000.0,
+        "一般追加ダメ": 35000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ベリアルのマント",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "ベリアルのマント / 鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_8686f20513f0",
+      "equipment_name": "ベリアル / 鏡のマント",
+      "display_name": "ベリアル / 鏡のマント (強化 +6→超越)",
+      "category": "強化",
+      "level": 10500,
+      "level_label": "",
+      "detail": "+6→超越",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 2800.0,
+        "一般追加ダメ": 15000.0,
+        "クリダメ": 27.0,
+        "最小": 50.0,
+        "ボス追加ダメ": 15000.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "最小": 120.0,
+        "クリダメ": 100.0,
+        "ボス追加ダメ": 35000.0,
+        "筋力魔力": 2500.0,
+        "追加ダメ": 5000.0,
+        "一般追加ダメ": 35000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ベリアルのマント",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "ベリアルのマント / 鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_8e04df31eb5a",
+      "equipment_name": "ベリアル / 鏡の指輪",
+      "display_name": "ベリアル / 鏡の指輪 (強化 +6→超越)",
+      "category": "強化",
+      "level": 10500,
+      "level_label": "",
+      "detail": "+6→超越",
+      "option_type": 207,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 4000.0,
+        "武器属性": 27.0,
+        "一般追加ダメ": 15000.0,
+        "ボス追加ダメ": 9000.0,
+        "最大": 29.0,
+        "筋力魔力": 2900.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 6000.0,
+        "最大": 120.0,
+        "武器属性": 100.0,
+        "追加ダメ": 11000.0,
+        "ボス追加ダメ": 32000.0,
+        "一般追加ダメ": 35000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ベリアルの指輪",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪 / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_eb7d9f4b79b8",
+      "equipment_name": "ベリアル / 鏡の指輪",
+      "display_name": "ベリアル / 鏡の指輪 (強化 →+6)",
+      "category": "強化",
+      "level": 10500,
+      "level_label": "",
+      "detail": "→+6",
+      "option_type": 207,
+      "option_class": 3,
+      "expected_values": {
+        "追加ダメ": 2500.0,
+        "武器属性": 15.0,
+        "一般追加ダメ": 10000.0,
+        "ボス追加ダメ": 5000.0,
+        "最大": 15.0,
+        "筋力魔力": 2000.0
+      },
+      "base_expected_values": {
+        "筋力魔力": 6000.0,
+        "最大": 120.0,
+        "武器属性": 100.0,
+        "追加ダメ": 11000.0,
+        "ボス追加ダメ": 32000.0,
+        "一般追加ダメ": 35000.0
+      },
+      "display_ranges": {},
+      "filter_names": [
+        "ベリアルの指輪",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪 / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_2e9bd3b296cb",
+      "equipment_name": "ベリアルのイヤリング",
+      "display_name": "ベリアルのイヤリング (エンチャ Lv1-2 物理/魔法貫通力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法貫通力%+d％",
+      "option_type": 208,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "貫通": 30.0
+      },
+      "display_ranges": {
+        "貫通": "10～50"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング"
+      ]
+    },
+    {
+      "id": "eqgrp_c2c2150e0003",
+      "equipment_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / 鏡のイヤリング / 鏡のマント",
+      "display_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / 鏡のイヤリング / 鏡のマント (エンチャ Lv3-5 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "クリダメ": 12.0
+      },
+      "display_ranges": {
+        "クリダメ": "12～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のイヤリング",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のイヤリング",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_477402de471c",
+      "equipment_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡の指輪",
+      "display_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡の指輪 (エンチャ Lv3-5 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 205,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 20.0
+      },
+      "display_ranges": {
+        "武器属性": "20～20"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_c1ae0322206d",
+      "equipment_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡の指輪",
+      "display_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡の指輪 (エンチャ Lv3-5 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 205,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最大": 12.0
+      },
+      "display_ranges": {
+        "最大": "12～12"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_34d9ea6c141c",
+      "equipment_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / 鏡のイヤリング",
+      "display_name": "ベリアルのイヤリング / ベリアルのイヤリング[神話] / 鏡のイヤリング (エンチャ Lv3-5 物理/魔法貫通力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法貫通力%+d％",
+      "option_type": 205,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "貫通": 6.0
+      },
+      "display_ranges": {
+        "貫通": "6～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "鏡のイヤリング"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "鏡のイヤリング"
+      ]
+    },
+    {
+      "id": "eqgrp_bf13581da100",
+      "equipment_name": "ベリアルのイヤリング / マント",
+      "display_name": "ベリアルのイヤリング / マント (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "クリダメ": 60.0
+      },
+      "display_ranges": {
+        "クリダメ": "20～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント"
+      ]
+    },
+    {
+      "id": "eqgrp_77ae75d72d4e",
+      "equipment_name": "ベリアルのイヤリング / 指輪",
+      "display_name": "ベリアルのイヤリング / 指輪 (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 208,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最大": 60.0
+      },
+      "display_ranges": {
+        "最大": "20～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_95f2f8b72f2c",
+      "equipment_name": "ベリアルのイヤリング / 指輪",
+      "display_name": "ベリアルのイヤリング / 指輪 (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 208,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 96.0
+      },
+      "display_ranges": {
+        "武器属性": "32～160"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_8774b459d5af",
+      "equipment_name": "ベリアルのイヤリング[神話]",
+      "display_name": "ベリアルのイヤリング[神話] (エンチャ Lv1-2 物理/魔法貫通力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法貫通力%+d％",
+      "option_type": 214,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "貫通": 46.0
+      },
+      "display_ranges": {
+        "貫通": "41～51"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_83886719857b",
+      "equipment_name": "ベリアルのイヤリング[神話] / マント[神話]",
+      "display_name": "ベリアルのイヤリング[神話] / マント[神話] (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "クリダメ": 91.0
+      },
+      "display_ranges": {
+        "クリダメ": "81～101"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_78fd3a6ddd4e",
+      "equipment_name": "ベリアルのイヤリング[神話] / 指輪[神話]",
+      "display_name": "ベリアルのイヤリング[神話] / 指輪[神話] (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 214,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 145.0
+      },
+      "display_ranges": {
+        "武器属性": "129～161"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_8ad02bad2f34",
+      "equipment_name": "ベリアルのイヤリング[神話] / 指輪[神話]",
+      "display_name": "ベリアルのイヤリング[神話] / 指輪[神話] (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 214,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最大": 91.0
+      },
+      "display_ranges": {
+        "最大": "81～101"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_2414cedf4f4a",
+      "equipment_name": "ベリアルのマント",
+      "display_name": "ベリアルのマント (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 144.0
+      },
+      "display_ranges": {
+        "武器属性": "48～240"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント"
+      ],
+      "selectable_options": [
+        "ベリアルのマント"
+      ]
+    },
+    {
+      "id": "eqgrp_a2678ab7003b",
+      "equipment_name": "ベリアルのマント",
+      "display_name": "ベリアルのマント (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 24000.0
+      },
+      "display_ranges": {
+        "追加ダメ": "8000～40000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント"
+      ],
+      "selectable_options": [
+        "ベリアルのマント"
+      ]
+    },
+    {
+      "id": "eqgrp_cfb98048726a",
+      "equipment_name": "ベリアルのマント",
+      "display_name": "ベリアルのマント (エンチャ Lv1-2 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d％",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 9.0
+      },
+      "display_ranges": {
+        "全ステ%": "3～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント"
+      ],
+      "selectable_options": [
+        "ベリアルのマント"
+      ]
+    },
+    {
+      "id": "eqgrp_bf929adf6e68",
+      "equipment_name": "ベリアルのマント / ベリアルのマント[神話] / 鏡アクセ",
+      "display_name": "ベリアルのマント / ベリアルのマント[神話] / 鏡アクセ (エンチャ Lv3-5 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 4500.0
+      },
+      "display_ranges": {
+        "追加ダメ": "4500～4500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_01d891b9517e",
+      "equipment_name": "ベリアルのマント[神話]",
+      "display_name": "ベリアルのマント[神話] (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 217.0
+      },
+      "display_ranges": {
+        "武器属性": "193～241"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのマント[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_1dc053a77715",
+      "equipment_name": "ベリアルのマント[神話]",
+      "display_name": "ベリアルのマント[神話] (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 36001.0
+      },
+      "display_ranges": {
+        "追加ダメ": "32001～40001"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのマント[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_e0a9f3559796",
+      "equipment_name": "ベリアルのマント[神話]",
+      "display_name": "ベリアルのマント[神話] (エンチャ Lv1-2 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d％",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 14.5
+      },
+      "display_ranges": {
+        "全ステ%": "13～16"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのマント[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのマント[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_8710393f1d96",
+      "equipment_name": "ベリアルの指輪",
+      "display_name": "ベリアルの指輪 (エンチャ Lv1-2 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 210,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 33.0
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "11～55"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_e2b04cc4eb5a",
+      "equipment_name": "ベリアルの指輪",
+      "display_name": "ベリアルの指輪 (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 210,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 7.5
+      },
+      "display_ranges": {
+        "武器属性_乗算": "2～13"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_020be97c01fd",
+      "equipment_name": "ベリアルの指輪 / ベリアルの指輪[神話] / 鏡の指輪",
+      "display_name": "ベリアルの指輪 / ベリアルの指輪[神話] / 鏡の指輪 (エンチャ Lv3-5 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 207,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 6.0
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "6～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_05dd29ec0d03",
+      "equipment_name": "ベリアルの指輪[神話]",
+      "display_name": "ベリアルの指輪[神話] (エンチャ Lv1-2 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 216,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 50.5
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "45～56"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_f8eb1bf7476d",
+      "equipment_name": "ベリアルの指輪[神話]",
+      "display_name": "ベリアルの指輪[神話] (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 216,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 13.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "12～14"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_7af89e3a6f35",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 9000.0
+      },
+      "display_ranges": {
+        "全ステ": "3000～15000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_980a93119620",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 60.0
+      },
+      "display_ranges": {
+        "BA": "20～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_a2daaed46670",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 体力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "体力%+d",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 12000.0
+      },
+      "display_ranges": {
+        "体力": "4000～20000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_bf74490ccc25",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 9.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "3～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_d9a8ce5a6474",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 12000.0
+      },
+      "display_ranges": {
+        "筋力魔力": "4000～20000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_fab946c2cf78",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 60.0
+      },
+      "display_ranges": {
+        "最小": "20～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_ff602399291b",
+      "equipment_name": "ベリアルアクセ",
+      "display_name": "ベリアルアクセ (エンチャ Lv1-2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "最大HP%+d％",
+      "option_type": 209,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 6.0
+      },
+      "display_ranges": {
+        "HP_乗算": "2～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのマント",
+        "ベリアルの指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_08c8dc0bc92b",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "全ステータス%+d",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 1800.0
+      },
+      "display_ranges": {
+        "全ステ": "1800～1800"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_0da00343e0b6",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 8.0
+      },
+      "display_ranges": {
+        "BA": "8～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_82dd6a74cb64",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 体力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "体力%+d",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 2500.0
+      },
+      "display_ranges": {
+        "体力": "2500～2500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_a5a8bc2a0e6a",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 2500.0
+      },
+      "display_ranges": {
+        "筋力魔力": "2500～2500"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_dabc97cf223f",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (エンチャ Lv3-5 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 8.0
+      },
+      "display_ranges": {
+        "最小": "8～8"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_0d014b58ac4f",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 体力 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 体力 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 185.0
+      },
+      "display_ranges": {
+        "体力": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_0e2313a921e5",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 武器攻撃力/属性力 %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 武器攻撃力/属性力 %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性_乗算": 1.5
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～2"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_0f9d2d6d1e3c",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法最大ダメージ %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法最大ダメージ %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 3.5
+      },
+      "display_ranges": {
+        "最大": "1～6"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_161d0c5d18fa",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 筋力/魔法力 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 筋力/魔法力 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 185.0
+      },
+      "display_ranges": {
+        "筋力魔力": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_2bf4f860c9bc",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 ボスモンスター追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 ボスモンスター追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 675.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_373926560f7d",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 幸運 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 幸運 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 375.0
+      },
+      "display_ranges": {
+        "幸運": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_38e44af40b02",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 一般モンスター追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 一般モンスター追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 375.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_3bf1ca4351db",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 375.0
+      },
+      "display_ranges": {
+        "追加ダメ": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_40667772f50e",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 幸運 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 幸運 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 675.0
+      },
+      "display_ranges": {
+        "幸運": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_423ce3284cfd",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 武器攻撃力/属性力 %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 武器攻撃力/属性力 %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性_乗算": 2.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～3"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_49482f5b6e07",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 体力 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 体力 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 675.0
+      },
+      "display_ranges": {
+        "体力": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_5319f4cc4224",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 全ステータス %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 全ステータス %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 375.0
+      },
+      "display_ranges": {
+        "全ステ": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_541d55663885",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 一般モンスター追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 一般モンスター追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 185.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_5d0e9f2a2dee",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 体力 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 体力 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 375.0
+      },
+      "display_ranges": {
+        "体力": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_6c14ca5a2a74",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 全ステータス %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 全ステータス %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 185.0
+      },
+      "display_ranges": {
+        "全ステ": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_6e088d047b3e",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法最小ダメージ %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法最小ダメージ %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 10.5
+      },
+      "display_ranges": {
+        "最小": "3～18"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_7881b4bc1882",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法最小ダメージ %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法最小ダメージ %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 7.5
+      },
+      "display_ranges": {
+        "最小": "3～12"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_792bb5aedbcb",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 最大HP %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 最大HP %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "HP": 1500.0
+      },
+      "display_ranges": {
+        "HP": "500～2500"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_8954e5f3e2f5",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 一般モンスター追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 一般モンスター追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 675.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_b021e392c02e",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 全ステータス %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 全ステータス %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 675.0
+      },
+      "display_ranges": {
+        "全ステ": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_b1ec2a5632d7",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 幸運 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 幸運 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 185.0
+      },
+      "display_ranges": {
+        "幸運": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_b801bbfff602",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 全ステータス %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 全ステータス %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ%": 1.5
+      },
+      "display_ranges": {
+        "全ステ%": "1～2"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_b82aad0e2596",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 ボスモンスター追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 ボスモンスター追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 185.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_bb27f5b814ac",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法最大ダメージ %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法最大ダメージ %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 10.5
+      },
+      "display_ranges": {
+        "最大": "3～18"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_bb6b0220e63a",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 最大HP %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 最大HP %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "HP": 650.0
+      },
+      "display_ranges": {
+        "HP": "300～1000"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_c4dd59bca92c",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 全ステータス %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 全ステータス %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ%": 2.0
+      },
+      "display_ranges": {
+        "全ステ%": "1～3"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_c5cad994808d",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 最大HP %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 最大HP %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "HP": 2750.0
+      },
+      "display_ranges": {
+        "HP": "500～5000"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_c7a56e5b3833",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 675.0
+      },
+      "display_ranges": {
+        "追加ダメ": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_ceee48d77e3e",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 筋力/魔法力 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 筋力/魔法力 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 675.0
+      },
+      "display_ranges": {
+        "筋力魔力": "150～1200"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_d4458a341351",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 筋力/魔法力 %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 筋力/魔法力 %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 375.0
+      },
+      "display_ranges": {
+        "筋力魔力": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_e37b0997348c",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 185.0
+      },
+      "display_ranges": {
+        "追加ダメ": "70～300"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_e4af660dbcf5",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法最大ダメージ %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法最大ダメージ %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 7.5
+      },
+      "display_ranges": {
+        "最大": "3～12"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_ee2e1565edc3",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 ボスモンスター追加ダメージ %+d)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 ボスモンスター追加ダメージ %+d",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 375.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "150～600"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_fbefe0e51d8f",
+      "equipment_name": "ベリアルアクセ / 鏡アクセ",
+      "display_name": "ベリアルアクセ / 鏡アクセ (覚醒 段階6 物理/魔法最小ダメージ %+d%%)",
+      "category": "覚醒",
+      "level": 10500,
+      "detail": "段階6 物理/魔法最小ダメージ %+d%%",
+      "option_type": 206,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 3.5
+      },
+      "display_ranges": {
+        "最小": "1～6"
+      },
+      "potential_kind": 4003,
+      "potential_step": 6,
+      "option_group": 40003,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_5af9e8188d65",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 14.5
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "13～16"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_7e953a06bd22",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 体力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "体力%+d",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 18001.0
+      },
+      "display_ranges": {
+        "体力": "16001～20001"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_aa44f8f65430",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 13501.0
+      },
+      "display_ranges": {
+        "全ステ": "12001～15001"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_ae596ad21e67",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "最大HP%+d％",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 10.0
+      },
+      "display_ranges": {
+        "HP_乗算": "9～11"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_b5d224dc9468",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法最小ダメージ%+d％",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最小": 91.0
+      },
+      "display_ranges": {
+        "最小": "81～101"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_bdd00c599c51",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 91.0
+      },
+      "display_ranges": {
+        "BA": "81～101"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_d3addbeeaccc",
+      "equipment_name": "ベリアルアクセ[神話]",
+      "display_name": "ベリアルアクセ[神話] (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 215,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 18001.0
+      },
+      "display_ranges": {
+        "筋力魔力": "16001～20001"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ],
+      "selectable_options": [
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪[神話]"
+      ]
+    },
+    {
+      "id": "eqgrp_dfcd6fbad058",
+      "equipment_name": "滅亡記憶武器 / 鏡のイヤリング",
+      "display_name": "滅亡記憶武器 / 鏡のイヤリング (エンチャ Lv1-2 物理/魔法貫通力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法貫通力%+d％",
+      "option_type": 205,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "貫通": 25.5
+      },
+      "display_ranges": {
+        "貫通": "1～50"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "滅亡記憶武器",
+        "鏡のイヤリング"
+      ],
+      "selectable_options": [
+        "滅亡記憶武器",
+        "鏡のイヤリング"
+      ]
+    },
+    {
+      "id": "eqgrp_16ba3794275a",
+      "equipment_name": "鏡のイヤリング / マント",
+      "display_name": "鏡のイヤリング / マント (エンチャ Lv3-5 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_5122d474af7c",
+      "equipment_name": "鏡のイヤリング / マント",
+      "display_name": "鏡のイヤリング / マント (エンチャ Lv1-2 一般モンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "一般モンスター追加ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "一般追加ダメ_乗算": 8.0
+      },
+      "display_ranges": {
+        "一般追加ダメ_乗算": "1～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_ad73618435a0",
+      "equipment_name": "鏡のイヤリング / マント",
+      "display_name": "鏡のイヤリング / マント (エンチャ Lv1-2 物理/魔法クリティカルダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法クリティカルダメージ%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "クリダメ": 50.5
+      },
+      "display_ranges": {
+        "クリダメ": "1～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_1d7e7011b900",
+      "equipment_name": "鏡のイヤリング / 指輪",
+      "display_name": "鏡のイヤリング / 指輪 (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 205,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 80.5
+      },
+      "display_ranges": {
+        "武器属性": "1～160"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_2e972f0194d6",
+      "equipment_name": "鏡のイヤリング / 指輪",
+      "display_name": "鏡のイヤリング / 指輪 (エンチャ Lv1-2 物理/魔法最大ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法最大ダメージ%+d％",
+      "option_type": 205,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "最大": 50.5
+      },
+      "display_ranges": {
+        "最大": "1～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_426493aa0187",
+      "equipment_name": "鏡のマント",
+      "display_name": "鏡のマント (エンチャ Lv1-2 全ステータス%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ%": 8.0
+      },
+      "display_ranges": {
+        "全ステ%": "1～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のマント"
+      ],
+      "selectable_options": [
+        "鏡のマント"
+      ]
+    },
+    {
+      "id": "eqgrp_62e80a0c8ede",
+      "equipment_name": "鏡のマント / 指輪",
+      "display_name": "鏡のマント / 指輪 (エンチャ Lv3-5 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "3-5",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 1.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～1"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_a98af4dfa122",
+      "equipment_name": "鏡のマント / 指輪",
+      "display_name": "鏡のマント / 指輪 (エンチャ Lv1-2 ボスモンスター追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "ボスモンスター追加ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "ボス追加ダメ_乗算": 8.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ_乗算": "1～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_6c622f5563e8",
+      "equipment_name": "鏡の指輪",
+      "display_name": "鏡の指輪 (エンチャ Lv1-2 スキルクールタイム減少+%0.1F%%)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "スキルクールタイム減少+%0.1F%%",
+      "option_type": 207,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "スキルクールタイム減少+%0.1F%%": 28.0
+      },
+      "display_ranges": {
+        "スキルクールタイム減少+%0.1F%%": "1～55"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_73b00f14ace6",
+      "equipment_name": "鏡の指輪",
+      "display_name": "鏡の指輪 (エンチャ Lv1-2 武器攻撃力/属性力%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "武器攻撃力/属性力%+d％",
+      "option_type": 207,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性_乗算": 7.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～13"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_831a36ca2488",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "全ステータス%+d",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 7500.5
+      },
+      "display_ranges": {
+        "全ステ": "1～15000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_b9895eef5f06",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 体力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "体力%+d",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "体力": 10000.5
+      },
+      "display_ranges": {
+        "体力": "1～20000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_ddffe057eb0b",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ_乗算": 8.0
+      },
+      "display_ranges": {
+        "追加ダメ_乗算": "1～15"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_e0775d26c85b",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 20000.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～40000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_e8c6b6423460",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 最大HP%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "最大HP%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP_乗算": 5.5
+      },
+      "display_ranges": {
+        "HP_乗算": "1～10"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_fdac7ac77de6",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 筋力/魔法力%+d)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "筋力/魔法力%+d",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "筋力魔力": 10000.5
+      },
+      "display_ranges": {
+        "筋力魔力": "1～20000"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
+      "id": "eqgrp_ffd58e98134b",
+      "equipment_name": "鏡アクセ",
+      "display_name": "鏡アクセ (エンチャ Lv1-2 物理/魔法バックアタックダメージ%+d％)",
+      "category": "エンチャ",
+      "level": 10500,
+      "level_label": "1-2",
+      "detail": "物理/魔法バックアタックダメージ%+d％",
+      "option_type": 206,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "BA": 50.5
+      },
+      "display_ranges": {
+        "BA": "1～100"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ],
+      "selectable_options": [
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
+      ]
+    },
+    {
       "id": "eqgrp_0c5f58dd9c61",
       "equipment_name": "サーカス場の3番目のバッジ",
       "display_name": "サーカス場の3番目のバッジ (強化 →+20)",
@@ -358,9 +5681,9 @@ const ENCHANT_DATA = {
       "option_class": 5,
       "expected_values": {
         "追加ダメ": 1900.0,
-        "筋力魔力": 950.0,
-        "ボス追加ダメ": 1900.0,
         "全ステ": 1170.0,
+        "ボス追加ダメ": 1900.0,
+        "筋力魔力": 950.0,
         "最大": 4.0
       },
       "base_expected_values": {
@@ -380,60 +5703,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_054b4b04092f",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 近距離ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "5",
-      "detail": "近距離ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "近距離ダメージ%+d％": 7.0
-      },
-      "display_ranges": {
-        "近距離ダメージ%+d％": "2～12"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_0852c01fcdb2",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "5",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 21.5
-      },
-      "display_ranges": {
-        "武器属性": "7～36"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
       "id": "eqgrp_0e75354aba41",
       "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
       "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 Ely獲得%+d％)",
@@ -450,276 +5719,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "Ely獲得%+d％": "2～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_0ee5ff0cad9d",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 近距離ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "4",
-      "detail": "近距離ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "近距離ダメージ%+d％": 6.0
-      },
-      "display_ranges": {
-        "近距離ダメージ%+d％": "2～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_1b38883d95c5",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 状態異常ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "5",
-      "detail": "状態異常ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "状態異常ダメージ%+d％": 7.0
-      },
-      "display_ranges": {
-        "状態異常ダメージ%+d％": "2～12"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_378bae482d8b",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "4",
-      "detail": "全ステータス%+d",
-      "option_type": 203,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 750.0
-      },
-      "display_ranges": {
-        "全ステ": "250～1250"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_3bb137f19908",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "3",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 14.5
-      },
-      "display_ranges": {
-        "武器属性": "5～24"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_3c36e93af8f4",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 203,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 300.0
-      },
-      "display_ranges": {
-        "全ステ": "100～500"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_47f3ff1df497",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 18.0
-      },
-      "display_ranges": {
-        "武器属性": "6～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_57a0d91b0612",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv4 状態異常ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "4",
-      "detail": "状態異常ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "状態異常ダメージ%+d％": 6.0
-      },
-      "display_ranges": {
-        "状態異常ダメージ%+d％": "2～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_62dac112aa96",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 状態異常ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "2",
-      "detail": "状態異常ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "状態異常ダメージ%+d％": 3.5
-      },
-      "display_ranges": {
-        "状態異常ダメージ%+d％": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_6a00b0a45ff4",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 状態異常ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "1",
-      "detail": "状態異常ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "状態異常ダメージ%+d％": 2.5
-      },
-      "display_ranges": {
-        "状態異常ダメージ%+d％": "1～4"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_99256d9a3f46",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 状態異常ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "3",
-      "detail": "状態異常ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "状態異常ダメージ%+d％": 5.0
-      },
-      "display_ranges": {
-        "状態異常ダメージ%+d％": "2～8"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -758,33 +5757,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_9a98c0de0396",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "3",
-      "detail": "全ステータス%+d",
-      "option_type": 203,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 600.0
-      },
-      "display_ranges": {
-        "全ステ": "200～1000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
       "id": "eqgrp_a4ffebeedb22",
       "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
       "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 Ely獲得%+d％)",
@@ -801,60 +5773,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "Ely獲得%+d％": "2～12"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_a657e40dda97",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 近距離ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "1",
-      "detail": "近距離ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "近距離ダメージ%+d％": 2.5
-      },
-      "display_ranges": {
-        "近距離ダメージ%+d％": "1～4"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_aec26e27bc7c",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 近距離ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "2",
-      "detail": "近距離ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "近距離ダメージ%+d％": 3.5
-      },
-      "display_ranges": {
-        "近距離ダメージ%+d％": "1～6"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -893,114 +5811,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_c62e09cae838",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 11.0
-      },
-      "display_ranges": {
-        "武器属性": "4～18"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_d0f10354af9c",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 203,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 450.0
-      },
-      "display_ranges": {
-        "全ステ": "150～750"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_d1036277e1ba",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv5 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "5",
-      "detail": "全ステータス%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 900.0
-      },
-      "display_ranges": {
-        "全ステ": "300～1500"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
-      "id": "eqgrp_e14e6aaee63d",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 7.0
-      },
-      "display_ranges": {
-        "武器属性": "2～12"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
       "id": "eqgrp_e5b84eab1d52",
       "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
       "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 Ely獲得%+d％)",
@@ -1028,33 +5838,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_f3617cc4fb11",
-      "equipment_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
-      "display_name": "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ (エンチャ Lv3 近距離ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 10200,
-      "level_label": "3",
-      "detail": "近距離ダメージ%+d％",
-      "option_type": 203,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "近距離ダメージ%+d％": 5.0
-      },
-      "display_ranges": {
-        "近距離ダメージ%+d％": "2～8"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "サーカス場の3番目のバッジ",
-        "タイヤマンの1番目のバッジ"
-      ],
-      "selectable_options": [
-        "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ"
-      ]
-    },
-    {
       "id": "eqgrp_6ac12ae05f1d",
       "equipment_name": "タイヤマンの1番目のバッジ",
       "display_name": "タイヤマンの1番目のバッジ (強化 →+20)",
@@ -1066,12 +5849,12 @@ const ENCHANT_DATA = {
       "option_class": 5,
       "expected_values": {
         "追加ダメ": 1350.0,
-        "筋力魔力": 1820.0,
-        "攻撃": 23.0,
         "一般追加ダメ": 1350.0,
-        "HP": 1820.0,
+        "攻撃": 23.0,
         "全ステ": 1150.0,
-        "属性": 23.0
+        "属性": 23.0,
+        "HP": 1820.0,
+        "筋力魔力": 1820.0
       },
       "base_expected_values": {
         "HP": 9600.0,
@@ -1092,1218 +5875,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_0f07761e1bf1",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]全ステータス%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "全ステ": 250.0
-      },
-      "display_ranges": {
-        "全ステ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_18338538be78",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "ボス追加ダメ": 90.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_1d0c01d9e942",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]体力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]体力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "体力": 90.0
-      },
-      "display_ranges": {
-        "体力": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_25fe5b408ea2",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "一般追加ダメ": 90.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_2d46b7a5fde4",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "ボス追加ダメ": 450.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_3a79e62b7d92",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "ボス追加ダメ": 250.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_3e3ecf20a20d",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]幸運%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]幸運%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "幸運": 450.0
-      },
-      "display_ranges": {
-        "幸運": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_59583eb09752",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "武器属性": 9.0
-      },
-      "display_ranges": {
-        "武器属性": "3～15"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_6b896e4a69b8",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]最大HP%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]最大HP%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "HP": 450.0
-      },
-      "display_ranges": {
-        "HP": "200～700"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_74d04a6c6c56",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]最大HP%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]最大HP%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "HP": 1700.0
-      },
-      "display_ranges": {
-        "HP": "400～3000"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_779b4b0d1bd1",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]筋力/魔法力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "筋力魔力": 250.0
-      },
-      "display_ranges": {
-        "筋力魔力": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_7de5106eaf78",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]筋力/魔法力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "筋力魔力": 450.0
-      },
-      "display_ranges": {
-        "筋力魔力": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_8a1cd2b72646",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]全ステータス%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "全ステ": 450.0
-      },
-      "display_ranges": {
-        "全ステ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_8e98a980dd95",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "一般追加ダメ": 250.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9011789c187b",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "武器属性": 14.0
-      },
-      "display_ranges": {
-        "武器属性": "3～25"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_96ad9fc205f5",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]体力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]体力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "体力": 250.0
-      },
-      "display_ranges": {
-        "体力": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_96e3d85793ef",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]体力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]体力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "体力": 450.0
-      },
-      "display_ranges": {
-        "体力": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_96f4062d9377",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "追加ダメ": 450.0
-      },
-      "display_ranges": {
-        "追加ダメ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9e45139494e6",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "一般追加ダメ": 450.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "100～800"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9ea46c240279",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]最大HP%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]最大HP%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "HP": 950.0
-      },
-      "display_ranges": {
-        "HP": "400～1500"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_9eadb131ada7",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "追加ダメ": 250.0
-      },
-      "display_ranges": {
-        "追加ダメ": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_b3a0db6a5360",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]武器攻撃力/属性力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]武器攻撃力/属性力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "武器属性": 3.0
-      },
-      "display_ranges": {
-        "武器属性": "1～5"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_b75a20608587",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [2]幸運%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [2]幸運%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "幸運": 250.0
-      },
-      "display_ranges": {
-        "幸運": "100～400"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_d86aa668e4b5",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]幸運%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]幸運%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "幸運": 90.0
-      },
-      "display_ranges": {
-        "幸運": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_dc52972d50b1",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]筋力/魔法力%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "筋力魔力": 90.0
-      },
-      "display_ranges": {
-        "筋力魔力": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_dd5abcd6b7f3",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "追加ダメ": 90.0
-      },
-      "display_ranges": {
-        "追加ダメ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_f2751c626277",
-      "equipment_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計",
-      "display_name": "ドミトリーのチャーム / 特殊装備 / 突然変異キャンサーの6番バッジ / 黒龍の時計 (覚醒 段階6 [1]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 10200,
-      "detail": "段階6 [1]全ステータス%+d",
-      "option_type": 203,
-      "option_class": 5,
-      "expected_values": {
-        "全ステ": 90.0
-      },
-      "display_ranges": {
-        "全ステ": "30～150"
-      },
-      "potential_kind": 5002,
-      "potential_step": 6,
-      "option_group": 50002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ],
-      "selectable_options": [
-        "ドミトリーのチャーム",
-        "特殊装備",
-        "突然変異キャンサーの6番バッジ",
-        "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_008f7f66cc2a",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 36.5
-      },
-      "display_ranges": {
-        "抵抗": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_00d76941e63a",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 42.5
-      },
-      "display_ranges": {
-        "抵抗": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_02e74af7c0a8",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "抵抗": 96.5
-      },
-      "display_ranges": {
-        "抵抗": "1～192"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_03355407f728",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 27.5
-      },
-      "display_ranges": {
-        "抵抗": "1～54"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_0518c1234162",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 513.5
-      },
-      "display_ranges": {
-        "HP": "1～1026"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_095f848db0d1",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 180.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～360"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_0f076ff4f41a",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 42.5
-      },
-      "display_ranges": {
-        "全ステ": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_0faec8414edf",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 30.5
-      },
-      "display_ranges": {
-        "抵抗": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_14991a44b2fd",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 物理/魔法追加ダメージ%+d)",
+      "id": "eqgrp_001da2f83bed",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 物理/魔法追加ダメージ%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "7",
@@ -2324,1616 +5898,30 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_17ea19503087",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 60.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～120"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_18834205e368",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 81.5
-      },
-      "display_ranges": {
-        "全ステ": "1～162"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_18ceca542ba2",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1-9 Ely獲得量%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1-9",
-      "detail": "Ely獲得量%+d％",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "Ely獲得量%+d％": 1.5
-      },
-      "display_ranges": {
-        "Ely獲得量%+d％": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_1bc5c25c542b",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "追加ダメ": 144.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_1c249cd67821",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "全ステ": 68.0
-      },
-      "display_ranges": {
-        "全ステ": "1～135"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_1c3dfdf86610",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 21.5
-      },
-      "display_ranges": {
-        "全ステ": "1～42"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_1ddcdf0b6aad",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 48.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～96"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_1e822ad4e0a8",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 171.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～342"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_1e9f38528b7a",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 77.0
-      },
-      "display_ranges": {
-        "全ステ": "1～153"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2010f76ea501",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 138.5
-      },
-      "display_ranges": {
-        "防御": "1～276"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_20a2a2758205",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 114.5
-      },
-      "display_ranges": {
-        "抵抗": "1～228"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2378b8d57378",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "HP": 405.5
-      },
-      "display_ranges": {
-        "HP": "1～810"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_264e814e45e2",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 18.5
-      },
-      "display_ranges": {
-        "抵抗": "1～36"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2681fffea059",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 90.5
-      },
-      "display_ranges": {
-        "全ステ": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_275eb075a5c5",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 108.5
-      },
-      "display_ranges": {
-        "防御": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_287369d1653e",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 21.5
-      },
-      "display_ranges": {
-        "防御": "1～42"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2ae8138b54c9",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 648.5
-      },
-      "display_ranges": {
-        "HP": "1～1296"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2e607a855ab4",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 42.5
-      },
-      "display_ranges": {
-        "防御": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2ebb2c19df57",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 144.5
-      },
-      "display_ranges": {
-        "抵抗": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_2f7d99d1392b",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 126.5
-      },
-      "display_ranges": {
-        "防御": "1～252"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_336ebfbd93cf",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 27.5
-      },
-      "display_ranges": {
-        "全ステ": "1～54"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_3430483363a0",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 126.5
-      },
-      "display_ranges": {
-        "抵抗": "1～252"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_35ff70eeccd8",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 21.5
-      },
-      "display_ranges": {
-        "抵抗": "1～42"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_375299bfd715",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 162.5
-      },
-      "display_ranges": {
-        "HP": "1～324"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_38aa841e9570",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 33.5
-      },
-      "display_ranges": {
-        "防御": "1～66"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_399df78f9245",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 180.5
-      },
-      "display_ranges": {
-        "HP": "1～360"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_3a6d0c65916d",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 144.5
-      },
-      "display_ranges": {
-        "HP": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_3d5993b7050b",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 30.5
-      },
-      "display_ranges": {
-        "全ステ": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_3ed5714fb614",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 15.5
-      },
-      "display_ranges": {
-        "全ステ": "1～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_3f3277b01ecd",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 15.5
-      },
-      "display_ranges": {
-        "防御": "1～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_407d241c1191",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 138.5
-      },
-      "display_ranges": {
-        "抵抗": "1～276"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_40a6816d1b0e",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 567.5
-      },
-      "display_ranges": {
-        "HP": "1～1134"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_40d2fee6503b",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 27.5
-      },
-      "display_ranges": {
-        "防御": "1～54"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_4675d6bb80e0",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 132.5
-      },
-      "display_ranges": {
-        "防御": "1～264"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_4725dec2aa29",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 198.5
-      },
-      "display_ranges": {
-        "HP": "1～396"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_4a949170b0f3",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 234.5
-      },
-      "display_ranges": {
-        "HP": "1～468"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_4f50db79ef9c",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 15.5
-      },
-      "display_ranges": {
-        "抵抗": "1～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_53b6502e7918",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 18.5
-      },
-      "display_ranges": {
-        "防御": "1～36"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_54b677d3c968",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 216.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～432"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_5697f77b81d5",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "6",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 6,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 30.5
-      },
-      "display_ranges": {
-        "防御": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_5847ab181187",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 42.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～84"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_5886523d2149",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 144.5
-      },
-      "display_ranges": {
-        "防御": "1～288"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_5ab0202c1906",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 252.5
-      },
-      "display_ranges": {
-        "HP": "1～504"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_5d0b6f2b20b5",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "20",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 108.5
-      },
-      "display_ranges": {
-        "全ステ": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_601442ac9b0c",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 1,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 30.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～60"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6184d3b417c3",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 78.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～156"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_64c6a59d055d",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 3,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 126.5
-      },
-      "display_ranges": {
-        "HP": "1～252"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6790531dec4e",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10-20 Ely獲得量%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10-20",
-      "detail": "Ely獲得量%+d％",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "Ely獲得量%+d％": 2.0
-      },
-      "display_ranges": {
-        "Ely獲得量%+d％": "1～3"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6b55b3c8f236",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 全ステータス%+d)",
+      "id": "eqgrp_02cb4acb0b00",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 魔法抵抗力%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "8",
-      "detail": "全ステータス%+d",
+      "detail": "魔法抵抗力%+d",
       "option_type": 137,
       "option_class": 8,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "全ステ": 36.5
+        "抵抗": 36.5
       },
       "display_ranges": {
-        "全ステ": "1～72"
+        "抵抗": "1～72"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -3941,943 +5929,17 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_6ca423ce9cea",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "10",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 10,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 84.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～168"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6cad626b98cf",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 86.0
-      },
-      "display_ranges": {
-        "全ステ": "1～171"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6d03371a0ebb",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 162.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～324"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6d0f50e7d96c",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 120.5
-      },
-      "display_ranges": {
-        "抵抗": "1～240"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_6f962e032d0c",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 540.5
-      },
-      "display_ranges": {
-        "HP": "1～1080"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_765b6a3857ca",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "抵抗": 90.5
-      },
-      "display_ranges": {
-        "抵抗": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_78fec07b0f37",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 99.5
-      },
-      "display_ranges": {
-        "全ステ": "1～198"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_7a40dcace339",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 594.5
-      },
-      "display_ranges": {
-        "HP": "1～1188"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_7d69c86815d6",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 207.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～414"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_843710bbf69d",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11-20 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11-20",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 137,
-      "option_class": 20,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "武器属性": 3.5
-      },
-      "display_ranges": {
-        "武器属性": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_84fcff1a1d3c",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "追加ダメ": 135.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～270"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_87cb5be0837b",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "17",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 17,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 95.0
-      },
-      "display_ranges": {
-        "全ステ": "1～189"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_88dfb5bdee85",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 39.5
-      },
-      "display_ranges": {
-        "防御": "1～78"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_894725d24240",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 153.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～306"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_8ce640ca99fc",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 102.5
-      },
-      "display_ranges": {
-        "防御": "1～204"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_91c0f5f87da4",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "防御": 96.5
-      },
-      "display_ranges": {
-        "防御": "1～192"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_923194ac4bb0",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "11",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 11,
-      "option_group": 0,
-      "option_probability": 90.0,
-      "expected_values": {
-        "防御": 90.5
-      },
-      "display_ranges": {
-        "防御": "1～180"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_92d95a19a9a1",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 36.5
-      },
-      "display_ranges": {
-        "防御": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_94508d1c3570",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 39.5
-      },
-      "display_ranges": {
-        "抵抗": "1～78"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_9491648f16a9",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "15",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 15,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 114.5
-      },
-      "display_ranges": {
-        "防御": "1～228"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_9baa4ac5e143",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "HP": 432.5
-      },
-      "display_ranges": {
-        "HP": "1～864"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_9e5c4fa9f075",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "12",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 12,
-      "option_group": 0,
-      "option_probability": 80.0,
-      "expected_values": {
-        "全ステ": 72.5
-      },
-      "display_ranges": {
-        "全ステ": "1～144"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_9e934f6a16a1",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "9",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 9,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 39.5
-      },
-      "display_ranges": {
-        "全ステ": "1～78"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_9f9877bad32c",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "16",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 16,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "防御": 120.5
-      },
-      "display_ranges": {
-        "防御": "1～240"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_a0d84333c8a5",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "14",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 14,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 108.5
-      },
-      "display_ranges": {
-        "抵抗": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_a2250040c797",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "全ステ": 104.0
-      },
-      "display_ranges": {
-        "全ステ": "1～207"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_aed7d5baa516",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "抵抗": 102.5
-      },
-      "display_ranges": {
-        "抵抗": "1～204"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_b317557cf2aa",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "2",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP": 108.5
-      },
-      "display_ranges": {
-        "HP": "1～216"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_cf37c86295d5",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 最大HP%+d)",
+      "id": "eqgrp_02fa92722e8c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 最大HP%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "14",
@@ -4898,98 +5960,30 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_cfe341f5b661",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 全ステータス%+d)",
+      "id": "eqgrp_03980f7bf729",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 物理/魔法追加ダメージ%+d)",
       "category": "エンチャ",
       "level": 9999,
-      "level_label": "4",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 24.5
-      },
-      "display_ranges": {
-        "全ステ": "1～48"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_d2b07fbb32ef",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "13",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 13,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 459.5
-      },
-      "display_ranges": {
-        "HP": "1～918"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_d61dd0fc66a6",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "5",
+      "level_label": "12",
       "detail": "物理/魔法追加ダメージ%+d",
       "option_type": 137,
-      "option_class": 5,
+      "option_class": 12,
       "option_group": 0,
-      "option_probability": 100.0,
+      "option_probability": 80.0,
       "expected_values": {
-        "追加ダメ": 54.5
+        "追加ダメ": 144.5
       },
       "display_ranges": {
-        "追加ダメ": "1～108"
+        "追加ダメ": "1～288"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -4997,32 +5991,30 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_de53c54acfcb",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 魔法抵抗力%+d)",
+      "id": "eqgrp_0459579aad54",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 魔法抵抗力%+d)",
       "category": "エンチャ",
       "level": 9999,
-      "level_label": "18",
+      "level_label": "20",
       "detail": "魔法抵抗力%+d",
       "option_type": 137,
-      "option_class": 18,
+      "option_class": 20,
       "option_group": 0,
       "option_probability": 70.0,
       "expected_values": {
-        "抵抗": 132.5
+        "抵抗": 144.5
       },
       "display_ranges": {
-        "抵抗": "1～264"
+        "抵抗": "1～288"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -5030,131 +6022,30 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_de70c025b8e1",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 最大HP%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "19",
-      "detail": "最大HP%+d",
-      "option_type": 137,
-      "option_class": 19,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "HP": 621.5
-      },
-      "display_ranges": {
-        "HP": "1～1242"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_e5c61d9392bf",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "18",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 18,
-      "option_group": 0,
-      "option_probability": 70.0,
-      "expected_values": {
-        "追加ダメ": 198.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～396"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_e857f525133e",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "7",
-      "detail": "全ステータス%+d",
-      "option_type": 137,
-      "option_class": 7,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 33.5
-      },
-      "display_ranges": {
-        "全ステ": "1～66"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_ea03d13820fb",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 最大HP%+d)",
+      "id": "eqgrp_0c0c4458e33d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 魔法抵抗力%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "1",
-      "detail": "最大HP%+d",
+      "detail": "魔法抵抗力%+d",
       "option_type": 137,
       "option_class": 1,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "HP": 90.5
+        "抵抗": 15.5
       },
       "display_ranges": {
-        "HP": "1～180"
+        "抵抗": "1～30"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -5162,32 +6053,61 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_eae962e679c7",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 魔法抵抗力%+d)",
+      "id": "eqgrp_0c0d67afba92",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 全ステータス%+d)",
       "category": "エンチャ",
       "level": 9999,
-      "level_label": "7",
+      "level_label": "16",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 90.5
+      },
+      "display_ranges": {
+        "全ステ": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_0c5337659ba3",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
       "detail": "魔法抵抗力%+d",
       "option_type": 137,
-      "option_class": 7,
+      "option_class": 15,
       "option_group": 0,
-      "option_probability": 100.0,
+      "option_probability": 70.0,
       "expected_values": {
-        "抵抗": 33.5
+        "抵抗": 114.5
       },
       "display_ranges": {
-        "抵抗": "1～66"
+        "抵抗": "1～228"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -5195,65 +6115,30 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_f16c7654967a",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "id": "eqgrp_0c81a967c0a1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 魔法抵抗力%+d)",
       "category": "エンチャ",
       "level": 9999,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 36.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～72"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_f2a8e35c71ee",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
+      "level_label": "12",
       "detail": "魔法抵抗力%+d",
       "option_type": 137,
-      "option_class": 4,
+      "option_class": 12,
       "option_group": 0,
-      "option_probability": 100.0,
+      "option_probability": 80.0,
       "expected_values": {
-        "抵抗": 24.5
+        "抵抗": 96.5
       },
       "display_ranges": {
-        "抵抗": "1～48"
+        "抵抗": "1～192"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -5261,85 +6146,17 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_f4fa3b22381f",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "4",
-      "detail": "防御力%+d",
-      "option_type": 137,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 24.5
-      },
-      "display_ranges": {
-        "防御": "1～48"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_f6c0635a500b",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "8",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 137,
-      "option_class": 8,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 72.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～144"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "アンドレアスの教本",
-        "ガブリエラの2番目バッジ",
-        "クラフトキーパーの教本",
-        "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
-        "フレディアの4番目バッジ",
-        "黒龍のネックレス"
-      ],
-      "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
-      ]
-    },
-    {
-      "id": "eqgrp_fb6b004635ce",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 最大HP%+d)",
+      "id": "eqgrp_0db3b40bddc9",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 最大HP%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "8",
@@ -5360,32 +6177,154 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_fc9408509486",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 全ステータス%+d)",
+      "id": "eqgrp_11294e1d10be",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 162.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～324"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_117fe4a9ce00",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11-20 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11-20",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "武器属性": 3.5
+      },
+      "display_ranges": {
+        "武器属性": "1～6"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_150533092156",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 36.5
+      },
+      "display_ranges": {
+        "防御": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_15aff7b47529",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "抵抗": 90.5
+      },
+      "display_ranges": {
+        "抵抗": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_16f82578380b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 防御力%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "2",
-      "detail": "全ステータス%+d",
+      "detail": "防御力%+d",
       "option_type": 137,
       "option_class": 2,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "全ステ": 18.5
+        "防御": 18.5
       },
       "display_ranges": {
-        "全ステ": "1～36"
+        "防御": "1～36"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -5393,32 +6332,402 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_fe48dbc24cc4",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1-10 武器攻撃力/属性力%+d)",
+      "id": "eqgrp_1a9bebdc59c8",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 最大HP%+d)",
       "category": "エンチャ",
       "level": 9999,
-      "level_label": "1-10",
-      "detail": "武器攻撃力/属性力%+d",
+      "level_label": "4",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 144.5
+      },
+      "display_ranges": {
+        "HP": "1～288"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_1b841eceb6bc",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 114.5
+      },
+      "display_ranges": {
+        "防御": "1～228"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_22c67b8ba23e",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 21.5
+      },
+      "display_ranges": {
+        "防御": "1～42"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_288a5e5241e7",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 108.5
+      },
+      "display_ranges": {
+        "抵抗": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_2c5da9da64f9",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 27.5
+      },
+      "display_ranges": {
+        "全ステ": "1～54"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_312b09b62947",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 86.0
+      },
+      "display_ranges": {
+        "全ステ": "1～171"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_312e2d2cac3d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 102.5
+      },
+      "display_ranges": {
+        "防御": "1～204"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3389917dda0c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 180.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～360"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_352b1b19da15",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 18.5
+      },
+      "display_ranges": {
+        "抵抗": "1～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3580877e8e92",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "全ステ": 72.5
+      },
+      "display_ranges": {
+        "全ステ": "1～144"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3b3c3164afc7",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 132.5
+      },
+      "display_ranges": {
+        "防御": "1～264"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_3f3ccf09678c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 36.5
+      },
+      "display_ranges": {
+        "全ステ": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_47236a44cb4b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "魔法抵抗力%+d",
       "option_type": 137,
       "option_class": 10,
       "option_group": 0,
       "option_probability": 100.0,
       "expected_values": {
-        "武器属性": 2.5
+        "抵抗": 42.5
       },
       "display_ranges": {
-        "武器属性": "1～4"
+        "抵抗": "1～84"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -5426,19 +6735,854 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
-      "id": "eqgrp_ffadddc590f3",
-      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
-      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 物理/魔法追加ダメージ%+d)",
+      "id": "eqgrp_4790750c56c2",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 144.5
+      },
+      "display_ranges": {
+        "防御": "1～288"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_480a95707f83",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 567.5
+      },
+      "display_ranges": {
+        "HP": "1～1134"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_48834082301c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 42.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_489d95dd81d7",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 84.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～168"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_49cc03827dcd",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 21.5
+      },
+      "display_ranges": {
+        "全ステ": "1～42"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4c8483662955",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 33.5
+      },
+      "display_ranges": {
+        "抵抗": "1～66"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4ce815a99094",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 30.5
+      },
+      "display_ranges": {
+        "防御": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_4e30bfbcab19",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 27.5
+      },
+      "display_ranges": {
+        "抵抗": "1～54"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_576d6ad77a4f",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 54.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～108"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5a4ee661c45f",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 77.0
+      },
+      "display_ranges": {
+        "全ステ": "1～153"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_5c374eaaedc8",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 198.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～396"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_62bfaf65054a",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 216.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～432"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_63c333deaee6",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 252.5
+      },
+      "display_ranges": {
+        "HP": "1～504"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6941d502b4ab",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 162.5
+      },
+      "display_ranges": {
+        "HP": "1～324"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6a6cb89677f2",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 99.5
+      },
+      "display_ranges": {
+        "全ステ": "1～198"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6e664768868b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 24.5
+      },
+      "display_ranges": {
+        "抵抗": "1～48"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_6f3a78629fb6",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 120.5
+      },
+      "display_ranges": {
+        "抵抗": "1～240"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_73a53de5e853",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 540.5
+      },
+      "display_ranges": {
+        "HP": "1～1080"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_74164525c260",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 594.5
+      },
+      "display_ranges": {
+        "HP": "1～1188"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_745a6f307ab1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 39.5
+      },
+      "display_ranges": {
+        "全ステ": "1～78"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_75280427ed53",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 21.5
+      },
+      "display_ranges": {
+        "抵抗": "1～42"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7638bb36b535",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 138.5
+      },
+      "display_ranges": {
+        "防御": "1～276"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7985f5979a9d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 39.5
+      },
+      "display_ranges": {
+        "抵抗": "1～78"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7b18c2ea0827",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 513.5
+      },
+      "display_ranges": {
+        "HP": "1～1026"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7d415b21cd00",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 39.5
+      },
+      "display_ranges": {
+        "防御": "1～78"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_7eca28de5c4f",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "HP": 432.5
+      },
+      "display_ranges": {
+        "HP": "1～864"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_8067e1e4beac",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 15.5
+      },
+      "display_ranges": {
+        "全ステ": "1～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_82e7babeadef",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 物理/魔法追加ダメージ%+d)",
       "category": "エンチャ",
       "level": 9999,
       "level_label": "17",
@@ -5459,13 +7603,1499 @@ const ENCHANT_DATA = {
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
       "selectable_options": [
-        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス"
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_86bb1d533105",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 108.5
+      },
+      "display_ranges": {
+        "HP": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_86cd7c9c0144",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 30.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_87424ed91451",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 78.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～156"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_88d5eff09e4b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 198.5
+      },
+      "display_ranges": {
+        "HP": "1～396"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_8a339c999a14",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 648.5
+      },
+      "display_ranges": {
+        "HP": "1～1296"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_8adaae8e8be3",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 36.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～72"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_8c6eeb6e2418",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv18 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "18",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 18,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 132.5
+      },
+      "display_ranges": {
+        "抵抗": "1～264"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_8df65fde8333",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "全ステ": 68.0
+      },
+      "display_ranges": {
+        "全ステ": "1～135"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_910b707660b5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "HP": 405.5
+      },
+      "display_ranges": {
+        "HP": "1～810"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_93a68a0d9e25",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 126.5
+      },
+      "display_ranges": {
+        "抵抗": "1～252"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_94c4e6400b3d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv2 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "2",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 2,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 18.5
+      },
+      "display_ranges": {
+        "全ステ": "1～36"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_963df1552299",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv9 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "9",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 234.5
+      },
+      "display_ranges": {
+        "HP": "1～468"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9bb0234b9f10",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 33.5
+      },
+      "display_ranges": {
+        "全ステ": "1～66"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9c79f3aa97e5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1-9 Ely獲得量%+d％)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1-9",
+      "detail": "Ely獲得量%+d％",
+      "option_type": 137,
+      "option_class": 9,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得量%+d％": 1.5
+      },
+      "display_ranges": {
+        "Ely獲得量%+d％": "1～2"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9caaddb09a56",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv8 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "8",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 8,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 72.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～144"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_9e130ed138e8",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 90.5
+      },
+      "display_ranges": {
+        "HP": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_a26eded1ba98",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 102.5
+      },
+      "display_ranges": {
+        "抵抗": "1～204"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_a32bf1239d85",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 24.5
+      },
+      "display_ranges": {
+        "防御": "1～48"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_a45382d37e08",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 126.5
+      },
+      "display_ranges": {
+        "防御": "1～252"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_a8902e7dbabd",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 42.5
+      },
+      "display_ranges": {
+        "防御": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_ab6946d81dca",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 207.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～414"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_ba16c2045171",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 104.0
+      },
+      "display_ranges": {
+        "全ステ": "1～207"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_baa571ae2e6b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 81.5
+      },
+      "display_ranges": {
+        "全ステ": "1～162"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_be1d32d224c0",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv3 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "3",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 3,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 126.5
+      },
+      "display_ranges": {
+        "HP": "1～252"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_c493bc15910d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 1,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 15.5
+      },
+      "display_ranges": {
+        "防御": "1～30"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_ca383bdd75ef",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10-20 Ely獲得量%+d％)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10-20",
+      "detail": "Ely獲得量%+d％",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "Ely獲得量%+d％": 2.0
+      },
+      "display_ranges": {
+        "Ely獲得量%+d％": "1～3"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_cb203daa6d59",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv15 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "15",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 15,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 171.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～342"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_cf52ca826269",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "抵抗": 138.5
+      },
+      "display_ranges": {
+        "抵抗": "1～276"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_d1469e395025",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 60.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～120"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_d1a158232020",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv7 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "7",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 7,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 33.5
+      },
+      "display_ranges": {
+        "防御": "1～66"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_d64310550e0b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv20 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "20",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 20,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 108.5
+      },
+      "display_ranges": {
+        "全ステ": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_de72be62094f",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv17 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "17",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 17,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "全ステ": 95.0
+      },
+      "display_ranges": {
+        "全ステ": "1～189"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_de809bde356d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "防御": 90.5
+      },
+      "display_ranges": {
+        "防御": "1～180"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_df5f50d82ba1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv12 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "12",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 12,
+      "option_group": 0,
+      "option_probability": 80.0,
+      "expected_values": {
+        "防御": 96.5
+      },
+      "display_ranges": {
+        "防御": "1～192"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e154815b7ae5",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv10 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "10",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 42.5
+      },
+      "display_ranges": {
+        "全ステ": "1～84"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e26768132a09",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 24.5
+      },
+      "display_ranges": {
+        "全ステ": "1～48"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e33fedeafa8d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 全ステータス%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "全ステータス%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "全ステ": 30.5
+      },
+      "display_ranges": {
+        "全ステ": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e53a109eff50",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv19 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "19",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 19,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 621.5
+      },
+      "display_ranges": {
+        "HP": "1～1242"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_e9b0e232eeae",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv14 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "14",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 14,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 108.5
+      },
+      "display_ranges": {
+        "防御": "1～216"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_ed92b79e226c",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv5 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "5",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 5,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "防御": 27.5
+      },
+      "display_ranges": {
+        "防御": "1～54"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_edcc62de814e",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv11 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "11",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 11,
+      "option_group": 0,
+      "option_probability": 90.0,
+      "expected_values": {
+        "追加ダメ": 135.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～270"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f09badbff5f1",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 魔法抵抗力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "魔法抵抗力%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "抵抗": 30.5
+      },
+      "display_ranges": {
+        "抵抗": "1～60"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f0b4f1bccf7b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv16 防御力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "16",
+      "detail": "防御力%+d",
+      "option_type": 137,
+      "option_class": 16,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "防御": 120.5
+      },
+      "display_ranges": {
+        "防御": "1～240"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f0ec5faab625",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv4 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "4",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 4,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "追加ダメ": 48.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～96"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f6d7a5244c1b",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv1-10 武器攻撃力/属性力%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "1-10",
+      "detail": "武器攻撃力/属性力%+d",
+      "option_type": 137,
+      "option_class": 10,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "武器属性": 2.5
+      },
+      "display_ranges": {
+        "武器属性": "1～4"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f6d91a113d05",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "HP": 459.5
+      },
+      "display_ranges": {
+        "HP": "1～918"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_f85640d3610f",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv13 物理/魔法追加ダメージ%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "13",
+      "detail": "物理/魔法追加ダメージ%+d",
+      "option_type": 137,
+      "option_class": 13,
+      "option_group": 0,
+      "option_probability": 70.0,
+      "expected_values": {
+        "追加ダメ": 153.5
+      },
+      "display_ranges": {
+        "追加ダメ": "1～306"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
+      ]
+    },
+    {
+      "id": "eqgrp_fb1484ffd05d",
+      "equipment_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
+      "display_name": "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス (エンチャ Lv6 最大HP%+d)",
+      "category": "エンチャ",
+      "level": 9999,
+      "level_label": "6",
+      "detail": "最大HP%+d",
+      "option_type": 137,
+      "option_class": 6,
+      "option_group": 0,
+      "option_probability": 100.0,
+      "expected_values": {
+        "HP": 180.5
+      },
+      "display_ranges": {
+        "HP": "1～360"
+      },
+      "base_expected_values": {},
+      "filter_names": [
+        "アンドレアスの教本",
+        "ガブリエラの2番目バッジ",
+        "クラフトキーパーの教本",
+        "ティレニアのブローチ",
+        "フレディアの4番目バッジ",
+        "黒龍のネックレス"
+      ],
+      "selectable_options": [
+        "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス"
       ]
     },
     {
@@ -5480,12 +9110,12 @@ const ENCHANT_DATA = {
       "option_class": 4,
       "expected_values": {
         "追加ダメ": 4100.0,
-        "最小": 40.0,
-        "ダメ減": 13.0,
         "一般追加ダメ": 7100.0,
+        "ダメ減": 13.0,
         "防御": 276.0,
-        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
+        "最小": 40.0,
+        "ボス追加ダメ": 7100.0,
         "HP": 12500.0
       },
       "base_expected_values": {
@@ -5518,12 +9148,12 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "追加ダメ": 2500.0,
-        "最小": 25.0,
-        "ダメ減": 10.0,
         "一般追加ダメ": 2500.0,
+        "ダメ減": 10.0,
         "防御": 200.0,
-        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
+        "最小": 25.0,
+        "ボス追加ダメ": 2500.0,
         "HP": 7500.0
       },
       "base_expected_values": {
@@ -5600,64 +9230,6 @@ const ENCHANT_DATA = {
       "selectable_options": [
         "イカロスクリップ / イカロスプレート",
         "イカロスグローブ"
-      ]
-    },
-    {
-      "id": "eqgrp_2e3f159df124",
-      "equipment_name": "イカロスクリップ / イカロスグローブ / イカロスプレート",
-      "display_name": "イカロスクリップ / イカロスグローブ / イカロスプレート (エンチャ Lv3-5 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3-5",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 193,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～1"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスグローブ",
-        "イカロスプレート"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスグローブ"
-      ]
-    },
-    {
-      "id": "eqgrp_471fb904fba3",
-      "equipment_name": "イカロスクリップ / イカロスブーツ / イカロスプレート",
-      "display_name": "イカロスクリップ / イカロスブーツ / イカロスプレート (エンチャ Lv3-5 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3-5",
-      "detail": "全ステータス%+d％",
-      "option_type": 194,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.0
-      },
-      "display_ranges": {
-        "全ステ%": "1～1"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスブーツ",
-        "イカロスプレート"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスブーツ"
       ]
     },
     {
@@ -5807,13 +9379,13 @@ const ENCHANT_DATA = {
       "option_class": 4,
       "expected_values": {
         "追加ダメ": 4100.0,
-        "クリダメ": 9.0,
         "武器属性": 59.0,
-        "ダメ減": 5.0,
         "一般追加ダメ": 7100.0,
+        "ダメ減": 5.0,
         "防御": 138.0,
-        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
+        "クリダメ": 9.0,
+        "ボス追加ダメ": 7100.0,
         "HP": 12500.0
       },
       "base_expected_values": {
@@ -5847,13 +9419,13 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "追加ダメ": 2500.0,
-        "クリダメ": 5.0,
         "武器属性": 25.0,
-        "ダメ減": 4.0,
         "一般追加ダメ": 2500.0,
+        "ダメ減": 4.0,
         "防御": 100.0,
-        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
+        "クリダメ": 5.0,
+        "ボス追加ダメ": 2500.0,
         "HP": 7500.0
       },
       "base_expected_values": {
@@ -6050,11 +9622,11 @@ const ENCHANT_DATA = {
       "option_class": 4,
       "expected_values": {
         "追加ダメ": 4100.0,
-        "ダメ減": 8.0,
         "一般追加ダメ": 7100.0,
+        "ダメ減": 8.0,
         "防御": 138.0,
-        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
+        "ボス追加ダメ": 7100.0,
         "HP": 12500.0,
         "移動": 4.0
       },
@@ -6088,11 +9660,11 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "追加ダメ": 2500.0,
-        "ダメ減": 6.0,
         "一般追加ダメ": 2500.0,
+        "ダメ減": 6.0,
         "防御": 100.0,
-        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
+        "ボス追加ダメ": 2500.0,
         "HP": 7500.0
       },
       "base_expected_values": {
@@ -6152,13 +9724,13 @@ const ENCHANT_DATA = {
       "option_type": 194,
       "option_class": 3,
       "expected_values": {
-        "最大": 25.0,
         "追加ダメ": 2500.0,
-        "ダメ減": 5.0,
         "一般追加ダメ": 2500.0,
+        "ダメ減": 5.0,
         "防御": 250.0,
-        "ボス追加ダメ": 2500.0,
         "全ステ": 2500.0,
+        "ボス追加ダメ": 2500.0,
+        "最大": 25.0,
         "HP": 7500.0
       },
       "base_expected_values": {
@@ -6190,13 +9762,13 @@ const ENCHANT_DATA = {
       "option_type": 194,
       "option_class": 4,
       "expected_values": {
-        "最大": 40.0,
         "追加ダメ": 4100.0,
-        "ダメ減": 6.0,
         "一般追加ダメ": 7100.0,
+        "ダメ減": 6.0,
         "防御": 345.0,
-        "ボス追加ダメ": 7100.0,
         "全ステ": 4200.0,
+        "ボス追加ダメ": 7100.0,
+        "最大": 40.0,
         "HP": 12500.0
       },
       "base_expected_values": {
@@ -6362,13 +9934,13 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "追加ダメ": 2500.0,
-        "ダメ減": 6.0,
         "一般追加ダメ": 2500.0,
+        "ダメ減": 6.0,
         "防御": 100.0,
-        "ボス追加ダメ": 2500.0,
+        "命中率": 5.0,
         "全ステ": 2500.0,
-        "HP": 7500.0,
-        "命中率": 5.0
+        "ボス追加ダメ": 2500.0,
+        "HP": 7500.0
       },
       "base_expected_values": {
         "防御": 1736.0,
@@ -6400,13 +9972,13 @@ const ENCHANT_DATA = {
       "option_class": 4,
       "expected_values": {
         "追加ダメ": 4100.0,
-        "ダメ減": 8.0,
         "一般追加ダメ": 7100.0,
+        "ダメ減": 8.0,
         "防御": 138.0,
-        "ボス追加ダメ": 7100.0,
+        "命中率": 8.0,
         "全ステ": 4200.0,
-        "HP": 12500.0,
-        "命中率": 8.0
+        "ボス追加ダメ": 7100.0,
+        "HP": 12500.0
       },
       "base_expected_values": {
         "防御": 1736.0,
@@ -6522,39 +10094,6 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_0a98aff2d452",
-      "equipment_name": "イカロス防具",
-      "display_name": "イカロス防具 (エンチャ Lv1-2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "1-2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 193,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "武器属性": 120.5
-      },
-      "display_ranges": {
-        "武器属性": "1～240"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスプレート",
-        "イカロスヘルメット"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスヘルメット"
-      ]
-    },
-    {
       "id": "eqgrp_1124fc0e64c9",
       "equipment_name": "イカロス防具",
       "display_name": "イカロス防具 (エンチャ Lv1-2 物理ダメージ減少%+d)",
@@ -6571,39 +10110,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "物理ダメージ減少": "1～4000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスプレート",
-        "イカロスヘルメット"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスヘルメット"
-      ]
-    },
-    {
-      "id": "eqgrp_1499d39c7340",
-      "equipment_name": "イカロス防具",
-      "display_name": "イカロス防具 (エンチャ Lv3-5 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3-5",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 193,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～1"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -6802,39 +10308,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "一般追加ダメ": "1～48000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスプレート",
-        "イカロスヘルメット"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスヘルメット"
-      ]
-    },
-    {
-      "id": "eqgrp_4f3680a082b5",
-      "equipment_name": "イカロス防具",
-      "display_name": "イカロス防具 (エンチャ Lv3-5 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3-5",
-      "detail": "最大HP%+d％",
-      "option_type": 193,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～1"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -7363,39 +10836,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "抵抗": "1～6000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "イカロスクリップ",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスプレート",
-        "イカロスヘルメット"
-      ],
-      "selectable_options": [
-        "イカロスクリップ / イカロスプレート",
-        "イカロスグローブ",
-        "イカロスブーツ",
-        "イカロスヘルメット"
-      ]
-    },
-    {
-      "id": "eqgrp_e7d8c5aa096c",
-      "equipment_name": "イカロス防具",
-      "display_name": "イカロス防具 (エンチャ Lv3-5 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 9999,
-      "level_label": "3-5",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 193,
-      "option_class": 5,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 30.0
-      },
-      "display_ranges": {
-        "武器属性": "30～30"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -8603,12 +12043,12 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "最大": 8.0,
-        "筋力魔力": 800.0,
-        "攻撃": 7.0,
         "一般追加ダメ": 500.0,
+        "攻撃": 7.0,
         "全ステ": 800.0,
-        "属性": 7.0
+        "属性": 7.0,
+        "最大": 8.0,
+        "筋力魔力": 800.0
       },
       "base_expected_values": {
         "最大": 101.0,
@@ -8639,11 +12079,11 @@ const ENCHANT_DATA = {
       "option_class": 20,
       "expected_values": {
         "追加ダメ": 1500.0,
-        "攻撃": 8.0,
         "一般追加ダメ": 750.0,
-        "ボス追加ダメ": 1000.0,
+        "攻撃": 8.0,
         "全ステ": 500.0,
-        "属性": 8.0
+        "属性": 8.0,
+        "ボス追加ダメ": 1000.0
       },
       "base_expected_values": {
         "全ステ": 3600.0,
@@ -8803,12 +12243,12 @@ const ENCHANT_DATA = {
       "option_type": 192,
       "option_class": 1,
       "expected_values": {
-        "攻撃": 29.0,
         "一般追加ダメ": 2900.0,
-        "HP": 3770.0,
-        "筋力": 5800.0,
+        "攻撃": 29.0,
+        "魔力": 5800.0,
         "属性": 29.0,
-        "魔力": 5800.0
+        "HP": 3770.0,
+        "筋力": 5800.0
       },
       "base_expected_values": {
         "筋力": 8600.0,
@@ -8839,8 +12279,8 @@ const ENCHANT_DATA = {
       "expected_values": {
         "追加ダメ": 1450.0,
         "一般追加ダメ": 1450.0,
-        "ボス追加ダメ": 1450.0,
         "全ステ": 870.0,
+        "ボス追加ダメ": 1450.0,
         "HP": 1450.0,
         "クリダメ": 10.0,
         "攻撃_乗算": 1.0,
@@ -8875,13 +12315,13 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
+        "一般追加ダメ": 1450.0,
         "抵抗": 870.0,
+        "防御": 870.0,
+        "全ステ": 870.0,
+        "ボス追加ダメ": 1450.0,
         "筋力魔力": 2900.0,
         "経験値": 29.0,
-        "一般追加ダメ": 1450.0,
-        "防御": 870.0,
-        "ボス追加ダメ": 1450.0,
-        "全ステ": 870.0,
         "ドロップ率": 7.0
       },
       "base_expected_values": {
@@ -9409,10 +12849,10 @@ const ENCHANT_DATA = {
       "expected_values": {
         "追加ダメ": 900.0,
         "武器属性": 10.0,
-        "筋力魔力": 1000.0,
         "Ely獲得量": 8.0,
+        "全ステ": 1000.0,
         "ボス追加ダメ": 900.0,
-        "全ステ": 1000.0
+        "筋力魔力": 1000.0
       },
       "base_expected_values": {
         "Ely獲得量": 61.0,
@@ -9747,36 +13187,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "抵抗": "1～4000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ"
-      ],
-      "selectable_options": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ"
-      ]
-    },
-    {
-      "id": "eqgrp_4bc6295f4fb9",
-      "equipment_name": "エメラルディアアクセ",
-      "display_name": "エメラルディアアクセ (エンチャ Lv1-2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 9000,
-      "level_label": "1-2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 191,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "最小": 50.5
-      },
-      "display_ranges": {
-        "最小": "1～100"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -10211,43 +13621,9 @@ const ENCHANT_DATA = {
       ]
     },
     {
-      "id": "eqgrp_0636759e8299",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "筋力魔力": 675.0
-      },
-      "display_ranges": {
-        "筋力魔力": "150～1200"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_09e36e282abc",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
+      "id": "eqgrp_06f7f51bdeb6",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]ボスモンスター追加ダメージ%+d)",
       "category": "覚醒",
       "level": 9000,
       "detail": "段階6 [3]ボスモンスター追加ダメージ%+d",
@@ -10269,359 +13645,16 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
-      "id": "eqgrp_138483614b92",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]体力%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]体力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "体力": 375.0
-      },
-      "display_ranges": {
-        "体力": "150～600"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_19c184ece14d",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "一般追加ダメ": 375.0
-      },
-      "display_ranges": {
-        "一般追加ダメ": "150～600"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_1ea5db02d001",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]体力%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]体力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "体力": 675.0
-      },
-      "display_ranges": {
-        "体力": "150～1200"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_32548adae9bc",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]全ステータス%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "全ステ": 375.0
-      },
-      "display_ranges": {
-        "全ステ": "150～600"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_3cac2f81100b",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]物理/魔法最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]物理/魔法最大ダメージ%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "最大": 10.5
-      },
-      "display_ranges": {
-        "最大": "3～18"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_3dcad52ba75d",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]物理/魔法最小ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]物理/魔法最小ダメージ%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "最小": 10.5
-      },
-      "display_ranges": {
-        "最小": "3～18"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_3e01ba633c2b",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]武器攻撃力/属性力%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]武器攻撃力/属性力%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性_乗算": 1.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～2"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_42fc3b7fa6ba",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ": 375.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "150～600"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_4bf120c76eff",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "追加ダメ": 675.0
-      },
-      "display_ranges": {
-        "追加ダメ": "150～1200"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_57c99e4aad31",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]物理/魔法最小ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]物理/魔法最小ダメージ%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "3～12"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_5b6e8e924c0b",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
+      "id": "eqgrp_1865905be6ad",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]一般モンスター追加ダメージ%+d)",
       "category": "覚醒",
       "level": 9000,
       "detail": "段階6 [3]一般モンスター追加ダメージ%+d",
@@ -10643,53 +13676,16 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
-      "id": "eqgrp_6054dde6dc95",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]幸運%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]幸運%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "幸運": 675.0
-      },
-      "display_ranges": {
-        "幸運": "150～1200"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_635c8bde2d8d",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]幸運%+d)",
+      "id": "eqgrp_1f9f2e9617a8",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]幸運%+d)",
       "category": "覚醒",
       "level": 9000,
       "detail": "段階6 [1]幸運%+d",
@@ -10711,461 +13707,16 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
-      "id": "eqgrp_698f70034efd",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]物理/魔法最小ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]物理/魔法最小ダメージ%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "最小": 3.5
-      },
-      "display_ranges": {
-        "最小": "1～6"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_71bf87f9f957",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "ボス追加ダメ": 185.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ": "70～300"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_748be12191e9",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]武器攻撃力/属性力%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]武器攻撃力/属性力%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "武器属性_乗算": 2.0
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～3"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_836661e65128",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "筋力魔力": 375.0
-      },
-      "display_ranges": {
-        "筋力魔力": "150～600"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_83c816f17694",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]最大HP%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]最大HP%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "HP": 650.0
-      },
-      "display_ranges": {
-        "HP": "300～1000"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_86078e76970e",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "追加ダメ": 185.0
-      },
-      "display_ranges": {
-        "追加ダメ": "70～300"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_87d195c1e737",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]最大HP%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [3]最大HP%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "HP": 2750.0
-      },
-      "display_ranges": {
-        "HP": "500～5000"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 3.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_8fb925c72d41",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]筋力/魔法力%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]筋力/魔法力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "筋力魔力": 185.0
-      },
-      "display_ranges": {
-        "筋力魔力": "70～300"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_924510e0fff0",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]体力%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]体力%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "体力": 185.0
-      },
-      "display_ranges": {
-        "体力": "70～300"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_9d6af1b3687b",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]幸運%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]幸運%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "幸運": 375.0
-      },
-      "display_ranges": {
-        "幸運": "150～600"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_a13e037dce96",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]物理/魔法最大ダメージ%+d%%)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]物理/魔法最大ダメージ%+d%%",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "最大": 3.5
-      },
-      "display_ranges": {
-        "最大": "1～6"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_a294546ce1b6",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]全ステータス%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [1]全ステータス%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "全ステ": 185.0
-      },
-      "display_ranges": {
-        "全ステ": "70～300"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 10.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_b3017cd944b9",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]最大HP%+d)",
-      "category": "覚醒",
-      "level": 9000,
-      "detail": "段階6 [2]最大HP%+d",
-      "option_type": 191,
-      "option_class": 4,
-      "expected_values": {
-        "HP": 1500.0
-      },
-      "display_ranges": {
-        "HP": "500～2500"
-      },
-      "potential_kind": 4002,
-      "potential_step": 6,
-      "option_group": 40002,
-      "option_check": 1,
-      "option_probability": 7.0,
-      "base_expected_values": {},
-      "level_label": "",
-      "filter_names": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "アクセ"
-      ]
-    },
-    {
-      "id": "eqgrp_bc7381f2a1da",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
+      "id": "eqgrp_2165bf744edb",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]一般モンスター追加ダメージ%+d)",
       "category": "覚醒",
       "level": 9000,
       "detail": "段階6 [1]一般モンスター追加ダメージ%+d",
@@ -11187,29 +13738,181 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
-      "id": "eqgrp_ec48da85efb3",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [3]全ステータス%+d)",
+      "id": "eqgrp_240b1da2d0cb",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]武器攻撃力/属性力%+d%%)",
       "category": "覚醒",
       "level": 9000,
-      "detail": "段階6 [3]全ステータス%+d",
+      "detail": "段階6 [2]武器攻撃力/属性力%+d%%",
       "option_type": 191,
       "option_class": 4,
       "expected_values": {
-        "全ステ": 675.0
+        "武器属性_乗算": 1.5
       },
       "display_ranges": {
-        "全ステ": "150～1200"
+        "武器属性_乗算": "1～2"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_343921dba01e",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]物理/魔法最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]物理/魔法最大ダメージ%+d%%",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 3.5
+      },
+      "display_ranges": {
+        "最大": "1～6"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_4867c94ab09b",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]筋力/魔法力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 375.0
+      },
+      "display_ranges": {
+        "筋力魔力": "150～600"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_4b1e89d90466",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]体力%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]体力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 185.0
+      },
+      "display_ranges": {
+        "体力": "70～300"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_4f03e8f7d10a",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]一般モンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]一般モンスター追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "一般追加ダメ": 375.0
+      },
+      "display_ranges": {
+        "一般追加ダメ": "150～600"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_627a1a0f3de7",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]体力%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]体力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 675.0
+      },
+      "display_ranges": {
+        "体力": "150～1200"
       },
       "potential_kind": 4002,
       "potential_step": 6,
@@ -11221,19 +13924,78 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
-      "id": "eqgrp_f096953dd293",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]物理/魔法最大ダメージ%+d%%)",
+      "id": "eqgrp_6b9659315e46",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]ボスモンスター追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 185.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "70～300"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_6d352572ebef",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]物理/魔法最大ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]物理/魔法最大ダメージ%+d%%",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "最大": 10.5
+      },
+      "display_ranges": {
+        "最大": "3～18"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_7282ec5cdeb6",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]物理/魔法最大ダメージ%+d%%)",
       "category": "覚醒",
       "level": 9000,
       "detail": "段階6 [2]物理/魔法最大ダメージ%+d%%",
@@ -11255,19 +14017,574 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
-      "id": "eqgrp_fe6d407a0c8e",
-      "equipment_name": "エメラルディアアクセ / ノルニルアクセ",
-      "display_name": "エメラルディアアクセ / ノルニルアクセ (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
+      "id": "eqgrp_754b47bf7d32",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]物理/魔法追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 675.0
+      },
+      "display_ranges": {
+        "追加ダメ": "150～1200"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_7a00b74bc1a6",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]物理/魔法最小ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]物理/魔法最小ダメージ%+d%%",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 7.5
+      },
+      "display_ranges": {
+        "最小": "3～12"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_7bca02f5f5b2",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]物理/魔法最小ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]物理/魔法最小ダメージ%+d%%",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 3.5
+      },
+      "display_ranges": {
+        "最小": "1～6"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_7dbd3c0a7f99",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]幸運%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]幸運%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 675.0
+      },
+      "display_ranges": {
+        "幸運": "150～1200"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_7dd32f74771c",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]最大HP%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]最大HP%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "HP": 2750.0
+      },
+      "display_ranges": {
+        "HP": "500～5000"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_86998c392693",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]筋力/魔法力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 185.0
+      },
+      "display_ranges": {
+        "筋力魔力": "70～300"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_972af8a971f2",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]ボスモンスター追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]ボスモンスター追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "ボス追加ダメ": 375.0
+      },
+      "display_ranges": {
+        "ボス追加ダメ": "150～600"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_9f2dbc249850",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]全ステータス%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 185.0
+      },
+      "display_ranges": {
+        "全ステ": "70～300"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_a1114b2bf89d",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]筋力/魔法力%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]筋力/魔法力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "筋力魔力": 675.0
+      },
+      "display_ranges": {
+        "筋力魔力": "150～1200"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_ad37fc456e44",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]全ステータス%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 375.0
+      },
+      "display_ranges": {
+        "全ステ": "150～600"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_ba482fea846a",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]最大HP%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]最大HP%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "HP": 1500.0
+      },
+      "display_ranges": {
+        "HP": "500～2500"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_bdadecc740bf",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]物理/魔法追加ダメージ%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]物理/魔法追加ダメージ%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "追加ダメ": 185.0
+      },
+      "display_ranges": {
+        "追加ダメ": "70～300"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_c0b475460012",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]体力%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]体力%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "体力": 375.0
+      },
+      "display_ranges": {
+        "体力": "150～600"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_ca623c67a12b",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]武器攻撃力/属性力%+d%%)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]武器攻撃力/属性力%+d%%",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "武器属性_乗算": 2.0
+      },
+      "display_ranges": {
+        "武器属性_乗算": "1～3"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_d7ce5df9826c",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [1]最大HP%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [1]最大HP%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "HP": 650.0
+      },
+      "display_ranges": {
+        "HP": "300～1000"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 10.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_d879e6b7dc34",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]物理/魔法最小ダメージ%+d%%)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]物理/魔法最小ダメージ%+d%%",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "最小": 10.5
+      },
+      "display_ranges": {
+        "最小": "3～18"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_f4acd3684276",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]幸運%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [2]幸運%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "幸運": 375.0
+      },
+      "display_ranges": {
+        "幸運": "150～600"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 7.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_f53f471e29ed",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [3]全ステータス%+d)",
+      "category": "覚醒",
+      "level": 9000,
+      "detail": "段階6 [3]全ステータス%+d",
+      "option_type": 191,
+      "option_class": 4,
+      "expected_values": {
+        "全ステ": 675.0
+      },
+      "display_ranges": {
+        "全ステ": "150～1200"
+      },
+      "potential_kind": 4002,
+      "potential_step": 6,
+      "option_group": 40002,
+      "option_check": 1,
+      "option_probability": 3.0,
+      "base_expected_values": {},
+      "level_label": "",
+      "filter_names": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
+      "selectable_options": [
+        "エメラルディアアクセ"
+      ]
+    },
+    {
+      "id": "eqgrp_f8c2ad975f63",
+      "equipment_name": "エメラルディアアクセ",
+      "display_name": "エメラルディアアクセ (覚醒 段階6 [2]物理/魔法追加ダメージ%+d)",
       "category": "覚醒",
       "level": 9000,
       "detail": "段階6 [2]物理/魔法追加ダメージ%+d",
@@ -11289,13 +14606,10 @@ const ENCHANT_DATA = {
       "filter_names": [
         "エメラルディアストッキング",
         "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
+        "エメラルディアメガネ"
       ],
       "selectable_options": [
-        "アクセ"
+        "エメラルディアアクセ"
       ]
     },
     {
@@ -11690,8 +15004,8 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "クリダメ": 10.0,
-        "最小": 15.0,
-        "全ステ": 2000.0
+        "全ステ": 2000.0,
+        "最小": 15.0
       },
       "base_expected_values": {
         "全ステ": 6500.0,
@@ -11720,8 +15034,8 @@ const ENCHANT_DATA = {
       "option_class": 3,
       "expected_values": {
         "クリダメ": 10.0,
-        "最小": 15.0,
-        "全ステ": 2000.0
+        "全ステ": 2000.0,
+        "最小": 15.0
       },
       "base_expected_values": {
         "全ステ": 6500.0,
@@ -11879,10 +15193,10 @@ const ENCHANT_DATA = {
       "option_type": 189,
       "option_class": 3,
       "expected_values": {
-        "最大": 15.0,
         "武器属性": 10.0,
-        "筋力魔力": 2000.0,
-        "全ステ": 2000.0
+        "全ステ": 2000.0,
+        "最大": 15.0,
+        "筋力魔力": 2000.0
       },
       "base_expected_values": {
         "全ステ": 6100.0,
@@ -11911,10 +15225,10 @@ const ENCHANT_DATA = {
       "option_type": 189,
       "option_class": 3,
       "expected_values": {
-        "最大": 15.0,
         "武器属性": 10.0,
-        "筋力魔力": 2000.0,
-        "全ステ": 2000.0
+        "全ステ": 2000.0,
+        "最大": 15.0,
+        "筋力魔力": 2000.0
       },
       "base_expected_values": {
         "全ステ": 6100.0,
@@ -12129,10 +15443,10 @@ const ENCHANT_DATA = {
       "option_type": 190,
       "option_class": 3,
       "expected_values": {
-        "最大": 10.0,
         "武器属性": 10.0,
-        "筋力魔力": 2000.0,
-        "ボス追加ダメ": 2000.0
+        "ボス追加ダメ": 2000.0,
+        "最大": 10.0,
+        "筋力魔力": 2000.0
       },
       "base_expected_values": {
         "最大": 120.0,
@@ -12161,10 +15475,10 @@ const ENCHANT_DATA = {
       "option_type": 190,
       "option_class": 3,
       "expected_values": {
-        "最大": 10.0,
         "武器属性": 10.0,
-        "筋力魔力": 2000.0,
-        "ボス追加ダメ": 2000.0
+        "ボス追加ダメ": 2000.0,
+        "最大": 10.0,
+        "筋力魔力": 2000.0
       },
       "base_expected_values": {
         "最大": 120.0,
@@ -12248,12 +15562,12 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "クリダメ": 5.0,
         "追加ダメ": 500.0,
         "一般追加ダメ": 500.0,
-        "ボス追加ダメ": 500.0,
+        "命中率": 5.0,
+        "クリダメ": 5.0,
         "全ステ": 500.0,
-        "命中率": 5.0
+        "ボス追加ダメ": 500.0
       },
       "base_expected_values": {
         "全ステ": 4100.0,
@@ -12284,8 +15598,8 @@ const ENCHANT_DATA = {
       "option_class": 5,
       "expected_values": {
         "追加ダメ": 1500.0,
-        "筋力魔力": 1500.0,
-        "全ステ": 1500.0
+        "全ステ": 1500.0,
+        "筋力魔力": 1500.0
       },
       "base_expected_values": {
         "全ステ": 200.0,
@@ -12300,42 +15614,6 @@ const ENCHANT_DATA = {
       ],
       "selectable_options": [
         "黒龍の時計"
-      ]
-    },
-    {
-      "id": "eqgrp_f10874442137",
-      "equipment_name": "バニーバニーベルト",
-      "display_name": "バニーバニーベルト (強化 →+30)",
-      "category": "強化",
-      "level": 8800,
-      "level_label": "",
-      "detail": "→+30",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "追加ダメ": 2900.0,
-        "ボス追加ダメ": 1450.0,
-        "筋力": 2900.0,
-        "魔力": 2900.0,
-        "最小": 10.0,
-        "全ステ%": 2.0
-      },
-      "base_expected_values": {
-        "スタン抵抗": 250.0,
-        "混乱抵抗": 250.0,
-        "全ステ%": 15.0,
-        "最小": 118.0,
-        "追加ダメ": 17800.0,
-        "筋力": 17800.0,
-        "魔力": 17800.0,
-        "ボス追加ダメ": 1650.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "バニーバニーベルト"
-      ],
-      "selectable_options": [
-        "バニーバニーベルト"
       ]
     },
     {
@@ -13415,11 +16693,11 @@ const ENCHANT_DATA = {
       "option_type": 155,
       "option_class": 13,
       "expected_values": {
-        "筋力魔力": 800.0,
         "攻撃": 16.0,
-        "ボス追加ダメ": 800.0,
         "全ステ": 800.0,
-        "属性": 16.0
+        "ボス追加ダメ": 800.0,
+        "属性": 16.0,
+        "筋力魔力": 800.0
       },
       "base_expected_values": {
         "属性": 120.0,
@@ -15894,10 +19172,10 @@ const ENCHANT_DATA = {
       "option_type": 156,
       "option_class": 13,
       "expected_values": {
-        "筋力魔力": 800.0,
         "一般追加ダメ": 800.0,
+        "全ステ": 800.0,
         "HP": 800.0,
-        "全ステ": 800.0
+        "筋力魔力": 800.0
       },
       "base_expected_values": {
         "HP": 7100.0,
@@ -15912,42 +19190,6 @@ const ENCHANT_DATA = {
       ],
       "selectable_options": [
         "封印された黄色い結晶"
-      ]
-    },
-    {
-      "id": "eqgrp_72dfbc03efa3",
-      "equipment_name": "ノトリアのステッカー",
-      "display_name": "ノトリアのステッカー (強化 →+30)",
-      "category": "強化",
-      "level": 8300,
-      "level_label": "",
-      "detail": "→+30",
-      "option_type": 137,
-      "option_class": 20,
-      "expected_values": {
-        "混乱抵抗": 29.0,
-        "追加ダメ": 1450.0,
-        "武器属性": 15.0,
-        "スタン抵抗": 29.0,
-        "筋力魔力": 1450.0,
-        "一般追加ダメ": 1450.0,
-        "最大": 10.0
-      },
-      "base_expected_values": {
-        "スタン抵抗": 251.0,
-        "混乱抵抗": 251.0,
-        "筋力魔力": 7300.0,
-        "武器属性": 113.0,
-        "追加ダメ": 7300.0,
-        "一般追加ダメ": 5100.0,
-        "最大": 10.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノトリアのステッカー"
-      ],
-      "selectable_options": [
-        "ノトリアのステッカー"
       ]
     },
     {
@@ -16091,12 +19333,12 @@ const ENCHANT_DATA = {
       "option_type": 129,
       "option_class": 50,
       "expected_values": {
-        "最大": 15.0,
         "追加ダメ": 2900.0,
-        "クリダメ": 15.0,
         "一般追加ダメ": 2900.0,
-        "HP": 2900.0,
-        "全ステ": 2320.0
+        "全ステ": 2320.0,
+        "クリダメ": 15.0,
+        "最大": 15.0,
+        "HP": 2900.0
       },
       "base_expected_values": {
         "HP": 27200.0,
@@ -16125,15 +19367,15 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "最大": 27.0,
         "追加ダメ": 3200.0,
-        "攻撃": 375.0,
+        "一般支配": 3.9,
         "全ステ": 5000.0,
         "属性": 375.0,
+        "最大": 27.0,
+        "攻撃": 375.0,
         "クリダメ": 42.0,
-        "一般支配": 3.9,
-        "武器属性_乗算": 1.0,
-        "追加ダメ_乗算": 1.0
+        "追加ダメ_乗算": 1.0,
+        "武器属性_乗算": 1.0
       },
       "base_expected_values": {
         "属性": 2200.0,
@@ -16166,13 +19408,13 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "最大": 15.0,
         "追加ダメ": 1500.0,
-        "攻撃": 225.0,
+        "一般支配": 2.5,
         "全ステ": 1500.0,
         "属性": 225.0,
-        "クリダメ": 15.0,
-        "一般支配": 2.5
+        "最大": 15.0,
+        "攻撃": 225.0,
+        "クリダメ": 15.0
       },
       "base_expected_values": {
         "属性": 2200.0,
@@ -16263,32 +19505,6 @@ const ENCHANT_DATA = {
       },
       "display_ranges": {
         "武器属性": "30～30"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "滅亡記憶武器"
-      ],
-      "selectable_options": [
-        "滅亡記憶武器"
-      ]
-    },
-    {
-      "id": "eqgrp_1b71a65cc0ae",
-      "equipment_name": "滅亡記憶武器",
-      "display_name": "滅亡記憶武器 (エンチャ Lv1-2 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 8000,
-      "level_label": "1-2",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 187,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 60.0,
-      "expected_values": {
-        "貫通": 25.5
-      },
-      "display_ranges": {
-        "貫通": "1～50"
       },
       "base_expected_values": {},
       "filter_names": [
@@ -18143,10 +21359,10 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
+        "魔法_最大": 27.0,
+        "一般支配": 3.9,
         "攻撃": 375.0,
         "全ステ": 5000.0,
-        "一般支配": 3.9,
-        "魔法_最大": 27.0,
         "攻撃_乗算": 1.0
       },
       "base_expected_values": {
@@ -18176,10 +21392,10 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "攻撃": 225.0,
-        "全ステ": 1500.0,
+        "魔法_最大": 15.0,
         "一般支配": 2.5,
-        "魔法_最大": 15.0
+        "攻撃": 225.0,
+        "全ステ": 1500.0
       },
       "base_expected_values": {
         "攻撃": 2200.0,
@@ -18208,9 +21424,9 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 3,
       "expected_values": {
-        "全ステ": 1500.0,
         "一般支配": 2.5,
-        "物理_最大": 15.0
+        "物理_最大": 15.0,
+        "全ステ": 1500.0
       },
       "base_expected_values": {
         "物理_最大": 110.0,
@@ -18239,11 +21455,11 @@ const ENCHANT_DATA = {
       "option_type": 187,
       "option_class": 4,
       "expected_values": {
-        "全ステ": 5000.0,
         "一般支配": 3.9,
         "物理_最大": 27.0,
-        "属性_乗算": 1.0,
-        "追加ダメ_乗算": 1.0
+        "全ステ": 5000.0,
+        "追加ダメ_乗算": 1.0,
+        "属性_乗算": 1.0
       },
       "base_expected_values": {
         "物理_最大": 110.0,
@@ -18272,12 +21488,12 @@ const ENCHANT_DATA = {
       "option_type": 0,
       "option_class": 0,
       "expected_values": {
-        "筋力魔力": 2450.0,
         "一般追加ダメ": 2450.0,
         "全ステ": 2450.0,
+        "筋力魔力": 2450.0,
         "武器属性": 12.0,
-        "最大": 10.0,
-        "最小": 10.0
+        "最小": 10.0,
+        "最大": 10.0
       },
       "base_expected_values": {
         "全ステ": 9200.0,
@@ -18306,11 +21522,11 @@ const ENCHANT_DATA = {
       "option_type": 137,
       "option_class": 20,
       "expected_values": {
-        "最大": 14.0,
-        "筋力魔力": 1900.0,
-        "攻撃": 19.0,
         "一般追加ダメ": 1900.0,
-        "属性": 19.0
+        "攻撃": 19.0,
+        "属性": 19.0,
+        "最大": 14.0,
+        "筋力魔力": 1900.0
       },
       "base_expected_values": {
         "最大": 86.0,
@@ -18328,2175 +21544,6 @@ const ENCHANT_DATA = {
       "selectable_options": [
         "アンドレアスの教本"
       ]
-    },
-    {
-      "id": "eqgrp_01c8f64993d7",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 12000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～24000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_03626ce70d9e",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 7.5
-      },
-      "display_ranges": {
-        "最小": "5～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_038125c8219e",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 5600.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～11200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_06655d9ae06b",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 450.0
-      },
-      "display_ranges": {
-        "抵抗": "300～600"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_09293617fb60",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 1.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_0dd62ba9623d",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "165～330"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_1b37c3807369",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～1760"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_22e10b22d3a7",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 35.5
-      },
-      "display_ranges": {
-        "最小": "1～70"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_29f60a04d58e",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_3d4381c2a676",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 7000.5
-      },
-      "display_ranges": {
-        "筋力魔力": "1～14000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_43d80a284b2d",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～2200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_4811a3bcc948",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 7.5
-      },
-      "display_ranges": {
-        "BA": "5～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_4a72c02e90b1",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 1600.5
-      },
-      "display_ranges": {
-        "抵抗": "1～3200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_4d93be688174",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_5c5e2ea74b17",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 5600.5
-      },
-      "display_ranges": {
-        "幸運": "1～11200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_5feae60f5590",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 物理ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "物理ダメージ減少": 1100.5
-      },
-      "display_ranges": {
-        "物理ダメージ減少": "1～2200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_65b667474f72",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 450.0
-      },
-      "display_ranges": {
-        "防御": "300～600"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_86072568e33c",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 7000.5
-      },
-      "display_ranges": {
-        "体力": "1～14000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_8c08f992a755",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 1200.0
-      },
-      "display_ranges": {
-        "追加ダメ": "1200～1200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_8f524b2ac6c6",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 1237.5
-      },
-      "display_ranges": {
-        "全ステ": "825～1650"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_913744c194f0",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 魔法抵抗力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "魔法抵抗力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "抵抗": 2000.5
-      },
-      "display_ranges": {
-        "抵抗": "1～4000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_95eee8dd4190",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 247.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "165～330"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_9e56b8f20cc5",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 7000.5
-      },
-      "display_ranges": {
-        "幸運": "1～14000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_a11071c74c4e",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 1575.0
-      },
-      "display_ranges": {
-        "体力": "1050～2100"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_a60699ff09ce",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 35.5
-      },
-      "display_ranges": {
-        "BA": "1～70"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_ab4062d58bf9",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 体力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "体力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "体力": 5600.5
-      },
-      "display_ranges": {
-        "体力": "1～11200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_ba0bf4c08288",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 5500.5
-      },
-      "display_ranges": {
-        "全ステ": "1～11000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_bb008add0f31",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 物理/魔法最小ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最小ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最小": 28.5
-      },
-      "display_ranges": {
-        "最小": "1～56"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_c371ca7f7b5a",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 物理/魔法追加ダメージ%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ": 15000.5
-      },
-      "display_ranges": {
-        "追加ダメ": "1～30000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_c3b6c01a8e92",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 2000.5
-      },
-      "display_ranges": {
-        "防御": "1～4000"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_cb482aa1821a",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 幸運%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "幸運%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "幸運": 1575.0
-      },
-      "display_ranges": {
-        "幸運": "1050～2100"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_cce4c870b88c",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 物理/魔法追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "追加ダメ_乗算": "1～7"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_d57c96960d3e",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 物理/魔法バックアタックダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法バックアタックダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "BA": 28.5
-      },
-      "display_ranges": {
-        "BA": "1～56"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_d758defba09f",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 魔法ダメージ減少%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "魔法ダメージ減少%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "魔法ダメージ減少": 880.5
-      },
-      "display_ranges": {
-        "魔法ダメージ減少": "1～1760"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_d92777100017",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv3-4 筋力/魔法力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "筋力/魔法力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "筋力魔力": 1575.0
-      },
-      "display_ranges": {
-        "筋力魔力": "1050～2100"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_dacbcfc9d4d9",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 全ステータス%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ": 4400.5
-      },
-      "display_ranges": {
-        "全ステ": "1～8800"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_f5123fee2ce5",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 防御力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "防御力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "防御": 1600.5
-      },
-      "display_ranges": {
-        "防御": "1～3200"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_f819b2e7b6fa",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv2 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 4.0
-      },
-      "display_ranges": {
-        "HP_乗算": "1～7"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_febcef3b69c7",
-      "equipment_name": "ノルニルアクセ",
-      "display_name": "ノルニルアクセ (エンチャ Lv1 最大HP%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "最大HP%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "HP_乗算": 3.5
-      },
-      "display_ranges": {
-        "HP_乗算": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_8408d7ef2531",
-      "equipment_name": "ノルニルイヤリング",
-      "display_name": "ノルニルイヤリング (エンチャ Lv2 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "貫通": 20.5
-      },
-      "display_ranges": {
-        "貫通": "1～40"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング"
-      ]
-    },
-    {
-      "id": "eqgrp_8a734ec6e852",
-      "equipment_name": "ノルニルイヤリング",
-      "display_name": "ノルニルイヤリング (エンチャ Lv1 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "貫通": 16.5
-      },
-      "display_ranges": {
-        "貫通": "1～32"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング"
-      ]
-    },
-    {
-      "id": "eqgrp_eed1a33f66c6",
-      "equipment_name": "ノルニルイヤリング",
-      "display_name": "ノルニルイヤリング (エンチャ Lv3-4 物理/魔法貫通力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法貫通力%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "貫通": 4.5
-      },
-      "display_ranges": {
-        "貫通": "3～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング"
-      ]
-    },
-    {
-      "id": "eqgrp_445f3e8e8b8e",
-      "equipment_name": "ノルニルイヤリング",
-      "display_name": "ノルニルイヤリング (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 183,
-      "option_class": 3,
-      "expected_values": {
-        "クリダメ": 12.0,
-        "追加ダメ": 2900.0,
-        "筋力魔力": 1200.0,
-        "最小": 25.0
-      },
-      "base_expected_values": {
-        "筋力魔力": 4600.0,
-        "最小": 110.0,
-        "クリダメ": 66.0,
-        "追加ダメ": 7100.0,
-        "一般追加ダメ": 17000.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノルニルイヤリング"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング"
-      ]
-    },
-    {
-      "id": "eqgrp_6af847fca6bc",
-      "equipment_name": "ノルニルイヤリング",
-      "display_name": "ノルニルイヤリング (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 183,
-      "option_class": 3,
-      "expected_values": {
-        "クリダメ": 12.0,
-        "追加ダメ": 2900.0,
-        "筋力魔力": 1200.0,
-        "最小": 25.0
-      },
-      "base_expected_values": {
-        "筋力魔力": 4600.0,
-        "最小": 110.0,
-        "クリダメ": 66.0,
-        "追加ダメ": 7100.0,
-        "ボス追加ダメ": 17000.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノルニルイヤリング"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング"
-      ]
-    },
-    {
-      "id": "eqgrp_0fb58ce58b76",
-      "equipment_name": "ノルニルイヤリング / ノルニルマント",
-      "display_name": "ノルニルイヤリング / ノルニルマント (エンチャ Lv3-4 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_46b71d9e75d1",
-      "equipment_name": "ノルニルイヤリング / ノルニルマント",
-      "display_name": "ノルニルイヤリング / ノルニルマント (エンチャ Lv2 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～7"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_5687124d4de6",
-      "equipment_name": "ノルニルイヤリング / ノルニルマント",
-      "display_name": "ノルニルイヤリング / ノルニルマント (エンチャ Lv3-4 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 7.5
-      },
-      "display_ranges": {
-        "クリダメ": "5～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_5a613965b24c",
-      "equipment_name": "ノルニルイヤリング / ノルニルマント",
-      "display_name": "ノルニルイヤリング / ノルニルマント (エンチャ Lv2 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 35.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～70"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_67253804b5cd",
-      "equipment_name": "ノルニルイヤリング / ノルニルマント",
-      "display_name": "ノルニルイヤリング / ノルニルマント (エンチャ Lv1 一般モンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "一般モンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "一般追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "一般追加ダメ_乗算": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_a67a476877c6",
-      "equipment_name": "ノルニルイヤリング / ノルニルマント",
-      "display_name": "ノルニルイヤリング / ノルニルマント (エンチャ Lv1 物理/魔法クリティカルダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法クリティカルダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "クリダメ": 28.5
-      },
-      "display_ranges": {
-        "クリダメ": "1～56"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_49069f17f45f",
-      "equipment_name": "ノルニルイヤリング / ノルニル指輪",
-      "display_name": "ノルニルイヤリング / ノルニル指輪 (エンチャ Lv3-4 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 7.5
-      },
-      "display_ranges": {
-        "最大": "5～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_769f8e0afdca",
-      "equipment_name": "ノルニルイヤリング / ノルニル指輪",
-      "display_name": "ノルニルイヤリング / ノルニル指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 13.5
-      },
-      "display_ranges": {
-        "武器属性": "9～18"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_775e560103bd",
-      "equipment_name": "ノルニルイヤリング / ノルニル指輪",
-      "display_name": "ノルニルイヤリング / ノルニル指輪 (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 48.5
-      },
-      "display_ranges": {
-        "武器属性": "1～96"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_a82fa9983ca4",
-      "equipment_name": "ノルニルイヤリング / ノルニル指輪",
-      "display_name": "ノルニルイヤリング / ノルニル指輪 (エンチャ Lv2 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 35.5
-      },
-      "display_ranges": {
-        "最大": "1～70"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_d0a2c4323e1c",
-      "equipment_name": "ノルニルイヤリング / ノルニル指輪",
-      "display_name": "ノルニルイヤリング / ノルニル指輪 (エンチャ Lv1 物理/魔法最大ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "物理/魔法最大ダメージ%+d％",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "最大": 28.5
-      },
-      "display_ranges": {
-        "最大": "1～56"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_ee19cbb9b143",
-      "equipment_name": "ノルニルイヤリング / ノルニル指輪",
-      "display_name": "ノルニルイヤリング / ノルニル指輪 (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 183,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 60.5
-      },
-      "display_ranges": {
-        "武器属性": "1～120"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルイヤリング",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_0d0509ccea64",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (エンチャ Lv3-4 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 1.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_203e2d8d3d5e",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (エンチャ Lv1 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 64.5
-      },
-      "display_ranges": {
-        "武器属性": "1～128"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_392cecf02404",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (エンチャ Lv3-4 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 18.0
-      },
-      "display_ranges": {
-        "武器属性": "12～24"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_9bb87d7893ba",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (エンチャ Lv1 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 5.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_d482bd25ffa8",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (エンチャ Lv2 全ステータス%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "全ステータス%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "全ステ%": 6.5
-      },
-      "display_ranges": {
-        "全ステ%": "1～12"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_e582eba8d381",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (エンチャ Lv2 武器攻撃力/属性力%+d)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性": 80.5
-      },
-      "display_ranges": {
-        "武器属性": "1～160"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_662138437dc3",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 184,
-      "option_class": 3,
-      "expected_values": {
-        "クリダメ": 12.0,
-        "追加ダメ": 1700.0,
-        "筋力魔力": 1300.0,
-        "最小": 25.0,
-        "ボス追加ダメ": 1600.0
-      },
-      "base_expected_values": {
-        "最小": 90.0,
-        "クリダメ": 86.0,
-        "ボス追加ダメ": 22600.0,
-        "筋力魔力": 1000.0,
-        "追加ダメ": 3000.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_902815e753eb",
-      "equipment_name": "ノルニルマント",
-      "display_name": "ノルニルマント (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 184,
-      "option_class": 3,
-      "expected_values": {
-        "クリダメ": 12.0,
-        "追加ダメ": 1700.0,
-        "筋力魔力": 1300.0,
-        "最小": 25.0,
-        "ボス追加ダメ": 1600.0
-      },
-      "base_expected_values": {
-        "最小": 90.0,
-        "クリダメ": 86.0,
-        "ボス追加ダメ": 5600.0,
-        "筋力魔力": 1000.0,
-        "追加ダメ": 3000.0,
-        "一般追加ダメ": 17000.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノルニルマント"
-      ],
-      "selectable_options": [
-        "ノルニルマント"
-      ]
-    },
-    {
-      "id": "eqgrp_46d6a8cebf8f",
-      "equipment_name": "ノルニルマント / ノルニル指輪",
-      "display_name": "ノルニルマント / ノルニル指輪 (エンチャ Lv1 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 3.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～6"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_60c303e2f002",
-      "equipment_name": "ノルニルマント / ノルニル指輪",
-      "display_name": "ノルニルマント / ノルニル指輪 (エンチャ Lv2 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 4.0
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～7"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_7434265d53d5",
-      "equipment_name": "ノルニルマント / ノルニル指輪",
-      "display_name": "ノルニルマント / ノルニル指輪 (エンチャ Lv3-4 ボスモンスター追加ダメージ%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "ボスモンスター追加ダメージ%+d％",
-      "option_type": 184,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "ボス追加ダメ_乗算": 1.5
-      },
-      "display_ranges": {
-        "ボス追加ダメ_乗算": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニルマント",
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_3182772527f9",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (エンチャ Lv1 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 20.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～40"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_398825fea2ee",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (エンチャ Lv2 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 25.5
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "1～50"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_a9c2889628eb",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (エンチャ Lv2 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "2",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 5.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～10"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_bd814bdf0743",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (エンチャ Lv3-4 スキルクールタイム減少+%0.1F%%)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "スキルクールタイム減少+%0.1F%%",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "スキルクールタイム減少+%0.1F%%": 5.0
-      },
-      "display_ranges": {
-        "スキルクールタイム減少+%0.1F%%": "3～7"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_cdc454d173b0",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (エンチャ Lv3-4 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "3-4",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 4,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 1.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～2"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_dc02bbb4109a",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (エンチャ Lv1 武器攻撃力/属性力%+d％)",
-      "category": "エンチャ",
-      "level": 7000,
-      "level_label": "1",
-      "detail": "武器攻撃力/属性力%+d％",
-      "option_type": 185,
-      "option_class": 2,
-      "option_group": 0,
-      "option_probability": 100.0,
-      "expected_values": {
-        "武器属性_乗算": 4.5
-      },
-      "display_ranges": {
-        "武器属性_乗算": "1～8"
-      },
-      "base_expected_values": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_086382d76bbf",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 185,
-      "option_class": 3,
-      "expected_values": {
-        "最大": 12.0,
-        "追加ダメ": 2900.0,
-        "武器属性": 12.0,
-        "筋力魔力": 1200.0
-      },
-      "base_expected_values": {
-        "筋力魔力": 4600.0,
-        "最大": 106.0,
-        "武器属性": 86.0,
-        "追加ダメ": 7100.0,
-        "ボス追加ダメ": 17000.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
-    },
-    {
-      "id": "eqgrp_66d7bb876601",
-      "equipment_name": "ノルニル指輪",
-      "display_name": "ノルニル指輪 (強化 →+6)",
-      "category": "強化",
-      "level": 7000,
-      "level_label": "",
-      "detail": "→+6",
-      "option_type": 185,
-      "option_class": 3,
-      "expected_values": {
-        "最大": 12.0,
-        "追加ダメ": 2900.0,
-        "武器属性": 12.0,
-        "筋力魔力": 1200.0
-      },
-      "base_expected_values": {
-        "筋力魔力": 4600.0,
-        "最大": 106.0,
-        "武器属性": 86.0,
-        "追加ダメ": 7100.0,
-        "一般追加ダメ": 17000.0
-      },
-      "display_ranges": {},
-      "filter_names": [
-        "ノルニル指輪"
-      ],
-      "selectable_options": [
-        "ノルニル指輪"
-      ]
     }
   ],
   "equipment_options_by_category": {
@@ -20511,18 +21558,18 @@ const ENCHANT_DATA = {
       "エメラルディアタトゥー",
       "エメラルディアメガネ",
       "ガブリエラの2番目バッジ",
+      "キャメロットのステッカー",
       "クラフトキーパーの教本",
       "グノーシスのトーテム",
       "サーカス場の3番目のバッジ",
       "タイヤマンの1番目のバッジ",
       "ティレニアのブローチ",
       "ドミトリーのチャーム",
-      "ノトリアのステッカー",
-      "ノルニルイヤリング",
-      "ノルニルマント",
-      "ノルニル指輪",
-      "バニーバニーベルト",
       "フレディアの4番目バッジ",
+      "ベリアルのイヤリング / 鏡のイヤリング",
+      "ベリアルのマント / 鏡のマント",
+      "ベリアルの指輪 / 鏡の指輪",
+      "メヌエットのベルト",
       "封印された赤い結晶 / 封印された青い結晶",
       "封印された黄色い結晶",
       "強靭なゼフィロスのバッジ",
@@ -20534,7 +21581,7 @@ const ENCHANT_DATA = {
       "黒龍の時計"
     ],
     "エンチャ": [
-      "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+      "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
       "イカロスクリップ / イカロスプレート",
       "イカロスグローブ",
       "イカロスブーツ",
@@ -20542,26 +21589,34 @@ const ENCHANT_DATA = {
       "エメラルディアストッキング",
       "エメラルディアタトゥー",
       "エメラルディアメガネ",
+      "キャメロットのステッカー / メヌエットのベルト",
       "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ",
       "ドミトリーのチャーム",
-      "ノルニルイヤリング",
-      "ノルニルマント",
-      "ノルニル指輪",
+      "ベリアルのイヤリング",
+      "ベリアルのイヤリング[神話]",
+      "ベリアルのマント",
+      "ベリアルのマント[神話]",
+      "ベリアルの指輪",
+      "ベリアルの指輪[神話]",
       "封印された赤い結晶",
       "封印された青い結晶",
       "封印された黄色い結晶",
       "強靭なゼフィロスのバッジ",
       "滅亡記憶武器",
-      "突然変異キャンサーの6番バッジ"
+      "突然変異キャンサーの6番バッジ",
+      "鏡のイヤリング",
+      "鏡のマント",
+      "鏡の指輪"
     ],
     "覚醒": [
-      "アクセ",
       "イカロスクリップ",
       "イカロスグローブ",
       "イカロスブーツ",
       "イカロスプレート",
       "イカロスヘルメット",
+      "エメラルディアアクセ",
       "ドミトリーのチャーム",
+      "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪",
       "滅亡記憶武器",
       "特殊装備",
       "突然変異キャンサーの6番バッジ",
@@ -20600,6 +21655,9 @@ const ENCHANT_DATA = {
       "ガブリエラの2番目バッジ": [
         "ガブリエラの2番目バッジ"
       ],
+      "キャメロットのステッカー": [
+        "キャメロットのステッカー"
+      ],
       "クラフトキーパーの教本": [
         "クラフトキーパーの教本"
       ],
@@ -20618,23 +21676,23 @@ const ENCHANT_DATA = {
       "ドミトリーのチャーム": [
         "ドミトリーのチャーム"
       ],
-      "ノトリアのステッカー": [
-        "ノトリアのステッカー"
-      ],
-      "ノルニルイヤリング": [
-        "ノルニルイヤリング"
-      ],
-      "ノルニルマント": [
-        "ノルニルマント"
-      ],
-      "ノルニル指輪": [
-        "ノルニル指輪"
-      ],
-      "バニーバニーベルト": [
-        "バニーバニーベルト"
-      ],
       "フレディアの4番目バッジ": [
         "フレディアの4番目バッジ"
+      ],
+      "ベリアルのイヤリング / 鏡のイヤリング": [
+        "ベリアルのイヤリング",
+        "鏡のイヤリング"
+      ],
+      "ベリアルのマント / 鏡のマント": [
+        "ベリアルのマント",
+        "鏡のマント"
+      ],
+      "ベリアルの指輪 / 鏡の指輪": [
+        "ベリアルの指輪",
+        "鏡の指輪"
+      ],
+      "メヌエットのベルト": [
+        "メヌエットのベルト"
       ],
       "封印された赤い結晶 / 封印された青い結晶": [
         "封印された赤い結晶",
@@ -20666,13 +21724,11 @@ const ENCHANT_DATA = {
       ]
     },
     "エンチャ": {
-      "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス": [
+      "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス": [
         "アンドレアスの教本",
         "ガブリエラの2番目バッジ",
         "クラフトキーパーの教本",
         "ティレニアのブローチ",
-        "ノトリアのステッカー",
-        "バニーバニーベルト",
         "フレディアの4番目バッジ",
         "黒龍のネックレス"
       ],
@@ -20698,6 +21754,10 @@ const ENCHANT_DATA = {
       "エメラルディアメガネ": [
         "エメラルディアメガネ"
       ],
+      "キャメロットのステッカー / メヌエットのベルト": [
+        "キャメロットのステッカー",
+        "メヌエットのベルト"
+      ],
       "サーカス場の3番目のバッジ / タイヤマンの1番目のバッジ": [
         "サーカス場の3番目のバッジ",
         "タイヤマンの1番目のバッジ"
@@ -20705,14 +21765,23 @@ const ENCHANT_DATA = {
       "ドミトリーのチャーム": [
         "ドミトリーのチャーム"
       ],
-      "ノルニルイヤリング": [
-        "ノルニルイヤリング"
+      "ベリアルのイヤリング": [
+        "ベリアルのイヤリング"
       ],
-      "ノルニルマント": [
-        "ノルニルマント"
+      "ベリアルのイヤリング[神話]": [
+        "ベリアルのイヤリング[神話]"
       ],
-      "ノルニル指輪": [
-        "ノルニル指輪"
+      "ベリアルのマント": [
+        "ベリアルのマント"
+      ],
+      "ベリアルのマント[神話]": [
+        "ベリアルのマント[神話]"
+      ],
+      "ベリアルの指輪": [
+        "ベリアルの指輪"
+      ],
+      "ベリアルの指輪[神話]": [
+        "ベリアルの指輪[神話]"
       ],
       "封印された赤い結晶": [
         "封印された赤い結晶"
@@ -20731,17 +21800,18 @@ const ENCHANT_DATA = {
       ],
       "突然変異キャンサーの6番バッジ": [
         "突然変異キャンサーの6番バッジ"
+      ],
+      "鏡のイヤリング": [
+        "鏡のイヤリング"
+      ],
+      "鏡のマント": [
+        "鏡のマント"
+      ],
+      "鏡の指輪": [
+        "鏡の指輪"
       ]
     },
     "覚醒": {
-      "アクセ": [
-        "エメラルディアストッキング",
-        "エメラルディアタトゥー",
-        "エメラルディアメガネ",
-        "ノルニルイヤリング",
-        "ノルニルマント",
-        "ノルニル指輪"
-      ],
       "イカロスクリップ": [
         "イカロスクリップ"
       ],
@@ -20757,8 +21827,24 @@ const ENCHANT_DATA = {
       "イカロスヘルメット": [
         "イカロスヘルメット"
       ],
+      "エメラルディアアクセ": [
+        "エメラルディアストッキング",
+        "エメラルディアタトゥー",
+        "エメラルディアメガネ"
+      ],
       "ドミトリーのチャーム": [
         "ドミトリーのチャーム"
+      ],
+      "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪": [
+        "ベリアルのイヤリング",
+        "ベリアルのイヤリング[神話]",
+        "ベリアルのマント",
+        "ベリアルのマント[神話]",
+        "ベリアルの指輪",
+        "ベリアルの指輪[神話]",
+        "鏡のイヤリング",
+        "鏡のマント",
+        "鏡の指輪"
       ],
       "滅亡記憶武器": [
         "滅亡記憶武器"
@@ -20775,19 +21861,21 @@ const ENCHANT_DATA = {
     }
   },
   "equipment_names": [
-    "アクセ",
     "アンドレアスの教本",
-    "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / ノトリアのステッカー / バニーバニーベルト / フレディアの4番目バッジ / 黒龍のネックレス",
+    "アンドレアスの教本 / ガブリエラの2番目バッジ / クラフトキーパーの教本 / ティレニアのブローチ / フレディアの4番目バッジ / 黒龍のネックレス",
     "イカロスクリップ",
     "イカロスクリップ / イカロスプレート",
     "イカロスグローブ",
     "イカロスブーツ",
     "イカロスプレート",
     "イカロスヘルメット",
+    "エメラルディアアクセ",
     "エメラルディアストッキング",
     "エメラルディアタトゥー",
     "エメラルディアメガネ",
     "ガブリエラの2番目バッジ",
+    "キャメロットのステッカー",
+    "キャメロットのステッカー / メヌエットのベルト",
     "クラフトキーパーの教本",
     "グノーシスのトーテム",
     "サーカス場の3番目のバッジ",
@@ -20795,12 +21883,18 @@ const ENCHANT_DATA = {
     "タイヤマンの1番目のバッジ",
     "ティレニアのブローチ",
     "ドミトリーのチャーム",
-    "ノトリアのステッカー",
-    "ノルニルイヤリング",
-    "ノルニルマント",
-    "ノルニル指輪",
-    "バニーバニーベルト",
     "フレディアの4番目バッジ",
+    "ベリアルのイヤリング",
+    "ベリアルのイヤリング / ベリアルのイヤリング[神話] / ベリアルのマント / ベリアルのマント[神話] / ベリアルの指輪 / ベリアルの指輪[神話] / 鏡のイヤリング / 鏡のマント / 鏡の指輪",
+    "ベリアルのイヤリング / 鏡のイヤリング",
+    "ベリアルのイヤリング[神話]",
+    "ベリアルのマント",
+    "ベリアルのマント / 鏡のマント",
+    "ベリアルのマント[神話]",
+    "ベリアルの指輪",
+    "ベリアルの指輪 / 鏡の指輪",
+    "ベリアルの指輪[神話]",
+    "メヌエットのベルト",
     "封印された赤い結晶",
     "封印された赤い結晶 / 封印された青い結晶",
     "封印された青い結晶",
@@ -20812,12 +21906,15 @@ const ENCHANT_DATA = {
     "滅亡記憶武器（魔法）",
     "特殊装備",
     "突然変異キャンサーの6番バッジ",
+    "鏡のイヤリング",
+    "鏡のマント",
+    "鏡の指輪",
     "黒龍のネックレス",
     "黒龍の時計"
   ],
   "counts": {
     "強化": 45,
-    "エンチャ": 481,
-    "覚醒": 142
+    "エンチャ": 477,
+    "覚醒": 176
   }
 };
