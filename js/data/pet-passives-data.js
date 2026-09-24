@@ -779,12 +779,76 @@ const PET_PASSIVES_DATA = [
     "status_value2": 0
   },
   {
+    "name": "サリー",
+    "category": "最終最大ダメージA",
+    "status_type1": "最大_乗算",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "キャンディポップ",
+    "category": "最終最小ダメージA",
+    "status_type1": "最小_乗算",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "フゥ",
+    "category": "最終クリティカルダメージA",
+    "status_type1": "クリダメ_乗算",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "シャシャマオ",
+    "category": "ステータス(％)/HP(％)B",
+    "status_type1": "全ステ%",
+    "status_value1": 5,
+    "status_type2": "HP_乗算",
+    "status_value2": 5
+  },
+  {
+    "name": "サクラ",
+    "category": "スキルターゲット数A",
+    "status_type1": "タゲ数",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "ウソワッカ",
+    "category": "星座ポイントA",
+    "status_type1": "星座P",
+    "status_value1": 10,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
     "name": "ショコラ",
     "category": "Ely獲得量/アイテムドロップ率C",
     "status_type1": "Ely獲得量",
     "status_value1": 150,
     "status_type2": "ドロップ率",
     "status_value2": 10
+  },
+  {
+    "name": "黒糖&白雪",
+    "category": "召喚獣経験値A",
+    "status_type1": "召喚獣経験値",
+    "status_value1": 100,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "カラメェル",
+    "category": "ステータス(+)B",
+    "status_type1": "全ステ",
+    "status_value1": 2500,
+    "status_type2": "",
+    "status_value2": 0
   },
   {
     "name": "イーゼル",
@@ -795,12 +859,100 @@ const PET_PASSIVES_DATA = [
     "status_value2": 0
   },
   {
+    "name": "ラミィ",
+    "category": "秘宝ポイントA",
+    "status_type1": "秘宝P",
+    "status_value1": 50,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
     "name": "ケルシア",
     "category": "最小/最大ダメージC",
     "status_type1": "最大最小",
     "status_value1": 30,
     "status_type2": "",
     "status_value2": 0
+  },
+  {
+    "name": "スイリュー",
+    "category": "移動速度A",
+    "status_type1": "移動",
+    "status_value1": 50,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "ペンペン",
+    "category": "[中級]スキルレベルA",
+    "status_type1": "スキルLv中級",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "オルカノクス",
+    "category": "追加ダメージ/追加ダメージ(%) A",
+    "status_type1": "追加ダメ",
+    "status_value1": 7500,
+    "status_type2": "追加ダメ_乗算",
+    "status_value2": 5
+  },
+  {
+    "name": "シマエナガズ",
+    "category": "筋力/魔法力効率A",
+    "status_type1": "効率",
+    "status_value1": 10,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "ケロちゃん",
+    "category": "ステータス(+)A",
+    "status_type1": "全ステ",
+    "status_value1": 5000,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "めりーべる",
+    "category": "[初級]スキルレベルA",
+    "status_type1": "スキルLv初級",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "マルパス",
+    "category": "[上級]スキルレベルA",
+    "status_type1": "スキルLv上級",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "ハリー",
+    "category": "ステータス(+)A",
+    "status_type1": "全ステ",
+    "status_value1": 5000,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "リア&ミア",
+    "category": "[最上級]スキルレベルA",
+    "status_type1": "スキルLv最上級",
+    "status_value1": 1,
+    "status_type2": "",
+    "status_value2": 0
+  },
+  {
+    "name": "インフェルノ",
+    "category": "ダンジョンポイントA",
+    "status_type1": "ダンジョンP",
+    "status_value1": 50,
+    "status_type2": "ダンジョンP上限",
+    "status_value2": 50
   },
   {
     "name": "ｽｰﾊﾟｰｽﾁｭﾜｰﾄ",
