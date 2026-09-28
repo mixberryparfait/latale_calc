@@ -70,7 +70,7 @@
             const part = document.createElement('span');
             part.textContent = names[n];
             const name = document.createElement('span');
-            name.textContent = `${item.name} / ${item.id}`;
+            name.textContent = item.name;
             const remove = button('×', () => { delete equipped[n]; refresh(); });
             remove.setAttribute('aria-label', `${names[n]}を外す`);
             row.append(part, name, remove);
@@ -104,7 +104,7 @@
                 refresh();
             }, 'item-card');
             card.setAttribute('aria-pressed', String(equipped[slot]?.id === item.id));
-            card.setAttribute('aria-label', `${item.name}、見た目ID ${item.id}を選ぶ`);
+            card.setAttribute('aria-label', `${item.name}を選ぶ`);
             const thumbnail = document.createElement('canvas');
             thumbnail.width = 140;
             thumbnail.height = 174;
@@ -112,10 +112,7 @@
             const title = document.createElement('span');
             title.className = 'item-name';
             title.textContent = appearanceSlots.includes(slot) ? `${names[slot]} ${item.name} / 色 ${item.color}` : item.name;
-            const id = document.createElement('span');
-            id.className = 'item-id';
-            id.textContent = item.id;
-            card.append(thumbnail, title, id);
+            card.append(thumbnail, title);
             $('items').append(card);
             const candidate = { ...equipped, [slot]: item };
             if ([4, 5, 6].includes(slot)) delete candidate[20];
