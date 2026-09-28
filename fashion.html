@@ -6,17 +6,24 @@
     <title>ラテールファッションシミュレーター</title>
     <link rel="stylesheet" href="fashion.css">
     <script defer src="js/fashion-renderer.js"></script>
+    <script defer src="js/fashion-url.js"></script>
     <script defer src="js/fashion.js"></script>
 </head>
 <body>
     <header class="site-header"><h1>ラテールファッションシミュレーター</h1><a href="index.html">ラテールダメージ計算器 ↗</a></header>
     <main>
+        <p class="pages-notice" id="pages-notice">URL・Xでの共有は <a href="https://latale-fashion-share-test.mixberry-parfait.workers.dev/">新しいファッションシミュレーター ↗</a> をご利用ください。このページも共有機能なしで引き続き使えます。</p>
         <p id="status" role="status">着せ替えデータを読み込んでいます…</p>
         <div class="workspace" id="workspace" hidden>
             <aside class="preview-panel">
                 <div class="panel-heading"><h2>プレビュー</h2><span id="frame-label">立ち姿</span></div>
                 <div class="stage"><canvas id="character" width="480" height="440" aria-label="選択した衣装を着たキャラクターの立ち絵"></canvas><span class="stage-caption">YOUR CHARACTER</span></div>
-                <div class="preview-controls"><button id="flip" type="button" aria-pressed="false">左右反転</button><label><input id="animate" type="checkbox" checked> 動きをつける</label><button id="download" type="button">PNG保存</button></div>
+                <div class="preview-controls">
+                    <label><input id="animate" type="checkbox" checked> 動きをつける</label>
+                    <div class="preview-actions"><button id="flip" type="button" aria-pressed="false">左右反転</button><button id="download" type="button">PNG保存</button><button id="share-url" type="button" hidden>URL共有</button><a id="share-x" class="share-link" target="_blank" rel="noopener noreferrer" hidden>Xで共有</a></div>
+                    <p id="share-status" role="status"></p>
+                    <input id="share-url-fallback" type="text" readonly aria-label="共有URL（コピー用）" hidden>
+                </div>
                 <section class="bookmarks">
                     <div class="panel-heading"><h2>マイコーデ</h2><span id="bookmark-count">0 / 8</span></div>
                     <p class="section-note">お気に入りを保存して、画像から呼び出し。</p>

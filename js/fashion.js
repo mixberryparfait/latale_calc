@@ -44,8 +44,48 @@
     for (const [n, id] of Object.entries(initialAppearance)) {
         equipped[n] = byId.get(id) || first(Number(n));
     }
+    let urlError = '';
+    const shareVersion = document.querySelector('meta[name="fashion-share-version"]')?.content;
+    if (shareVersion) try {
+        const restored = FashionUrl.parse(new URL(location.href), id => byId.get(id));
+        Object.assign(equipped, restored.equipped);
+        flipped = restored.flipped;
+        $('flip').setAttribute('aria-pressed', String(flipped));
+    } catch (error) { urlError = error.message; }
+    function updateShare() {
+        if (!shareVersion) return;
+        const url = new URL(location.href);
+        url.search = FashionUrl.encode(equipped, flipped).toString();
+        url.hash = '';
+        url.pathname = '/';
+        url.searchParams.set('v', shareVersion);
+        history.replaceState(null, '', url);
+        const intent = new URL('https://twitter.com/intent/tweet');
+        intent.searchParams.set('url', url.href);
+        intent.searchParams.set('hashtags', 'ラテール着せ替え');
+        $('share-x').href = intent.href;
+        $('share-x').hidden = false;
+        $('share-url').hidden = false;
+    }
 
     function showError(error) { status.textContent = error.message; }
+    $('share-url').addEventListener('click', async () => {
+        if (!shareVersion) return;
+        updateShare();
+        const url = location.href;
+        try {
+            await navigator.clipboard.writeText(url);
+            $('share-url-fallback').hidden = true;
+            $('share-status').textContent = 'コーデのURLをコピーしました。';
+        } catch (error) {
+            const input = $('share-url-fallback');
+            input.value = url;
+            input.hidden = false;
+            input.focus();
+            input.select();
+            $('share-status').textContent = '下のURLをコピーしてください。';
+        }
+    });
     function preview() {
         try {
             const frames = data.pose.frames.map((_, index) => FashionRenderer.plan(data, equipped, index));
@@ -127,6 +167,7 @@
         }
     }
     function refresh() {
+        updateShare();
         preview();
         updateOutfit();
         renderItems();
@@ -248,6 +289,7 @@
     $('flip').addEventListener('click', () => {
         flipped = !flipped;
         $('flip').setAttribute('aria-pressed', String(flipped));
+        updateShare();
         preview();
     });
     $('animate').addEventListener('change', () => { frame = 0; lastTime = 0; preview(); });
@@ -270,7 +312,7 @@
     });
     $('count').textContent = `${data.items.filter(item => selectionSlots.includes(item.slot)).length.toLocaleString()} 点の見た目`;
     $('workspace').hidden = false;
-    status.textContent = '';
+    status.textContent = urlError;
     refresh();
     renderBookmarks();
     function tick(time) {
