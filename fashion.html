@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ラテールファッションシミュレーター</title>
+    <link rel="stylesheet" href="fashion.css">
+    <script defer src="js/fashion-renderer.js"></script>
+    <script defer src="js/fashion.js"></script>
+</head>
+<body>
+    <header class="site-header"><h1>ラテールファッションシミュレーター</h1><a href="index.html">ラテールダメージ計算器 ↗</a></header>
+    <main>
+        <p id="status" role="status">着せ替えデータを読み込んでいます…</p>
+        <div class="workspace" id="workspace" hidden>
+            <aside class="preview-panel">
+                <div class="panel-heading"><h2>プレビュー</h2><span id="frame-label">立ち姿</span></div>
+                <div class="stage"><canvas id="character" width="480" height="440" aria-label="選択した衣装を着たキャラクターの立ち絵"></canvas><span class="stage-caption">YOUR CHARACTER</span></div>
+                <div class="preview-controls"><button id="flip" type="button" aria-pressed="false">左右反転</button><label><input id="animate" type="checkbox" checked> 動きをつける</label><button id="download" type="button">PNG保存</button></div>
+                <section class="bookmarks">
+                    <div class="panel-heading"><h2>マイコーデ</h2><span id="bookmark-count">0 / 8</span></div>
+                    <p class="section-note">お気に入りを保存して、画像から呼び出し。</p>
+                    <form id="save-outfit"><input id="bookmark-name" aria-label="保存する組み合わせの名前" placeholder="コーデの名前（省略可）" maxlength="40"><button type="submit" class="primary-button">＋ 保存</button></form>
+                    <p id="bookmark-status" role="status" class="empty-outfit"></p>
+                    <div id="bookmarks"></div>
+                    <p class="storage-note">このブラウザに保存されます</p>
+                </section>
+                <section class="outfit"><div class="panel-heading"><h2>着用中</h2><button id="reset" type="button" class="text-button">キャラ・衣装をリセット</button></div><div id="equipped"></div></section>
+            </aside>
+            <section class="wardrobe" aria-label="ファッション選択">
+                <div class="panel-heading"><h2>ワードローブ</h2><span id="count"></span></div>
+                <section class="randomizer" aria-label="ランダム着せ替え">
+                    <div class="panel-heading"><div><h2>ランダム着せ替え</h2><p class="section-note" id="random-count">変更する部位を選んでください</p></div><button id="randomize" type="button" class="primary-button" disabled>シャッフル</button></div>
+                    <p class="section-note">タブ左の鍵をクリックすると、その部位だけ固定できます。🔓 シャッフル ／ 🔒 固定</p>
+                </section>
+                <label class="search-label"><span>アイテム検索</span><input id="search" type="search" placeholder="衣装名・見た目IDで検索" autocomplete="off"></label>
+                <div class="catalog-layout">
+                <div id="categories" class="categories" role="group" aria-label="髪・目・肌と衣装の部位"></div>
+                <div class="catalog-results">
+                <div class="results-heading"><span id="results-label"></span><button id="remove-slot" type="button" class="text-button">この部位を外す</button></div>
+                <div id="items" class="item-grid"></div>
+                <nav class="pagination" aria-label="見た目一覧のページ"><button id="previous" type="button">前へ</button><span id="page-label"></span><button id="next" type="button">次へ</button></nav>
+                </div>
+                </div>
+            </section>
+        </div>
+        <p class="data-note">手元の抽出済み素材に収録されている見た目を表示します。未収録の衣装は選択肢に含まれません。名称が対応しないものは見た目IDで表示します。</p>
+    </main>
+    <footer>LaTale Fashion Simulator <span>·</span> <a href="index.html">ダメージ計算機へ</a></footer>
+</body>
+</html>
