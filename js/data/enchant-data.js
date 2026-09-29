@@ -21916,5 +21916,6134 @@ const ENCHANT_DATA = {
     "強化": 45,
     "エンチャ": 477,
     "覚醒": 176
+  },
+  "awaken_simulation": {
+    "equipment": [
+      {
+        "name": "イカロスクリップ",
+        "kind": 3013,
+        "item_id": 30415707,
+        "members": [
+          {
+            "name": "イカロスのクリップ",
+            "kind": 3013,
+            "item_id": 30415707,
+            "option_type": 195
+          },
+          {
+            "name": "グランデルのクリップ",
+            "kind": 3013,
+            "item_id": 30415807,
+            "option_type": 200
+          }
+        ]
+      },
+      {
+        "name": "イカロスグローブ",
+        "kind": 3014,
+        "item_id": 10215707,
+        "members": [
+          {
+            "name": "イカロスのグローブ",
+            "kind": 3014,
+            "item_id": 10215707,
+            "option_type": 193
+          },
+          {
+            "name": "グランデルのグローブ",
+            "kind": 3014,
+            "item_id": 10215807,
+            "option_type": 198
+          }
+        ]
+      },
+      {
+        "name": "イカロスブーツ",
+        "kind": 3015,
+        "item_id": 70215707,
+        "members": [
+          {
+            "name": "イカロスのブーツ",
+            "kind": 3015,
+            "item_id": 70215707,
+            "option_type": 197
+          },
+          {
+            "name": "グランデルのブーツ",
+            "kind": 3015,
+            "item_id": 70215807,
+            "option_type": 202
+          }
+        ]
+      },
+      {
+        "name": "イカロスプレート",
+        "kind": 3012,
+        "item_id": 20215707,
+        "members": [
+          {
+            "name": "イカロスのプレート",
+            "kind": 3012,
+            "item_id": 20215707,
+            "option_type": 194
+          },
+          {
+            "name": "グランデルのプレート",
+            "kind": 3012,
+            "item_id": 20215807,
+            "option_type": 199
+          }
+        ]
+      },
+      {
+        "name": "イカロスヘルメット",
+        "kind": 3011,
+        "item_id": 90515707,
+        "members": [
+          {
+            "name": "イカロスのヘルメット",
+            "kind": 3011,
+            "item_id": 90515707,
+            "option_type": 196
+          },
+          {
+            "name": "グランデルのヘルメット",
+            "kind": 3011,
+            "item_id": 90515807,
+            "option_type": 201
+          }
+        ]
+      },
+      {
+        "name": "エメラルディアアクセ",
+        "kind": 4002,
+        "item_id": 60115607,
+        "members": [
+          {
+            "name": "ダークエルフのストッキング",
+            "kind": 4002,
+            "item_id": 60115607,
+            "option_type": 191
+          },
+          {
+            "name": "ダークエルフのタトゥー",
+            "kind": 4002,
+            "item_id": 120115607,
+            "option_type": 189
+          },
+          {
+            "name": "ダークエルフのメガネ",
+            "kind": 4002,
+            "item_id": 100115607,
+            "option_type": 190
+          },
+          {
+            "name": "結合したエメラルディアのストッキング",
+            "kind": 4002,
+            "item_id": 60115608,
+            "option_type": 191
+          },
+          {
+            "name": "結合したエメラルディアのタトゥー",
+            "kind": 4002,
+            "item_id": 120115608,
+            "option_type": 189
+          },
+          {
+            "name": "結合したエメラルディアのメガネ",
+            "kind": 4002,
+            "item_id": 100115608,
+            "option_type": 190
+          },
+          {
+            "name": "魔女のストッキング",
+            "kind": 4002,
+            "item_id": 60115507,
+            "option_type": 191
+          },
+          {
+            "name": "魔女のタトゥー",
+            "kind": 4002,
+            "item_id": 120115507,
+            "option_type": 189
+          },
+          {
+            "name": "魔女のメガネ",
+            "kind": 4002,
+            "item_id": 100115507,
+            "option_type": 190
+          }
+        ]
+      },
+      {
+        "name": "ベリアルアクセ / 鏡アクセ",
+        "kind": 4003,
+        "item_id": 110116007,
+        "members": [
+          {
+            "name": "ベリアルのイヤリング",
+            "kind": 4003,
+            "item_id": 110116007,
+            "option_type": 208
+          },
+          {
+            "name": "ベリアルのイヤリング[神話]",
+            "kind": 4003,
+            "item_id": 110116009,
+            "option_type": 214
+          },
+          {
+            "name": "ベリアルのマント",
+            "kind": 4003,
+            "item_id": 40116007,
+            "option_type": 209
+          },
+          {
+            "name": "ベリアルのマント[神話]",
+            "kind": 4003,
+            "item_id": 40116009,
+            "option_type": 215
+          },
+          {
+            "name": "ベリアルの指輪",
+            "kind": 4003,
+            "item_id": 160204107,
+            "option_type": 210
+          },
+          {
+            "name": "ベリアルの指輪[神話]",
+            "kind": 4003,
+            "item_id": 160204109,
+            "option_type": 216
+          },
+          {
+            "name": "鏡のイヤリング",
+            "kind": 4003,
+            "item_id": 110115907,
+            "option_type": 205
+          },
+          {
+            "name": "鏡のマント",
+            "kind": 4003,
+            "item_id": 40115907,
+            "option_type": 206
+          },
+          {
+            "name": "鏡の指輪",
+            "kind": 4003,
+            "item_id": 160204007,
+            "option_type": 207
+          }
+        ]
+      },
+      {
+        "name": "滅亡記憶武器",
+        "kind": 1002,
+        "item_id": 81605007,
+        "members": [
+          {
+            "name": "滅亡のMG",
+            "kind": 1002,
+            "item_id": 81605007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のオーブ",
+            "kind": 1002,
+            "item_id": 80505007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のガントレット",
+            "kind": 1002,
+            "item_id": 82005007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のガンブレイド",
+            "kind": 1002,
+            "item_id": 82405007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のガーディアン",
+            "kind": 1002,
+            "item_id": 82505007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のギガントポール",
+            "kind": 1002,
+            "item_id": 84305007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のギター",
+            "kind": 1002,
+            "item_id": 81305007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のサイキックハンド",
+            "kind": 1002,
+            "item_id": 82105007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のショット",
+            "kind": 1002,
+            "item_id": 81405007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のジュエルキット",
+            "kind": 1002,
+            "item_id": 84505007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のスタッフ",
+            "kind": 1002,
+            "item_id": 81205007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のスパイラルソード",
+            "kind": 1002,
+            "item_id": 81805007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のソウル",
+            "kind": 1002,
+            "item_id": 82805007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のタクト",
+            "kind": 1002,
+            "item_id": 82205007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のチェーンソード",
+            "kind": 1002,
+            "item_id": 84405007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のナックル",
+            "kind": 1002,
+            "item_id": 80105007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のバット",
+            "kind": 1002,
+            "item_id": 85205007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のバトルサイズ",
+            "kind": 1002,
+            "item_id": 82605007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のボゥガン",
+            "kind": 1002,
+            "item_id": 81005007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のマジックロッド",
+            "kind": 1002,
+            "item_id": 84205007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のマナカード",
+            "kind": 1002,
+            "item_id": 82905007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のメイス",
+            "kind": 1002,
+            "item_id": 80705007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のランス",
+            "kind": 1002,
+            "item_id": 84605007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡のリングブレイド",
+            "kind": 1002,
+            "item_id": 85005007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の両手剣",
+            "kind": 1002,
+            "item_id": 80405007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の二刀",
+            "kind": 1002,
+            "item_id": 80605007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の傘",
+            "kind": 1002,
+            "item_id": 84905007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の弓",
+            "kind": 1002,
+            "item_id": 80905007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の扇",
+            "kind": 1002,
+            "item_id": 84805007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の槍",
+            "kind": 1002,
+            "item_id": 80805007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の流星剣",
+            "kind": 1002,
+            "item_id": 85105007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の片手剣",
+            "kind": 1002,
+            "item_id": 80305007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の短剣",
+            "kind": 1002,
+            "item_id": 80205007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の飛燕剣",
+            "kind": 1002,
+            "item_id": 81905007,
+            "option_type": 187
+          },
+          {
+            "name": "滅亡の黒狼玉",
+            "kind": 1002,
+            "item_id": 84005007,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のMG",
+            "kind": 1002,
+            "item_id": 81605017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のオーブ",
+            "kind": 1002,
+            "item_id": 80505017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のガントレット",
+            "kind": 1002,
+            "item_id": 82005017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のガンブレイド",
+            "kind": 1002,
+            "item_id": 82405017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のガーディアン",
+            "kind": 1002,
+            "item_id": 82505017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のギガントポール",
+            "kind": 1002,
+            "item_id": 84305017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のギター",
+            "kind": 1002,
+            "item_id": 81305017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のサイキックハンド",
+            "kind": 1002,
+            "item_id": 82105017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のショット",
+            "kind": 1002,
+            "item_id": 81405017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のジュエルキット",
+            "kind": 1002,
+            "item_id": 84505017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のスタッフ",
+            "kind": 1002,
+            "item_id": 81205017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のスパイラルソード",
+            "kind": 1002,
+            "item_id": 81805017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のソウル",
+            "kind": 1002,
+            "item_id": 82805017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のタクト",
+            "kind": 1002,
+            "item_id": 82205017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のチェーンソード",
+            "kind": 1002,
+            "item_id": 84405017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のナックル",
+            "kind": 1002,
+            "item_id": 80105017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のバット",
+            "kind": 1002,
+            "item_id": 85205017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のバトルサイズ",
+            "kind": 1002,
+            "item_id": 82605017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のボゥガン",
+            "kind": 1002,
+            "item_id": 81005017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のマジックロッド",
+            "kind": 1002,
+            "item_id": 84205017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のマナカード",
+            "kind": 1002,
+            "item_id": 82905017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のメイス",
+            "kind": 1002,
+            "item_id": 80705017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のランス",
+            "kind": 1002,
+            "item_id": 84605017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶のリングブレイド",
+            "kind": 1002,
+            "item_id": 85005017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の両手剣",
+            "kind": 1002,
+            "item_id": 80405017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の二刀",
+            "kind": 1002,
+            "item_id": 80605017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の傘",
+            "kind": 1002,
+            "item_id": 84905017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の弓",
+            "kind": 1002,
+            "item_id": 80905017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の扇",
+            "kind": 1002,
+            "item_id": 84805017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の槍",
+            "kind": 1002,
+            "item_id": 80805017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の流星剣",
+            "kind": 1002,
+            "item_id": 85105017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の片手剣",
+            "kind": 1002,
+            "item_id": 80305017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の短剣",
+            "kind": 1002,
+            "item_id": 80205017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の飛燕剣",
+            "kind": 1002,
+            "item_id": 81905017,
+            "option_type": 187
+          },
+          {
+            "name": "記憶の黒狼玉",
+            "kind": 1002,
+            "item_id": 84005017,
+            "option_type": 187
+          }
+        ]
+      },
+      {
+        "name": "特殊装備",
+        "kind": 5002,
+        "item_id": 164201221,
+        "members": [
+          {
+            "name": "アンドレアスの教本",
+            "kind": 5002,
+            "item_id": 164201221,
+            "option_type": 137
+          },
+          {
+            "name": "ガブリエラの2番目バッジ",
+            "kind": 5002,
+            "item_id": 164602031,
+            "option_type": 137
+          },
+          {
+            "name": "キャメロットのステッカー",
+            "kind": 5002,
+            "item_id": 165101331,
+            "option_type": 222
+          },
+          {
+            "name": "クラフトキーパーの教本",
+            "kind": 5002,
+            "item_id": 164201407,
+            "option_type": 137
+          },
+          {
+            "name": "サーカス場の3番目のバッジ",
+            "kind": 5002,
+            "item_id": 164501921,
+            "option_type": 204
+          },
+          {
+            "name": "タイヤマンの1番目のバッジ",
+            "kind": 5002,
+            "item_id": 164501821,
+            "option_type": 203
+          },
+          {
+            "name": "ティレニアのブローチ",
+            "kind": 5002,
+            "item_id": 165301031,
+            "option_type": 137
+          },
+          {
+            "name": "ドミトリーのチャーム",
+            "kind": 5002,
+            "item_id": 165401010,
+            "option_type": 182
+          },
+          {
+            "name": "フレディアの4番目バッジ",
+            "kind": 5002,
+            "item_id": 164801807,
+            "option_type": 137
+          },
+          {
+            "name": "メヌエットのベルト",
+            "kind": 5002,
+            "item_id": 165201431,
+            "option_type": 223
+          },
+          {
+            "name": "突然変異キャンサーの6番バッジ",
+            "kind": 5002,
+            "item_id": 165000431,
+            "option_type": 192
+          },
+          {
+            "name": "黒龍のネックレス",
+            "kind": 5002,
+            "item_id": 164001607,
+            "option_type": 137
+          },
+          {
+            "name": "黒龍の時計",
+            "kind": 5002,
+            "item_id": 166100208,
+            "option_type": 165
+          }
+        ]
+      }
+    ],
+    "profiles": {
+      "5002": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 50002,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 50002,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 50002,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 50002,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 50002,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "50002": [
+            {
+              "id": 325,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 300,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 326,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 300,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 327,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 300,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 328,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 329,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 330,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 331,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 332,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 333,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 334,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 30,
+              "max": 150,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 335,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 200,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 336,
+              "key": "1:586",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性",
+              "min": 1,
+              "max": 5,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 337,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 338,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 339,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 340,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 341,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 342,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 343,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 344,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 400,
+              "max": 1500,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 345,
+              "key": "1:586",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性",
+              "min": 3,
+              "max": 15,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 346,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 347,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 348,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 349,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 350,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 351,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 352,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 353,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 400,
+              "max": 3000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 354,
+              "key": "1:586",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性",
+              "min": 3,
+              "max": 25,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "3013": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 30013,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 30013,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 30013,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 30013,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 30013,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "30013": [
+            {
+              "id": 710,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 711,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 712,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 713,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 714,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 715,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 716,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 717,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 718,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 719,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 720,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 721,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 722,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 723,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 724,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 725,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 726,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 727,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 728,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 729,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 730,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 731,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 732,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 733,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 734,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 4,
+              "step": 1,
+              "suffix": "%",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 735,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 736,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 737,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 738,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 739,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 740,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 741,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 742,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 743,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 744,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 745,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 746,
+              "key": "1:86",
+              "name": "ダメージ減少",
+              "status": "ダメ減%",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 1,
+              "check": 1
+            },
+            {
+              "id": 747,
+              "key": "1:645",
+              "name": "上級スキルレベル",
+              "status": "スキルLv上級",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "",
+              "weight": 1,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "3014": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 30014,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 30014,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 30014,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 30014,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 30014,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "30014": [
+            {
+              "id": 748,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 749,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 750,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 751,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 752,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 753,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 754,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 755,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 756,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 757,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 758,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 759,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 760,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 761,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 762,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 763,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 764,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 765,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 766,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 767,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 768,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 769,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 770,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 771,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 772,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 4,
+              "step": 1,
+              "suffix": "%",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 773,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 774,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 775,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 776,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 777,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 778,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 779,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 780,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 781,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 782,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 783,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 784,
+              "key": "1:86",
+              "name": "ダメージ減少",
+              "status": "ダメ減%",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 1,
+              "check": 1
+            },
+            {
+              "id": 785,
+              "key": "1:646",
+              "name": "最上級スキルレベル",
+              "status": "スキルLv最上級",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "",
+              "weight": 1,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "3015": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 30015,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 30015,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 30015,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 30015,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 30015,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "30015": [
+            {
+              "id": 786,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 787,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 788,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 789,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 790,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 791,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 792,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 793,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 794,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 795,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 796,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 797,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 798,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 799,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 800,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 801,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 802,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 803,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 804,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 805,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 806,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 807,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 808,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 809,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 810,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 4,
+              "step": 1,
+              "suffix": "%",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 811,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 812,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 813,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 814,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 815,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 816,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 817,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 818,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 819,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 820,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 821,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 13,
+              "check": 1
+            },
+            {
+              "id": 822,
+              "key": "1:86",
+              "name": "ダメージ減少",
+              "status": "ダメ減%",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 9,
+              "check": 1
+            },
+            {
+              "id": 823,
+              "key": "3:3802404",
+              "name": "ハイランダー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 824,
+              "key": "3:3802504",
+              "name": "ソードダンサー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 825,
+              "key": "3:3802604",
+              "name": "ダークナイト【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 826,
+              "key": "3:3802704",
+              "name": "サイキッカー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 827,
+              "key": "3:3802804",
+              "name": "ファントムメイジ【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 828,
+              "key": "3:3802904",
+              "name": "マエストロ【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 829,
+              "key": "3:3803004",
+              "name": "ローグマスター【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 830,
+              "key": "3:3803104",
+              "name": "ジャッジメント【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 831,
+              "key": "3:3803204",
+              "name": "スターシーカー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 832,
+              "key": "3:3803604",
+              "name": "デストロイヤー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 833,
+              "key": "3:3803704",
+              "name": "フェイタルブレイド【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 834,
+              "key": "3:3803804",
+              "name": "ホーリーセイバー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 835,
+              "key": "3:3803904",
+              "name": "セフィロト【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 836,
+              "key": "3:3804004",
+              "name": "アークメイジ【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 837,
+              "key": "3:3804104",
+              "name": "グランシンフォニア【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 838,
+              "key": "3:3804204",
+              "name": "ウィンドストーカー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 839,
+              "key": "3:3804304",
+              "name": "フライシュッツ【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 840,
+              "key": "3:3804404",
+              "name": "マニピュレーター【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 841,
+              "key": "3:3804504",
+              "name": "ソウルテイカー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 842,
+              "key": "3:3804904",
+              "name": "アークマスター【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 843,
+              "key": "3:3805204",
+              "name": "フォースマスター【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 844,
+              "key": "3:3805604",
+              "name": "ブラックソード【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 845,
+              "key": "3:3806004",
+              "name": "デミゴッド【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 846,
+              "key": "3:3806404",
+              "name": "アグニ【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 847,
+              "key": "3:3806804",
+              "name": "ダークチェイサー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 848,
+              "key": "3:3806904",
+              "name": "ジュエルスター【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 849,
+              "key": "3:3807304",
+              "name": "シャドウウォーカー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 850,
+              "key": "3:3812404",
+              "name": "ハイランダー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 851,
+              "key": "3:3812504",
+              "name": "ソードダンサー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 852,
+              "key": "3:3812604",
+              "name": "ダークナイト【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 853,
+              "key": "3:3812704",
+              "name": "サイキッカー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 854,
+              "key": "3:3812804",
+              "name": "ファントムメイジ【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 855,
+              "key": "3:3812904",
+              "name": "マエストロ【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 856,
+              "key": "3:3813004",
+              "name": "ローグマスター【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 857,
+              "key": "3:3813104",
+              "name": "ジャッジメント【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 858,
+              "key": "3:3813204",
+              "name": "スターシーカー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 859,
+              "key": "3:3813604",
+              "name": "デストロイヤー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 860,
+              "key": "3:3813704",
+              "name": "フェイタルブレイド【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 861,
+              "key": "3:3813804",
+              "name": "ホーリーセイバー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 862,
+              "key": "3:3813904",
+              "name": "セフィロト【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 863,
+              "key": "3:3814004",
+              "name": "アークメイジ【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 864,
+              "key": "3:3814104",
+              "name": "グランシンフォニア【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 865,
+              "key": "3:3814204",
+              "name": "ウィンドストーカー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 866,
+              "key": "3:3814304",
+              "name": "フライシュッツ【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 867,
+              "key": "3:3814404",
+              "name": "マニピュレーター【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 868,
+              "key": "3:3814504",
+              "name": "ソウルテイカー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 869,
+              "key": "3:3814904",
+              "name": "アークマスター【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 870,
+              "key": "3:3815204",
+              "name": "フォースマスター【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 871,
+              "key": "3:3815604",
+              "name": "ブラックソード【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 872,
+              "key": "3:3816004",
+              "name": "デミゴッド【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 873,
+              "key": "3:3816404",
+              "name": "アグニ【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 874,
+              "key": "3:3816804",
+              "name": "ダークチェイサー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 875,
+              "key": "3:3816904",
+              "name": "ジュエルスター【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 876,
+              "key": "3:3817304",
+              "name": "シャドウウォーカー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 877,
+              "key": "3:3807404",
+              "name": "ウィンディア【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 878,
+              "key": "3:3817404",
+              "name": "ウィンディア【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 879,
+              "key": "3:3807504",
+              "name": "レイニア【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 880,
+              "key": "3:3817504",
+              "name": "レイニア【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 881,
+              "key": "3:3807804",
+              "name": "ゲートキーパー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 882,
+              "key": "3:3817804",
+              "name": "ゲートキーパー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 883,
+              "key": "3:3808104",
+              "name": "スターセイバー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 884,
+              "key": "3:3818104",
+              "name": "スターセイバー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 885,
+              "key": "3:3808204",
+              "name": "ホロウルーラー【コア】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 886,
+              "key": "3:3818204",
+              "name": "ホロウルーラー【コアⅡ】Lv.",
+              "status": null,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "3012": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 30012,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 30012,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 30012,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 30012,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 30012,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "30012": [
+            {
+              "id": 672,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 673,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 674,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 675,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 676,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 677,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 678,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 679,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 680,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 681,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 682,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 683,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 684,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 685,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 686,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 687,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 688,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 689,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 690,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 691,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 692,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 693,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 694,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 695,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 696,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 4,
+              "step": 1,
+              "suffix": "%",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 697,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 698,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 699,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 700,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 701,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 702,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 703,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 704,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 705,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 706,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 707,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 708,
+              "key": "1:86",
+              "name": "ダメージ減少",
+              "status": "ダメ減%",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 1,
+              "check": 1
+            },
+            {
+              "id": 709,
+              "key": "1:644",
+              "name": "中級スキルレベル",
+              "status": "スキルLv中級",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "",
+              "weight": 1,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "3011": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 30011,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 30011,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 30011,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 30011,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 30011,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "30011": [
+            {
+              "id": 634,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 635,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 636,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 637,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 638,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 639,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 640,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 641,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 642,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 643,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 644,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 645,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 646,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 50,
+              "max": 200,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 647,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 648,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 649,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 650,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 651,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 652,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 653,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 654,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 655,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 656,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 657,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 400,
+              "step": 1,
+              "suffix": "",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 658,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 4,
+              "step": 1,
+              "suffix": "%",
+              "weight": 6,
+              "check": 1
+            },
+            {
+              "id": 659,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 660,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 661,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 662,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 663,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 664,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 665,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 666,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 667,
+              "key": "1:244",
+              "name": "魔法ダメージ減少",
+              "status": null,
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 668,
+              "key": "1:144",
+              "name": "物理ダメージ減少",
+              "status": "ダメ減",
+              "min": 100,
+              "max": 800,
+              "step": 1,
+              "suffix": "",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 669,
+              "key": "1:31",
+              "name": "最大HP",
+              "status": "HP_乗算",
+              "min": 2,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 5,
+              "check": 1
+            },
+            {
+              "id": 670,
+              "key": "1:86",
+              "name": "ダメージ減少",
+              "status": "ダメ減%",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 1,
+              "check": 1
+            },
+            {
+              "id": 671,
+              "key": "1:643",
+              "name": "初級スキルレベル",
+              "status": "スキルLv初級",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "",
+              "weight": 1,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "4002": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 40002,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 40002,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 40002,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 40002,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 40002,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "40002": [
+            {
+              "id": 290,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 291,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 292,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 293,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 294,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 295,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 296,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 297,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 298,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 299,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 300,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 301,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 1,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 302,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 1,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 303,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 304,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 305,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 306,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 307,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 308,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 309,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 310,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 311,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 3,
+              "max": 12,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 312,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 3,
+              "max": 12,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 313,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 314,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 315,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 316,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 317,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 318,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 319,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 320,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 321,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 322,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 3,
+              "max": 18,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 323,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 3,
+              "max": 18,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 324,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 3,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "4003": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 40003,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 40003,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 40003,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 40003,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 40003,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "40003": [
+            {
+              "id": 891,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 892,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 893,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 400,
+              "max": 700,
+              "step": 1,
+              "suffix": "",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 894,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 895,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 896,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 897,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 898,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 899,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 900,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 70,
+              "max": 300,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 901,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 300,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 902,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 1,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 903,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 1,
+              "max": 6,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 904,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 905,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 906,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 907,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 908,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 909,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 910,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 600,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 911,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 2500,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 912,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 3,
+              "max": 12,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 913,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 3,
+              "max": 12,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 914,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 915,
+              "key": "1:456",
+              "name": "全ステータス",
+              "status": "全ステ%",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 916,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 917,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 918,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 919,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 920,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 921,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 922,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 150,
+              "max": 1200,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 923,
+              "key": "1:30",
+              "name": "最大HP",
+              "status": "HP",
+              "min": 500,
+              "max": 5000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 924,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 3,
+              "max": 18,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 925,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 3,
+              "max": 18,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 926,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 3,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 927,
+              "key": "1:456",
+              "name": "全ステータス",
+              "status": "全ステ%",
+              "min": 1,
+              "max": 3,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            }
+          ]
+        }
+      },
+      "1002": {
+        "patterns": [
+          {
+            "step": 1,
+            "group": 10002,
+            "rates": [
+              1.0,
+              0.8,
+              0.3,
+              0.1
+            ]
+          },
+          {
+            "step": 2,
+            "group": 10002,
+            "rates": [
+              1.0,
+              0.85,
+              0.35,
+              0.15
+            ]
+          },
+          {
+            "step": 3,
+            "group": 10002,
+            "rates": [
+              1.0,
+              0.9,
+              0.4,
+              0.2
+            ]
+          },
+          {
+            "step": 4,
+            "group": 10002,
+            "rates": [
+              1.0,
+              0.95,
+              0.45,
+              0.25
+            ]
+          },
+          {
+            "step": 5,
+            "group": 10002,
+            "rates": [
+              1.0,
+              1.0,
+              0.5,
+              0.3
+            ]
+          }
+        ],
+        "groups": {
+          "10002": [
+            {
+              "id": 151,
+              "key": "1:465",
+              "name": "物理/魔法クリティカル確率",
+              "status": "クリ率",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 0,
+              "check": 2
+            },
+            {
+              "id": 152,
+              "key": "1:465",
+              "name": "物理/魔法クリティカル確率",
+              "status": "クリ率",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 0,
+              "check": 3
+            },
+            {
+              "id": 153,
+              "key": "1:465",
+              "name": "物理/魔法クリティカル確率",
+              "status": "クリ率",
+              "min": 1,
+              "max": 1,
+              "step": 1,
+              "suffix": "%",
+              "weight": 0,
+              "check": 4
+            },
+            {
+              "id": 154,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 155,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 156,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 157,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 158,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 159,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 160,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 100,
+              "max": 500,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 161,
+              "key": "1:494",
+              "name": "物理/魔法バックアタックダメージ",
+              "status": "BA",
+              "min": 1,
+              "max": 10,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 162,
+              "key": "1:567",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ_乗算",
+              "min": 1,
+              "max": 3,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 163,
+              "key": "1:571",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ_乗算",
+              "min": 1,
+              "max": 3,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 164,
+              "key": "1:586",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性",
+              "min": 5,
+              "max": 25,
+              "step": 1,
+              "suffix": "",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 165,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 2,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 166,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 3,
+              "max": 13,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 167,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 3,
+              "max": 13,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 168,
+              "key": "1:585",
+              "name": "最小/最大ダメージ",
+              "status": "最大最小",
+              "min": 3,
+              "max": 13,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 169,
+              "key": "1:464",
+              "name": "物理/魔法クリティカルダメージ",
+              "status": "クリダメ",
+              "min": 3,
+              "max": 13,
+              "step": 1,
+              "suffix": "%",
+              "weight": 10,
+              "check": 1
+            },
+            {
+              "id": 170,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 171,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 172,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 173,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 174,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 175,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 176,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 250,
+              "max": 1000,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 177,
+              "key": "1:494",
+              "name": "物理/魔法バックアタックダメージ",
+              "status": "BA",
+              "min": 5,
+              "max": 20,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 178,
+              "key": "1:567",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ_乗算",
+              "min": 2,
+              "max": 5,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 179,
+              "key": "1:571",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ_乗算",
+              "min": 2,
+              "max": 5,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 180,
+              "key": "1:586",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性",
+              "min": 20,
+              "max": 50,
+              "step": 1,
+              "suffix": "",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 181,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 5,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 182,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 7,
+              "max": 25,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 183,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 7,
+              "max": 25,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 184,
+              "key": "1:585",
+              "name": "最小/最大ダメージ",
+              "status": "最大最小",
+              "min": 7,
+              "max": 25,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 185,
+              "key": "1:464",
+              "name": "物理/魔法クリティカルダメージ",
+              "status": "クリダメ",
+              "min": 7,
+              "max": 25,
+              "step": 1,
+              "suffix": "%",
+              "weight": 7,
+              "check": 1
+            },
+            {
+              "id": 186,
+              "key": "1:594",
+              "name": "筋力/魔法力",
+              "status": "筋力魔力",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 187,
+              "key": "1:26",
+              "name": "体力",
+              "status": "体力",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 188,
+              "key": "1:18",
+              "name": "幸運",
+              "status": "幸運",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 189,
+              "key": "1:455",
+              "name": "全ステータス",
+              "status": "全ステ",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 190,
+              "key": "1:496",
+              "name": "物理/魔法追加ダメージ",
+              "status": "追加ダメ",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 191,
+              "key": "1:570",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 192,
+              "key": "1:566",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ",
+              "min": 200,
+              "max": 2000,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 193,
+              "key": "1:494",
+              "name": "物理/魔法バックアタックダメージ",
+              "status": "BA",
+              "min": 5,
+              "max": 30,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 194,
+              "key": "1:567",
+              "name": "一般モンスター追加ダメージ",
+              "status": "一般追加ダメ_乗算",
+              "min": 2,
+              "max": 8,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 195,
+              "key": "1:571",
+              "name": "ボスモンスター追加ダメージ",
+              "status": "ボス追加ダメ_乗算",
+              "min": 2,
+              "max": 8,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 196,
+              "key": "1:586",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性",
+              "min": 20,
+              "max": 100,
+              "step": 1,
+              "suffix": "",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 197,
+              "key": "1:587",
+              "name": "武器攻撃力/属性力",
+              "status": "武器属性_乗算",
+              "min": 1,
+              "max": 8,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 198,
+              "key": "1:462",
+              "name": "物理/魔法最小ダメージ",
+              "status": "最小",
+              "min": 7,
+              "max": 40,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 199,
+              "key": "1:461",
+              "name": "物理/魔法最大ダメージ",
+              "status": "最大",
+              "min": 7,
+              "max": 40,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 200,
+              "key": "1:585",
+              "name": "最小/最大ダメージ",
+              "status": "最大最小",
+              "min": 7,
+              "max": 40,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            },
+            {
+              "id": 201,
+              "key": "1:464",
+              "name": "物理/魔法クリティカルダメージ",
+              "status": "クリダメ",
+              "min": 7,
+              "max": 40,
+              "step": 1,
+              "suffix": "%",
+              "weight": 3,
+              "check": 1
+            }
+          ]
+        }
+      }
+    }
   }
 };
