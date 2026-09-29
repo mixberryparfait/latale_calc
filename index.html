@@ -640,24 +640,39 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					</h3>
 
 	<!-- 覚醒ポイント入力（覚醒1と覚醒2） -->
-	<div v-if="activeMainTab === 'stoneAwakening'" class="space-y-3">
+	<div v-if="isSetSimulation" class="space-y-3">
 		<div class="other-settings">
-			<div class="label-accent">覚醒石シミュレーション</div>
+			<div class="label-accent">{{ tabLabels[activeMainTab] }}シミュレーション</div>
 			<div class="awakening-stone-controls">
-				<div class="awakening-stone-control">
+				<div v-if="activeMainTab === 'stoneAwakening'" class="awakening-stone-control">
 					<label>種別</label>
 					<label class="filter-checkbox awakening-stone-grade-toggle">
 						<input type="checkbox" v-model="awakeningStoneIsAdvanced">
 						<span>上級</span>
 					</label>
 				</div>
+				<template v-else>
+					<div class="awakening-stone-control">
+						<label for="equipment-awaken-target">装備</label>
+						<select id="equipment-awaken-target" v-model="equipmentAwakenSelection">
+							<option value="">選択してください</option>
+							<option v-for="item in equipmentAwakenEquipments" :key="item.name" :value="item.name">{{ item.name }}</option>
+						</select>
+					</div>
+					<div class="awakening-stone-control">
+						<label for="equipment-awaken-pattern">覚醒パターン（各枠の成功率）</label>
+						<select id="equipment-awaken-pattern" v-model.number="equipmentAwakenPattern" :disabled="!equipmentAwakenSelection">
+							<option v-for="pattern in equipmentAwakenPatterns" :key="pattern.step" :value="pattern.step">{{ pattern.step }}：{{ pattern.rates.map(rate => Math.round(rate * 100) + '%').join(' / ') }}</option>
+						</select>
+					</div>
+				</template>
 				<div>
 					<label>回数</label>
-					<input type="number" v-model.number="awakeningStoneSimulationCount" min="1" max="1000000" class="w-28">
+					<input type="number" v-model.number="setSimulationCount" min="1" max="1000000" class="w-28">
 				</div>
 				<div class="awakening-stone-control">
 					<label>&nbsp;</label>
-					<button type="button" @click="runAwakeningStoneSimulation"
+					<button type="button" @click="runActiveSetSimulation" :disabled="activeMainTab === 'equipAwaken' && !equipmentAwakenSelection"
 						class="px-3 py-1 bg-accent text-white text-sm rounded hover:bg-accent-hover transition-colors">
 						シミュレーション
 					</button>
@@ -681,9 +696,10 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					<tr v-for="(stone, index) in activeRanking.data" :key="stone.id">
 						<td class="rank-cell">{{ index + 1 }}</td>
 						<td>
+							<div v-if="stone.label" class="text-xs mb-1">{{ stone.label }}</div>
 							<div class="awakening-stone-options">
-								<div v-for="option in stone.options" :key="option.name" class="awakening-stone-option">
-									<span class="awakening-stone-option-name">{{ option.name }}</span>
+								<div v-for="(option, slot) in stone.options" :key="slot" class="awakening-stone-option">
+									<span class="awakening-stone-option-name"><template v-if="activeMainTab === 'equipAwaken'">{{ slot + 1 }}. <template v-if="option.check > 1">[代替{{ option.check - 1 }}] </template></template>{{ option.name }}</span>
 									<span class="awakening-stone-option-value">+{{ option.value }}{{ option.suffix }}</span>
 									<span class="awakening-stone-option-score">({{ formatRankingDamage(option.score) }})</span>
 								</div>
@@ -749,7 +765,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 		</div>
 
 			<!-- 装備ランキングフィルタ -->
-			<div v-if="['equipUpgrade', 'equipEnchant', 'equipAwaken'].includes(activeMainTab)" class="filter-group">
+			<div v-if="['equipUpgrade', 'equipEnchant'].includes(activeMainTab)" class="filter-group">
 				<div class="flex flex-wrap items-center gap-3">
 					<label class="text-sm">{{ activeMainTab === 'equipUpgrade' ? '比較基準' : '装備' }}</label>
 					<select v-model="装備ランキング選択装備" class="min-w-[240px]">
@@ -774,7 +790,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 				</label>
 			</div>
 
-		<div v-if="!['awaken1', 'awaken2', 'stoneAwakening'].includes(activeMainTab)" class="table-wrapper">
+		<div v-if="!['awaken1', 'awaken2'].includes(activeMainTab) && !isSetSimulation" class="table-wrapper">
 					<table class="data-table" :class="{ 'equipment-option-table': ['equipEnchant', 'equipAwaken'].includes(activeMainTab) }">
 						<thead>
 							<tr>
