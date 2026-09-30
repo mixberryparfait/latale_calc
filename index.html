@@ -645,14 +645,14 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 
 				<!-- 換算表タブ -->
 				<div v-else>
-					<h3 class="section-header">
+					<h3 v-if="!isSetSimulation" class="section-header">
 						{{ tabLabels[activeMainTab] + ' ランキング' }}
 					</h3>
 
 	<!-- 覚醒ポイント入力（覚醒1と覚醒2） -->
 	<div v-if="isSetSimulation" class="space-y-3">
 		<div class="other-settings">
-			<div class="label-accent">{{ tabLabels[activeMainTab] }}シミュレーション</div>
+			<h3 class="section-header">{{ tabLabels[activeMainTab] }}シミュレーション</h3>
 			<p v-if="activeMainTab === 'rune'" class="text-xs mb-2">30種類から重複なし・等確率で8個を抽選し、最後の枠の効果を2倍にします。上位10セットを表示。非攻撃効果・確率発動のCT短縮はスコア対象外です。</p>
 			<div class="awakening-stone-controls">
 				<div v-if="activeMainTab === 'stoneAwakening'" class="awakening-stone-control">
