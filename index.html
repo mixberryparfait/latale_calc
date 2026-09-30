@@ -649,6 +649,18 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 						{{ tabLabels[activeMainTab] + ' ランキング' }}
 					</h3>
 
+	<div v-if="activeMainTab === 'zodiac'" class="mb-4">
+		<div class="filter-group">
+			<label for="zodiac-tab">超越</label>
+			<select id="zodiac-tab" v-model.number="zodiacTab">
+				<option :value="0">超越1</option>
+				<option :value="1">超越2</option>
+			</select>
+		</div>
+		<p class="text-xs">1マス取得時の上昇量を星座5,000P当たりに換算。前提マスの消費は含みません。幸運の上昇量は抽選確率を反映した平均値です。</p>
+		<p class="text-xs">経験値・Ely・移動速度・CT減少・状態異常ダメージなど、ダメージ換算に未対応の効果はスコア対象外です。</p>
+	</div>
+
 	<!-- 覚醒ポイント入力（覚醒1と覚醒2） -->
 	<div v-if="isSetSimulation" class="space-y-3">
 		<div class="other-settings">
@@ -840,6 +852,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 	<script src="js/data/awaken-coords-data.js"></script>
 	<script src="js/data/enchant-data.js"></script>
 	<script src="js/data/rune-data.js"></script>
+	<script src="js/data/zodiac-data.js"></script>
 	<!-- メインアプリケーション -->
 	<script src="bundle.min.js"></script>
 </body>
