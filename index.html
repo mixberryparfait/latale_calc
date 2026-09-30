@@ -387,6 +387,8 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 							<tr v-for="(skill, index) in スキルリスト" :key="index"
 								:class="{ 'skill-row-active': index === 選択中スキルインデックス }"
                                 tabindex="0"
+                                :title="skillTimeline?.settingDetail(index)"
+                                @mouseenter="skillTimeline?.load()" @focusin="skillTimeline?.load()"
                                 @click="!$event.target.closest('input, select, button, textarea, a, label') && (選択中スキルインデックス = index)"
                                 @keydown.enter.self="選択中スキルインデックス = index"
                                 @keydown.space.self.prevent="選択中スキルインデックス = index">
@@ -460,6 +462,8 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					</button>
 					</div>
 				</div>
+
+				<skill-timeline ref="skillTimeline" :skills="スキルリスト" :available-skills="共通職業選択可能スキル" :damage-for-skill="timelineDamage" @select-skill="selectTimelineSkill" @apply="applyTimeline"></skill-timeline>
 
 				<!-- メインコンテンツエリア（2カラム） -->
 				<div class="grid-main-content">
