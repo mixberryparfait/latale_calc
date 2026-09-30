@@ -107,6 +107,7 @@
 画像から読めない数値は null にしてください。
 数値はカンマなしの number 型にしてください。
 % 表記の数値も number 型にしてください。
+画像の「クールタイム減少」は ability_detail.misc.cooldown_reduction に入力してください。
 画像内に存在しない推測キーは追加しないでください。
 extraction_confidence などの注釈メタ情報は出力しないでください。
 
@@ -463,7 +464,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					</div>
 				</div>
 
-				<skill-timeline ref="skillTimeline" :skills="スキルリスト" :available-skills="共通職業選択可能スキル" :damage-for-skill="timelineDamage" @select-skill="selectTimelineSkill" @apply="applyTimeline"></skill-timeline>
+				<skill-timeline ref="skillTimeline" :skills="スキルリスト" :available-skills="共通職業選択可能スキル" :damage-for-skill="timelineDamage" :cooldown-reduction="inputs.stats.CT減少" @select-skill="selectTimelineSkill" @apply="applyTimeline"></skill-timeline>
 
 				<!-- メインコンテンツエリア（2カラム） -->
 				<div class="grid-main-content">
@@ -616,6 +617,11 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 							<span>({{ incr('攻撃_乗算') }})</span>
 								</div>
 
+								<div class="input-group" v-else-if="stat === 'CT減少'">
+									<label for="CT減少">CT減少</label>
+									<input type="number" id="CT減少" min="0" max="100" step="0.1" v-model.number="inputs.stats.CT減少">
+									<span>%</span>
+								</div>
 								<div class="input-group" v-else>
 									<label>{{ label(stat) }}</label>
 									<input type="number" :id="stat" v-model.lazy.number="inputs.stats[stat]" @blur="triggerCalculation">
