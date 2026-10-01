@@ -317,12 +317,19 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 			</div>
 		</div>
 
-			<!-- 加重平均ダメージ表示 -->
-			<div class="mt-3 p-3 bg-accent bg-opacity-10 rounded-lg text-center">
+			<div class="combat-summary mt-3">
+			<!-- 戦闘力は共通計算に固定条件を渡す。ユーザーの敵・スキル設定から独立。 -->
+            <div class="p-3 bg-accent bg-opacity-10 rounded-lg text-center">
+                <div class="text-sm text-text-muted mb-1">戦闘力</div>
+                <div class="text-2xl font-bold text-accent">{{ 戦闘力.value.toLocaleString('ja-JP') }}</div>
+            </div>
+            <!-- 加重平均ダメージ表示 -->
+			<div class="p-3 bg-accent bg-opacity-10 rounded-lg text-center">
 				<div class="text-sm text-text-muted mb-1">
 					一般 {{ (100 - ボス重要度) }}% + ボス {{ ボス重要度 }}% 全スキル平均ダメージ
 				</div>
 				<div class="text-2xl font-bold text-accent">{{ formatDamage(results.weightedDamage || 0) }}</div>
+			</div>
 			</div>
 
 			<!-- ダメージカード表示 -->
@@ -572,11 +579,12 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 								title="バックアタックダメージを火力何％分として反映するか">
 							<span>{{ inputs.バックアタック反映 }}%</span>
 						</div>
-						<!-- 換算方法選択 -->
+						<p v-if="換算方法 === '戦闘力換算'" class="text-xs">戦闘力の増加量で比較します。換算値は丸め前の概算で、HP・幸運・近距離・BAは対象外です。</p>
+                        <!-- 換算方法選択 -->
 						<div>
 							<label>換算方法</label>
 							<div class="flex-gap-4">
-								<label v-for="method in ['増加ダメ', 'クリダメ換算', '筋魔換算']" :key="method" class="radio-group">
+								<label v-for="method in ['増加ダメ', 'クリダメ換算', '筋魔換算', '戦闘力換算']" :key="method" class="radio-group">
 									<input type="radio" name="conversionMethod" :value="method" v-model="換算方法">
 									<span>{{ method }}</span>
 								</label>
