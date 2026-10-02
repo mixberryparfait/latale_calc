@@ -453,6 +453,39 @@
 				</div>
 
 				<!-- 換算表タブ -->
+				<section v-else-if="activeMainTab === 'imageScore'">
+					<h3 class="section-header">{{ t('画像スコア化') }}</h3>
+					<p class="text-sm mb-3">{{ t('画像と下のプロンプトをChatGPTに渡し、返されたJSONを貼り付けてください。現在のステータス・敵・スキル設定で各効果を換算し、対象ごとの合計スコアを表示します。') }}</p>
+					<p class="text-xs mb-3">{{ t('％・最終のない効果は加算値として評価します。通常の最大・最小・クリダメは％表記でも加算です。スコアは既存ランキングと同じ各効果の換算値の合計です。') }}</p>
+					<div class="json-import-panel">
+						<div class="json-prompt-copy-row">
+							<label for="image-score-prompt">{{ t('コピーするプロンプト') }}</label>
+							<button type="button" @click="copyImageScorePrompt">{{ t('プロンプトをコピー') }}</button>
+							<span role="status">{{ t(imageScoreCopyMessage) }}</span>
+						</div>
+						<textarea id="image-score-prompt" readonly spellcheck="false" rows="9" :value="imageScorePrompt"></textarea>
+						<label for="image-score-input">{{ t('スコアJSON') }}</label>
+						<textarea id="image-score-input" v-model="imageScoreInput" rows="9" spellcheck="false" placeholder='{"items":[{"name":"装備名","options":[{"name":"筋力 +100","status":"筋力","value":100}]}]}'></textarea>
+						<p v-if="imageScoreResult.error" role="alert" class="text-danger">{{ t(imageScoreResult.error) }}</p>
+					</div>
+					<div class="filter-group my-3">
+						<label for="image-score-method">{{ t('換算方法') }}</label>
+						<select id="image-score-method" v-model="換算方法">
+							<option v-for="method in ['増加ダメ', 'クリダメ換算', '筋魔換算', '戦闘力換算']" :key="method" :value="method">{{ t(method) }}</option>
+						</select>
+					</div>
+					<p class="text-xs mb-3">{{ t('未対応・読取不能の効果は対象外と表示します。設定を変えるとスコアも再計算されます。') }}</p>
+					<div v-for="item in imageScoreResult.data" :key="item.id" class="mb-4">
+						<h4 class="label-accent">{{ item.label }} — {{ t('合計スコア: {0}', [formatRankingDamage(item.totalScore)]) }}</h4>
+						<div class="table-wrapper"><table class="data-table">
+							<thead><tr><th>{{ t('効果') }}</th><th>{{ t('入力値') }}</th><th>{{ t('スコア') }}</th></tr></thead>
+							<tbody><tr v-for="(option, index) in item.options" :key="index">
+								<td>{{ option.name }}</td><td>{{ option.value ?? '—' }}</td>
+								<td>{{ option.excluded ? t('対象外') : formatRankingDamage(option.score) }}</td>
+							</tr></tbody>
+						</table></div>
+					</div>
+				</section>
 				<div v-else>
 					<h3 v-if="!isSetSimulation" class="section-header">
 						{{ t(tabLabels[activeMainTab]) + ' ' + t('ランキング') }}
