@@ -14,7 +14,7 @@
         if (!response.ok) throw new Error('データを取得できませんでした。');
         data = await response.json();
     } catch (error) {
-        status.textContent = `${error.message} HTTPサーバーからこのページを開いて、再読み込みしてください。`;
+        I18n.text(status, () => I18n.t("{0} HTTPサーバーからこのページを開いて、再読み込みしてください。", [I18n.display(error.message)]));
         return;
     }
     const byId = new Map(data.items.map(item => [item.id, item]));
@@ -28,7 +28,7 @@
         bookmarks = saved.filter(entry => entry && typeof entry.name === 'string' && entry.parts &&
             selectionSlots.every(n => entry.parts[n] == null ? !appearanceSlots.includes(n) : byId.get(entry.parts[n])?.slot === n)).slice(0, 8);
     } catch (error) {
-        $('bookmark-status').textContent = '保存データを読み込めませんでした。ブラウザの保存設定を確認してください。';
+        I18n.text($('bookmark-status'), () => I18n.t("保存データを読み込めませんでした。ブラウザの保存設定を確認してください。"));
     }
     const painter = FashionRenderer.createPainter('fashion-data/images');
     const canvas = $('character');
@@ -68,7 +68,7 @@
         $('share-url').hidden = false;
     }
 
-    function showError(error) { status.textContent = error.message; }
+    function showError(error) { I18n.text(status, () => I18n.display(error.message)); }
     $('share-url').addEventListener('click', async () => {
         if (!shareVersion) return;
         updateShare();
@@ -76,14 +76,14 @@
         try {
             await navigator.clipboard.writeText(url);
             $('share-url-fallback').hidden = true;
-            $('share-status').textContent = 'コーデのURLをコピーしました。';
+            I18n.text($('share-status'), () => I18n.t("コーデのURLをコピーしました。"));
         } catch (error) {
             const input = $('share-url-fallback');
             input.value = url;
             input.hidden = false;
             input.focus();
             input.select();
-            $('share-status').textContent = '下のURLをコピーしてください。';
+            I18n.text($('share-status'), () => I18n.t("下のURLをコピーしてください。"));
         }
     });
     function preview() {
@@ -95,7 +95,7 @@
     function button(text, action, className) {
         const el = document.createElement('button');
         el.type = 'button';
-        el.textContent = text;
+        if (text) I18n.text(el, () => I18n.display(text));
         if (className) el.className = className;
         el.addEventListener('click', action);
         return el;
@@ -108,18 +108,18 @@
             const row = document.createElement('div');
             row.className = 'outfit-row';
             const part = document.createElement('span');
-            part.textContent = names[n];
+            I18n.text(part, () => I18n.t(names[n]));
             const name = document.createElement('span');
-            name.textContent = item.name;
+            I18n.text(name, () => item.name);
             const remove = button('×', () => { delete equipped[n]; refresh(); });
-            remove.setAttribute('aria-label', `${names[n]}を外す`);
+            I18n.attribute(remove, 'aria-label', () => I18n.t("{0}を外す", [I18n.t(names[n])]));
             row.append(part, name, remove);
             $('equipped').append(row);
         }
         if (!$('equipped').children.length) {
             const empty = document.createElement('p');
             empty.className = 'empty-outfit';
-            empty.textContent = '基本の上下を表示しています。ワードローブから衣装を選んでください。';
+            I18n.text(empty, () => I18n.t("基本の上下を表示しています。ワードローブから衣装を選んでください。"));
             $('equipped').append(empty);
         }
     }
@@ -129,8 +129,8 @@
             `${item.name} ${item.id}`.normalize('NFKC').toLocaleLowerCase('ja').includes(query));
         const pages = Math.max(1, Math.ceil(results.length / pageSize));
         page = Math.min(page, pages - 1);
-        $('results-label').textContent = `${names[slot]} · ${results.length.toLocaleString()} 点`;
-        $('page-label').textContent = `${page + 1} / ${pages}`;
+        I18n.text($('results-label'), () => I18n.t("{0} · {1} 点", [I18n.t(names[slot]), results.length.toLocaleString()]));
+        I18n.text($('page-label'), () => `${page + 1} / ${pages}`);
         $('previous').disabled = page === 0;
         $('next').disabled = page + 1 >= pages;
         $('remove-slot').hidden = appearanceSlots.includes(slot);
@@ -144,14 +144,14 @@
                 refresh();
             }, 'item-card');
             card.setAttribute('aria-pressed', String(equipped[slot]?.id === item.id));
-            card.setAttribute('aria-label', `${item.name}を選ぶ`);
+            I18n.attribute(card, 'aria-label', () => I18n.t("{0}を選ぶ", [item.name]));
             const thumbnail = document.createElement('canvas');
             thumbnail.width = 140;
             thumbnail.height = 174;
             thumbnail.setAttribute('aria-hidden', 'true');
             const title = document.createElement('span');
             title.className = 'item-name';
-            title.textContent = appearanceSlots.includes(slot) ? `${names[slot]} ${item.name} / 色 ${item.color}` : item.name;
+            I18n.text(title, () => appearanceSlots.includes(slot) ? I18n.t("{0} {1} / 色 {2}", [I18n.t(names[slot]), item.name, item.color]) : item.name);
             card.append(thumbnail, title);
             $('items').append(card);
             const candidate = { ...equipped, [slot]: item };
@@ -162,7 +162,7 @@
         if (!results.length) {
             const empty = document.createElement('p');
             empty.className = 'empty-outfit';
-            empty.textContent = '該当する見た目はありません。検索語を変えてみてください。';
+            I18n.text(empty, () => I18n.t("該当する見た目はありません。検索語を変えてみてください。"));
             $('items').append(empty);
         }
     }
@@ -179,7 +179,7 @@
     function storeBookmarks(next) {
         try { localStorage.setItem(storageKey, JSON.stringify(next)); }
         catch (error) {
-            $('bookmark-status').textContent = '保存できませんでした。ブラウザの保存設定や空き容量を確認してください。';
+            I18n.text($('bookmark-status'), () => I18n.t("保存できませんでした。ブラウザの保存設定や空き容量を確認してください。"));
             return false;
         }
         bookmarks = next;
@@ -191,11 +191,11 @@
     }
     function renderBookmarks() {
         $('bookmarks').replaceChildren();
-        $('bookmark-count').textContent = `${bookmarks.length} / 8`;
+        I18n.text($('bookmark-count'), () => `${bookmarks.length} / 8`);
         if (!bookmarks.length) {
             const empty = document.createElement('p');
             empty.className = 'bookmark-empty';
-            empty.textContent = '今の組み合わせを保存すると、ここに並びます。';
+            I18n.text(empty, () => I18n.t("今の組み合わせを保存すると、ここに並びます。"));
             $('bookmarks').append(empty);
         }
         bookmarks.forEach((entry, index) => {
@@ -205,21 +205,21 @@
                 selectionSlots.forEach(n => delete equipped[n]);
                 Object.assign(equipped, bookmarkParts(entry));
                 refresh();
-                $('bookmark-status').textContent = `${entry.name}を呼び出しました。`;
+                I18n.text($('bookmark-status'), () => I18n.t("{0}を呼び出しました。", [entry.name]));
             }, 'bookmark-load');
-            load.setAttribute('aria-label', `${entry.name}を呼び出す`);
+            I18n.attribute(load, 'aria-label', () => I18n.t("{0}を呼び出す", [entry.name]));
             const thumb = document.createElement('canvas');
             thumb.width = 140;
             thumb.height = 174;
             thumb.setAttribute('aria-hidden', 'true');
             const title = document.createElement('span');
-            title.textContent = entry.name;
+            I18n.text(title, () => entry.name);
             load.append(thumb, title);
             drawThumbnail(thumb, bookmarkParts(entry));
             const remove = button('削除', () => {
-                if (storeBookmarks(bookmarks.filter((_, i) => i !== index))) $('bookmark-status').textContent = `${entry.name}を削除しました。`;
+                if (storeBookmarks(bookmarks.filter((_, i) => i !== index))) I18n.text($('bookmark-status'), () => I18n.t("{0}を削除しました。", [entry.name]));
             }, 'text-button');
-            remove.setAttribute('aria-label', `${entry.name}を削除`);
+            I18n.attribute(remove, 'aria-label', () => I18n.t("{0}を削除", [entry.name]));
             row.append(load, remove);
             $('bookmarks').append(row);
         });
@@ -227,20 +227,20 @@
     $('save-outfit').addEventListener('submit', event => {
         event.preventDefault();
         if (bookmarks.length >= 8) {
-            $('bookmark-status').textContent = '8件保存済みです。不要な組み合わせを削除してから保存してください。';
+            I18n.text($('bookmark-status'), () => I18n.t("8件保存済みです。不要な組み合わせを削除してから保存してください。"));
             return;
         }
         const name = $('bookmark-name').value.trim() || `コーデ ${bookmarks.length + 1}`;
         const parts = Object.fromEntries(selectionSlots.map(n => [n, equipped[n]?.id || null]));
         if (storeBookmarks([...bookmarks, { name, parts }])) {
             $('bookmark-name').value = '';
-            $('bookmark-status').textContent = `${name}を保存しました。`;
+            I18n.text($('bookmark-status'), () => I18n.t("{0}を保存しました。", [name]));
         }
     });
     const randomSlots = new Set(selectionSlots);
     function updateRandomCount() {
         $('randomize').disabled = randomSlots.size === 0;
-        $('random-count').textContent = `${randomSlots.size} 部位を変更 · ${selectionSlots.length - randomSlots.size} 部位を固定`;
+        I18n.text($('random-count'), () => I18n.t("{0} 部位を変更 · {1} 部位を固定", [randomSlots.size, selectionSlots.length - randomSlots.size]));
     }
     updateRandomCount();
     $('randomize').addEventListener('click', () => {
@@ -262,10 +262,10 @@
         lock.dataset.slot = n;
         function updateLock() {
             const fixed = !randomSlots.has(n);
-            lock.textContent = fixed ? '🔒' : '🔓';
+            I18n.text(lock, () => fixed ? '🔒' : '🔓');
             lock.setAttribute('aria-pressed', String(fixed));
-            lock.setAttribute('aria-label', `${names[n]}：${fixed ? '固定中。クリックでシャッフル対象にする' : 'シャッフル対象。クリックで固定する'}`);
-            lock.title = lock.getAttribute('aria-label');
+            I18n.attribute(lock, 'aria-label', () => `${I18n.t(names[n])}：${fixed ? I18n.t("固定中。クリックでシャッフル対象にする") : I18n.t("シャッフル対象。クリックで固定する")}`);
+            I18n.attribute(lock, 'title', () => lock.getAttribute('aria-label'));
         }
         updateLock();
         const tab = button(names[n], () => {
@@ -310,9 +310,9 @@
             setTimeout(() => URL.revokeObjectURL(url), 1000);
         });
     });
-    $('count').textContent = `${data.items.filter(item => selectionSlots.includes(item.slot)).length.toLocaleString()} 点の見た目`;
+    I18n.text($('count'), () => I18n.t("{0} 点の見た目", [data.items.filter(item => selectionSlots.includes(item.slot)).length.toLocaleString()]));
     $('workspace').hidden = false;
-    status.textContent = urlError;
+    I18n.text(status, () => I18n.display(urlError));
     refresh();
     renderBookmarks();
     function tick(time) {
