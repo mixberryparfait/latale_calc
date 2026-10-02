@@ -403,7 +403,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
                                     <td class="skill-name-cell">
 										<select :aria-label="'スキル選択 ' + (index + 1)" v-model="skill.スキルID" class="input-full" :disabled="!共通職業">
 											<option value="">手動入力</option>
-											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ s.スキルタイプ }}）</option>
+											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ s.スキルタイプ }}{{ s.選択条件 ? '・' + s.選択条件 : '' }}）</option>
 										</select>
 									</td>
 							<td>
@@ -711,6 +711,14 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 			</div>
 		</div>
 
+		<div v-if="activeMainTab === 'stoneAwakening'" class="mb-3">
+			<button type="button" @click="applyAwakeningStoneRanking" :disabled="activeRanking.data.length === 0"
+				class="px-3 py-1 bg-accent text-white text-sm rounded disabled:opacity-50">
+				この結果を覚醒タブに使う
+			</button>
+			<p class="text-xs mt-1">現在の上位5件を覚醒1・覚醒2にセットします。5件未満の場合、残りは0になります。</p>
+			<p v-if="覚醒石取込メッセージ" role="status" class="text-sm mt-1">{{ 覚醒石取込メッセージ }}</p>
+		</div>
 		<div class="table-wrapper awakening-stone-ranking" :class="{ 'rune-ranking': activeMainTab === 'rune' }">
 			<table class="data-table">
 				<thead>
@@ -745,26 +753,46 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 	</div>
 
 	<div v-if="activeMainTab === 'awaken1' || activeMainTab === 'awaken2'" class="mb-4">
-		<div class="flex items-center gap-4 mb-3">
-			<div class="flex items-center gap-2 px-3 py-2 bg-bg-secondary border border-border rounded-lg">
-				<label class="text-xs">ポイント：</label>
-				<input v-if="activeMainTab === 'awaken1'" type="number" 
-					v-model.number="覚醒1ポイント"
-					min="0" max="300"
+		<div class="flex flex-wrap items-center gap-4 mb-3">
+			<div class="flex flex-wrap items-center gap-2 px-3 py-2 bg-bg-secondary border border-border rounded-lg">
+				<label class="text-xs">追加ポイント：</label>
+				<button type="button" @click="changeAwakenPoints(-1)" :disabled="currentAwakenPoints <= 0"
+					aria-label="追加ポイントを1減らす" class="px-2 py-1 border rounded disabled:opacity-50">−</button>
+				<input type="number" v-model.number="currentAwakenPoints"
+					min="0" max="300" step="1" aria-label="追加ポイント"
 					class="w-20 px-2 py-1 border rounded text-sm">
-				<input v-else type="number" 
-					v-model.number="覚醒2ポイント"
-					min="0" max="300"
-					class="w-20 px-2 py-1 border rounded text-sm">
+				<button type="button" @click="changeAwakenPoints(1)" :disabled="currentAwakenPoints >= 300"
+					aria-label="追加ポイントを1増やす" class="px-2 py-1 border rounded disabled:opacity-50">＋</button>
 				<button @click="autoOptimizeAwaken" 
 					class="px-3 py-1 bg-accent text-white text-sm rounded hover:bg-accent-hover transition-colors">
 					オート
 				</button>
 			</div>
-			<button @click="resetAwakenCanvas" 
+			<button type="button" @click="resetAwakenCanvas('route')"
+				class="px-3 py-1 border rounded text-sm">ルートだけリセット</button>
+			<button type="button" @click="resetAwakenCanvas('locks')"
+				class="px-3 py-1 border rounded text-sm">固定だけリセット</button>
+			<button @click="resetAwakenCanvas('all')"
 				class="px-3 py-1 bg-gray-400 text-white text-sm rounded hover:bg-gray-500 transition-colors">
 				リセット
 			</button>
+			<button type="button" @click="toggleAwakenLockMode" :aria-pressed="覚醒ロックモード"
+				class="px-3 py-1 border rounded text-sm" :class="{ 'bg-accent text-white': 覚醒ロックモード }">
+				{{ 覚醒ロックモード ? '固定マス選択中（クリックで終了）' : '必ず通るマスを選ぶ' }}
+			</button>
+		</div>
+		<p class="text-xs mb-2">固定：{{ (activeMainTab === 'awaken1' ? 覚醒1ロックノード : 覚醒2ロックノード).size }}マス。固定モードでマスをクリックすると設定・解除できます。赤いマスを先に通り、残りの追加ポイントをオートで振ります。固定情報はこのブラウザに自動保存します。</p>
+		<p v-if="覚醒メッセージ" role="status" class="text-sm mb-2">{{ 覚醒メッセージ }}</p>
+		<div class="other-settings mb-3 awaken-stone-scores">
+			<div class="text-sm mb-2">覚醒石スコア（{{ 換算方法 }}・最大5個）</div>
+			<div class="flex flex-wrap gap-3">
+				<label v-for="(_, index) in currentAwakenStoneScores" :key="index" class="text-xs">
+					覚醒石{{ index + 1 }}
+					<input type="number" min="0" step="any" v-model.number="currentAwakenStoneScores[index]"
+						:aria-label="'覚醒石スコア' + (index + 1)" class="block w-28 px-2 py-1 border rounded text-sm">
+				</label>
+			</div>
+			<p class="text-xs mt-2">取得したスロット数に応じて、高いスコアから合計・オートに反映します。未所持は0。入力値はタブ・換算方法ごとに保持し、ステータス変更後は再入力・再取り込みしてください。</p>
 		</div>
 			
 	<!-- Canvas表示エリア（アスペクト比1940:1060を維持） -->
