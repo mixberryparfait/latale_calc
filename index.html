@@ -46,31 +46,34 @@
 	<!-- コンパイル済みCSS -->
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" href="i18n.css">
 </head>
 
 <body class="min-h-screen bg-bg text-text">
 	<div class="app-container">
+
 		<!-- タイトル部分 -->
 		<div class="title-container">
 			<h1 class="title-text">
 				ラテール　ダメージ計算機
 			</h1>
+            <div class="language-switch" role="group" aria-label="日本語 / 한국어"><button type="button" data-language="ja" lang="ja">日本語</button><button type="button" data-language="ko" lang="ko">한국어</button></div>
 		</div>
 
 	<div id="app" class="app-layout">
 
 		<!-- ダメージ計算で設定してから各項目を比較 -->
-		<nav class="main-menu" aria-label="メインメニュー">
-			<div class="main-menu-hint">まずはここから</div>
+		<nav class="main-menu" :aria-label="t(&quot;メインメニュー&quot;)">
+			<div class="main-menu-hint">{{ t("まずはここから") }}</div>
 			<button type="button" class="main-menu-start" @click="onTabChange('damage')"
-				:class="{ active: activeMainTab === 'damage' }" :aria-current="activeMainTab === 'damage' ? 'page' : null">ダメージ計算</button>
+				:class="{ active: activeMainTab === 'damage' }" :aria-current="activeMainTab === 'damage' ? 'page' : null">{{ t("ダメージ計算") }}</button>
 			<div class="main-menu-arrow" aria-hidden="true">▼</div>
-			<div class="main-menu-hint">設定したステータスで比較</div>
+			<div class="main-menu-hint">{{ t("設定したステータスで比較") }}</div>
 			<template v-for="(tabLabel, tabId) in tabLabels" :key="tabId">
 				<button v-if="tabId !== 'damage'" type="button" @click="onTabChange(tabId)"
-					:class="{ active: activeMainTab === tabId }" :aria-current="activeMainTab === tabId ? 'page' : null">{{ tabLabel }}</button>
+					:class="{ active: activeMainTab === tabId }" :aria-current="activeMainTab === tabId ? 'page' : null">{{ t(tabLabel) }}</button>
 			</template>
-			<a href="https://latale-fashion-share-test.mixberry-parfait.workers.dev/" class="text-accent text-xs p-3">着せ替えシミュレーター ↗</a>
+			<a href="https://latale-fashion-share-test.mixberry-parfait.workers.dev/" class="text-accent text-xs p-3">{{ t("着せ替えシミュレーター ↗") }}</a>
 		</nav>
 
 			<!-- メインタブコンテンツ -->
@@ -78,241 +81,39 @@
 				<!-- ダメージ計算タブ -->
 				<div v-if="activeMainTab === 'damage'">
 		<details class="details-container">
-			<summary class="details-summary">説明</summary>
+			<summary class="details-summary">{{ t("説明") }}</summary>
 			<div class="details-content">
-				<p>平均ダメージはボス一般とすべてのスキル平均値です</p>
-				<p>その他のダメージは選択中のボスor一般とスキルに対するダメージです</p>
-				<p>最終と％以外はステータス画面に表示された値を直接入れてください</p>
-				<p>最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください</p>
-				<p>赤文字はそのステータス +1 当たりダメ上昇です(表示値ではなくエンチャ等で伸ばした場合の値)</p>
-				<p>貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています</p>
+				<p>{{ t("平均ダメージはボス一般とすべてのスキル平均値です") }}</p>
+				<p>{{ t("その他のダメージは選択中のボスor一般とスキルに対するダメージです") }}</p>
+				<p>{{ t("最終と％以外はステータス画面に表示された値を直接入れてください") }}</p>
+				<p>{{ t("最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください") }}</p>
+				<p>{{ t("赤文字はそのステータス +1 当たりダメ上昇です(表示値ではなくエンチャ等で伸ばした場合の値)") }}</p>
+				<p>{{ t("貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています") }}</p>
 			</div>
 		</details>
 
 		<div class="json-import-panel">
-			<label for="json-input">ステータスJSON</label>
+			<label for="json-input">{{ t("ステータスJSON") }}</label>
 			<details class="json-prompt-details">
-				<summary>ChatGPTでJSONを作る手順</summary>
+				<summary>{{ t("ChatGPTでJSONを作る手順") }}</summary>
 				<ol class="json-prompt-steps">
-					<li>ChatGPT にステータス画面の画像を渡します。</li>
-					<li>下の「コピーするプロンプト」欄の文章だけを一緒に送ります。</li>
-					<li>ChatGPT が出力したJSONを、この下の「ステータスJSON」入力欄に貼り付けて読み込みます。</li>
+					<li>{{ t("ChatGPT にステータス画面の画像を渡します。") }}</li>
+					<li>{{ t("下の「コピーするプロンプト」欄の文章だけを一緒に送ります。") }}</li>
+					<li>{{ t("ChatGPT が出力したJSONを、この下の「ステータスJSON」入力欄に貼り付けて読み込みます。") }}</li>
 				</ol>
 				<div class="json-prompt-copy-row">
-					<span>コピーするプロンプト</span>
-					<button type="button" @click="copyJsonPrompt">プロンプトをコピー</button>
-					<span class="json-prompt-copy-message">{{ jsonプロンプトコピー結果 }}</span>
+					<span>{{ t("コピーするプロンプト") }}</span>
+					<button type="button" @click="copyJsonPrompt">{{ t("プロンプトをコピー") }}</button>
+					<span class="json-prompt-copy-message">{{ t(jsonプロンプトコピー結果) }}</span>
 				</div>
-				<textarea id="json-prompt-text" readonly spellcheck="false">以下のJSONフォーマットと完全に同じキー構造で出力してください。
-画像から読めない数値は null にしてください。
-数値はカンマなしの number 型にしてください。
-% 表記の数値も number 型にしてください。
-画像の「クールタイム減少」は ability_detail.misc.cooldown_reduction に入力してください。
-画像内に存在しない推測キーは追加しないでください。
-extraction_confidence などの注釈メタ情報は出力しないでください。
-
-{
-  "ability_detail": {
-    "combat_power": null,
-    "basic_stats": {
-      "strength": null,
-      "magic_power": null,
-      "stamina": null,
-      "luck": null,
-      "hp": null,
-      "sp": null,
-      "weapon_attack": {
-        "max": null,
-        "min": null
-      },
-      "attribute_power": null,
-      "defense": null,
-      "resistance": null
-    },
-    "physical_magic_stats": {
-      "accuracy": {
-        "physical": null,
-        "magic": null
-      },
-      "penetration": {
-        "physical": null,
-        "magic": null
-      },
-      "critical_rate": {
-        "physical": null,
-        "magic": null
-      },
-      "critical_damage": {
-        "physical": null,
-        "magic": null
-      },
-      "min_damage": {
-        "physical": null,
-        "magic": null
-      },
-      "max_damage": {
-        "physical": null,
-        "magic": null
-      },
-      "back_attack_damage": {
-        "physical": null,
-        "magic": null
-      },
-      "additional_damage": {
-        "physical": null,
-        "magic": null
-      },
-      "damage_reduction": {
-        "physical": null,
-        "magic": null
-      },
-      "evasion": {
-        "physical": null,
-        "magic": null
-      }
-    },
-    "general_boss_stats": {
-      "monster_additional_damage": {
-        "normal": null,
-        "boss": null
-      },
-      "monster_domination": {
-        "normal": null,
-        "boss": null
-      }
-    },
-    "misc": {
-      "cooldown_reduction": null,
-      "experience": null,
-      "ely_gain": null,
-      "quest_reward": null,
-      "item_drop_rate": null,
-      "movement_speed": null
-    }
-  },
-  "additional_detail": {
-    "hit_damage": {
-      "direct_hit": {
-        "physical": null,
-        "magic": null
-      },
-      "summon_hit": {
-        "physical": null,
-        "magic": null
-      }
-    },
-    "stat_bonus": {
-      "strength": {
-        "value": null,
-        "percent": null
-      },
-      "magic_power": {
-        "value": null,
-        "percent": null
-      },
-      "stamina": {
-        "value": null,
-        "percent": null
-      },
-      "luck": {
-        "value": null,
-        "percent": null
-      },
-      "hp": {
-        "value": null,
-        "percent": null
-      },
-      "weapon_attack": {
-        "value": {
-          "max": null,
-          "min": null
-        },
-        "percent": {
-          "max": null,
-          "min": null
-        }
-      },
-      "attribute_power": {
-        "value": null,
-        "percent": null
-      },
-      "normal_monster_damage": {
-        "value": null,
-        "percent": null
-      },
-      "boss_monster_damage": {
-        "value": null,
-        "percent": null
-      }
-    },
-    "physical_magic_bonus": {
-      "critical_damage": {
-        "physical": {
-          "value": null,
-          "percent": null
-        },
-        "magic": {
-          "value": null,
-          "percent": null
-        }
-      },
-      "min_damage": {
-        "physical": {
-          "value": null,
-          "percent": null
-        },
-        "magic": {
-          "value": null,
-          "percent": null
-        }
-      },
-      "max_damage": {
-        "physical": {
-          "value": null,
-          "percent": null
-        },
-        "magic": {
-          "value": null,
-          "percent": null
-        }
-      },
-      "additional_damage": {
-        "physical": {
-          "value": null,
-          "percent": null
-        },
-        "magic": {
-          "value": null,
-          "percent": null
-        }
-      },
-      "strength_magic_power_efficiency": {
-        "physical": null,
-        "magic": null
-      }
-    },
-    "damage_misc": {
-      "melee_damage": null,
-      "status_abnormal_damage": null,
-      "damage_reduction_percent": null
-    },
-    "point_and_option_bonus": {
-      "option_activation_rate": null,
-      "skill_target_count_increase": null,
-      "superhuman_point_addition": null,
-      "summon_exp_addition": null,
-      "constellation_point_addition": null,
-      "treasure_point_addition": null
-    }
-  }
-}</textarea>
+				<textarea id="json-prompt-text" readonly spellcheck="false" :value="t(jsonPrompt)"></textarea>
 			</details>
 			<textarea id="json-input" v-model="json入力" rows="7" spellcheck="false"
 				placeholder='{"ability_detail": {...}, "additional_detail": {...}}'></textarea>
 			<div class="json-import-actions">
-				<button type="button" @click="loadStatsFromJsonInput">JSONを読み込み</button>
+				<button type="button" @click="loadStatsFromJsonInput">{{ t("JSONを読み込み") }}</button>
 				<span :class="{ error: json入力メッセージ種別 === 'error', success: json入力メッセージ種別 === 'success' }">
-					{{ json入力メッセージ }}
+					{{ t(json入力メッセージ) }}
 				</span>
 			</div>
 		</div>
@@ -320,58 +121,58 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 			<div class="combat-summary mt-3">
 			<!-- 戦闘力は共通計算に固定条件を渡す。ユーザーの敵・スキル設定から独立。 -->
             <div class="p-3 bg-accent bg-opacity-10 rounded-lg text-center">
-                <div class="text-sm text-text-muted mb-1">戦闘力</div>
+                <div class="text-sm text-text-muted mb-1">{{ t("戦闘力") }}</div>
                 <div class="text-2xl font-bold text-accent">{{ 戦闘力.value.toLocaleString('ja-JP') }}</div>
             </div>
             <!-- 加重平均ダメージ表示 -->
 			<div class="p-3 bg-accent bg-opacity-10 rounded-lg text-center">
 				<div class="text-sm text-text-muted mb-1">
-					一般 {{ (100 - ボス重要度) }}% + ボス {{ ボス重要度 }}% 全スキル平均ダメージ
+					{{ t("一般") }} {{ (100 - ボス重要度) }}{{ t("% + ボス") }} {{ ボス重要度 }}{{ t("% 全スキル平均ダメージ") }}
 				</div>
 				<div class="text-2xl font-bold text-accent">{{ formatDamage(results.weightedDamage || 0) }}</div>
 			</div>
 			</div>
 
 			<!-- ダメージカード表示 -->
-			<h2 class="label-accent selected-skill-heading">選択中スキル</h2>
+			<h2 class="label-accent selected-skill-heading">{{ t("選択中スキル") }}</h2>
 			<div class="grid-damage-cards-4 mt-3">
 				<div>
-					<div>単発青ダメ</div>
+					<div>{{ t("単発青ダメ") }}</div>
 					<div>{{ formatDamage(現在スキル単発ダメージ.baseDamage) }}</div>
 				</div>
 				<div>
-					<div>単発クリダメ</div>
+					<div>{{ t("単発クリダメ") }}</div>
 					<div>{{ formatDamage(現在スキル単発ダメージ.criDamage) }}</div>
 				</div>
 			<div>
-				<div>クリ率</div>
+				<div>{{ t("クリ率") }}</div>
 				<div>{{ (現在スキル単発ダメージ.criRate).toFixed(1) }}%</div>
 			</div>
 			<div>
-				<div>平均スキルダメ</div>
+				<div>{{ t("平均スキルダメ") }}</div>
 				<div>{{ formatDamage(現在スキル単発ダメージ.damage * 現在スキル.HIT数) }}</div>
 			</div>
 			</div>
 
 				<button id="copy" class="copy-button" type="button" @click="copyStatConversionsCsv">
-					コピーする
+					{{ t("コピーする") }}
 				</button>
 
 				<div class="skill-settings mb-4">
-					<div class="label-accent">スキル設定</div>
-					
+					<div class="label-accent">{{ t("スキル設定") }}</div>
+
 				<div class="flex items-center gap-4 mb-3">
 					<div>
-						<label for="skill-job">職業</label>
+						<label for="skill-job">{{ t("職業") }}</label>
 						<select id="skill-job" v-model="共通職業" :class="{ 'unselected': !共通職業 }">
-							<option value="">職業を選択</option>
+							<option value="">{{ t("職業を選択") }}</option>
 							<option v-for="job in 職業リスト" :key="job" :value="job">{{ job }}</option>
 						</select>
 					</div>
 					<div class="flex items-center gap-1">
 						<label v-for="type in ['物理', '魔法']" :key="type" class="radio-group">
 							<input type="radio" name="physicalOrMagical" :value="type" v-model="inputs.攻撃タイプ">
-							<span>{{ type }}</span>
+							<span>{{ t(type) }}</span>
 						</label>
 					</div>
 				</div>
@@ -380,14 +181,14 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					<table class="skill-table w-full text-xs">
 						<thead>
 							<tr>
-							<th class="text-left">スキル名</th>
-							<th>レベル</th>
-							<th>タイプ</th>
-							<th>係数</th>
-							<th>追加ダメ</th>
-							<th>召喚補正</th>
-							<th>HIT数</th>
-							<th>ウェイト</th>
+							<th class="text-left">{{ t("スキル名") }}</th>
+							<th>{{ t("レベル") }}</th>
+							<th>{{ t("タイプ") }}</th>
+							<th>{{ t("係数") }}</th>
+							<th>{{ t("追加ダメ") }}</th>
+							<th>{{ t("召喚補正") }}</th>
+							<th>{{ t("HIT数") }}</th>
+							<th>{{ t("ウェイト") }}</th>
 							<th></th>
 							</tr>
 						</thead>
@@ -395,23 +196,23 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 							<tr v-for="(skill, index) in スキルリスト" :key="index"
 								:class="{ 'skill-row-active': index === 選択中スキルインデックス }"
                                 tabindex="0"
-                                :title="skillTimeline?.settingDetail(index)"
+                                :title="t(skillTimeline?.settingDetail(index))"
                                 @mouseenter="skillTimeline?.load()" @focusin="skillTimeline?.load()"
                                 @click="!$event.target.closest('input, select, button, textarea, a, label') && (選択中スキルインデックス = index)"
                                 @keydown.enter.self="選択中スキルインデックス = index"
                                 @keydown.space.self.prevent="選択中スキルインデックス = index">
                                     <td class="skill-name-cell">
-										<select :aria-label="'スキル選択 ' + (index + 1)" v-model="skill.スキルID" class="input-full" :disabled="!共通職業">
-											<option value="">手動入力</option>
-											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ s.スキルタイプ }}{{ s.選択条件 ? '・' + s.選択条件 : '' }}）</option>
+										<select :aria-label="t(&#x27;スキル選択 &#x27; + (index + 1))" v-model="skill.スキルID" class="input-full" :disabled="!共通職業">
+											<option value="">{{ t("手動入力") }}</option>
+											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ t(s.スキルタイプ) }}{{ s.選択条件 ? '・' + s.選択条件 : '' }}）</option>
 										</select>
 									</td>
 							<td>
 								<div class="skill-level-control">
-									<input :aria-label="'スキルレベル ' + (index + 1)" type="number" v-model.number="skill.レベル" min="1" step="1" :disabled="skill.スキルID === ''">
+									<input :aria-label="t(&#x27;スキルレベル &#x27; + (index + 1))" type="number" v-model.number="skill.レベル" min="1" step="1" :disabled="skill.スキルID === ''">
 									<div class="skill-level-buttons">
-										<button type="button" :aria-label="'スキルレベルを上げる ' + (index + 1)" :disabled="skill.スキルID === ''" @click="skill.レベル = Number(skill.レベル) + 1">▲</button>
-										<button type="button" :aria-label="'スキルレベルを下げる ' + (index + 1)" :disabled="skill.スキルID === '' || skill.レベル <= 1" @click="skill.レベル = Math.max(1, Number(skill.レベル) - 1)">▼</button>
+										<button type="button" :aria-label="t(&#x27;スキルレベルを上げる &#x27; + (index + 1))" :disabled="skill.スキルID === ''" @click="skill.レベル = Number(skill.レベル) + 1">▲</button>
+										<button type="button" :aria-label="t(&#x27;スキルレベルを下げる &#x27; + (index + 1))" :disabled="skill.スキルID === '' || skill.レベル <= 1" @click="skill.レベル = Math.max(1, Number(skill.レベル) - 1)">▼</button>
 									</div>
 								</div>
 							</td>
@@ -419,39 +220,39 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 							<td>
 								<button @click="skill.タイプ = skill.タイプ === '召喚' ? '攻撃' : '召喚'"
 									class="type-toggle-btn">
-									{{ skill.タイプ || '攻撃' }}
+									{{ t(skill.タイプ || '攻撃') }}
 								</button>
 							</td>
 							<!-- 倍率 -->
 							<td>
-								<input type="number" v-model.lazy.number="skill.倍率" 
+								<input type="number" v-model.lazy.number="skill.倍率"
 									step="0.1" class="input-numeric-md">
 							</td>
 							<!-- 追加ダメ -->
 							<td>
-								<input type="number" v-model.lazy.number="skill.追加ダメ" 
+								<input type="number" v-model.lazy.number="skill.追加ダメ"
 									class="input-numeric-lg">
 							</td>
 							<!-- 召喚補正 -->
 							<td>
-								<input type="number" v-model.lazy.number="skill.召喚補正" 
+								<input type="number" v-model.lazy.number="skill.召喚補正"
 									v-if="skill.タイプ === '召喚'"
 									class="input-numeric-sm">
 								<span v-else>-</span>
 							</td>
 							<!-- HIT数 -->
 							<td>
-								<input type="number" v-model.lazy.number="skill.HIT数" 
+								<input type="number" v-model.lazy.number="skill.HIT数"
 									min="1" class="input-numeric-xs">
 							</td>
 							<!-- ウェイト -->
 							<td>
-								<input type="number" v-model.lazy.number="skill.ウェイト" 
+								<input type="number" v-model.lazy.number="skill.ウェイト"
 									min="0" class="input-numeric-sm">
 							</td>
 					<!-- 削除ボタン -->
 					<td>
-					<button v-if="スキルリスト.length > 1" 
+					<button v-if="スキルリスト.length > 1"
 						@click.stop="removeスキルタブ(index)"
 						class="delete-button">
 						×
@@ -461,12 +262,12 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 							</tbody>
 						</table>
 					</div>
-					
+
 					<!-- 追加ボタン（テーブルの外、中央配置） -->
 					<div v-if="スキルリスト.length < 10" class="text-center mt-2">
-					<button @click="addスキルタブ" 
+					<button @click="addスキルタブ"
 						class="add-skill-button">
-						+ スキル追加
+						{{ t("+ スキル追加") }}
 					</button>
 					</div>
 				</div>
@@ -480,30 +281,30 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 
 				<!-- 敵設定 -->
 				<div class="enemy-settings">
-					<div class="label-accent">敵設定</div>
-					
+					<div class="label-accent">{{ t("敵設定") }}</div>
+
 					<!-- 反映バランス -->
 					<div class="balance-section">
-						<label>反映バランス</label>
+						<label>{{ t("反映バランス") }}</label>
 						<div class="balance-slider-container">
-							<span>一般 {{ 100 - ボス重要度 }}%</span>
+							<span>{{ t("一般") }} {{ 100 - ボス重要度 }}%</span>
 							<input type="range" v-model.number="ボス重要度" min="0" max="100">
-							<span>ボス {{ ボス重要度 }}%</span>
+							<span>{{ t("ボス") }} {{ ボス重要度 }}%</span>
 						</div>
 					</div>
 
 				<!-- 敵タブボタン（幅いっぱい） -->
 				<div class="tab-container">
 				<div class="tab-list">
-					<button @click="敵タブ = '一般'" 
+					<button @click="敵タブ = '一般'"
 						class="flex-1"
 						:class="{ 'active': 敵タブ === '一般' }">
-						一般
+						{{ t("一般") }}
 					</button>
-					<button @click="敵タブ = 'ボス'" 
+					<button @click="敵タブ = 'ボス'"
 						class="flex-1"
 						:class="{ 'active': 敵タブ === 'ボス' }">
-						ボス
+						{{ t("ボス") }}
 					</button>
 				</div>
 				</div>
@@ -513,10 +314,10 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					<div v-if="敵タブ">
 						<!-- ダンジョン選択 -->
 						<div>
-							<label>ダンジョン</label>
+							<label>{{ t("ダンジョン") }}</label>
 							<select v-model="this[`ダンジョン_${敵タブ}`]" @change="onDungeonChange(敵タブ)"
 								:class="{ 'unselected': !this[`ダンジョン_${敵タブ}`] }">
-								<option value="" disabled>ダンジョンを選択</option>
+								<option value="" disabled>{{ t("ダンジョンを選択") }}</option>
 								<option v-for="dungeon in this[`ダンジョンリスト_${敵タブ}`]" :key="dungeon.level" :value="dungeon.name">
 									{{ dungeon.name }}
 								</option>
@@ -525,22 +326,22 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 
 						<!-- 難易度 -->
 						<div v-if="this[`ダンジョン_${敵タブ}`]">
-							<label>難易度</label>
+							<label>{{ t("難易度") }}</label>
 							<select v-model="this[`難易度_${敵タブ}`]" @change="onDifficultyChange(敵タブ)"
 								:class="{ 'unselected': !this[`難易度_${敵タブ}`] }">
-								<option value="" disabled>選択</option>
+								<option value="" disabled>{{ t("選択") }}</option>
 								<option v-for="difficulty in this[`選択可能難易度_${敵タブ}`]" :key="difficulty" :value="difficulty">
 									{{ difficulty }}
 								</option>
 							</select>
 						</div>
-						
+
 						<!-- 敵 -->
 						<div v-if="this[`ダンジョン_${敵タブ}`]">
-							<label>敵</label>
-							<select v-model="this[`敵名_${敵タブ}`]" @change="onEnemyChange(敵タブ)" 
+							<label>{{ t("敵") }}</label>
+							<select v-model="this[`敵名_${敵タブ}`]" @change="onEnemyChange(敵タブ)"
 								:class="{ 'unselected': !this[`敵名_${敵タブ}`] }">
-								<option value="" disabled>選択</option>
+								<option value="" disabled>{{ t("選択") }}</option>
 								<option v-for="enemy in this[`選択可能敵_${敵タブ}`]" :key="enemy" :value="enemy">
 									{{ enemy }}
 								</option>
@@ -549,9 +350,9 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 
 					<!-- ステータス入力（v-forでループ化） -->
 					<div v-for="stat in ['防御', '幸運', 'クリ減', 'ダメ減', 'ダメ減%']" :key="stat">
-						<label>{{ stat }}</label>
-						<input type="number" 
-							v-model.lazy.number="敵ステータス[stat === 'ダメ減%' ? 'ダメ減_乗算' : stat]" 
+						<label>{{ t(stat) }}</label>
+						<input type="number"
+							v-model.lazy.number="敵ステータス[stat === 'ダメ減%' ? 'ダメ減_乗算' : stat]"
 							@blur="triggerCalculation">
 					</div>
 					</div>
@@ -560,33 +361,33 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 
 					<!-- HPダメージ換算設定 -->
 					<div class="other-settings">
-						<div class="label-accent">その他設定</div>
+						<div class="label-accent">{{ t("その他設定") }}</div>
 						<div class="hp-value-setting">
-							<label>HPダメージ換算</label>
+							<label>{{ t("HPダメージ換算") }}</label>
 							<input type="number" id="HPダメージ換算" v-model.lazy.number="inputs.HPダメージ換算" min="0" max="100"
-								title="HP100%増加を火力何％換算するか" @blur="triggerCalculation">
+								:title="t(&quot;HP100%増加を火力何％換算するか&quot;)" @blur="triggerCalculation">
 							<span>%</span>
 						</div>
 						<div class="hp-value-setting">
-							<label>近距離ダメ反映</label>
+							<label>{{ t("近距離ダメ反映") }}</label>
 							<input type="range" v-model.number="inputs.近距離ダメージ反映" min="0" max="100"
-								title="近距離ダメージを火力何％分として反映するか">
+								:title="t(&quot;近距離ダメージを火力何％分として反映するか&quot;)">
 							<span>{{ inputs.近距離ダメージ反映 }}%</span>
 						</div>
 						<div class="hp-value-setting">
-							<label>BA反映</label>
+							<label>{{ t("BA反映") }}</label>
 							<input type="range" v-model.number="inputs.バックアタック反映" min="0" max="100"
-								title="バックアタックダメージを火力何％分として反映するか">
+								:title="t(&quot;バックアタックダメージを火力何％分として反映するか&quot;)">
 							<span>{{ inputs.バックアタック反映 }}%</span>
 						</div>
-						<p v-if="換算方法 === '戦闘力換算'" class="text-xs">戦闘力の増加量で比較します。換算値は丸め前の概算で、HP・幸運・近距離・BAは対象外です。</p>
+						<p v-if="換算方法 === '戦闘力換算'" class="text-xs">{{ t("戦闘力の増加量で比較します。換算値は丸め前の概算で、HP・幸運・近距離・BAは対象外です。") }}</p>
                         <!-- 換算方法選択 -->
 						<div>
-							<label>換算方法</label>
+							<label>{{ t("換算方法") }}</label>
 							<div class="flex-gap-4">
 								<label v-for="method in ['増加ダメ', 'クリダメ換算', '筋魔換算', '戦闘力換算']" :key="method" class="radio-group">
 									<input type="radio" name="conversionMethod" :value="method" v-model="換算方法">
-									<span>{{ method }}</span>
+									<span>{{ t(method) }}</span>
 								</label>
 							</div>
 						</div>
@@ -602,7 +403,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 								<div v-else-if="stat=='攻撃最大'" class="attack-stats-grid">
 									<!-- 攻撃_最大 -->
 									<div class="input-group">
-										<label>攻撃最大</label>
+										<label>{{ t("攻撃最大") }}</label>
 										<input type="number" id="攻撃最大" v-model.lazy.number="inputs.stats['攻撃最大']"
 											@blur="triggerCalculation">
 										<label>+</label>
@@ -611,7 +412,7 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 									</div>
 									<!-- 攻撃_最小 -->
 									<div class="input-group">
-										<label>攻撃最小</label>
+										<label>{{ t("攻撃最小") }}</label>
 										<input type="number" id="攻撃最小" v-model.lazy.number="inputs.stats['攻撃最小']"
 											@blur="triggerCalculation">
 										<label>+</label>
@@ -626,18 +427,18 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 								</div>
 
 								<div class="input-group" v-else-if="stat === 'CT減少'">
-									<label for="CT減少">CT減少</label>
+									<label for="CT減少">{{ t("CT減少") }}</label>
 									<input type="number" id="CT減少" min="0" max="100" step="0.1" v-model.number="inputs.stats.CT減少">
 									<span>%</span>
 								</div>
 								<div class="input-group" v-else>
-									<label>{{ label(stat) }}</label>
+									<label>{{ t(label(stat)) }}</label>
 									<input type="number" :id="stat" v-model.lazy.number="inputs.stats[stat]" @blur="triggerCalculation">
 									<template v-if="hasMultiplier(stat)">
 										<label>+</label>
 										<span>{{ Math.floor(base(stat)) }}</span>
 								<span>({{ incr(stat) }})</span>
-										<label>{{ label(mulKey(stat)) }}</label>
+										<label>{{ t(label(mulKey(stat))) }}</label>
 										<input type="number" :id="mulKey(stat)" v-model.lazy.number="inputs.stats[mulKey(stat)]"
 											@blur="triggerCalculation">
 								<span>({{ incr(mulKey(stat)) }})</span>
@@ -654,58 +455,58 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 				<!-- 換算表タブ -->
 				<div v-else>
 					<h3 v-if="!isSetSimulation" class="section-header">
-						{{ tabLabels[activeMainTab] + ' ランキング' }}
+						{{ t(tabLabels[activeMainTab]) + ' ' + t('ランキング') }}
 					</h3>
 
 	<div v-if="activeMainTab === 'zodiac'" class="mb-4">
 		<div class="filter-group">
-			<label for="zodiac-tab">超越</label>
+			<label for="zodiac-tab">{{ t("超越") }}</label>
 			<select id="zodiac-tab" v-model.number="zodiacTab">
-				<option :value="0">超越1</option>
-				<option :value="1">超越2</option>
+				<option :value="0">{{ t("超越1") }}</option>
+				<option :value="1">{{ t("超越2") }}</option>
 			</select>
 		</div>
-		<p class="text-xs">1マス取得時の上昇量を星座5,000P当たりに換算。前提マスの消費は含みません。幸運の上昇量は抽選確率を反映した平均値です。</p>
-		<p class="text-xs">経験値・Ely・移動速度・CT減少・状態異常ダメージなど、ダメージ換算に未対応の効果はスコア対象外です。</p>
+		<p class="text-xs">{{ t("1マス取得時の上昇量を星座5,000P当たりに換算。前提マスの消費は含みません。幸運の上昇量は抽選確率を反映した平均値です。") }}</p>
+		<p class="text-xs">{{ t("経験値・Ely・移動速度・CT減少・状態異常ダメージなど、ダメージ換算に未対応の効果はスコア対象外です。") }}</p>
 	</div>
 
 	<!-- 覚醒ポイント入力（覚醒1と覚醒2） -->
 	<div v-if="isSetSimulation" class="space-y-3">
 		<div class="other-settings">
-			<h3 class="section-header">{{ tabLabels[activeMainTab] }}シミュレーション</h3>
-			<p v-if="activeMainTab === 'rune'" class="text-xs mb-2">30種類から重複なし・等確率で8個を抽選し、最後の枠の効果を2倍にします。上位10セットを表示。非攻撃効果・確率発動のCT短縮はスコア対象外です。</p>
+			<h3 class="section-header">{{ t(tabLabels[activeMainTab]) }}{{ t("シミュレーション") }}</h3>
+			<p v-if="activeMainTab === 'rune'" class="text-xs mb-2">{{ t("30種類から重複なし・等確率で8個を抽選し、最後の枠の効果を2倍にします。上位10セットを表示。非攻撃効果・確率発動のCT短縮はスコア対象外です。") }}</p>
 			<div class="awakening-stone-controls">
 				<div v-if="activeMainTab === 'stoneAwakening'" class="awakening-stone-control">
-					<label>種別</label>
+					<label>{{ t("種別") }}</label>
 					<label class="filter-checkbox awakening-stone-grade-toggle">
 						<input type="checkbox" v-model="awakeningStoneIsAdvanced">
-						<span>上級</span>
+						<span>{{ t("上級") }}</span>
 					</label>
 				</div>
 				<template v-else-if="activeMainTab === 'equipAwaken'">
 					<div class="awakening-stone-control">
-						<label for="equipment-awaken-target">装備</label>
+						<label for="equipment-awaken-target">{{ t("装備") }}</label>
 						<select id="equipment-awaken-target" v-model="equipmentAwakenSelection">
-							<option value="">選択してください</option>
+							<option value="">{{ t("選択してください") }}</option>
 							<option v-for="item in equipmentAwakenEquipments" :key="item.name" :value="item.name">{{ item.name }}</option>
 						</select>
 					</div>
 					<div class="awakening-stone-control">
-						<label for="equipment-awaken-pattern">覚醒パターン（各枠の成功率）</label>
+						<label for="equipment-awaken-pattern">{{ t("覚醒パターン（各枠の成功率）") }}</label>
 						<select id="equipment-awaken-pattern" v-model.number="equipmentAwakenPattern" :disabled="!equipmentAwakenSelection">
 							<option v-for="pattern in equipmentAwakenPatterns" :key="pattern.step" :value="pattern.step">{{ pattern.step }}：{{ pattern.rates.map(rate => Math.round(rate * 100) + '%').join(' / ') }}</option>
 						</select>
 					</div>
 				</template>
 				<div>
-					<label>回数</label>
+					<label>{{ t("回数") }}</label>
 					<input type="number" v-model.number="setSimulationCount" min="1" max="1000000" class="w-28">
 				</div>
 				<div class="awakening-stone-control">
 					<label>&nbsp;</label>
 					<button type="button" @click="runActiveSetSimulation" :disabled="activeMainTab === 'equipAwaken' && !equipmentAwakenSelection"
 						class="px-3 py-1 bg-accent text-white text-sm rounded hover:bg-accent-hover transition-colors">
-						シミュレーション
+						{{ t("シミュレーション") }}
 					</button>
 				</div>
 			</div>
@@ -714,33 +515,33 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 		<div v-if="activeMainTab === 'stoneAwakening'" class="mb-3">
 			<button type="button" @click="applyAwakeningStoneRanking" :disabled="activeRanking.data.length === 0"
 				class="px-3 py-1 bg-accent text-white text-sm rounded disabled:opacity-50">
-				この結果を覚醒タブに使う
+				{{ t("この結果を覚醒タブに使う") }}
 			</button>
-			<p class="text-xs mt-1">現在の上位5件を覚醒1・覚醒2にセットします。5件未満の場合、残りは0になります。</p>
-			<p v-if="覚醒石取込メッセージ" role="status" class="text-sm mt-1">{{ 覚醒石取込メッセージ }}</p>
+			<p class="text-xs mt-1">{{ t("現在の上位5件を覚醒1・覚醒2にセットします。5件未満の場合、残りは0になります。") }}</p>
+			<p v-if="覚醒石取込メッセージ" role="status" class="text-sm mt-1">{{ t(覚醒石取込メッセージ) }}</p>
 		</div>
 		<div class="table-wrapper awakening-stone-ranking" :class="{ 'rune-ranking': activeMainTab === 'rune' }">
 			<table class="data-table">
 				<thead>
 					<tr>
-						<th>順位</th>
+						<th>{{ t("順位") }}</th>
 						<th>OP</th>
-						<th>スコア</th>
+						<th>{{ t("スコア") }}</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr v-if="activeRanking.data.length === 0">
-						<td colspan="3" class="text-center">シミュレーション結果はまだありません</td>
+						<td colspan="3" class="text-center">{{ t("シミュレーション結果はまだありません") }}</td>
 					</tr>
 					<tr v-for="(stone, index) in activeRanking.data" :key="stone.id">
 						<td class="rank-cell">{{ index + 1 }}</td>
 						<td>
-							<div v-if="stone.label" class="text-xs mb-1">{{ stone.label }}</div>
+							<div v-if="stone.label" class="text-xs mb-1">{{ t(stone.label) }}</div>
 							<div class="awakening-stone-options">
 								<div v-for="(option, slot) in stone.options" :key="slot" class="awakening-stone-option" :class="{ 'rune-amplified': option.doubled }">
-									<span class="awakening-stone-option-name"><template v-if="activeMainTab === 'equipAwaken'">{{ slot + 1 }}. <template v-if="option.check > 1">[代替{{ option.check - 1 }}] </template></template>{{ option.name }}</span>
-									<span v-if="option.description" class="awakening-stone-option-value">{{ option.description }}</span>
-									<span v-else class="awakening-stone-option-value">+{{ option.value }}{{ option.suffix }}</span>
+									<span class="awakening-stone-option-name"><template v-if="activeMainTab === 'equipAwaken'">{{ slot + 1 }}. <template v-if="option.check > 1">{{ t("[代替") }}{{ option.check - 1 }}] </template></template>{{ activeMainTab === 'rune' ? option.name : te(option.name) }}</span>
+									<span v-if="option.description" class="awakening-stone-option-value">{{ te(option.description) }}</span>
+									<span v-else class="awakening-stone-option-value">+{{ option.value }}{{ te(option.suffix) }}</span>
 									<span class="awakening-stone-option-score">({{ formatRankingDamage(option.score) }})</span>
 								</div>
 							</div>
@@ -755,69 +556,69 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 	<div v-if="activeMainTab === 'awaken1' || activeMainTab === 'awaken2'" class="mb-4">
 		<div class="flex flex-wrap items-center gap-4 mb-3">
 			<div class="flex flex-wrap items-center gap-2 px-3 py-2 bg-bg-secondary border border-border rounded-lg">
-				<label class="text-xs">追加ポイント：</label>
+				<label class="text-xs">{{ t("追加ポイント：") }}</label>
 				<button type="button" @click="changeAwakenPoints(-1)" :disabled="currentAwakenPoints <= 0"
-					aria-label="追加ポイントを1減らす" class="px-2 py-1 border rounded disabled:opacity-50">−</button>
+					:aria-label="t(&quot;追加ポイントを1減らす&quot;)" class="px-2 py-1 border rounded disabled:opacity-50">−</button>
 				<input type="number" v-model.number="currentAwakenPoints"
-					min="0" max="300" step="1" aria-label="追加ポイント"
+					min="0" max="300" step="1" :aria-label="t(&quot;追加ポイント&quot;)"
 					class="w-20 px-2 py-1 border rounded text-sm">
 				<button type="button" @click="changeAwakenPoints(1)" :disabled="currentAwakenPoints >= 300"
-					aria-label="追加ポイントを1増やす" class="px-2 py-1 border rounded disabled:opacity-50">＋</button>
-				<button @click="autoOptimizeAwaken" 
+					:aria-label="t(&quot;追加ポイントを1増やす&quot;)" class="px-2 py-1 border rounded disabled:opacity-50">＋</button>
+				<button @click="autoOptimizeAwaken"
 					class="px-3 py-1 bg-accent text-white text-sm rounded hover:bg-accent-hover transition-colors">
-					オート
+					{{ t("オート") }}
 				</button>
 			</div>
 			<button type="button" @click="resetAwakenCanvas('route')"
-				class="px-3 py-1 border rounded text-sm">ルートだけリセット</button>
+				class="px-3 py-1 border rounded text-sm">{{ t("ルートだけリセット") }}</button>
 			<button type="button" @click="resetAwakenCanvas('locks')"
-				class="px-3 py-1 border rounded text-sm">固定だけリセット</button>
+				class="px-3 py-1 border rounded text-sm">{{ t("固定だけリセット") }}</button>
 			<button @click="resetAwakenCanvas('all')"
 				class="px-3 py-1 bg-gray-400 text-white text-sm rounded hover:bg-gray-500 transition-colors">
-				リセット
+				{{ t("リセット") }}
 			</button>
 			<button type="button" @click="toggleAwakenLockMode" :aria-pressed="覚醒ロックモード"
 				class="px-3 py-1 border rounded text-sm" :class="{ 'bg-accent text-white': 覚醒ロックモード }">
-				{{ 覚醒ロックモード ? '固定マス選択中（クリックで終了）' : '必ず通るマスを選ぶ' }}
+				{{ t(覚醒ロックモード ? '固定マス選択中（クリックで終了）' : '必ず通るマスを選ぶ') }}
 			</button>
 		</div>
-		<p class="text-xs mb-2">固定：{{ (activeMainTab === 'awaken1' ? 覚醒1ロックノード : 覚醒2ロックノード).size }}マス。固定モードでマスをクリックすると設定・解除できます。赤いマスを先に通り、残りの追加ポイントをオートで振ります。固定情報はこのブラウザに自動保存します。</p>
-		<p v-if="覚醒メッセージ" role="status" class="text-sm mb-2">{{ 覚醒メッセージ }}</p>
+		<p class="text-xs mb-2">{{ t("固定：") }}{{ (activeMainTab === 'awaken1' ? 覚醒1ロックノード : 覚醒2ロックノード).size }}{{ t("マス。固定モードでマスをクリックすると設定・解除できます。赤いマスを先に通り、残りの追加ポイントをオートで振ります。固定情報はこのブラウザに自動保存します。") }}</p>
+		<p v-if="覚醒メッセージ" role="status" class="text-sm mb-2">{{ t(覚醒メッセージ) }}</p>
 		<div class="other-settings mb-3 awaken-stone-scores">
-			<div class="text-sm mb-2">覚醒石スコア（{{ 換算方法 }}・最大5個）</div>
+			<div class="text-sm mb-2">{{ t("覚醒石スコア（") }}{{ t(換算方法) }}{{ t("・最大5個）") }}</div>
 			<div class="flex flex-wrap gap-3">
 				<label v-for="(_, index) in currentAwakenStoneScores" :key="index" class="text-xs">
-					覚醒石{{ index + 1 }}
+					{{ t("覚醒石") }}{{ index + 1 }}
 					<input type="number" min="0" step="any" v-model.number="currentAwakenStoneScores[index]"
-						:aria-label="'覚醒石スコア' + (index + 1)" class="block w-28 px-2 py-1 border rounded text-sm">
+						:aria-label="t(&#x27;覚醒石スコア&#x27; + (index + 1))" class="block w-28 px-2 py-1 border rounded text-sm">
 				</label>
 			</div>
-			<p class="text-xs mt-2">取得したスロット数に応じて、高いスコアから合計・オートに反映します。未所持は0。入力値はタブ・換算方法ごとに保持し、ステータス変更後は再入力・再取り込みしてください。</p>
+			<p class="text-xs mt-2">{{ t("取得したスロット数に応じて、高いスコアから合計・オートに反映します。未所持は0。入力値はタブ・換算方法ごとに保持し、ステータス変更後は再入力・再取り込みしてください。") }}</p>
 		</div>
-			
+
 	<!-- Canvas表示エリア（アスペクト比1940:1060を維持） -->
 	<div class="relative border rounded overflow-hidden" style="width: 100%; max-width: 1000px; aspect-ratio: 1940 / 1060; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-		<canvas id="awaken1-canvas" 
+		<canvas id="awaken1-canvas"
 			v-if="activeMainTab === 'awaken1'"
 			style="width: 100%; height: 100%; cursor: pointer;"></canvas>
-		<canvas id="awaken2-canvas" 
+		<canvas id="awaken2-canvas"
 			v-if="activeMainTab === 'awaken2'"
 			style="width: 100%; height: 100%; cursor: pointer;"></canvas>
-			
+
 		<!-- ツールチップ -->
-		<div id="awaken-tooltip" 
+		<div id="awaken-tooltip"
 			class="absolute bg-black bg-opacity-80 text-white p-2 rounded pointer-events-none z-10"
 			style="display: none; max-width: 250px;">
 		</div>
-		
+
 		<!-- ローディングオーバーレイ -->
-		<div v-if="覚醒ローディング中" 
+		<div v-if="覚醒ローディング中"
 			class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 z-20"
 			style="pointer-events: auto;">
 			<div class="flex flex-col items-center gap-3">
 				<div class="awaken-loading-spinner"></div>
 				<div class="text-white text-sm font-bold bg-black bg-opacity-60 px-4 py-2 rounded">
-					最適化処理中...
+					{{ t("最適化処理中...") }}
 				</div>
 			</div>
 		</div>
@@ -827,10 +628,10 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 			<!-- 装備ランキングフィルタ -->
 			<div v-if="['equipUpgrade', 'equipEnchant'].includes(activeMainTab)" class="filter-group">
 				<div class="flex flex-wrap items-center gap-3">
-					<label class="text-sm">{{ activeMainTab === 'equipUpgrade' ? '比較基準' : '装備' }}</label>
+					<label class="text-sm">{{ t(activeMainTab === 'equipUpgrade' ? '比較基準' : '装備') }}</label>
 					<select v-model="装備ランキング選択装備" class="min-w-[240px]">
-						<option v-if="activeMainTab === 'equipUpgrade'" :value="装備ランキング未装備値">{{ 装備ランキング未装備値 }}</option>
-						<option v-else value="">すべて</option>
+						<option v-if="activeMainTab === 'equipUpgrade'" :value="装備ランキング未装備値">{{ t(装備ランキング未装備値) }}</option>
+						<option v-else value="">{{ t("すべて") }}</option>
 						<option v-for="equipName in 装備ランキング装備候補_現在タブ" :key="equipName" :value="equipName">{{ equipName }}</option>
 					</select>
 				</div>
@@ -838,15 +639,15 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 
 			<div v-if="activeMainTab === 'equipUpgrade' && 装備比較対象情報" class="mb-3 p-3 rounded border border-border-light bg-bg-secondary">
 				<div class="text-sm font-bold">{{ 装備比較対象情報.name }}</div>
-				<div class="text-xs mt-1">ステータス: <span v-html="装備比較対象情報.effect"></span></div>
-				<div class="text-xs mt-1">基準値: {{ 換算方法 === '増加ダメ' ? formatDamage(装備比較対象情報.damage) : 装備比較対象情報.damage.toFixed(4) }}</div>
+				<div class="text-xs mt-1">{{ t("ステータス:") }} <span v-html="te(装備比較対象情報.effect)"></span></div>
+				<div class="text-xs mt-1">{{ t("基準値:") }} {{ 換算方法 === '増加ダメ' ? formatDamage(装備比較対象情報.damage) : 装備比較対象情報.damage.toFixed(4) }}</div>
 			</div>
 
 			<!-- ギルドスキルフィルタ（特殊UI） -->
 			<div v-if="activeMainTab === 'guild'" class="filter-group">
 				<label v-for="grade in ['初級', '中級', '上級']" :key="grade" class="filter-checkbox">
 					<input type="checkbox" v-model="guildSkillGradeFilters[grade]" :disabled="isLastCheckedGuildGrade(grade)">
-					<span>{{ grade }}</span>
+					<span>{{ t(grade) }}</span>
 				</label>
 			</div>
 
@@ -854,17 +655,17 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 					<table class="data-table" :class="{ 'equipment-option-table': ['equipEnchant', 'equipAwaken'].includes(activeMainTab) }">
 						<thead>
 							<tr>
-								<th v-for="header in activeRanking.headers" :key="header">{{ header }}</th>
+								<th v-for="header in activeRanking.headers" :key="header">{{ t(header) }}</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="(item, index) in (activeMainTab === 'guild' ? activeRanking.data : activeRanking.data.slice(0, 1000))" :key="`${activeMainTab}-${item.id}`">
 								<td>{{ index + 1 }}</td>
 								<td v-if="'name' in item">{{ item.name }}</td>
-								<td v-if="'category' in item">{{ item.category }}</td>
+								<td v-if="'category' in item">{{ te(item.category) }}</td>
 								<td v-if="'route' in item">{{ item.route }}</td>
-								<td v-if="'stats' in item">{{ item.stats }}</td>
-								<td v-if="'effect' in item" v-html="item.effect"></td>
+								<td v-if="'stats' in item">{{ te(item.stats) }}</td>
+								<td v-if="'effect' in item" v-html="te(item.effect)"></td>
 								<td v-if="'level' in item" class="ranking-level-cell">{{ item.level }}</td>
 								<td v-if="'cost' in item">{{ item.cost }}</td>
 				<td v-if="'damage' in item">{{ formatRankingDamage(item.damage) }}</td>
@@ -890,7 +691,9 @@ extraction_confidence などの注釈メタ情報は出力しないでくださ�
 	<script src="js/data/rune-data.js"></script>
 	<script src="js/data/zodiac-data.js"></script>
 	<!-- メインアプリケーション -->
-	<script src="bundle.min.js"></script>
+	<script src="js/i18n-ko.js?v=20261002-i18n-2"></script>
+	<script src="js/i18n.js?v=20261002-i18n-2"></script>
+	<script src="bundle.min.js?v=20261002-i18n-2"></script>
 </body>
 
 </html>

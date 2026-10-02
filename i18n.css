@@ -1,0 +1,15 @@
+.language-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; margin: 0; flex-shrink: 0; font: 14px/1.4 Arial, sans-serif; }
+.title-container { flex-wrap: wrap; }
+.title-container .language-switch { margin-left: auto; }
+.language-switch button { color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.language-switch button[aria-pressed="true"] { background: #263250; color: #fff; border-color: #94a0b8; }
+.language-switch button:focus-visible { outline: 2px solid #ff4d8d; outline-offset: 2px; }
+html[lang="ko"] body { font-family: Arial, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; word-break: keep-all; overflow-wrap: anywhere; }
+html[lang="ko"] .item-card[aria-pressed="true"]::after { content: '착용 중'; }
+@media (max-width: 600px) {
+  .site-header { gap: 8px; }
+  .site-header h1 { font-size: 1.05rem; }
+  .site-header .language-switch { order: 1; margin-left: auto; font-size: 12px; }
+  .site-header .language-switch button { padding: 4px 6px; }
+  .site-header > a { order: 2; }
+}
