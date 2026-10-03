@@ -92,6 +92,13 @@
 			</div>
 		</details>
 
+		<label class="durability-switch">
+			<input type="checkbox" role="switch" v-model="inputs.耐久計算">
+			<span class="durability-switch-track" aria-hidden="true"></span>
+			<span>{{ t("耐久も考慮する") }}</span>
+			<span class="text-xs text-text-muted">{{ inputs.耐久計算 ? 'ON' : 'OFF' }}</span>
+		</label>
+
 		<div class="json-import-panel">
 			<label for="json-input">{{ t("ステータスJSON") }}</label>
 			<details class="json-prompt-details">
@@ -362,13 +369,35 @@
 				</div>
 				</div>
 
-					<!-- HPダメージ換算設定 -->
+					<div class="enemy-settings" v-if="inputs.耐久計算">
+						<div class="label-accent">{{ t("敵の攻撃設定（被ダメージ計算）") }} — {{ t(敵タブ) }}</div>
+						<p class="text-xs">{{ t("敵・難易度・攻撃タイプに応じて基礎攻撃値を自動設定します。数値は手動調整も可能です。物理は防御、魔法は抵抗で計算します。") }}</p>
+						<p class="text-xs">{{ t("敵の基礎値と難易度補正による試算です。行動ごとの特殊効果・バフは含みません。") }}</p>
+						<div class="enemy-inputs">
+							<div>
+								<label>{{ t("攻撃タイプ") }}</label>
+								<select v-model="敵ステータス.攻撃.攻撃タイプ">
+									<option v-for="type in ['物理', '魔法']" :key="type" :value="type">{{ t(type) }}</option>
+								</select>
+							</div>
+							<template v-for="stat in ['攻撃最大', '攻撃最小', '属性', '筋力', '魔力', '効率', '貫通', '追加ダメ', '最大', '最小', 'クリ率', 'クリダメ', '倍率', 'スキル追加ダメ']" :key="stat">
+								<div v-if="敵ステータス.攻撃.攻撃タイプ === '物理' ? !['属性', '魔力'].includes(stat) : !['攻撃最大', '攻撃最小', '筋力'].includes(stat)">
+									<label>{{ t(stat) }}</label>
+									<input type="number" v-model.lazy.number="敵ステータス.攻撃[stat]" min="0">
+								</div>
+							</template>
+						</div>
+						<p class="text-xs">{{ t("平均被ダメージ") }}: {{ formatDamage(results.incomingDamage || 0) }}</p>
+						<p class="text-xs">{{ t("被ダメージは既存のダメージ式で計算し、攻撃値がある場合の下限を1とします。") }}</p>
+					</div>
+
+					<!-- 耐久ダメージ換算設定 -->
 					<div class="other-settings">
 						<div class="label-accent">{{ t("その他設定") }}</div>
-						<div class="hp-value-setting">
-							<label>{{ t("HPダメージ換算") }}</label>
+						<div class="hp-value-setting" v-if="inputs.耐久計算">
+							<label>{{ t("耐久ダメージ換算") }}</label>
 							<input type="number" id="HPダメージ換算" v-model.lazy.number="inputs.HPダメージ換算" min="0" max="100"
-								:title="t(&quot;HP100%増加を火力何％換算するか&quot;)" @blur="triggerCalculation">
+								:title="t(&quot;耐久力100%増加を火力何％換算するか&quot;)" @blur="triggerCalculation">
 							<span>%</span>
 						</div>
 						<div class="hp-value-setting">
