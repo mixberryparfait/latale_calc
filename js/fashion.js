@@ -244,11 +244,23 @@
     }
     updateRandomCount();
     $('randomize').addEventListener('click', () => {
+        const separateSlots = [4, 5, 6];
+        const wholeBodyFixed = !randomSlots.has(20) && Boolean(equipped[20]);
+        const separateFixed = separateSlots.some(n => !randomSlots.has(n) && equipped[n]);
+        const separateCount = separateSlots.reduce((count, n) =>
+            count + (randomSlots.has(n) ? itemsBySlot.get(n).length : 0), 0);
+        const wholeBodyCount = randomSlots.has(20) ? itemsBySlot.get(20).length : 0;
+        const useWholeBody = wholeBodyFixed || (!separateFixed &&
+            Math.random() * (separateCount + wholeBodyCount) < wholeBodyCount);
         for (const n of randomSlots) {
+            // Only unlocked slots may be cleared; manually fixed combinations stay intact.
+            if ((n === 20 && !useWholeBody) || (separateSlots.includes(n) && useWholeBody)) {
+                delete equipped[n];
+                continue;
+            }
             const choices = itemsBySlot.get(n).filter(item => item.id !== equipped[n]?.id);
             if (choices.length) equipped[n] = choices[Math.floor(Math.random() * choices.length)];
         }
-        // Do not remove a fixed whole-body outfit when randomizing underlying clothes.
         refresh();
     });
     for (const n of selectionSlots) {
