@@ -208,12 +208,15 @@
 										</select>
 									</td>
 							<td>
+								<div class="skill-level-setting">
 								<div class="skill-level-control">
 									<input :aria-label="t(&#x27;スキルレベル &#x27; + (index + 1))" type="number" v-model.number="skill.レベル" min="1" step="1" :disabled="skill.スキルID === ''">
 									<div class="skill-level-buttons">
 										<button type="button" :aria-label="t(&#x27;スキルレベルを上げる &#x27; + (index + 1))" :disabled="skill.スキルID === ''" @click="skill.レベル = Number(skill.レベル) + 1">▲</button>
 										<button type="button" :aria-label="t(&#x27;スキルレベルを下げる &#x27; + (index + 1))" :disabled="skill.スキルID === '' || skill.レベル <= 1" @click="skill.レベル = Math.max(1, Number(skill.レベル) - 1)">▼</button>
 									</div>
+								</div>
+								<span class="skill-level-score" :title="t('Lv+1による全スキル平均の上昇分（現在のウェイト・換算方法）')">({{ skillLevelScores[index] }})</span>
 								</div>
 							</td>
 							<!-- タイプ（攻撃/召喚） -->
@@ -714,6 +717,7 @@
 
 	<!-- 静的データファイル -->
 	<script src="js/data/skills-data.js"></script>
+	<script src="js/data/skill-level-data.js"></script>
 	<script src="js/data/enemies-data.js"></script>
 	<script src="js/data/transcend-skills-data.js"></script>
 	<script src="js/data/guild-skills-data.js"></script>
