@@ -184,6 +184,14 @@
 					</div>
 				</div>
 
+				<div class="flex items-center gap-4 mb-3" role="group" :aria-label="t('スキルの覚醒状態')">
+					<span>{{ t("表示") }}</span>
+					<label v-for="state in ['覚醒済み', '未覚醒', '両方']" :key="state" class="radio-group">
+						<input type="radio" name="skillAwakeningFilter" :value="state" v-model="スキル覚醒表示">
+						<span>{{ t(state) }}</span>
+					</label>
+				</div>
+
 				<div class="overflow-x-auto">
 					<table class="skill-table w-full text-xs">
 						<thead>
@@ -211,7 +219,7 @@
                                     <td class="skill-name-cell">
 										<select :aria-label="t(&#x27;スキル選択 &#x27; + (index + 1))" v-model="skill.スキルID" class="input-full" :disabled="!共通職業">
 											<option value="">{{ t("手動入力") }}</option>
-											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID">{{ s.スキル名 }}（{{ t(s.スキルタイプ) }}{{ s.選択条件 ? '・' + s.選択条件 : '' }}）</option>
+											<option v-for="s in 共通職業選択可能スキル" :key="s.ID" :value="s.ID" :hidden="スキル覚醒表示 !== '両方' && s.スキル名.startsWith('【覚醒】') !== (スキル覚醒表示 === '覚醒済み')">{{ s.スキル名 }}（{{ t(s.スキルタイプ) }}{{ s.選択条件 ? '・' + s.選択条件 : '' }}）</option>
 										</select>
 									</td>
 							<td>
