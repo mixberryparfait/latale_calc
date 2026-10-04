@@ -702,18 +702,15 @@
 			<div v-if="['equipUpgrade', 'equipEnchant'].includes(activeMainTab)" class="filter-group">
 				<div class="flex flex-wrap items-center gap-3">
 					<label class="text-sm">{{ t(activeMainTab === 'equipUpgrade' ? '比較基準' : '装備') }}</label>
-					<select v-model="装備ランキング選択装備" class="min-w-[240px]">
-						<option v-if="activeMainTab === 'equipUpgrade'" :value="装備ランキング未装備値">{{ t(装備ランキング未装備値) }}</option>
-						<option v-else value="">{{ t("すべて") }}</option>
+					<select v-if="activeMainTab === 'equipUpgrade'" v-model="装備ランキング比較基準" class="min-w-[240px]">
+						<option :value="装備ランキング未装備値">{{ t("未装備") }}</option>
+						<option value="未強化">{{ t("未強化") }}</option>
+					</select>
+					<select v-else v-model="装備ランキング選択装備" class="min-w-[240px]">
+						<option value="">{{ t("すべて") }}</option>
 						<option v-for="equipName in 装備ランキング装備候補_現在タブ" :key="equipName" :value="equipName">{{ equipName }}</option>
 					</select>
 				</div>
-			</div>
-
-			<div v-if="activeMainTab === 'equipUpgrade' && 装備比較対象情報" class="mb-3 p-3 rounded border border-border-light bg-bg-secondary">
-				<div class="text-sm font-bold">{{ 装備比較対象情報.name }}</div>
-				<div class="text-xs mt-1">{{ t("ステータス:") }} <span v-html="te(装備比較対象情報.effect)"></span></div>
-				<div class="text-xs mt-1">{{ t("基準値:") }} {{ 換算方法 === '増加ダメ' ? formatDamage(装備比較対象情報.damage) : 装備比較対象情報.damage.toFixed(4) }}</div>
 			</div>
 
 			<!-- ギルドスキルフィルタ（特殊UI） -->
