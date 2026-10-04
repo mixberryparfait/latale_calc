@@ -543,11 +543,49 @@
 		<p class="text-xs">{{ t("経験値・Ely・移動速度・CT減少・状態異常ダメージなど、ダメージ換算に未対応の効果はスコア対象外です。") }}</p>
 	</div>
 
+	<div v-if="activeMainTab === 'memorial'" class="space-y-3 mb-4">
+		<div class="filter-group flex flex-wrap items-center gap-3">
+			<label for="memorial-target">{{ t("メモリアル") }}</label>
+			<select id="memorial-target" v-model.number="memorialSelection">
+				<option v-for="profile in memorialProfiles" :key="profile.id" :value="profile.id">{{ profile.name }}</option>
+			</select>
+			<label for="memorial-mode">{{ t("種別") }}</label>
+			<select id="memorial-mode" v-model="memorialMode">
+				<option value="normal">{{ t("通常OP") }}</option>
+				<option value="set">{{ t("セット効果") }}</option>
+			</select>
+		</div>
+		<p class="text-xs">{{ t("スコアは現在の設定に対する換算値です。スキルLvは設定中のスキルを評価し、換算未対応の効果は「未評価」と表示します。") }}</p>
+		<template v-if="memorialMode === 'normal'">
+			<p class="text-xs">{{ t("1エントリ単体の出現候補です。他のエントリとの重複による代替は考慮しません。平均値スコアに出現確率は掛けていません。") }}</p>
+			<div class="filter-group">
+				<label for="memorial-sort">{{ t("並び順") }}</label>
+				<select id="memorial-sort" v-model="memorialSort">
+					<option value="averageScore">{{ t("平均値スコア") }}</option>
+					<option value="maximumScore">{{ t("最大値スコア") }}</option>
+					<option value="probability">{{ t("出現確率") }}</option>
+				</select>
+			</div>
+			<div class="table-wrapper">
+				<table class="data-table">
+					<thead><tr><th>{{ t("順位") }}</th><th>OP</th><th>{{ t("範囲") }}</th><th>{{ t("出現確率") }}</th><th>{{ t("平均値スコア") }}</th><th>{{ t("最大値スコア") }}</th></tr></thead>
+					<tbody><tr v-for="(option, index) in memorialNormalRankings.data" :key="option.id">
+						<td>{{ index + 1 }}</td><td>{{ te(option.name) }}</td><td>{{ option.range }}</td><td>{{ option.probability.toFixed(4) }}%</td>
+						<td>{{ option.excluded ? t("未評価") : formatRankingDamage(option.averageScore) }}</td>
+						<td>{{ option.excluded ? t("未評価") : formatRankingDamage(option.maximumScore) }}</td>
+					</tr></tbody>
+				</table>
+			</div>
+		</template>
+	</div>
+
 	<!-- 覚醒ポイント入力（覚醒1と覚醒2） -->
 	<div v-if="isSetSimulation" class="space-y-3">
 		<div class="other-settings">
 			<h3 class="section-header">{{ t(tabLabels[activeMainTab]) }}{{ t("シミュレーション") }}</h3>
 			<p v-if="activeMainTab === 'rune'" class="text-xs mb-2">{{ t("30種類から重複なし・等確率で8個を抽選し、最後の枠の効果を2倍にします。上位10セットを表示。非攻撃効果・確率発動のCT短縮はスコア対象外です。") }}</p>
+			<p v-if="activeMainTab === 'memorial'" class="text-xs mb-2">{{ t("OP数は1個30%・2個30%・3個30%・4個10%。各OPの範囲内は等確率です。上位10セットを表示し、未評価の効果は合計スコアに含めません。") }}</p>
+			<p v-if="activeMainTab === 'memorial'" class="text-xs mb-2">{{ t("通常のOPは重複可。重複チェック対象の効果を同じセット内で再度引いた場合は、代替OPに置き換えます。") }}</p>
 			<div class="awakening-stone-controls">
 				<div v-if="activeMainTab === 'stoneAwakening'" class="awakening-stone-control">
 					<label>{{ t("種別") }}</label>
@@ -585,6 +623,10 @@
 			</div>
 		</div>
 
+		<div v-if="activeMainTab === 'memorial'" class="text-sm" role="status">
+			<p v-if="memorialDisplaySummary">{{ t("試行回数") }}：{{ memorialDisplaySummary.count.toLocaleString() }} ／ {{ t("最高スコア") }}：{{ formatRankingDamage(memorialDisplaySummary.maximum) }} ／ {{ t("全試行の中央値") }}：{{ formatRankingDamage(memorialDisplaySummary.median) }}</p>
+			<p v-else-if="memorialSummary && !memorialResultsCurrent">{{ t("設定が変わりました。シミュレーションを再実行してください。") }}</p>
+		</div>
 		<div v-if="activeMainTab === 'stoneAwakening'" class="mb-3">
 			<button type="button" @click="applyAwakeningStoneRanking" :disabled="activeRanking.data.length === 0"
 				class="px-3 py-1 bg-accent text-white text-sm rounded disabled:opacity-50">
@@ -609,13 +651,13 @@
 					<tr v-for="(stone, index) in activeRanking.data" :key="stone.id">
 						<td class="rank-cell">{{ index + 1 }}</td>
 						<td>
-							<div v-if="stone.label" class="text-xs mb-1">{{ t(stone.label) }}</div>
+							<div v-if="stone.label" class="text-xs mb-1">{{ t(stone.label) }}<template v-if="activeMainTab === 'memorial'"> ／ {{ stone.options.length }} OP</template></div>
 							<div class="awakening-stone-options">
 								<div v-for="(option, slot) in stone.options" :key="slot" class="awakening-stone-option" :class="{ 'rune-amplified': option.doubled }">
-									<span class="awakening-stone-option-name"><template v-if="activeMainTab === 'equipAwaken'">{{ slot + 1 }}. <template v-if="option.check > 1">{{ t("[代替") }}{{ option.check - 1 }}] </template></template>{{ activeMainTab === 'rune' ? option.name : te(option.name) }}</span>
+									<span class="awakening-stone-option-name"><template v-if="option.substituted">{{ t("[代替]") }} </template><template v-if="activeMainTab === 'equipAwaken'">{{ slot + 1 }}. <template v-if="option.check > 1">{{ t("[代替") }}{{ option.check - 1 }}] </template></template>{{ activeMainTab === 'rune' ? option.name : te(option.name) }}</span>
 									<span v-if="option.description" class="awakening-stone-option-value">{{ te(option.description) }}</span>
-									<span v-else class="awakening-stone-option-value">+{{ option.value }}{{ te(option.suffix) }}</span>
-									<span class="awakening-stone-option-score">({{ formatRankingDamage(option.score) }})</span>
+									<span v-else class="awakening-stone-option-value"><template v-if="option.value != null">+{{ option.value }}{{ te(option.suffix) }}</template></span>
+									<span class="awakening-stone-option-score">({{ option.excluded ? t("未評価") : formatRankingDamage(option.score) }})</span>
 								</div>
 							</div>
 						</td>
@@ -721,7 +763,7 @@
 				</label>
 			</div>
 
-		<div v-if="!['awaken1', 'awaken2'].includes(activeMainTab) && !isSetSimulation" class="table-wrapper">
+		<div v-if="!['awaken1', 'awaken2', 'memorial'].includes(activeMainTab) && !isSetSimulation" class="table-wrapper">
 					<table class="data-table" :class="{ 'equipment-option-table': ['equipEnchant', 'equipAwaken'].includes(activeMainTab) }">
 						<thead>
 							<tr>
@@ -760,11 +802,12 @@
 	<script src="js/data/awaken-coords-data.js"></script>
 	<script src="js/data/enchant-data.js"></script>
 	<script src="js/data/rune-data.js"></script>
+	<script src="js/data/memorial-data.js"></script>
 	<script src="js/data/zodiac-data.js"></script>
 	<!-- メインアプリケーション -->
-	<script src="js/i18n-ko.js?v=20261002-i18n-2"></script>
+	<script src="js/i18n-ko.js?v=20261004-memorial"></script>
 	<script src="js/i18n.js?v=20261002-i18n-2"></script>
-	<script src="bundle.min.js?v=20261002-i18n-2"></script>
+	<script src="bundle.min.js?v=20261004-memorial"></script>
 </body>
 
 </html>
