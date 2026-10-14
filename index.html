@@ -78,43 +78,106 @@
 
 			<!-- メインタブコンテンツ -->
 			<div class="tab-content main-content">
+				<details class="details-container">
+				<summary class="details-summary">{{ t("説明") }}</summary>
+				<div class="details-content">
+				<h4 class="label-accent">{{ t("比較の基準") }}</h4>
+				<p>{{ t("比較には「ダメージ計算」のステータス・敵・スキル設定を使います。増加ダメはダメージの上昇量、クリダメ・筋魔換算はそれぞれの能力を1増やした場合を基準にした値です。") }}</p>
+				<p>{{ t("戦闘力換算は固定の敵・スキル条件で比較します。HP・幸運・近距離・BAは対象外です。") }}</p>
+				<p v-if="activeMainTab !== 'damage'">{{ t("表の「/P」は消費ポイント当たりの効果です。複数効果のスコアは各効果の換算値を合計しています。") }}</p>
+				<section v-if="activeMainTab === 'damage'">
+				<h4 class="label-accent">{{ t("入力と結果の読み方") }}</h4>
+				<p>{{ t("ステータスにはゲーム内の表示値を入力します。隣の％・最終欄は、能力を増やしたときの上昇量を求める補正値です。補正値を調べる場合は、他の条件を変えずに固定値を100増やし、表示値の増分から100を引きます。") }}</p>
+				<p>{{ t("「攻撃最大・攻撃最小」は武器攻撃力、「最大・最小」はダメージ補正です。通常の最大・最小・クリダメは％表記でも加算、「最終」は乗算として区別します。") }}</p>
+				<p>{{ t("キャラクターレベルはペットのシュリ・ミリと覚醒のレベル依存効果の比較に使います。超越2は0.01刻みで、50.00は超越15,000相当です。入力済みステータスへの自動加算はしません。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'damage'">
+				<h4 class="label-accent">{{ t("ダメージと上昇量") }}</h4>
+				<p>{{ t("赤い数値は、表示値ではなく装備などの能力を1増やした場合の換算値です。スキルLv横は、そのスキルのLvを1増やした場合の全スキル平均への効果です。貫通は整数への丸め前の値で評価します。") }}</p>
+				<p>{{ t("全スキル平均は有効なスキルのウェイトとボス重要度で重み付けします。ウェイトは使用頻度の比率で、同じ頻度なら同じ値を入れます。選択中スキルのカードは、選択中の一般・ボスに対する結果です。") }}</p>
+				<p>{{ t("スキルの係数・追加ダメ・HIT数などはマスターから設定します。手動で変更した項目はLvを変えても維持されるため、Lvによる比較にもその指定が使われます。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'damage'">
+				<h4 class="label-accent">{{ t("条件付き効果と耐久") }}</h4>
+				<p>{{ t("近距離・BAの反映率は、その条件が成立する割合です。耐久ダメージ換算は、耐久力100%の増加を火力何%相当として評価するかを指定します。") }}</p>
+				<p>{{ t("敵の攻撃値は敵・難易度・攻撃タイプから設定し、手動調整もできます。被ダメージは基礎値による試算で、行動固有の特殊効果やバフは含みません。物理には防御、魔法には抵抗を使います。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'damage'">
+				<h4 class="label-accent">{{ t("スキルタイムライン") }}</h4>
+				<p>{{ t("バー1本がボタン1回分の動作です。追加時は末尾からキャンセル・CT条件を満たす最短位置へ並びます。「DPS優先」は最も早く追加できる候補の中からDPSが最高のスキルを選びます。") }}</p>
+				<p>{{ t("バーはドラッグ、または左右キーで0.01秒ずつ移動できます。Shift併用では0.1秒ずつ移動します。ため対応スキルは右端で時間を調整します。移動・着地や条件切替は基準状態での計算です。") }}</p>
+				<p>{{ t("DPS推移はダメージを動作時間へ均等配分した目安です。重なる区間は合算し、全体平均は待機を含む0秒から最後の動作終了までで計算します。ウェイトへの反映はボタンを押したときに行います。") }}</p>
+				</section>
+				<template v-if="activeMainTab === 'damage'">
+							<details class="json-prompt-details">
+								<summary>{{ t("ChatGPTでJSONを作る手順") }}</summary>
+								<ol class="json-prompt-steps">
+									<li>{{ t("ChatGPT にステータス画面の画像を渡します。") }}</li>
+									<li>{{ t("下の「コピーするプロンプト」欄の文章だけを一緒に送ります。") }}</li>
+									<li>{{ t("ChatGPT が出力したJSONを、この下の「ステータスJSON」入力欄に貼り付けて読み込みます。") }}</li>
+								</ol>
+								<div class="json-prompt-copy-row">
+									<span>{{ t("コピーするプロンプト") }}</span>
+									<button type="button" @click="copyJsonPrompt">{{ t("プロンプトをコピー") }}</button>
+									<span class="json-prompt-copy-message">{{ t(jsonプロンプトコピー結果) }}</span>
+								</div>
+								<textarea id="json-prompt-text" readonly spellcheck="false" :value="t(jsonPrompt)"></textarea>
+							</details>
+				</template>
+				<section v-if="activeMainTab === 'petPassive'">
+				<h4 class="label-accent">{{ t("ペットの効果") }}</h4>
+				<p>{{ t("パッシブと「使用スキル」を区別して表示します。シュリ・ミリはキャラクターレベルに応じた使用中の効果です。所持・使用状態を自動判定するものではありません。") }}</p>
+				</section>
+				<section v-if="['awaken1', 'awaken2'].includes(activeMainTab)">
+				<h4 class="label-accent">{{ t("覚醒の配分とスコア") }}</h4>
+				<p>{{ t("追加ポイントは現在の取得状態から追加する数です。オートは固定したマスへの経路を優先し、残りをスコアに応じて配分します。固定マスは固定モードでクリックして設定・解除し、このブラウザに保存します。") }}</p>
+				<p>{{ t("覚醒石スコアは取得した石スロット数に応じて高い順に合計・オートへ反映します。未所持は0を入力します。スコアは覚醒タブ・換算方法ごとに保持し、ステータス変更後は再入力・再取り込みが必要です。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'imageScore'">
+				<h4 class="label-accent">{{ t("画像スコア化") }}</h4>
+				<p>{{ t('画像と下のプロンプトをChatGPTに渡し、返されたJSONを貼り付けてください。現在のステータス・敵・スキル設定で各効果を換算し、対象ごとの合計スコアを表示します。') }}</p>
+				<p>{{ t('％・最終のない効果は加算値として評価します。通常の最大・最小・クリダメは％表記でも加算です。スコアは既存ランキングと同じ各効果の換算値の合計です。') }}</p>
+				<p>{{ t('未対応・読取不能の効果は対象外と表示します。設定を変えるとスコアも再計算されます。') }}</p>
+				</section>
+				<section v-if="activeMainTab === 'zodiac'">
+				<h4 class="label-accent">{{ t("星座") }}</h4>
+				<p>{{ t("1マス取得時の上昇量を星座5,000P当たりに換算。前提マスの消費は含みません。幸運の上昇量は抽選確率を反映した平均値です。") }}</p>
+				<p>{{ t("経験値・Ely・移動速度・CT減少・状態異常ダメージなど、ダメージ換算に未対応の効果はスコア対象外です。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'memorial'">
+				<h4 class="label-accent">{{ t("メモリアル") }}</h4>
+				<p>{{ t("スコアは現在の設定に対する換算値です。スキルLvは設定中のスキルを評価し、換算未対応の効果は「未評価」と表示します。") }}</p>
+				<p v-if="memorialMode === 'normal'">{{ t("通常OPは1枠単体の出現候補です。他の枠との重複による代替は考慮せず、平均値スコアに出現確率は掛けていません。") }}</p>
+				<template v-else>
+				<p>{{ t("OP数は1個30%・2個30%・3個30%・4個10%。各OPの範囲内は等確率です。上位10セットを表示し、未評価の効果は合計スコアに含めません。") }}</p>
+				<p>{{ t("通常のOPは重複可。重複チェック対象の効果を同じセット内で再度引いた場合は、代替OPに置き換えます。") }}</p>
+				</template>
+				</section>
+				<section v-if="activeMainTab === 'rune'">
+				<h4 class="label-accent">{{ t("ルーンワード") }}</h4>
+				<p>{{ t("30種類から重複なし・等確率で8個を抽選し、最後の枠の効果を2倍にします。上位10セットを表示。非攻撃効果・確率発動のCT短縮はスコア対象外です。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'stoneAwakening'">
+				<h4 class="label-accent">{{ t("覚醒石の取り込み") }}</h4>
+				<p>{{ t("現在の上位5件を覚醒1・覚醒2にセットします。5件未満の場合、残りは0になります。") }}</p>
+				</section>
+				<section v-if="isSetSimulation">
+				<h4 class="label-accent">{{ t("試行結果の読み方") }}</h4>
+				<p>{{ t("シミュレーションは指定回数の抽選結果から上位を表示します。表示された最高スコアは試行内の最高値で、必ず得られる値や理論上限ではありません。") }}</p>
+				</section>
+				<section v-if="activeMainTab === 'equipUpgrade'">
+				<h4 class="label-accent">{{ t("装備の比較基準") }}</h4>
+				<p>{{ t("比較基準が「未装備」の場合は装備全体の効果、「未強化」の場合は同じ装備の未強化状態からの増加分を比較します。") }}</p>
+				</section>
+				</div>
+				</details>
 				<!-- ダメージ計算タブ -->
 				<div v-if="activeMainTab === 'damage'">
-		<details class="details-container">
-			<summary class="details-summary">{{ t("説明") }}</summary>
-			<div class="details-content">
-				<p>{{ t("平均ダメージはボス一般とすべてのスキル平均値です") }}</p>
-				<p>{{ t("その他のダメージは選択中のボスor一般とスキルに対するダメージです") }}</p>
-				<p>{{ t("最終と％以外はステータス画面に表示された値を直接入れてください") }}</p>
-				<p>{{ t("最終と％はダメージ計算には使用しません。上昇ダメージ計算に使用するため超越なんかで固定値を100増やしたり減らしたりして [変化するステ画面の数値 - 100] を入れてください") }}</p>
-				<p>{{ t("赤文字はそのステータス +1 当たりダメ上昇です(表示値ではなくエンチャ等で伸ばした場合の値)") }}</p>
-				<p>{{ t("貫通は実際には整数値のみしか意味がありませんが少数値での価値を表示しています") }}</p>
-			</div>
-		</details>
 
-		<label class="durability-switch">
-			<input type="checkbox" role="switch" v-model="inputs.耐久計算">
-			<span class="durability-switch-track" aria-hidden="true"></span>
-			<span>{{ t("耐久も考慮する") }}</span>
-			<span class="text-xs text-text-muted">{{ inputs.耐久計算 ? 'ON' : 'OFF' }}</span>
-		</label>
 
 		<div class="json-import-panel">
 			<label for="json-input">{{ t("ステータスJSON") }}</label>
-			<details class="json-prompt-details">
-				<summary>{{ t("ChatGPTでJSONを作る手順") }}</summary>
-				<ol class="json-prompt-steps">
-					<li>{{ t("ChatGPT にステータス画面の画像を渡します。") }}</li>
-					<li>{{ t("下の「コピーするプロンプト」欄の文章だけを一緒に送ります。") }}</li>
-					<li>{{ t("ChatGPT が出力したJSONを、この下の「ステータスJSON」入力欄に貼り付けて読み込みます。") }}</li>
-				</ol>
-				<div class="json-prompt-copy-row">
-					<span>{{ t("コピーするプロンプト") }}</span>
-					<button type="button" @click="copyJsonPrompt">{{ t("プロンプトをコピー") }}</button>
-					<span class="json-prompt-copy-message">{{ t(jsonプロンプトコピー結果) }}</span>
-				</div>
-				<textarea id="json-prompt-text" readonly spellcheck="false" :value="t(jsonPrompt)"></textarea>
-			</details>
+
 			<textarea id="json-input" v-model="json入力" rows="7" spellcheck="false"
 				placeholder='{"ability_detail": {...}, "additional_detail": {...}}'></textarea>
 			<div class="json-import-actions">
@@ -125,7 +188,7 @@
 			</div>
 		</div>
 
-			<div class="combat-summary mt-3">
+			<div class="combat-summary mt-3" :class="{ 'with-durability': inputs.耐久計算 }">
 			<!-- 戦闘力は共通計算に固定条件を渡す。ユーザーの敵・スキル設定から独立。 -->
             <div class="p-3 bg-accent bg-opacity-10 rounded-lg text-center">
                 <div class="text-sm text-text-muted mb-1">{{ t("戦闘力") }}</div>
@@ -137,6 +200,10 @@
 					{{ t("一般") }} {{ (100 - ボス重要度) }}{{ t("% + ボス") }} {{ ボス重要度 }}{{ t("% 全スキル平均ダメージ") }}
 				</div>
 				<div class="text-2xl font-bold text-accent">{{ formatDamage(results.weightedDamage || 0) }}</div>
+			</div>
+			<div v-if="inputs.耐久計算" class="p-3 bg-accent bg-opacity-10 rounded-lg text-center">
+				<div class="text-sm text-text-muted mb-1">{{ t("平均被ダメージ") }}</div>
+				<div class="text-2xl font-bold text-accent">{{ formatDamage(results.incomingDamage || 0) }}</div>
 			</div>
 			</div>
 
@@ -379,8 +446,6 @@
 
 					<div class="enemy-settings" v-if="inputs.耐久計算">
 						<div class="label-accent">{{ t("敵の攻撃設定（被ダメージ計算）") }} — {{ t(敵タブ) }}</div>
-						<p class="text-xs">{{ t("敵・難易度・攻撃タイプに応じて基礎攻撃値を自動設定します。数値は手動調整も可能です。物理は防御、魔法は抵抗で計算します。") }}</p>
-						<p class="text-xs">{{ t("敵の基礎値と難易度補正による試算です。行動ごとの特殊効果・バフは含みません。") }}</p>
 						<div class="enemy-inputs">
 							<div>
 								<label>{{ t("攻撃タイプ") }}</label>
@@ -395,13 +460,17 @@
 								</div>
 							</template>
 						</div>
-						<p class="text-xs">{{ t("平均被ダメージ") }}: {{ formatDamage(results.incomingDamage || 0) }}</p>
-						<p class="text-xs">{{ t("被ダメージは既存のダメージ式で計算し、攻撃値がある場合の下限を1とします。") }}</p>
 					</div>
 
 					<!-- 耐久ダメージ換算設定 -->
 					<div class="other-settings">
 						<div class="label-accent">{{ t("その他設定") }}</div>
+						<label class="durability-switch">
+							<input type="checkbox" role="switch" v-model="inputs.耐久計算">
+							<span class="durability-switch-track" aria-hidden="true"></span>
+							<span>{{ t("耐久も考慮する") }}</span>
+							<span class="text-xs text-text-muted">{{ inputs.耐久計算 ? 'ON' : 'OFF' }}</span>
+						</label>
 						<div class="hp-value-setting" v-if="inputs.耐久計算">
 							<label>{{ t("耐久ダメージ換算") }}</label>
 							<input type="number" id="HPダメージ換算" v-model.lazy.number="inputs.HPダメージ換算" min="0" max="100"
@@ -420,7 +489,6 @@
 								:title="t(&quot;バックアタックダメージを火力何％分として反映するか&quot;)">
 							<span>{{ inputs.バックアタック反映 }}%</span>
 						</div>
-						<p v-if="換算方法 === '戦闘力換算'" class="text-xs">{{ t("戦闘力の増加量で比較します。換算値は丸め前の概算で、HP・幸運・近距離・BAは対象外です。") }}</p>
                         <!-- 換算方法選択 -->
 						<div>
 							<label>{{ t("換算方法") }}</label>
@@ -436,6 +504,20 @@
 
 						<!-- 右側：ステータス入力エリア -->
 						<div class="status-container">
+							<div class="flex flex-wrap items-center gap-4 mb-3">
+								<div>
+									<label for="character-level-stage">{{ t("キャラクターレベル") }}</label>
+									<select id="character-level-stage" v-model="characterLevelStage">
+										<option v-for="stage in ['通常', '超越', '超越2']" :key="stage" :value="stage">{{ t(stage) }}</option>
+									</select>
+								</div>
+								<div>
+									<label for="character-level">{{ t("レベル") }}</label>
+									<input id="character-level" type="number" v-model.lazy="characterLevel" :min="characterLevelLimit.min" :max="characterLevelLimit.max" :step="characterLevelLimit.step">
+								</div>
+								<span v-if="characterLevelStage === '超越2'" class="text-xs">{{ t("超越換算") }}: {{ characterTranscendLevel }}</span>
+							</div>
+
 							<!-- 共通ステータス -->
 							<template v-for="stat in statKeys" :key="stat">
 								<!-- 攻撃特殊レイアウト -->
@@ -495,8 +577,6 @@
 				<!-- 換算表タブ -->
 				<section v-else-if="activeMainTab === 'imageScore'">
 					<h3 class="section-header">{{ t('画像スコア化') }}</h3>
-					<p class="text-sm mb-3">{{ t('画像と下のプロンプトをChatGPTに渡し、返されたJSONを貼り付けてください。現在のステータス・敵・スキル設定で各効果を換算し、対象ごとの合計スコアを表示します。') }}</p>
-					<p class="text-xs mb-3">{{ t('％・最終のない効果は加算値として評価します。通常の最大・最小・クリダメは％表記でも加算です。スコアは既存ランキングと同じ各効果の換算値の合計です。') }}</p>
 					<div class="json-import-panel">
 						<div class="json-prompt-copy-row">
 							<label for="image-score-prompt">{{ t('コピーするプロンプト') }}</label>
@@ -514,7 +594,6 @@
 							<option v-for="method in ['増加ダメ', 'クリダメ換算', '筋魔換算', '戦闘力換算']" :key="method" :value="method">{{ t(method) }}</option>
 						</select>
 					</div>
-					<p class="text-xs mb-3">{{ t('未対応・読取不能の効果は対象外と表示します。設定を変えるとスコアも再計算されます。') }}</p>
 					<div v-for="item in imageScoreResult.data" :key="item.id" class="mb-4">
 						<h4 class="label-accent">{{ item.label }} — {{ t('合計スコア: {0}', [formatRankingDamage(item.totalScore)]) }}</h4>
 						<div class="table-wrapper"><table class="data-table">
@@ -539,8 +618,6 @@
 				<option :value="1">{{ t("超越2") }}</option>
 			</select>
 		</div>
-		<p class="text-xs">{{ t("1マス取得時の上昇量を星座5,000P当たりに換算。前提マスの消費は含みません。幸運の上昇量は抽選確率を反映した平均値です。") }}</p>
-		<p class="text-xs">{{ t("経験値・Ely・移動速度・CT減少・状態異常ダメージなど、ダメージ換算に未対応の効果はスコア対象外です。") }}</p>
 	</div>
 
 	<div v-if="activeMainTab === 'memorial'" class="space-y-3 mb-4">
@@ -555,9 +632,7 @@
 				<option value="set">{{ t("セット効果") }}</option>
 			</select>
 		</div>
-		<p class="text-xs">{{ t("スコアは現在の設定に対する換算値です。スキルLvは設定中のスキルを評価し、換算未対応の効果は「未評価」と表示します。") }}</p>
 		<template v-if="memorialMode === 'normal'">
-			<p class="text-xs">{{ t("1エントリ単体の出現候補です。他のエントリとの重複による代替は考慮しません。平均値スコアに出現確率は掛けていません。") }}</p>
 			<div class="filter-group">
 				<label for="memorial-sort">{{ t("並び順") }}</label>
 				<select id="memorial-sort" v-model="memorialSort">
@@ -583,9 +658,6 @@
 	<div v-if="isSetSimulation" class="space-y-3">
 		<div class="other-settings">
 			<h3 class="section-header">{{ t(tabLabels[activeMainTab]) }}{{ t("シミュレーション") }}</h3>
-			<p v-if="activeMainTab === 'rune'" class="text-xs mb-2">{{ t("30種類から重複なし・等確率で8個を抽選し、最後の枠の効果を2倍にします。上位10セットを表示。非攻撃効果・確率発動のCT短縮はスコア対象外です。") }}</p>
-			<p v-if="activeMainTab === 'memorial'" class="text-xs mb-2">{{ t("OP数は1個30%・2個30%・3個30%・4個10%。各OPの範囲内は等確率です。上位10セットを表示し、未評価の効果は合計スコアに含めません。") }}</p>
-			<p v-if="activeMainTab === 'memorial'" class="text-xs mb-2">{{ t("通常のOPは重複可。重複チェック対象の効果を同じセット内で再度引いた場合は、代替OPに置き換えます。") }}</p>
 			<div class="awakening-stone-controls">
 				<div v-if="activeMainTab === 'stoneAwakening'" class="awakening-stone-control">
 					<label>{{ t("種別") }}</label>
@@ -632,7 +704,6 @@
 				class="px-3 py-1 bg-accent text-white text-sm rounded disabled:opacity-50">
 				{{ t("この結果を覚醒タブに使う") }}
 			</button>
-			<p class="text-xs mt-1">{{ t("現在の上位5件を覚醒1・覚醒2にセットします。5件未満の場合、残りは0になります。") }}</p>
 			<p v-if="覚醒石取込メッセージ" role="status" class="text-sm mt-1">{{ t(覚醒石取込メッセージ) }}</p>
 		</div>
 		<div class="table-wrapper awakening-stone-ranking" :class="{ 'rune-ranking': activeMainTab === 'rune' }">
@@ -697,7 +768,7 @@
 				{{ t(覚醒ロックモード ? '固定マス選択中（クリックで終了）' : '必ず通るマスを選ぶ') }}
 			</button>
 		</div>
-		<p class="text-xs mb-2">{{ t("固定：") }}{{ (activeMainTab === 'awaken1' ? 覚醒1ロックノード : 覚醒2ロックノード).size }}{{ t("マス。固定モードでマスをクリックすると設定・解除できます。赤いマスを先に通り、残りの追加ポイントをオートで振ります。固定情報はこのブラウザに自動保存します。") }}</p>
+		<p class="text-xs mb-2">{{ t("固定：") }}{{ (activeMainTab === 'awaken1' ? 覚醒1ロックノード : 覚醒2ロックノード).size }}{{ t("マス") }}</p>
 		<p v-if="覚醒メッセージ" role="status" class="text-sm mb-2">{{ t(覚醒メッセージ) }}</p>
 		<div class="other-settings mb-3 awaken-stone-scores">
 			<div class="text-sm mb-2">{{ t("覚醒石スコア（") }}{{ t(換算方法) }}{{ t("・最大5個）") }}</div>
@@ -708,7 +779,6 @@
 						:aria-label="t(&#x27;覚醒石スコア&#x27; + (index + 1))" class="block w-28 px-2 py-1 border rounded text-sm">
 				</label>
 			</div>
-			<p class="text-xs mt-2">{{ t("取得したスロット数に応じて、高いスコアから合計・オートに反映します。未所持は0。入力値はタブ・換算方法ごとに保持し、ステータス変更後は再入力・再取り込みしてください。") }}</p>
 		</div>
 
 	<!-- Canvas表示エリア（アスペクト比1940:1060を維持） -->
@@ -799,6 +869,7 @@
 	<script src="js/data/guild-skills-data.js"></script>
 	<script src="js/data/pet-passives-data.js"></script>
 	<script src="js/data/awaken-skills-data.js"></script>
+	<script src="js/data/character-level-data.js"></script>
 	<script src="js/data/awaken-coords-data.js"></script>
 	<script src="js/data/enchant-data.js"></script>
 	<script src="js/data/rune-data.js"></script>
